@@ -190,15 +190,15 @@
       theme("borderRadius.md");
   }
 
-  article,
-  article * {
-    @apply break-words;
-    line-height: calc(3ex + 4px); /* Perfect line height for all text */
-    text-rendering: optimizeLegibility; /* enables the use of special kerning and optional ligature information */
-  }
-
   article a {
     @apply text-red-700 underline cursor-pointer;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  article {
+    font-size: 1.1em;
+    line-height: calc(3ex + 2px);
   }
 }
 

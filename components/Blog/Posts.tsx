@@ -7,7 +7,7 @@ export default function BlogPosts(props: any) {
       <a
         href={`/${post.url}`}
         tabIndex={0}
-        className="p-2 cursor-pointer md:w-1/3 group"
+        className="p-2 cursor-pointer md:w-1/2 lg:w-1/3 group"
       >
         <div className="overflow-hidden h-full rounded-md bg-bg-300">
           <div className="p-3 bg-bg-500 group-hover:bg-gradient">

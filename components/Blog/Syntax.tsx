@@ -27,7 +27,7 @@ export default function Syntax(props: { language: string; children: any }) {
         {props.children}
       </SyntaxHighlighter>
       <button
-        className="absolute top-0 left-full z-50 py-2 px-4 text-pink-700 rounded-l-none rounded-r-lg opacity-0 cursor-pointer group-hover:opacity-100 hover:text-white hover:bg-pink-700 copycode bg-bg-800 bg-pink-1000 group"
+        className="absolute top-0 left-full z-50 py-2 px-1 w-8 text-pink-700 rounded-l-none rounded-r-md opacity-0 cursor-pointer group-hover:opacity-100 hover:text-white hover:bg-pink-700 copycode bg-bg-800 bg-pink-1000 group"
         onClick={copyToClipboard}
       >
         <span>Copy</span>

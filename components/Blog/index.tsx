@@ -56,11 +56,7 @@ export default function Blog(props: {
         </div>
 
         <div className="container mx-auto max-w-screen-md">
-          <article
-            ref={articleRef}
-            className="p-4 md:p-0"
-            style={{ fontSize: "1.1em" }}
-          >
+          <article ref={articleRef} className="p-3 md:p-0">
             {props.children}
           </article>
           <div className="mt-12">
