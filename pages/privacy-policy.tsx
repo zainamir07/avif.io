@@ -24,7 +24,8 @@ export default function BlogPost() {
       created by privacy generators and of course, contain many legal terms. I
       don't want you to have to read all this, but since you are here, I have
       created this small paragraph to tell you how and which data we use in a
-      short and "easy to read" way:
+      short and "easy to read" way. For an imprint, please visit the imprint
+      page of https://justinschmitz.de/.
       <H level={3} text="Can we see images?" />
       No. We don't like to store data that doesn't belong to me, and we try to
       keep it to a minimum. That's why we only convert images in the browser. We
@@ -35,9 +36,8 @@ export default function BlogPost() {
       send images without your consent under any circumstances. Besides, I
       really don't care about your 500 dog pictures, I'm sorry.
       <H level={3} text="What about analytics?" />
-      We use Hotjar and Plausible. Plausible is a GDPR-compliant alternative to
-      Google Analytics. The only reason we use it is because it provides us with
-      useful data that allows us to optimize our service. It sounds like an
+      We use Hotjar and GA. The only reason we use it is because it provides us
+      with useful data that allows us to optimize our service. It sounds like an
       empty phrase, but it is certainly true, and I will tell you how. We
       receive data about the most commonly used browsers, devices and
       resolutions. We integrate this information into our testing process. We
