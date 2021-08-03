@@ -7,6 +7,10 @@ const comparisons = [
   meta.avifVsPng,
   meta.avifVsGif,
   meta.avifVsJpegxl,
+  meta.avifVsHeif,
+  meta.avifVsJpeg2000,
+  meta.avifVsWebp2,
+  meta.avifVsWebp,
 ];
 const releases = [
   meta.january2021,
