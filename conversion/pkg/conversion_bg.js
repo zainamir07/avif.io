@@ -252,14 +252,12 @@ export function rgba_to_avif(input_data, options, width, height, on_progress) {
   return ConversionResult.__wrap(ret);
 }
 
-function handleError(f) {
-  return function () {
-    try {
-      return f.apply(this, arguments);
-    } catch (e) {
-      wasm.__wbindgen_exn_store(addHeapObject(e));
-    }
-  };
+function handleError(f, args) {
+  try {
+    return f.apply(this, args);
+  } catch (e) {
+    wasm.__wbindgen_exn_store(addHeapObject(e));
+  }
 }
 /**
  */
@@ -439,21 +437,21 @@ export class ConversionResult {
   }
 }
 
-export const __wbindgen_number_new = function (arg0) {
+export function __wbindgen_number_new(arg0) {
   var ret = arg0;
   return addHeapObject(ret);
-};
+}
 
-export const __wbindgen_object_drop_ref = function (arg0) {
+export function __wbindgen_object_drop_ref(arg0) {
   takeObject(arg0);
-};
+}
 
-export const __wbg_new_59cb74e423758ede = function () {
+export function __wbg_new_59cb74e423758ede() {
   var ret = new Error();
   return addHeapObject(ret);
-};
+}
 
-export const __wbg_stack_558ba5917b466edd = function (arg0, arg1) {
+export function __wbg_stack_558ba5917b466edd(arg0, arg1) {
   var ret = getObject(arg1).stack;
   var ptr0 = passStringToWasm0(
     ret,
@@ -463,26 +461,24 @@ export const __wbg_stack_558ba5917b466edd = function (arg0, arg1) {
   var len0 = WASM_VECTOR_LEN;
   getInt32Memory0()[arg0 / 4 + 1] = len0;
   getInt32Memory0()[arg0 / 4 + 0] = ptr0;
-};
+}
 
-export const __wbg_error_4bb6c2a97407129a = function (arg0, arg1) {
+export function __wbg_error_4bb6c2a97407129a(arg0, arg1) {
   try {
     console.error(getStringFromWasm0(arg0, arg1));
   } finally {
     wasm.__wbindgen_free(arg0, arg1);
   }
-};
+}
 
-export const __wbg_call_f5e0576f61ee7461 = handleError(function (
-  arg0,
-  arg1,
-  arg2
-) {
-  var ret = getObject(arg0).call(getObject(arg1), getObject(arg2));
-  return addHeapObject(ret);
-});
+export function __wbg_call_4438b4bab9ab5268() {
+  return handleError(function (arg0, arg1, arg2) {
+    var ret = getObject(arg0).call(getObject(arg1), getObject(arg2));
+    return addHeapObject(ret);
+  }, arguments);
+}
 
-export const __wbindgen_debug_string = function (arg0, arg1) {
+export function __wbindgen_debug_string(arg0, arg1) {
   var ret = debugString(getObject(arg1));
   var ptr0 = passStringToWasm0(
     ret,
@@ -492,8 +488,8 @@ export const __wbindgen_debug_string = function (arg0, arg1) {
   var len0 = WASM_VECTOR_LEN;
   getInt32Memory0()[arg0 / 4 + 1] = len0;
   getInt32Memory0()[arg0 / 4 + 0] = ptr0;
-};
+}
 
-export const __wbindgen_throw = function (arg0, arg1) {
+export function __wbindgen_throw(arg0, arg1) {
   throw new Error(getStringFromWasm0(arg0, arg1));
-};
+}

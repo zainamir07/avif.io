@@ -7,6 +7,7 @@
   "files": [
     "conversion_bg.wasm",
     "conversion.js",
+    "conversion_bg.js",
     "conversion.d.ts"
   ],
   "module": "conversion.js",
