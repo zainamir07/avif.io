@@ -24,9 +24,11 @@ export default function BlogPost() {
       Portable Network Graphics. Designed in 1996, PNG is a lossless format that
       supports alpha channels – making it loved by those working with bitmap
       graphics. <br />
-      AVIF is an image format that is derived from the frames of AV1 video. It’s
-      a reasonably novel file format, having been initially released in 2019.
-      Let’s see how this brand-new file format stacks up against PNG:
+      <b>
+        AVIF is an image format that is derived from the frames of AV1 video.
+      </b>{" "}
+      It’s a reasonably novel file format, having been initially released in
+      2019. Let’s see how this brand-new file format stacks up against PNG:
       <H level={2} callback={callback} text="Quality and Limits" />
       Let’s first look at the limitations of both file formats. AVIF has a
       maximum image resolution of 8193 x 4320. As a file format derived from a
@@ -39,10 +41,12 @@ export default function BlogPost() {
       pixels or 2500 megapixels. I think it’s safe to say no one is going to
       reach that in their day-to-day work.
       <br />
-      AVIF offers 10-bit precision, while PNG offers a 16-bit max bit depth. In
-      reality, 10-bit precision is enough for image delivery, and most image
+      <b>
+        AVIF offers 10-bit precision, while PNG offers a 16-bit max bit depth.
+      </b>{" "}
+      In reality, 10-bit precision is enough for image delivery, and most image
       designers aren’t going to make use of the extra bits. Both PNG and AVIF
-      offer support for HDR and wide color gamuts.
+      offer <b>support for HDR and wide color gamuts</b>.
       <H level={2} callback={callback} text="Compression" />
       As a lossless compression file format, PNG images are notorious for their
       large file sizes. AVIF supports both lossy and lossless compression. It is
@@ -53,7 +57,7 @@ export default function BlogPost() {
       an output AVIF file. For example, one 21,265kb input PNG was converted to
       an AVIF file of 42,503kb. If you’re looking for a lossless file format,
       PNG is much more size efficient. <br />
-      Where AVIF pulls ahead, though, is with its lossy compression. AVIF
+      <b>Where AVIF pulls ahead, though, is with its lossy compression.</b> AVIF
       performs excellently with low-fidelity photos – common for web images –
       with file sizes beating JPEG. Highly compressed AVIF images have great
       “appeal,” meaning they don’t include many compression artifacts like color
@@ -72,9 +76,11 @@ export default function BlogPost() {
       struggles with encode speed on single-threaded machines. However, AVIF is
       very parallelizable, allowing multiple cores and multiple threads to
       ‘pitch-in’ to help encode and decode. PNG is a sequential codec and
-      therefore can’t take advantage of multicore machines. As computer
-      processors tend towards more cores and threads, AVIF looks much more
-      future-proof with proper multicore performance.
+      therefore can’t take advantage of multicore machines.{" "}
+      <b>
+        As computer processors tend towards more cores and threads, AVIF looks
+        much more future-proof with proper multicore performance.
+      </b>
       <H level={2} callback={callback} text="Other Features" />
       PNG is traditionally a still image format, with GIF traditionally being
       used non-video animated images. A newer addition to the mix is the
@@ -85,27 +91,30 @@ export default function BlogPost() {
       As AVIF is based on a video codec AV1, AVIF is well-positioned for
       animation. Storing image sequences with AVIF is therefore efficient and
       easy. <br />
-      AVIF doesn’t support progressive decoding, a process of decoding an image
-      where portions of an image are incrementally decoded from an incomplete
-      image file. This allows for lower-quality preview images to be shown
-      before the image has been fully decoded. This improves the user experience
-      when viewing images from the Internet, as a browser does not need to wait
-      for the whole image to download before decoding can begin. PNG does offer
-      progressive decoding, potentially making it better for viewing lossless
-      compressed images on the Internet.
+      <b>
+        AVIF doesn’t support progressive decoding, a process of decoding an
+        image where portions of an image are incrementally decoded from an
+        incomplete image file.
+      </b>{" "}
+      This allows for lower-quality preview images to be shown before the image
+      has been fully decoded. This improves the user experience when viewing
+      images from the Internet, as a browser does not need to wait for the whole
+      image to download before decoding can begin. PNG does offer progressive
+      decoding, potentially making it easier for loading lossless compressed
+      images on the Internet.
       <br />
-      Both PNG and AVIF support alpha transparency. However, AVIF also supports
-      depth maps allowing for effects to be applied and overlays. Overlays allow
-      for images to have multiple layers. This is great if you have a non-image
-      element on top of a background image. This can be included on a separate
-      layer to ensure crispness.
+      <b>Both PNG and AVIF support alpha transparency.</b> However, AVIF also
+      supports depth maps allowing for effects to be applied and overlays.
+      Overlays allow for images to have multiple layers. This is great if you
+      have a non-image element on top of a background image. This can be
+      included on a separate layer to ensure crispness.
       <H level={2} callback={callback} text="Support" />
       As a widely used format since the late 1990s, all major browsers support
       PNG. It is the de-facto choice for lossless compression and alpha
       transparency. There are no browser support issues with PNG – although any
       web designer using PNG images on their webpages should consider download
-      times for users with slow or metered connections. It usually isn’t wise to
-      use lossless compression for web delivery.
+      times for users with slow or metered connections.{" "}
+      <b>It usually isn’t wise to use lossless compression for web delivery.</b>
       <br />
       As a relatively new image format, AVIF struggles when it comes to browser
       support. Google Chrome has supported AVIF since Chrome 85. At the same
@@ -114,8 +123,8 @@ export default function BlogPost() {
       it can be enabled in about:config and doesn’t include sequenced (animated)
       image support. In reality, users aren’t going to want to change their
       browser configurations to view your site. AVIF isn’t currently supported
-      by Microsoft Edge, Internet Explorer or Safari. For browser support, PNG
-      clearly wins out.
+      by Microsoft Edge, Internet Explorer or Safari.{" "}
+      <b>For browser support, PNG clearly wins out.</b>
       <H level={2} callback={callback} text="Summary for Nerds" />
       AVIF is an emerging format and offers some significant benefits in
       low-fidelity, high-appeal image delivery. Compared to JPEG with a similar
@@ -157,9 +166,12 @@ export default function BlogPost() {
       for web delivery if you’re willing to turn to lossy compression to reduce
       the file size. AVIF compresses very well, and the high quality of images
       that undergo lossy compression makes this file format perfect for taking
-      the web by storm. Browser support is currently limited, but over time as
-      uptake increases, we expect support to improve and for AVIF to become the
-      dominant format for web delivery.
+      the web by storm.{" "}
+      <b>
+        Browser support is currently limited, but over time as uptake increases,
+        we expect support to improve and for AVIF to become the dominant format
+        for web delivery.
+      </b>
     </Blog>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 onmessage = async function (msg) {
   importScripts("/dist/conversion.js");
 

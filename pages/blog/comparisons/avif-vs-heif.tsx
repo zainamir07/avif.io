@@ -24,19 +24,19 @@ export default function BlogPost() {
       at the forefront of this battle. Introducing AVIF and HEIC: two image file
       formats vying it out for the web delivery crown.
       <br />
-      <b>AVIF,</b> developed by the Alliance for Open Media in 2019, is an open
-      <b>image file format based on the AV1 video codec. </b>
+      AVIF, developed by the Alliance for Open Media in 2019, is an open
+      <b> image file format based on the AV1 video codec. </b>
       HEIC (also known as HEIF) stands for High Efficiency Image Format, and it
-      was released by <b>the MPEG group </b>in 2015 and is most known for its
-      use on iOS. The HEIC format is derived from the HEVC (High Efficiency
-      Video Coding) codec (also known as H.265 or MPEG-H Part 2)
+      was released by the MPEG group in 2015 and is most known for its use on
+      iOS. The HEIC format is derived from the HEVC (High Efficiency Video
+      Coding) codec (also known as H.265 or MPEG-H Part 2)
       <br />
       Here's how the two competing image formats compare. Ultimately, we think
-      it will overtake JPEG as the dominant image format for web delivery and
-      more.
+      AVIF will overtake JPEG and HEIF as the dominant image format for web
+      delivery and more.
       <br />
       <H level={2} callback={callback} text="Quality and limits" />
-      As both formats find their roots in video codecs, they share the
+      As both formats find their roots in video codecs, AVIF and HEIF share the
       resolution limitations of their respective standards. Both formats sport{" "}
       <b>maximum image dimensions of 8193 x 4320</b>
       .
@@ -47,18 +47,18 @@ export default function BlogPost() {
       tile boundaries, affecting the overall appearance of images. Both formats
       are unsuitable for ultra-high-resolution photos.
       <br />
-      <b>Both formats also have a maximum bit depth of 10.</b>
+      <b>Both formats also have a maximum bit depth of 10. </b>
       Other competing file formats can reach bit depth (precision) of 12 or even
       24 bits. However, we find a 10-bit color to be precise enough for image
       delivery.
       <br />
       <b>
         HDR support is included with both HEIC and AVIF, supporting wide color
-        gamuts like Rec. 709.
+        gamuts like Rec. 709.{" "}
       </b>
       Both
-      <b>HEIC and AVIF support a maximum of 5 channels</b>. AVIF can do 4:4:4 in
-      lossy compression, where HEIC relies entirely on chroma subsampling.
+      <b> HEIC and AVIF support a maximum of 5 channels</b>. AVIF can do 4:4:4
+      in lossy compression, where HEIC relies entirely on chroma subsampling.
       <br />
       Barring support for 4:4:4, HEIC and AVIF have highly similar sets of
       limitations &ndash; and it isn't easy to separate them in this category.
@@ -67,6 +67,7 @@ export default function BlogPost() {
       The main advantage of using image formats derived from video codecs is
       their excellent compression algorithm.
       <b>
+        {" "}
         Both HEIC and AVIF perform excellently in high compressed scenarios.
       </b>
       <br />
@@ -84,7 +85,7 @@ export default function BlogPost() {
       <b>HEIC performs similarly to AVIF in low-fidelity scenarios. </b>
       The same lossless PNG bears a HEIC file of 69kb.
       <br />
-      <b>AVIF pulls ahead in medium and high-fidelity scenarios.</b>
+      <b>AVIF pulls ahead in medium and high-fidelity scenarios. </b>
       We find that AVIF has the edge over its competitor with file size
       efficiency, where differences in appeal become less noticeable with
       increased fidelity.
@@ -95,7 +96,7 @@ export default function BlogPost() {
       workloads.
       <br />
       In general,
-      <b>AVIF sports poor single-core encode speed and decode speeds. </b>
+      <b> AVIF sports poor single-core encode speed and decode speeds. </b>
       HEIC sports a marginal improvement in single-core rates over AVIF, with
       encode speeds being slightly faster.
       <br />
@@ -125,11 +126,12 @@ export default function BlogPost() {
       <br />
       <b>
         Both formats support overlays, which allow for independently encoded
-        layers.
+        layers.{" "}
       </b>
       This makes it easy to add crisp text and graphics layers to a highly
       compressed photographic background.
       <b>
+        {" "}
         Depth maps enable users to apply effects to the foreground and
         background.
       </b>
@@ -154,7 +156,7 @@ export default function BlogPost() {
       <br />
       AVIF has a much broader level of browser support as an open and
       royalty-free format.
-      <b>Google Chrome had fully supported AVIF images</b>
+      <b> Google Chrome had fully supported AVIF images </b>
       since Chrome 85 back in Aug 2020 and Opera 76 also fully supports AVIF.
       <br />
       Users of Firefox can enable AVIF support from their browser config
@@ -171,8 +173,8 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Summary" />
       HEIC and AVIF are remarkably similar formats on the spec sheet. They boast
       identical feature sets, supporting valuable features like
-      <b>overlays, depth maps, </b>and
-      <b>high bit depth support. </b>
+      <b> overlays, depth maps, </b>and
+      <b> high bit depth support. </b>
       <br />
       These standards are two sides of the same coin. They both come from highly
       efficient and advanced video codecs, and both work well with animated

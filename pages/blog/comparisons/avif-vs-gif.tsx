@@ -49,24 +49,26 @@ export default function BlogPost() {
       <br />
       <b>
         AVIF has a max color depth of 12 bit, providing a palette of 4096
-        colors.
+        colors.{" "}
       </b>
       AVIF supports a high dynamic range (HDR) and includes support for wide
       color gamuts.
       <br />
       As an image format derived from a video codec,
       <b>
+        {" "}
         AVIF has an image resolution limit of 8193 x 4320 – the size of an 8K
         video frame.
-      </b>
+      </b>{" "}
       It is however possible to push past this limit through independently
       encoded tiles. But, the edges of each tile (at max 8K resolution for each)
       suffer from nasty artifacts, making AVIF unsuitable for large resolution
       images.
       <br />
       <b>
+        {" "}
         GIF images can reach a theoretical max resolution of 2,147,483,647 x
-        2,147,483,647
+        2,147,483,647{" "}
       </b>
       pixels or 2500 megapixels. However, as we will make clear in the next
       section, most users will find it hard to work with ‘HD’ images, let alone
@@ -77,7 +79,7 @@ export default function BlogPost() {
       see in formats like JPEG, it doesn’t degrade the image as no data is lost
       through the compression process. While this is great for preserving image
       quality,
-      <b>GIF suffers from large file sizes</b>. GIF uses the Lempel–Ziv–Welch
+      <b> GIF suffers from large file sizes</b>. GIF uses the Lempel–Ziv–Welch
       algorithm for compression, first developed in 1985. Compression algorithms
       have improved significantly since the mid-80s, and AVIF’s compression
       capabilities prove this.
@@ -103,8 +105,8 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Speed" />
       GIF as an animated image format is relatively slow to encode and decode.
       This is due to – in part - the inefficiency of its compression algorithm,
-      LZW. This, compounded with the more significant data size inherent to{" "}
-      <b>GIF, makes this image format very slow</b>.
+      LZW. This, compounded with the more significant data size inherent to GIF,{" "}
+      <b> makes this image format very slow</b>.
       <br />
       AVIF supports parallelism. Instead of limiting the task of encoding or
       decode an image to one CPU core, parallelization allows multiple cores to
@@ -119,20 +121,20 @@ export default function BlogPost() {
       increasingly important.
       <br />
       As it can utilize multi-core processors,
-      <b>AVIF is significantly faster to encode and decode than GIF.</b>
+      <b> AVIF is significantly faster to encode and decode than GIF.</b>
       <br />
       <H level={2} callback={callback} text="Other Features" />
-      AVIF uses<b>sequencing to provide animation. Based</b>
-      on a video codec, this image format works great to encode motion pictures.
+      AVIF uses<b> sequencing to provide animation. </b>Based on a video codec,
+      this image format works great to encode motion pictures.
       <br />
       While GIF was the first image format to support animation, it is left in
       the dust by AVIF in some key areas.
-      <b>AVIF uses interframe compression</b>where only the differences between
-      frames are encoded – a feature inherent in video codecs to avoid
-      astronomical data sizes
-      <b>. GIF uses intraframe compression</b>for its animated images. Each
+      <b> AVIF uses interframe compression </b>where only the differences
+      between frames are encoded – a feature inherent in video codecs to avoid
+      astronomical data sizes.
+      <b> GIF uses intraframe compression </b>for its animated images. Each
       frame is encoded in total,
-      <b>leading to much larger file size.</b>
+      <b> leading to much larger file size.</b>
       <br />
       <b>AVIF supports transparency, whereas GIF does not</b>. The overlay
       feature of AVIF allows images to have multiple layers. This is fantastic
@@ -142,7 +144,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Support" />
       Browser support is where AVIF falls a little short compared to GIF. With
       GIF’s age and almost universal use for animated images
-      <b>, all browsers include support for GIF images</b>
+      <b>, all browsers include support for GIF images </b>
       (and even many instant messaging apps have native support for GIF with the
       advent of GIF keyboards).
       <br />
@@ -156,6 +158,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Summary for Nerds" />
       Despite its evident limitations,
       <b>
+        {" "}
         GIF still holds a monopoly on the animated image world for web delivery
       </b>
       . Part of the reason for this is the lack of consensus around what format
@@ -175,6 +178,7 @@ export default function BlogPost() {
       of browser support. However, with the big players in web browsing working
       on bringing sequenced AVIF support to users worldwide,
       <b>
+        {" "}
         we expect AVIF to become the dominant image format for both still and
         animated images for the web.
       </b>
@@ -183,7 +187,7 @@ export default function BlogPost() {
       Animated GIFs have had quite a resurgence in recent years. We expect the
       demand for animated images only to grow as the web becomes more
       interactive. However, the GIF format
-      <b>is too limited to deliver high-quality animated images</b>
+      <b> is too limited to deliver high-quality animated images</b>
       , and that’s where AVIF steps in to solve this problem.
       <br />
       <b>

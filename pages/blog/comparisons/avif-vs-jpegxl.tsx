@@ -30,7 +30,7 @@ export default function BlogPost() {
       <br />
       Released in 2021 by the Joint Photographic Experts Group (the same
       organization that developed the original JPEG standard),
-      <b>JPEG XL aims to be a long-term replacement for legacy JPEG</b>
+      <b> JPEG XL aims to be a long-term replacement for legacy JPEG </b>
       (Hence X'L' as in 'long-term'). As a royalty-free and open-source
       standard, JPEG XL's creators hope that the open nature of their format
       will invite web developers to adopt the standard. The JXL core bitstream
@@ -38,7 +38,7 @@ export default function BlogPost() {
       <br />
       <b>
         AVIF is another recent image format developed by the Alliance for Open
-        Media (AOM) and released in 2019.
+        Media (AOM) and released in 2019.{" "}
       </b>
       The format is based on the AV1 video codec and is derived from video
       frames. Here are the technical specs and limitations of both of these
@@ -50,6 +50,7 @@ export default function BlogPost() {
       perfect sense. Still, it can be limiting for non-web delivery applications
       like print.
       <b>
+        {" "}
         AVIF has a maximum resolution of 8193 x 4320. This is roughly the size
         of an 8K video frame.
       </b>
@@ -63,7 +64,7 @@ export default function BlogPost() {
       <br />
       <b>
         On the other hand, JPEG XL has a maximum dimension of 1,152,921,502,459
-        megapixels or over 1 billion pixels on each side of an image.
+        megapixels or over 1 billion pixels on each side of an image.{" "}
       </b>
       It's safe to say you'll never be limited by the max dimensions of a JPEG
       XL image.
@@ -73,11 +74,14 @@ export default function BlogPost() {
         three
       </b>
       . AVIF also supports a
-      <b>high dynamic range (HDR) and includes support for wide color gamuts</b>
+      <b>
+        {" "}
+        high dynamic range (HDR) and includes support for wide color gamuts
+      </b>
       .
       <br />
       <b>
-        JPEG XL's max bit depth can push up to 24-bit integer or true color,
+        JPEG XL's max bit depth can push up to 24-bit integer or true color,{" "}
       </b>
       or 32-bit floats. Although, in reality, for image delivery, 12-bit color
       precision is usually good enough, and you're unlikely to make use of the
@@ -86,6 +90,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Compression" />
       Unlike the original legacy JPEG standard,
       <b>
+        {" "}
         JPEG XL supports lossless compression alongside the traditional lossy
         compression.
       </b>
@@ -112,10 +117,10 @@ export default function BlogPost() {
       <Link text="@Jon Sneyers" link="twitter.com/jonsneyers" ext />
       <br />
       <H level={2} callback={callback} text="Speed" />
-      <b>AVIF had problems with its decoding and encoding speed.</b>
+      <b>AVIF had problems with its decoding and encoding speed. </b>
       Recent releases of decoders achieved various performance improvements.
       Encoding is however still a problem and quite slow.
-      <b>It doesn't support progressive decoding</b>
+      <b> It doesn't support progressive decoding </b>
       - a process of decoding where portions of an image are incrementally
       decoded from an incomplete image file. This can dramatically increase the
       viewing speed by allowing for a lower-quality preview image to be
@@ -126,7 +131,7 @@ export default function BlogPost() {
       <br />
       <b>
         JPEG XL is faster across the board with single-core encode and decode
-        speeds and is more parallelizable than AVIF.
+        speeds and is more parallelizable than AVIF.{" "}
       </b>
       Suppose you want a speedy codec, with fast decode times being crucial for
       web delivery. In that case, JPEG XL is a compelling option. Although, the
@@ -136,7 +141,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Other Features" />
       <b>Both AVIF and JPEG XL support alpha transparency</b>, representing a
       considerable upgrade over legacy JPEG.
-      <b>They both also support animation</b>, although the characteristics of
+      <b> They both also support animation</b>, although the characteristics of
       sequenced AVIF files make it more suitable for animated images than JPEG
       XL's implementation of animation. Sequenced AVIFs are essentially videos
       in containers, offering higher quality animated images over JPEG XL.
@@ -229,7 +234,7 @@ export default function BlogPost() {
       For most people,
       <b>
         images encoded in AVIF and images encoded in JPEG XL will be very
-        similar.
+        similar.{" "}
       </b>
       Yes, JPEG XL is faster, but most users won't notice this difference. Both
       do incredibly well with maintaining appeal when highly compressed so that
@@ -247,6 +252,7 @@ export default function BlogPost() {
       industry is moving towards this spirited son of a video codec as the next
       mainstream standard.
       <b>
+        {" "}
         We think, although JPEG XL has a broader feature set, it is AVIF most
         people should look to as the following definite image format for the
         web.

@@ -31,9 +31,8 @@ export default function BlogPost() {
       , WebP's lossy compression algorithm is based on the VP8 video format and
       the RIFF file container.
       <br />
-      Similarly,
-      <b>AVIF is derived from the AV1 video codec</b>. AVIF is a relatively new
-      kid on the block,
+      Similarly, <b>AVIF is derived from the AV1 video codec</b>. AVIF is a
+      relatively new kid on the block,{" "}
       <b>having been first released in 2019.</b> AVIF's youth as an image format
       has its benefits and drawbacks.
       <br />
@@ -45,24 +44,23 @@ export default function BlogPost() {
       <br />
       <H level={2} callback={callback} text="Quality and limits" />
       AVIF as a format derived from frames of video with the AV1 codec, there
-      are some image dimension limitations adopters will need to look out for.
+      are some image dimension limitations adopters will need to look out for.{" "}
       <b>AVIF has an image resolution limit of 8193 x 4320</b>, and this is the
       size of an 8K video frame.
       <br />
-      It is possible to
+      It is possible to{" "}
       <b>exceed this limit by rendering independently encoded tiles</b>. But,
       with <b>artifacts at the edges of each tile</b>, AVIF is unsuitable for
       large resolution images.
       <br />
       <b>WebP</b> also has a hard limit to an image's frame size, with its
-      maximum dimension being
-      <b>16,383 x 16,383.</b> While this is an improvement over AVIF, there is
-      no way to push past this. Neither formats compare to the limits of PNG and
-      JPEG 2000 with 2500 megapixels and 5000-megapixel max dimensions,
-      respectively.
+      maximum dimension being <b>16,383 x 16,383.</b> While this is an
+      improvement over AVIF, there is no way to push past this. Neither formats
+      compare to the limits of PNG and JPEG 2000 with 2500 megapixels and
+      5000-megapixel max dimensions, respectively.
       <br />
       WebP falls short with its limitations compared to AVIF because of its wide
-      color gamut and precision support.
+      color gamut and precision support.{" "}
       <b>WebP only supports a max bit depth of 8-bit</b> and does support wide
       gamut/HDR images. WebP also does not support images without chroma
       subsampling.
@@ -78,11 +76,11 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Compression" />
       WebP was designed to provide more outstanding quality (appeal) while
       encoding images with similar file sizes to JPEG. While WebP certainly does
-      achieve this,
+      achieve this,{" "}
       <b>
         the newer and more advanced AVIF image format does edge ahead in
         compression to appeal ratio.
-      </b>
+      </b>{" "}
       <br />
       High appeal photos do not include any nasty compression artifacts like
       color banding or blockiness and are a desirable metric for images to look
@@ -92,10 +90,10 @@ export default function BlogPost() {
       low-fidelity compression, but with noticeable improvements in appeal. A
       low fidelity 68.3kb JPEG photo only translates to a 67.7kb WebP file.
       <br />
-      The same image converted to AVIF renders a similar 67.6kb file. However,
+      The same image converted to AVIF renders a similar 67.6kb file. However,{" "}
       <b>
         this AVIF image has a much higher appeal than the equivalent WebP file
-      </b>
+      </b>{" "}
       &ndash; with noticeably less blockiness and color banding.
       <br />
       WebP's compression performance improves with medium fidelity photos but
@@ -104,41 +102,41 @@ export default function BlogPost() {
       <b>
         For lossless compression, AVIF and WebP perform similarly with both
         non-photographic images like graphic design and photographs.
-      </b>
+      </b>{" "}
       <br />
       <H level={2} callback={callback} text="Speed" />
       For web delivery, decode speeds are essential for the performance of
-      websites and downloads.
+      websites and downloads.{" "}
       <b>
         AVIF struggles with single-core speeds with poor single-core encoding
         speed and only marginally better decode speeds.
-      </b>
+      </b>{" "}
       <br />
       <b>
         WebP's single-core encode speeds and decode speeds are much shorter,
-      </b>
+      </b>{" "}
       with overall single-core speed trumping AVIF. Clear winner, right?
       <br />
       Single-core speeds are a lot less critical in our modern computing
       landscape than they were in the past. That's because CPUs have been, for
       many years now, tending towards higher core counts and more threads. This
-      is where <b>parallelization</b> makes a considerable difference for AVIF.
+      is where <b>parallelization</b> makes a considerable difference for AVIF.{" "}
       <b>
         AVIF decodes can take advantage of multiple cores to turn poor
         single-core performance into good multi-core decoding speeds.
-      </b>
+      </b>{" "}
       <br />
       With many mobiles and desktops now using 8-core processors, multi-core
-      performance is critical. As an older format,
+      performance is critical. As an older format,{" "}
       <b>
         WebP's parallelization is less effective, making AVIF more future-proof
         despite its poor single-core speeds.
-      </b>
+      </b>{" "}
       <br />
-      <H level={2} callback={callback} text="Other Features" />
-      <b>Both AVIF and WEBP support animation </b>&ndash; however, with AVIF's
+      <H level={2} callback={callback} text="Other Features" />{" "}
+      <b>Both AVIF and WEBP support animation </b> &ndash; however, with AVIF's
       heritage as a video codec, encoding animation with AVIF is stridden more
-      efficient with AVIF than WEBP.
+      efficient with AVIF than WEBP.{" "}
       <b>
         Sequenced AVIF files have much smaller file sizes than animated WEBP
       </b>
@@ -149,7 +147,7 @@ export default function BlogPost() {
       more efficient animation compression become even more significant the
       longer and more detailed animated images become.
       <br />
-      For text and graphics work,
+      For text and graphics work,{" "}
       <b>both AVIF and WEBP support alpha transparency</b>. Although,{" "}
       <b>AVIF supports overlays</b> allowing for distinct layers of an image to
       be encoded separately. AVIF also supports depth maps, allowing for effects
@@ -161,21 +159,21 @@ export default function BlogPost() {
       for JPEG and its descendants JPEG 2000 and JPEG XL.
       <br />
       <H level={2} callback={callback} text="Support" />
-      As a young file format,
-      <b>AVIF is behind other older image formats for browser support.</b>
-      WEBP is, across the board, currently more supported than AVIF. However,
-      the surprising level of support for its age provides a good outlook on
-      AVIF's future support across web browsers.
+      As a young file format,{" "}
+      <b>AVIF is behind other older image formats for browser support.</b> WEBP
+      is, across the board, currently more supported than AVIF. However, the
+      surprising level of support for its age provides a good outlook on AVIF's
+      future support across web browsers.
       <br />
       <b>
         On the desktop, both Chrome and Opera are the first to provide full
         support for AVIF.
-      </b>
+      </b>{" "}
       Firefox users can enable AVIF support in the about:config page. However,
       this doesn't include support for animated images. Support is still,
       however, missing for Safari and Microsoft Edge.
       <br />
-      On mobile,
+      On mobile,{" "}
       <b>
         Chrome for Android, Samsung Internet, and the Android Browser all
         support AVIF fully
@@ -185,7 +183,7 @@ export default function BlogPost() {
       <b>
         WEBP is supported across the board by Edge, Firefox, Chrome, Safari, and
         Opera. All major mobile browsers also support WEBP.
-      </b>
+      </b>{" "}
       <br />
       <H level={2} callback={callback} text="Conclusion for Nerds" />
       WEBP, when released in 2010, was a compelling replacement to the tired and
@@ -200,8 +198,9 @@ export default function BlogPost() {
       of images shared on the web), AVIF is a more versatile image format. While
       it does lag somewhat behind WEBP with browser support, we expect Firefox
       and Safari to follow suit and provide full support for AVIF soon. Once
-      this happens,
-      <b>we expect AVIF to become the dominant image format</b>
+      this happens, <b>
+        we expect AVIF to become the dominant image format
+      </b>{" "}
       for both still and animated images for the web.
       <br />
       <H level={2} callback={callback} text="Conclusion for Marketeers" />
@@ -213,12 +212,12 @@ export default function BlogPost() {
       <br />
       HDR images will look impressive on great displays, and animated AVIF files
       should be much less taxing on your broadband's bandwidth and data caps.
-      While AVIF browser support is still somewhat limited,
+      While AVIF browser support is still somewhat limited,{" "}
       <b>
         we think the great mix of features and compression performance makes
         AVIF an excellent contender to become the dominant image format for
         everyone: mobile and desktop.
-      </b>
+      </b>{" "}
       <br />
     </Blog>
   );

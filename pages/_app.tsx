@@ -7,7 +7,7 @@ export default function AvifIo({ Component, pageProps }: any) {
   return (
     <>
       <Script strategy="beforeInteractive" src="/avif.js" />
-      <Script src="/hotjar.js" />
+      {/*<Script src="/hotjar.js" /> Disabled for now*/}
       <Script
         strategy="beforeInteractive"
         src="/__/firebase/8.7.1/firebase-app.js"
