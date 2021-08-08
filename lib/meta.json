@@ -1,7 +1,7 @@
 {
   "index": {
-    "title": "AVIF Converter",
-    "description": "Convert all image types to AVIF for free.🚀 Supports bulk converting. Blazing fast. Privacy protected. Compress your images now!⏱",
+    "title": "AVIF Converter - unlimited free",
+    "description": "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
     "url": "",
     "image": "/logo_draft.png",
     "datePublished": "01.09.20",
@@ -101,8 +101,8 @@
   },
 
   "tutCloudflare": {
-    "description": "Cloudflare has added support for AVIF, a new image format. Learn how to optimize images and convert them to WebP or AVIF on demand.",
-    "title": "Boost your images with Cloudflare AVIF support",
+    "description": "Cloudflare has added support for AVIF. Learn how to optimize images and convert them on demand.",
+    "title": "Cloudflare AVIF support - Boost your image delivery!",
     "url": "blog/tutorials/use-avif-in-cloudflare/",
     "image": "/logo_draft.png",
     "datePublished": "01.10.20",
@@ -128,11 +128,13 @@
       "browser",
       "image resizing",
       "bandwidth",
-      "header",
-      "request header",
-      "image compression",
+      "cloudflare workers image resize",
+      "cloudflare image resizing",
+      "cloudflare image compression",
       "webp support",
-      "cloudflare workers"
+      "cloudflare workers",
+      "cdn image resize",
+      "cloudflare avif"
     ],
     "questions": [
       "Does Cloudflare support the new AVIF image format?",
@@ -172,7 +174,8 @@
       "background images",
       "file size",
       "file format",
-      "background-image"
+      "background-image",
+      "css background avif"
     ],
     "questions": [
       "What is the best way to use AVIF images in CSS?",
@@ -282,12 +285,12 @@
     "blog": true
   },
   "tutFirefox": {
-    "title": "Firefox supports AVIF, Updated Guide June 2021",
+    "title": "Firefox AVIF Support, Updated Guide August 2021",
     "description": "Learn about the current state of AVIF in Firefox and how to enable support with a simple tutorial.",
     "url": "blog/tutorials/use-avif-in-firefox/",
     "image": "/logo_draft.png",
     "datePublished": "14.10.20",
-    "dateModified": "14.10.20",
+    "dateModified": "08.08.21",
     "sources": [
       "bugzilla.mozilla.org/buglist.cgi?short_desc_type=allwordssubstr&query_format=advanced&short_desc=AVIF",
       "bugzilla.mozilla.org/show_bug.cgi?id=1443863",
@@ -314,6 +317,7 @@
       "browser",
       "mozilla",
       "firefox",
+      "avif firefox",
       "Mozilla firefox",
       "file format",
       "image format",
@@ -444,7 +448,8 @@
       "avif files",
       "bug fixes",
       "avif images",
-      "16 bit integer"
+      "16 bit integer",
+      "gimp supported formats"
     ],
     "questions": [
       "GIMP 2.10.22 Is Released With AVIF Support And Improved Support For Many Other File Formats",
@@ -552,7 +557,7 @@
     "blog": true
   },
   "tutWindows": {
-    "title": "Does Windows support AVIF already?",
+    "title": "Windows 10 AVIF Support: Tutorial",
     "description": "Learn how to make AVIF images load on native Windows 10 applications such as Paint and File Explorer.",
     "url": "blog/tutorials/use-avif-in-windows/",
     "image": "/logo_draft.png",
@@ -594,7 +599,9 @@
       "windows insider",
       "mspaint exe",
       "preview release",
-      "insider program"
+      "insider program",
+      "avif windows 10",
+      "avif windows"
     ],
     "questions": [
       "Microsoft Brings AVIF Support to Windows 10 Through File Explorer and Paint",
@@ -629,7 +636,8 @@
       "Netlify Analytics",
       "Netlify Functions",
       "browser compatibility",
-      "next-gen image compression format"
+      "next-gen image compression format",
+      "netlify upload images"
     ],
     "questions": [
       "Using AVIF in Web Development Today",
@@ -676,7 +684,7 @@
       "avif image format",
       "image file",
       "google chrome",
-      "faster loading"
+      "avif wordpress plugin"
     ],
     "questions": [
       "Why AVIF Support in WordPress is Important",
@@ -787,7 +795,7 @@
   },
   "avifVsJpg": {
     "title": "AVIF vs JPG – Which image codec will survive?",
-    "description": "JPG is the de facto choice of image for the majority of digital imagery. AVIF offers an alternative. What are the main differences between each codec?",
+    "description": "JP(E)G is the de facto choice of image for the majority of digital imagery. AVIF offers an alternative. What are the main differences between each codec?",
     "url": "blog/comparisons/avif-vs-jpg/",
     "image": "/logo_draft.png",
     "datePublished": "19.05.21",
