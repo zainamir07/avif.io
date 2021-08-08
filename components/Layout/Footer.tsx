@@ -69,12 +69,12 @@ export default function Footer() {
             <nav className="list-none">
               <FooterLink
                 text="ProductHunt"
-                link="discord.com/invite/6w42YpF5hm"
+                link="https://producthunt.com/posts/avif-io-avif-image-converter"
                 ext
               />
               <FooterLink
                 text="Join Discord"
-                link="producthunt.com/posts/avif-io-avif-image-converter"
+                link="https://discord.com/invite/6w42YpF5hm"
                 ext
               />
               <FooterLink
