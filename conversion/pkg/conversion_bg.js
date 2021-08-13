@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import * as wasm from "./conversion_bg.wasm";
 
 const heap = new Array(32).fill(undefined);
