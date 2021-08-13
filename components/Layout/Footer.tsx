@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="px-4 w-full md:w-1/2 lg:w-1/4">
             <h6 className="mt-6 mb-3 font-bold text-white">Categories</h6>
             <nav className="list-none">
-              <FooterLink text="Blog" link="/blog" />
+              <FooterLink text="Blog" link="/blog/" />
               <FooterLink text="Tutorials" link="/blog#tutorials" />
               <FooterLink text="Articles" link="/blog#articles" />
               <FooterLink text="Comparisons" link="/blog#comparisons" />

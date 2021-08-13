@@ -228,7 +228,7 @@ export default function BlogPost() {
         ext
       />{" "}
       or to experiment with the formats yourself, on sites like
-      <Link text="squoosh.app from Google." link="squoosh.app/" />
+      <Link text="squoosh.app from Google." link="https://squoosh.app/" />
       <br />
       <H level={2} callback={callback} text="Summary for Marketeers" />
       For most people,

@@ -86,7 +86,7 @@ export default function BlogPost() {
       <Link
         aria="libheif github page"
         text="inclusion of libheif"
-        link="github.com/strukturag/libheif"
+        link="https://github.com/strukturag/libheif"
       />
       in our conversion process.
     </Blog>
