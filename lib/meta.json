@@ -1215,5 +1215,140 @@
     "keyword": "webp",
     "category": "comparison",
     "blog": true
+  },
+  "avifVsBmp": {
+    "title": "AVIF vs BMP",
+    "description": "An in-depth guide on how the brand-new file format AVIF stacks up against its competitor BMP.",
+    "url": "blog/comparisons/avif-vs-bmp/",
+    "image": "/logo_draft.png",
+    "datePublished": "13.08.21",
+    "dateModified": "13.08.21",
+    "questions": [
+      "What is the best image file format for website?",
+      "What is the best image file format for website?",
+      "Which is better BMP or AVIF?",
+      "What is the best photo format for websites?",
+      "Why Do Image Files Need Different Formats?"
+    ],
+    "tags": [
+      "image file formats",
+      "color profiles",
+      "color channels",
+      "diagonal line pattern",
+      "horizontal line pattern",
+      "vertical line pattern",
+      "lossless compression",
+      "lossy compression",
+      "compression",
+      "file size",
+      "image format"
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types",
+      "https://jakearchibald.com/2020/avif-has-landed/",
+      "https://docs.fileformat.com/image/bmp/",
+      "https://en.wikipedia.org/wiki/Color_depth"
+    ],
+    "keyword": "bmp",
+    "category": "comparison",
+    "blog": true
+  },
+  "avifVsJpegxr": {
+    "title": "AVIF vs JPEG XR",
+    "description": "An in-depth guide on how the brand-new file format AVIF stacks up against its competitor JPEG XR.",
+    "url": "blog/comparisons/avif-vs-jpegxr/",
+    "image": "/logo_draft.png",
+    "datePublished": "13.08.21",
+    "dateModified": "13.08.21",
+    "questions": [
+      "How does JPEG XR compare to other image codecs",
+      "Does AVIF support transparency",
+      "Is AVIF better than JPEG XR?",
+      "Where is JPEG XR supported?",
+      "Why is AVIF better than other compression codecs?",
+      "Why is AVIF better than its competitors?"
+    ],
+    "tags": [
+      "image formats",
+      "image file format",
+      "image codec",
+      "color accuracy",
+      "color subsampling",
+      "JPEG XR",
+      "browser compatibility",
+      "major browsers",
+      "modern browsers",
+      "lossy encoding",
+      "video codecs",
+      "video formats",
+      "container format",
+      "visual quality",
+      "image codecs",
+      "chroma"
+    ],
+    "sources": [
+      "https://netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4",
+      "https://cloudinary.com/blog/time_for_next_gen_codecs_to_dethrone_jpeg",
+      "https://www.lambdatest.com/blog/avif-image-format/",
+      "https://chipsandcheese.com/2021/02/28/modern-data-compression-in-2021-part-2-the-battle-to-dethrone-jpeg-with-jpeg-xl-avif-and-webp/",
+      "https://css-tricks.com/time-for-next-gen-codecs-to-dethrone-jpeg/",
+      "https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format",
+      "https://medium.com/swlh/the-future-of-image-formats-on-the-web-55749553c5ca",
+      "https://caniuse.com/jpegxr",
+      "https://en.wikipedia.org/wiki/JPEG_XR",
+      "https://developer.mozilla.org/en-US/docs/Learn/Performance/Multimedia",
+      "https://en.wikipedia.org/wiki/Chroma_subsampling",
+      "https://en.wikipedia.org/wiki/VP8"
+    ],
+    "keyword": "jpegxr",
+    "category": "comparison",
+    "blog": true
+  },
+  "avifVsSvg": {
+    "title": "AVIF vs SVG",
+    "description": "An in-depth guide on how the brand-new file format AVIF stacks up against its competitor SVG.",
+    "url": "blog/comparisons/avif-vs-svg/",
+    "image": "/logo_draft.png",
+    "datePublished": "13.08.21",
+    "dateModified": "13.08.21",
+    "questions": [
+      "What is the best vector file format",
+      "What format is best for web images",
+      "Should I use AVIF",
+      "What are the different image file formats and when is the best time to use them",
+      "What is best used for saving image file format"
+    ],
+    "tags": [
+      "image format",
+      "image quality",
+      "ideal image format",
+      "image sequences",
+      "vector images",
+      "vector path",
+      "path image",
+      "image type",
+      "source file",
+      "svg file",
+      "encoding time",
+      "Scalable Vector Graphics",
+      "raster graphics",
+      "animation",
+      "file extensions"
+    ],
+    "sources": [
+      "https://jakearchibald.com/2020/avif-has-landed/",
+      "https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types",
+      "https://css-tricks.com/avif-has-landed/",
+      "https://cloudinary.com/blog/image_formats_getting_it_right",
+      "https://socialcompare.com/es/comparison/image-file-formats",
+      "https://w3techs.com/technologies/comparison/im-avif,im-svg",
+      "https://www.lifewire.com/what-is-an-avif-file-5078731",
+      "https://github.com/kornelski/dssim",
+      "https://en.wikipedia.org/wiki/AV1",
+      "https://netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4"
+    ],
+    "keyword": "svg",
+    "category": "comparison",
+    "blog": true
   }
 }
