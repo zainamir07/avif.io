@@ -131,7 +131,7 @@ export default function BlogPost() {
           "High dynamic range",
           "Lossless compression and lossy compression",
           "Excellent lossy compression compared to JPG",
-          "No progressive decoding, one of the few advantages of JPEG",
+          "No progressive rendering, one of the few advantages of JPEG",
           "Monochrome support",
           "Tiling support",
           "Film grain support",

@@ -44,12 +44,9 @@ export default function BlogPost() {
       <br />
       <H level={2} callback={callback} text="Quality and limits" />
       As a format that finds its roots in frames of AV1 video, AVIF
-      <b> has an image resolution limit of 8193 x 4320</b>. Video professionals
-      will recognize this as an 8K video frame size &ndash; the limits baked
-      into AV1 video. It is possible to break this limit by independently
-      encoding tiles of 8K frames. Still, there tend to be artifacts at the tile
-      boundaries if you use this method. This makes large-resolution AVIF images
-      generally undesirable.
+      <b> has an image resolution limitof 65536 x 65536 pixels</b>. Still, there
+      tend to be artifacts at the tile boundaries of 8K frames if you use this
+      method. This makes large-resolution AVIF images generally undesirable.
       <br />
       This issue is not present in
       <b>

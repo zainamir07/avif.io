@@ -31,11 +31,7 @@ export default function BlogPost() {
       2019. Let’s see how this brand-new file format stacks up against PNG:
       <H level={2} callback={callback} text="Quality and Limits" />
       Let’s first look at the limitations of both file formats. AVIF has a
-      maximum image resolution of 8193 x 4320. As a file format derived from a
-      video codec, this limitation makes sense as it’s an 8K video frame size.
-      It is possible to break this limit using AVIF using independently encoded
-      tiles. Still, there tend to be artifacts at the tile boundaries. In
-      practice, you’ll want to limit any AVIF image to an 8K video frame.
+      maximum image resolution of of 65536 x 65536 pixels.
       <br />
       PNG has a theoretical resolution limit of 2,147,483,647 x 2,147,483,647
       pixels or 2500 megapixels. I think it’s safe to say no one is going to
@@ -92,7 +88,7 @@ export default function BlogPost() {
       animation. Storing image sequences with AVIF is therefore efficient and
       easy. <br />
       <b>
-        AVIF doesn’t support progressive decoding, a process of decoding an
+        AVIF doesn’t support progressive rendering, a process of decoding an
         image where portions of an image are incrementally decoded from an
         incomplete image file.
       </b>{" "}

@@ -42,12 +42,8 @@ export default function BlogPost() {
       AVIF is based on the AV1 video codec, a highly efficient format for video
       released in 2017. Those who work with video will therefore recognize some
       of these key limitations from common video codecs. AVIF has a maximum
-      resolution of 8193 x 4320 pixels. This is roughly the size of an 8K video
-      frame.
-      <br />
-      This limit is acceptable for most photos, but for large graphics that
-      require scalability, this limitation might make AVIF unsuitable for large
-      pictures.
+      resolution of 65536 x 65536 pixels. This limit is acceptable for most
+      photos.
       <br />
       The limitations of SVG work a bit differently from the raster AVIF format.
       Instead of having a set number of pixels SVG can support, vector graphics

@@ -139,7 +139,7 @@ export default function BlogPost() {
       Google tells us to expect <b>lightweight incremental decoding</b> and{" "}
       <b>ultra-light previews </b> as crucial features of WEBP2. We're
       incredibly excited for these, as AVIF's{" "}
-      <b>lack of progressive decoding </b> doesn't allow the format to render
+      <b>lack of progressive rendering </b> doesn't allow the format to render
       low-resolution previews. At the same time, the rest of the image is
       decoded. This is a method that JPEG uses to speed up page loads, and it
       would be nice to see this included with WEBP2.

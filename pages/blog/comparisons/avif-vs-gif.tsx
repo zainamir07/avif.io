@@ -55,15 +55,10 @@ export default function BlogPost() {
       color gamuts.
       <br />
       As an image format derived from a video codec,
-      <b>
-        {" "}
-        AVIF has an image resolution limit of 8193 x 4320 – the size of an 8K
-        video frame.
-      </b>{" "}
-      It is however possible to push past this limit through independently
-      encoded tiles. But, the edges of each tile (at max 8K resolution for each)
-      suffer from nasty artifacts, making AVIF unsuitable for large resolution
-      images.
+      <b> AVIF has an image resolution limit of of 65536 x 65536 pixels.</b> It
+      is however possible to push past this limit through independently encoded
+      tiles. But, the edges of each tile (at max 8K resolution for each) suffer
+      from nasty artifacts, making AVIF unsuitable for large resolution images.
       <br />
       <b>
         {" "}

@@ -38,10 +38,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Limits and Quality" />
       AVIF is derived from a video codec, and it shares some similar limitations
       to the AV1 video format.{" "}
-      <b>
-        AVIF boasts a maximum resolution of 8193 x 4320 pixels – this is roughly
-        the size of an 8K video frame.
-      </b>
+      <b>AVIF boasts a maximum resolution of 65536 x 65536 pixels.</b>
       <br />
       It is possible to produce larger AVIF images than this maximum resolution
       by{" "}

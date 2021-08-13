@@ -45,8 +45,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Quality and limits" />
       AVIF as a format derived from frames of video with the AV1 codec, there
       are some image dimension limitations adopters will need to look out for.{" "}
-      <b>AVIF has an image resolution limit of 8193 x 4320</b>, and this is the
-      size of an 8K video frame.
+      <b>AVIF has an image resolution limit of 65536 x 65536 pixels.</b>
       <br />
       It is possible to{" "}
       <b>exceed this limit by rendering independently encoded tiles</b>. But,
@@ -153,7 +152,7 @@ export default function BlogPost() {
       be encoded separately. AVIF also supports depth maps, allowing for effects
       to be easily applied to images.
       <br />
-      <b>Both AVIF and WEBP also lack progressive decoding</b>, which
+      <b>Both AVIF and WEBP also lack progressive rendering</b>, which
       accelerates page loads by providing a low-resolution preview image before
       the entire image has been decoded successfully. This feature is reserved
       for JPEG and its descendants JPEG 2000 and JPEG XL.

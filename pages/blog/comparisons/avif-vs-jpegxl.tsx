@@ -49,11 +49,7 @@ export default function BlogPost() {
       As an image format based on a video frame, the resolution limit makes
       perfect sense. Still, it can be limiting for non-web delivery applications
       like print.
-      <b>
-        {" "}
-        AVIF has a maximum resolution of 8193 x 4320. This is roughly the size
-        of an 8K video frame.
-      </b>
+      <b> AVIF has a maximum resolution of 65536 x 65536 pixels.</b>
       <br />
       It is possible to push past this limit through tiling. Independently
       encoded tiles can then be placed on a grid to create a theoretical maximum
@@ -120,7 +116,7 @@ export default function BlogPost() {
       <b>AVIF had problems with its decoding and encoding speed. </b>
       Recent releases of decoders achieved various performance improvements.
       Encoding is however still a problem and quite slow.
-      <b> It doesn't support progressive decoding </b>
+      <b> It doesn't support progressive rendering </b>
       - a process of decoding where portions of an image are incrementally
       decoded from an incomplete image file. This can dramatically increase the
       viewing speed by allowing for a lower-quality preview image to be

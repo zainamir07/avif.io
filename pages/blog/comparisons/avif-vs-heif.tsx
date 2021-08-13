@@ -38,7 +38,7 @@ export default function BlogPost() {
       <H level={2} callback={callback} text="Quality and limits" />
       As both formats find their roots in video codecs, AVIF and HEIF share the
       resolution limitations of their respective standards. Both formats sport{" "}
-      <b>maximum image dimensions of 8193 x 4320</b>
+      <b>maximum image dimensions of 65536 x 65536 pixels.</b>
       .
       <br />
       Video professionals will recognize this as the size of an 8K video frame.
@@ -136,10 +136,10 @@ export default function BlogPost() {
         background.
       </b>
       <br />
-      <b>Neither format supports progressive decoding</b>. This is a method used
-      by formats like JPEG to accelerate page load times by displaying a
+      <b>Neither format supports progressive rendering</b>. This is a method
+      used by formats like JPEG to accelerate page load times by displaying a
       low-resolution preview. At the same time, the rest of the image is being
-      decoded. The lack of progressive decoding, paired with both AVIF and
+      decoded. The lack of progressive rendering, paired with both AVIF and
       HEIC's poor decode speeds, may cause issues with underpowered machines.
       <br />
       <H level={2} callback={callback} text="Support" />
