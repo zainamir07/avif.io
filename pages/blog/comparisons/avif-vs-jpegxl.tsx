@@ -220,11 +220,11 @@ export default function BlogPost() {
       We recommend Josh's article on Blobfolio for a{" "}
       <Link
         text="live comparison of both formats"
-        link="https://blobfolio.com/2021/jpeg-xl/"
+        link="blobfolio.com/2021/jpeg-xl/"
         ext
       />{" "}
       or to experiment with the formats yourself, on sites like
-      <Link text="squoosh.app from Google." link="https://squoosh.app/" />
+      <Link text="squoosh.app from Google." link="https://squoosh.app/" ext />
       <br />
       <H level={2} callback={callback} text="Summary for Marketeers" />
       For most people,
