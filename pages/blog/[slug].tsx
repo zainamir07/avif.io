@@ -1,20 +1,16 @@
 import React from 'react'
+import {useRouter} from 'next/router'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
-import Image from 'next/image'
 import path from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-// import mdxPrism from 'mdx-prism'
 import readingTime from 'reading-time'
 
-// import { fullDate } from 'utils/date'
 import { postFilePaths, POSTS_PATH } from 'utils/mdx'
 
-// import BlogSeo from 'components/BlogSeo'
 import MDXComponents from '@components/MDXComponents'
-// import Container from 'components/Container'
 import Blog from "@components/Blog";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
@@ -61,31 +57,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type PostDetailPageProps = InferGetStaticPropsType<typeof getStaticProps>
 const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source, slug }) => {
 
-  console.log(frontMatter)
+  const router = useRouter()
+  console.log(router)
 
   return (
     <>
-      <div
-        // postMeta={meta.imageOptimizationIn2021}
-        // posts={[meta.tutCss, meta.tutHtml, meta.tutWordpress]}
+      <Blog
+        postMeta={{...frontMatter}}
+        posts={[frontMatter.tutCss, frontMatter.tutHtml, frontMatter.tutWordpress]}
       >
-        <article className="blog m-auto prose dark:prose-dark">
-          <header className="max-auto text-left mb-8">
-            <h1 className="text-3xl md:text-4xl leading-tight mb-3 pt-6 title dark:text-white">
-              {frontMatter.title}
-            </h1>
-            {/* <div className="-mt-6 text-gray-400 text-sm">
-              <time dateTime={frontMatter.publishedAt}>{fullDate(frontMatter.publishedAt)}</time> on{' '}
-              {frontMatter.tags.join(', ')} • {frontMatter.readingTime.text}
-            </div> */}
-          </header>
-          <main>
-            <MDXRemote {...source} components={MDXComponents} />
-          </main>
-        </article>
-      </div>
-      {/* <BlogSeo url={`https://rivki.dev/blog/${slug}`} {...frontMatter} /> */}
-      
+        <MDXRemote {...source} components={MDXComponents} />
+      </Blog>
     </>
   )
 }
