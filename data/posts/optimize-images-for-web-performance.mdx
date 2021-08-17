@@ -100,14 +100,9 @@ blog: true
   checked={true}
 />
 
-<H level={2} text="Introduction" />
-<H
-  level={5}
-  text="
-  Summary: Images are a huge part of the web. Performance is one of the biggest success
-  factors for websites. Optimize your images to improve your user’s experience.
-  "
-/>
+## Introduction
+
+##### Summary: Images are a huge part of the web. Performance is one of the biggest success factors for websites. Optimize your images to improve your user’s experience.
 
 When building a modern web experience, **it is essential to measure, optimize and monitor the speed of your website**. Performance plays a significant role in the success of any website, as powerful websites appeal to and engage users better than low-performing websites. Websites should focus on optimizing user-centric happiness metrics. Consider this: **No one likes small but ugly images, but no one wants to wait. Welcome to the world of image compression.**
 
@@ -115,7 +110,7 @@ In this article, we outline all the methods to optimize your images. We minimize
 
 Suppose you have formatted your images for better performance and follow best practices. In that case, **your page will become more popular with search engines, browsers and networks and will load faster for your readers**. Especially with half of your visitors likely using a mobile device, delivering optimal image file formats and sizes is even more critical. Otherwise, your hard-earned traffic will decrease, and your Google rankings will also decline.
 
-<H level={3} text="Google Core Web Vitals" />
+### Google Core Web Vitals
 
 To understand how and why we should optimize our images, we need to understand Core Web Vitals. Several case studies confirm that**increased page load time leads to frustrated users** and an increased bounce rate.
 
@@ -123,13 +118,13 @@ To address this problem, Google has introduced Core Web Vitals, which will becom
 
 It consists of three main components that optimize the page experience.
 
-<H level={4} text="1. Largest Contentful Paint (LCP)" />
+#### 1. Largest Contentful Paint (LCP)
 
 LCP is the period during which the most significant content element in the viewport is made visible as soon as the user requests the URL. It is an important, user-centric metric for **measuring the perceived load speed**. It marks the point in the timeline where the page's main content is likely to have been loaded. This is important because it tells the reader that the URL is actually loading and the page is helpful.
 
 **Images are one of the most important types of elements that are considered for the LCP**. LCP is primarily influenced by slow servers, load times of resources and client-side rendering. Optimizing your LCP will demonstrate that your page is usable and that content is displayed quickly. We will do so by reducing bytes, caching and lazy loading.
 
-<H level={4} text="2. First Input Delay (FID)" />
+#### 2. First Input Delay (FID)
 
 The FID metric helps measure your user's first impression of the interactivity and responsiveness of your website. FID is a crucial, user-centered measure of load responsiveness. It quantifies the experience users feel when trying to interact with non-responsive pages - it ensures that the site is usable.
 
@@ -137,19 +132,19 @@ The first impression users have of how quickly your website is can be measured w
 
 FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser is actually able to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques,  **we will reduce FID through reduced (main-thread) CPU usage.**
 
-<H level={4} text="3. Cumulative Layout Shift (CLS)" />
+#### 3. Cumulative Layout Shift (CLS)
 
 CLS is an important, user-centric metric for measuring visual stability because it helps quantify how often users experience unexpected layout shifts—a low CLS helps ensure that the page is delightful. Have you ever been reading an article online when something suddenly changes on the page? Without warning, the text moves, and you've lost your place. Or even worse: you're about to tap a link or a button, but in the instant before your finger land the link moves, and you end up clicking something else!
 
 **CLS measures the sum total of all individual layout shift** scores for every unexpected layout shift that occurs during the entire lifespan of the page. This is important to us because for example having images without dimensions can cause elements shift while a user is trying to interact with it, leading to a bad user experience. With techniques in this article, we will keep CLS to zero.
 
-<H level={3} text="Summary of image optimization benefits" />
+### Summary of image optimization benefits
 
 Depending on how your website is structured, images make up the bulk of data that needs to be loaded. The smaller the file sizes of the images, the faster a website loads. But you don't want to end up with a grainy or blurry-looking website, especially in times of high-resolution screens.
 
 **Properly optimized images still have their visual quality intact**- and when you run an e-commerce site, that's really important to win customers' trust. By improving your vitals, you can boost your site's ranking in comparison with your competitors.
 
-<H level={4} text="Main advantages" />
+#### Main advantages
 
 <Checklist
   items={[
@@ -163,15 +158,15 @@ Depending on how your website is structured, images make up the bulk of data tha
 
 Let's examine they ways in which you can improve your images.
 
-<H level={2} text="1) Serve images in next-gen formats" />
+## 1) Serve images in next-gen formats"
 
-<H level={5}text=" Summary: Use AVIF, then WebP and JPG as a fallback. Try to automate this process for your own sake. "/>
+##### Summary: Use AVIF, then WebP and JPG as a fallback. Try to automate this process for your own sake.
 
 The primary goal of formatting your images is to find the **balance between the lowest file size and acceptable quality.**The two primary things to consider are the file format and the type of compression you use. You need to experiment with some images to see what works best. When comparing images, remember to view them in the dimensions in which they will appear on your website.
 
 The goal is not to compare enlarged 1:1 previews of high-resolution files, but to **compare images with realistic pixel dimensions**. This chapter focuses on the file format, while the next chapter will focus on the type of compression.
 
-<H level={3} text="Other formats than JPG and PNG" />
+### Other formats than JPG and PNG
 
 If you know the right file formats and how to handle different types of images in different file formats, you can know which file type to use to speed up the loading time of your website while maintaining good image quality.
 
@@ -183,7 +178,7 @@ visitors. These formats are:
 
 Although device and browser compatibility varies for each format, **it is worth evaluating for the reduction in image file size**and overall faster downloading of your website. WebP, for example, can be an excellent replacement for JPEG, PNG and even GIF images in many cases. It also supports lossless compression, lossy compression and animated images. In most cases, WebP images can reduce image file size by about 25-50%.
 
-<H level={3} text="Browser compatibility" />
+### Browser compatibility
 
 If your target audience falls into one of the unsupported browser / device categories, you should ship optimized **fallback images in the original JPEG / PNG format**so that your users do not see a broken or poorly designed page. There are several types of files you can use that you can see below. There are several others, such as JPEG XR, JPEG2000 and HEIC. However, they are quite old and have no support for their age.
 
@@ -200,9 +195,9 @@ If your target audience falls into one of the unsupported browser / device categ
   checked={true}
 />
 
-<H level={3} text="Explaining the best usecase for all formats" />
+### Explaining the best usecase for all formats
 
-<H level={4} text="(Not) Using GIF" />
+#### (Not) Using GIF
 
 Most platforms that host short videos do not use GIFs because **animated GIFs can be quite large**. Twitter, for instance, converts animated GIFs to video file formats such as MP4 to significantly reduce the total file size. Even GIPHY, an online directory and search engine that provides users with access to short loop videos without audio, uses
 MP4 video files.
@@ -221,16 +216,18 @@ Fortunately, this is one of the areas where you can achieve significant results 
 
 Luckily, you can recreate these behaviors using the video element.
 
-<Syntax language="html">{`<video autoplay loop muted playsinline></video>`}</Syntax>
+<Syntax language="html">
+  {`<video autoplay loop muted playsinline></video>`}
+</Syntax>
 
-<H level={4} text="Using PNG" />
+#### Using PNG
 
 The Portable Network Graphics PNGs format was best used when saving graphics with limited colors. **Logos and icons are good examples of images that would use the .png file format.** Simple graphics with few colors can be saved as .png files to create high-quality images with low file sizes that are perfect for use on a website. This format is higher-quality than JPG images, so it is usually used for graphical images with more complicated designs.
 
 
 PNG's main advantage was that it also provides transparent image backgrounds that can be overlaid on colored backgrounds. The compromise is that PNG images are larger than JPG images, so  **their use will have a much worse impact on loading time**. However, since newer file formats support transparency and a good compression rate, you should never use PNG.
 
-<H level={4} text="Using JPG" />
+#### Using JPG
 
 JPG has done an excellent job in keeping file sizes small over the last 20 years. It uses lossy compression, which allows **dynamic compromise between quality and file size**. It is by far the most widely used image format in the world, as it is supported by almost every digital device and software.
 
@@ -239,7 +236,7 @@ Although there are several other file formats that already surpass JPG in every 
 
 Until then, it is best to use JPGs on your site for fallback support if your visitors browsers do not support the latest image formats. Fortunately, Mozilla Research has developed mozjpeg for the file size of your images, a production-quality JPEG encoder that improves compression while maintaining compatibility with the vast majority of decoders used. Utilizing it will **save around 15% of the high file size**that jpg has in comparison to newer formats.
 
-<H level={4} text="Using SVG" />
+#### Using SVG
 
 Vector images are images that do not use pixel data, but **use mathematical code-based data to create an image.**Vector files have historically been used for all printing forms because a vector image retains its quality regardless of size.
 
@@ -249,7 +246,7 @@ A vector-format logo can be printed on a business card, and the same file can be
 
 **SVG images are responsive across devices**, meaning that symbols and graphs are displayed correctly regardless of how they are viewed. They are typically very small file sizes and help to increase loading speed. Use them for every image that has precise geometric shapes and doesn't rely too much on color.
 
-<H level={4} text="Using WebP" />
+#### Using WebP
 
 WebP is a modern image format developed by Google to provide superior lossless and lossy compression for optimizing web images. At a comparable quality **compared to JPG, WebP images are 25% smaller**.
 
@@ -258,14 +255,14 @@ In addition to better compression, the format also **supports transparency**and 
 
 Browser support for WebP is almost universal at 95%. You will need to provide a PNG or JPEG image for other browser support. Instructions on how to do this can be found at the end of this chapter.
 
-<H level={4} text="Using AVIF" />
+#### Using AVIF
 
 AVIF is the newest image format that has taken hold in web browsers and is currently supported in Chrome, Opera and Firefox. Safari support is not yet available, but is being actively edited. As Apple is in the group behind the format, we can expect future support. **AVIF is remarkable because it significantly exceeds JPEG in every aspect, especially the file size.**
 
-<H level={4} text="Using JXL" />
+#### Using JXL
 
 A modern image format optimized for web environments. JPEG XL generally has better compression than WebP, JPEG, PNG and GIF, and was designed to supersede them. **JPEG XL competes with AVIF**, which has similar compression quality but fewer features overall. Unfortunately, it is not yet supported by any browser and should therefore not be a concern for the time being.
 
-<H level={3} text="How to convert all these image formats correctly?" />
+### How to convert all these image formats correctly?
 
 Opt for JPG as a general fallback, followed by WebP, which is better and has broad support, followed by AVIF, which is the latest active fileformat with slightly less support.

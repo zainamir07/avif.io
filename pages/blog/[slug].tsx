@@ -1,5 +1,4 @@
 import React from 'react'
-import {useRouter} from 'next/router'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import path from 'path'
 import fs from 'fs'
@@ -33,7 +32,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      slug: ctx.params?.slug,
       frontMatter: {
         readingTime: readingTime(content),
         ...data,
@@ -55,10 +53,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type PostDetailPageProps = InferGetStaticPropsType<typeof getStaticProps>
-const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source, slug }) => {
-
-  const router = useRouter()
-  console.log(router)
+const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source }) => {
 
   return (
     <>
