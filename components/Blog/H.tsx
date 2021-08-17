@@ -41,7 +41,7 @@ export default function H(props: HProps) {
         {(props.level === 2 || props.level === 3) && (
           <a
             className={`transform inline-flex text-red-700 opacity-0 items-center group-hover:opacity-100 group-hover:translate-x-2 transition-all`}
-            href={`${router.pathname}/#${trimmedText}`}
+            href={`${router.asPath}#${trimmedText}`}
             onClick={copyToClipboard}
           >
             <div className="inline-block p-2" title="Copy link to heading">
