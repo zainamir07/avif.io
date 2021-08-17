@@ -7,18 +7,23 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import readingTime from 'reading-time'
 
-import { postFilePaths, BLOG_POSTS_PATH } from '@utils/mdx'
+import { postFilePaths, BLOG_POSTS_PATH, getHeadings } from '@utils/mdx'
 
 import MDXComponents from '@components/MDXComponents'
 import Blog from '@components/Blog';
+import ContentTable from '@components/Blog/ContentTable'
 
 import meta from '@lib/meta.json';
+
+
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const filePath = path.join(`${BLOG_POSTS_PATH}/releases`, `${ctx.params?.slug}.mdx`)
   const source = fs.readFileSync(filePath)
 
   const { data, content } = matter(source)
+  const headings = await getHeadings(content)
+
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
@@ -27,7 +32,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         require('remark-slug'),
         require('remark-code-titles'),
       ],
-      // rehypePlugins: [mdxPrism],
     },
     scope: data,
   })
@@ -39,6 +43,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         ...data,
       },
       source: mdxSource,
+      headings,
     },
   }
 }
@@ -55,14 +60,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type PostDetailPageProps = InferGetStaticPropsType<typeof getStaticProps>
-const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source }) => {
-
+const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source, headings }) => {
   return (
     <>
       <Blog
         postMeta={{ ...frontMatter }}
         posts={frontMatter.relatedPosts.map((post: string) => (meta as any)[post]) || []}
       >
+        <ContentTable contentTable={headings} />
         <MDXRemote {...source} components={MDXComponents} />
       </Blog>
     </>

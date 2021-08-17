@@ -12,10 +12,10 @@ export default function BlogPosts(props: any) {
       >
         <div className="overflow-hidden h-full rounded-md bg-bg-300">
           <div className="p-3 bg-bg-500 group-hover:bg-gradient">
-            <div className="font-bold text-white">#{data.keyword}</div>
+            <div className="font-bold text-white">#{data?.keyword || ''}</div>
           </div>
           <div className="p-3 border-t-2 group-hover:text-white border-bg-700">
-            <p>{data.description}</p>
+            <p>{data?.description || ''}</p>
           </div>
         </div>
       </a>
