@@ -15,7 +15,7 @@ import Blog from '@components/Blog';
 import meta from '@lib/meta.json';
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const filePath = path.join(BLOG_POSTS_PATH, `${ctx.params?.slug}.mdx`)
+  const filePath = path.join(`${BLOG_POSTS_PATH}/articles`, `${ctx.params?.slug}.mdx`)
   const source = fs.readFileSync(filePath)
 
   const { data, content } = matter(source)
@@ -60,7 +60,7 @@ const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source }) => {
   return (
     <>
       <Blog
-        postMeta={{...frontMatter}}
+        postMeta={{ ...frontMatter }}
         posts={frontMatter.relatedPosts.map((post: string) => (meta as any)[post]) || []}
       >
         <MDXRemote {...source} components={MDXComponents} />
