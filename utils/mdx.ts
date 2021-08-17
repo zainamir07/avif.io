@@ -8,8 +8,8 @@ export const BLOG_POSTS_PATH = path.join(process.cwd(), 'data/blog')
 export const DATA_PATH = path.join(process.cwd(), 'data')
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
-export const postFilePaths = fs
-  .readdirSync(BLOG_POSTS_PATH)
+export const postFilePaths = (path: string) => fs
+  .readdirSync(path)
   // Only include md(x) files
   .filter((p) => /\.mdx?$/.test(p))
 

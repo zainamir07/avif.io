@@ -14,6 +14,7 @@ const MDXComponents = {
   Link,
   Image,
   Checklist,
+  Syntax,
   code: Syntax,
   H: Heading,
   h1: ({ children }: ChildrenProps) => <Heading level={1} text={children as string} />,

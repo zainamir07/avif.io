@@ -273,7 +273,9 @@ Opt for JPG as a general fallback, followed by WebP, which is better and has bro
 
 To implement this progressive improvement for AVIF, **use the picture element**. The actual img element is nested in the picture. Until recently, it was relatively difficult to actually encode AVIF images on the server side, but with the latest version of libraries like sharp it is now trivial.
 
-<Syntax language="html"> {`<picture>
+
+<Syntax language="html">
+g{`<picture>
    <source srcset="image.avif" type="image/avif">
    <source srcset="image.webp" type="image/webp">
    <img src="image.jpg" alt="AVIF example with WebP and JPEG fallback">

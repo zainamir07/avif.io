@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = postFilePaths
+  const paths = postFilePaths(`${BLOG_POSTS_PATH}/comparisons`)
     .map((p) => p.replace(/\.mdx?$/, ''))
     .map((slug) => ({ params: { slug } }))
 
