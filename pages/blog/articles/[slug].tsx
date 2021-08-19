@@ -1,6 +1,7 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import path from 'path'
+import glob from 'glob'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -20,15 +21,17 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   
   const { data, content } = matter(source)
   const headings = await getHeadings(content)
-  
-  const relatedPosts = data.relatedPosts.map((post: string) => {
-    const file = path.join(`${BLOG_POSTS_PATH}/articles`, `${post}.mdx`)
+
+  const mdxFiles = glob.sync('data/**/*.mdx')
+  const selectedPosts = data.relatedPosts.map((post: string) =>
+    mdxFiles.find(file => file.indexOf(post) >= 0)
+  )
+
+  const relatedPosts = selectedPosts.map((post: string) => {
+    const file = path.join(process.cwd(), post)
     const sourceFile = fs.readFileSync(file)
     const {data} = matter(sourceFile)
-
-    return {
-      ...data,
-    }
+    return {...data}
   })
 
   const mdxSource = await serialize(content, {
