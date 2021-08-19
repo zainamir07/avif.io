@@ -1,44 +1,47 @@
+import fs from "fs";
+import path from "path";
+import { InferGetStaticPropsType, NextPage } from "next";
+import matter from "gray-matter";
+
+import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Posts from "@components/Blog/Posts";
 import Layout from "@components/Layout";
 import meta from "@lib/meta.json";
 
-const comparisons = [
-  meta.avifVsJpg,
-  meta.avifVsPng,
-  meta.avifVsGif,
-  meta.avifVsJpegxl,
-  meta.avifVsHeif,
-  meta.avifVsJpeg2000,
-  meta.avifVsWebp2,
-  meta.avifVsWebp,
-  meta.avifVsBmp,
-  meta.avifVsJpegxr,
-  meta.avifVsSvg,
-];
-const releases = [
-  meta.january2021,
-  meta.february2021,
-  meta.march2021,
-  meta.july2021,
-];
-const articles = [meta.imageOptimizationIn2021];
-const posts = [
-  meta.tutCloudflare,
-  meta.tutCss,
-  meta.tutEdge,
-  meta.tutFirefox,
-  meta.tutFrameworks,
-  meta.tutGimp,
-  meta.tutHtml,
-  meta.tutMagento,
-  meta.tutNetlify,
-  meta.tutNextjs,
-  meta.tutSafari,
-  meta.tutWindows,
-  meta.tutWordpress,
-];
+const generatePosts = (folderPath: string) =>
+  postFilePaths(folderPath).map((filePath: string) => {
+    const source = fs.readFileSync(path.join(folderPath, filePath));
+    const { data } = matter(source);
 
-export default function BlogAvif() {
+    return {
+      data,
+      slug: filePath.replace(".mdx", ""),
+    };
+  });
+
+export const getStaticProps = async () => {
+  const articles = generatePosts(`${BLOG_POSTS_PATH}/articles`);
+  const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
+  const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
+  const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
+
+  return {
+    props: {
+      articles,
+      releases,
+      tutorials,
+      comparisons,
+    },
+  };
+};
+
+type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
+const BlogAvif: NextPage<PostsPageProps> = ({
+  articles,
+  comparisons,
+  releases,
+  tutorials,
+}) => {
   return (
     <Layout meta={meta.blog}>
       <main className="p-2 md:p-4 archive blog">
@@ -48,11 +51,13 @@ export default function BlogAvif() {
         </div>
         <div className="container max-w-screen-lg">
           <Posts posts={articles} title="articles" />
-          <Posts posts={posts} title="tutorials" />
+          <Posts posts={tutorials} title="tutorials" />
           <Posts posts={comparisons} title="comparisons" />
           <Posts posts={releases} title="releases" />
         </div>
       </main>
     </Layout>
   );
-}
+};
+
+export default BlogAvif;

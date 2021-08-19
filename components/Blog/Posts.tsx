@@ -2,24 +2,32 @@ import Link from "next/link";
 
 export default function BlogPosts(props: any) {
   const posts = props.posts;
-  const listItems = posts.map((post: any, index: any) => (
-    <Link href={`/${post.url}`} key={index}>
-      <a
-        href={`/${post.url}`}
-        tabIndex={0}
-        className="p-2 cursor-pointer md:w-1/2 lg:w-1/3 group"
+
+  const listItems = posts.map(
+    ({ data, slug, keyword, description, url }: any, index: any) => (
+      <Link
+        href={slug ? `/blog/${props.title}/${slug}/` : `/` + url}
+        key={index}
       >
-        <div className="overflow-hidden h-full rounded-md bg-bg-300">
-          <div className="p-3 bg-bg-500 group-hover:bg-gradient">
-            <div className="font-bold text-white">#{post.keyword}</div>
+        <a
+          href={slug ? `/blog/${props.title}/${slug}/` : `/` + url}
+          tabIndex={0}
+          className="p-2 cursor-pointer md:w-1/2 lg:w-1/3 group"
+        >
+          <div className="overflow-hidden h-full rounded-md bg-bg-300">
+            <div className="p-3 bg-bg-500 group-hover:bg-gradient">
+              <div className="font-bold text-white">
+                #{data?.keyword || keyword || ""}
+              </div>
+            </div>
+            <div className="p-3 border-t-2 group-hover:text-white border-bg-700">
+              <p>{data?.description || description || ""}</p>
+            </div>
           </div>
-          <div className="p-3 border-t-2 group-hover:text-white border-bg-700">
-            <p>{post.description}</p>
-          </div>
-        </div>
-      </a>
-    </Link>
-  ));
+        </a>
+      </Link>
+    )
+  );
   return (
     <>
       <h3
