@@ -10,11 +10,11 @@ export default function BlogPosts(props: any) {
         key={index}
       >
         <a
-          href={slug ? `/blog/${props.title}/${slug}/` : `/` + url + `/`}
+          href={slug ? `/blog/${props.title}/${slug}/` : `/` + url}
           tabIndex={0}
           className="p-2 cursor-pointer md:w-1/2 lg:w-1/3 group"
         >
-          <div className="h-full overflow-hidden rounded-md bg-bg-300">
+          <div className="overflow-hidden h-full rounded-md bg-bg-300">
             <div className="p-3 bg-bg-500 group-hover:bg-gradient">
               <div className="font-bold text-white">
                 #{data?.keyword || keyword || ""}

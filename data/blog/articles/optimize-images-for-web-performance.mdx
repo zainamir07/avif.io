@@ -1,6 +1,7 @@
 ---
 title: Optimizing Images for Web Performance - a 6-step guide for 2021
-description: Straightforward and actionale optimization tips, for beginners and experts.
+description:
+  Straightforward and actionale optimization tips, for beginners and experts.
   Maximally improve your image performance with this 6-step guide.
 url: blog/articles/optimize-images-for-web-performance/
 image: "/logo_draft.png"
@@ -136,7 +137,7 @@ The FID metric helps measure your user's first impression of the interactivity a
 
 The first impression users have of how quickly your website is can be measured with First Contentful Paint (FCP). But how fast your website can paint pixels on the screen is only part of the story. Equally important is **how responsive your website reacts** when users try to interact with these pixels. If you have ever tried clicking within an input box and nothing happens, then you are familiar with the frustration that can be caused by large input delays.
 
-FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser is actually able to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques,  **we will reduce FID through reduced (main-thread) CPU usage.**
+FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser is actually able to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques, **we will reduce FID through reduced (main-thread) CPU usage.**
 
 #### 3. Cumulative Layout Shift (CLS)
 
@@ -176,8 +177,7 @@ The goal is not to compare enlarged 1:1 previews of high-resolution files, but t
 
 If you know the right file formats and how to handle different types of images in different file formats, you can know which file type to use to speed up the loading time of your website while maintaining good image quality.
 
-
-Most websites provide images in JPEG and PNG formats that have been around since the 1990s. **JPG is the dominant image format on the web**, but that doesn't mean it's the best. A new generation of image formats offers the ability to further reduce your image file sizes. Moving to these **next-generation image formats reduces the size of image files**  and pages, resulting in faster loading times, especially on mobile devices. This is especially important for the page experience of your
+Most websites provide images in JPEG and PNG formats that have been around since the 1990s. **JPG is the dominant image format on the web**, but that doesn't mean it's the best. A new generation of image formats offers the ability to further reduce your image file sizes. Moving to these **next-generation image formats reduces the size of image files** and pages, resulting in faster loading times, especially on mobile devices. This is especially important for the page experience of your
 visitors. These formats are:
 
 <Checklist items={["WebP", "AVIF", "JPEGXL"]} checked={true} />
@@ -208,7 +208,6 @@ If your target audience falls into one of the unsupported browser / device categ
 Most platforms that host short videos do not use GIFs because **animated GIFs can be quite large**. Twitter, for instance, converts animated GIFs to video file formats such as MP4 to significantly reduce the total file size. Even GIPHY, an online directory and search engine that provides users with access to short loop videos without audio, uses
 MP4 video files.
 
-
 Fortunately, this is one of the areas where you can achieve significant results with relatively little effort. By converting large GIFs to videos, you can reduce your bandwidth requirements. Animated GIFs have three main features that a video must replicate:
 
 <Checklist
@@ -230,13 +229,11 @@ Luckily, you can recreate these behaviors using the video element.
 
 The Portable Network Graphics PNGs format was best used when saving graphics with limited colors. **Logos and icons are good examples of images that would use the .png file format.** Simple graphics with few colors can be saved as .png files to create high-quality images with low file sizes that are perfect for use on a website. This format is higher-quality than JPG images, so it is usually used for graphical images with more complicated designs.
 
-
-PNG's main advantage was that it also provides transparent image backgrounds that can be overlaid on colored backgrounds. The compromise is that PNG images are larger than JPG images, so  **their use will have a much worse impact on loading time**. However, since newer file formats support transparency and a good compression rate, you should never use PNG.
+PNG's main advantage was that it also provides transparent image backgrounds that can be overlaid on colored backgrounds. The compromise is that PNG images are larger than JPG images, so **their use will have a much worse impact on loading time**. However, since newer file formats support transparency and a good compression rate, you should never use PNG.
 
 #### Using JPG
 
 JPG has done an excellent job in keeping file sizes small over the last 20 years. It uses lossy compression, which allows **dynamic compromise between quality and file size**. It is by far the most widely used image format in the world, as it is supported by almost every digital device and software.
-
 
 Although there are several other file formats that already surpass JPG in every aspect, the fact that it is supported everywhere makes it a durable format. **It can be assumed that JPG is dying out quite slowly and will be replaced by AVIF or JPEGXL in the future**.
 
@@ -246,9 +243,7 @@ Until then, it is best to use JPGs on your site for fallback support if your vis
 
 Vector images are images that do not use pixel data, but **use mathematical code-based data to create an image.**Vector files have historically been used for all printing forms because a vector image retains its quality regardless of size.
 
-
 A vector-format logo can be printed on a business card, and the same file can be used to print the logo on a billboard. The quality of the image will be perfect without data loss of any size. SVGs are often used for logos or backgrounds that do not use many different colors.
-
 
 **SVG images are responsive across devices**, meaning that symbols and graphs are displayed correctly regardless of how they are viewed. They are typically very small file sizes and help to increase loading speed. Use them for every image that has precise geometric shapes and doesn't rely too much on color.
 
@@ -257,7 +252,6 @@ A vector-format logo can be printed on a business card, and the same file can be
 WebP is a modern image format developed by Google to provide superior lossless and lossy compression for optimizing web images. At a comparable quality **compared to JPG, WebP images are 25% smaller**.
 
 In addition to better compression, the format also **supports transparency**and is therefore a good substitute for PNG.
-
 
 Browser support for WebP is almost universal at 95%. You will need to provide a PNG or JPEG image for other browser support. Instructions on how to do this can be found at the end of this chapter.
 
@@ -275,9 +269,8 @@ Opt for JPG as a general fallback, followed by WebP, which is better and has bro
 
 To implement this progressive improvement for AVIF, **use the picture element**. The actual img element is nested in the picture. Until recently, it was relatively difficult to actually encode AVIF images on the server side, but with the latest version of libraries like sharp it is now trivial.
 
-
 <Syntax language="html">
-{`<picture>
+  {`<picture>
    <source srcset="image.avif" type="image/avif">
    <source srcset="image.webp" type="image/webp">
    <img src="image.jpg" alt="AVIF example with WebP and JPEG fallback">
@@ -313,13 +306,14 @@ It is also important to understand that **there are two types of compression**, 
 
 Lossy - this is a filter that eliminates some of the data, which degrades the image, so you have to be careful about how much you want to shrink the image. Normally, this works because **our eyes can process an image correctly even without every single piece of pixel**. File size can be reduced by a large amount.
 
-**Lossless compression reduces the size of an image file without compromising image quality**. No data is lost using this method. However, the file size cannot be improved as much as with lossy compression. Simply use a good image optimization tool to handle image compression for you, at the quality level you feel comfortable with. 
+**Lossless compression reduces the size of an image file without compromising image quality**. No data is lost using this method. However, the file size cannot be improved as much as with lossy compression. Simply use a good image optimization tool to handle image compression for you, at the quality level you feel comfortable with.
 
 **Lossless suits photography websites, use lossy for everything else.**
 
 ### How to efficiently encode images?
 
 There are a few strategies to efficiently encode images, such as:
+
 <Checklist
   items={[
     "Manually compressing with tools like npmavif.io or Imageoptim",
@@ -343,7 +337,6 @@ Ideally, your site should **never provide images larger than the version rendere
 Slide show images, for example, are usually wider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger will only result in wasted bytes and slow the page's loading time.**
 
 The main strategy for providing correspondingly large images is called "responsive images." With responsive images, you generate multiple versions of each image and then specify which version to use in which scenario.
-
 
 Therefore, **it is crucial to first determine the image dimensions to know how wide your content area is on your site**. Take this site as an example. The content area of this site has an exact maximum of 720px, which is why the image sizes in my blog content exist in the following dimensions:
 
@@ -429,7 +422,6 @@ In this case, the browser can only determine the dimensions and allocate space t
 
 You will find that when the browser retrieves these images, your page content is constantly pushed down or moved from its original position as the browser resizes the images and positions them on your page. Layout shifts can be frustrating for your visitors, as elements may shift, potentially causing your page to appear visually disruptive.
 
-
 In addition, **the browser needs to do more work to recalculate the page layout**, potentially affecting the performance of your page. Avoiding large layout shifts is essential to provide your visitors with a smooth and rational experience.
 
 More importantly, **the width and height attributes are used to calculate the aspect ratio of the image before it is loaded**. It provides this information right at the beginning of the layout calculation. As soon as an image has a certain width, for example width: 100%, the aspect ratio is used to calculate the height.
@@ -461,7 +453,7 @@ Browsers such as Chrome and Firefox support native lazy-loading for images embed
 
 ### d) Content-visibility
 
-The content-visibility property could be one of the most powerful new CSS properties to improve the performance of page loading.  **content-visibility** allows the user agent to **skip the rendering work of an element**, including layout and painting, until it is needed. Since the rendering is skipped when much of your content is not on the screen, using the content visibility property makes the initial user load much faster.
+The content-visibility property could be one of the most powerful new CSS properties to improve the performance of page loading. **content-visibility** allows the user agent to **skip the rendering work of an element**, including layout and painting, until it is needed. Since the rendering is skipped when much of your content is not on the screen, using the content visibility property makes the initial user load much faster.
 
 It also allows for faster interactions with the content on the screen. Pretty neat. The main advantage for us could be that the browser doesn't bother decoding the image unless it must, and saves the CPU.
 
@@ -487,12 +479,11 @@ Browser caching instructs the visitor’s browser to **save certain files on the
 
 However, after each subsequent visit, such a visitor would download the logo file from the local cache of the website, prov ided that browser caching is enabled. Browser caching can be used for images and many other file types such as statistical resources and object data.
 
-
 You want your cache headers to look like this cache control: public, max-age = 31536000. max-age = 31536000 is the **fallback to the cache for one year**. public is important to allow your CDN to cache the image and deliver it from the edge. But only use that if it is appropriate from a privacy perspective.
 
 ### Use an image CDN
 
-Are you serving an international audience? Then you should think of a Content Delivery Network. A Content Delivery Network, or CDN, is a geographically diverse network of servers that helps speed up page loading times by 
+Are you serving an international audience? Then you should think of a Content Delivery Network. A Content Delivery Network, or CDN, is a geographically diverse network of servers that helps speed up page loading times by
 **reducing the distance between the visitor to the website and the server**.
 
 Content Delivery Networks are powerful tools for site optimization. Cloudflare is an example of a CDN that balances traffic across multiple destinations by using 155 + global data centers (where servers are housed). You can use its most basic services for free.
@@ -611,10 +602,7 @@ There are a lot of tools and programs out there, both premium and free, that you
 
 #### Image editors
 
-<Checklist
-  items={["Adobe Photoshop", "Gimp", "Paint.NET"]}
-  checked={true}
-/>
+<Checklist items={["Adobe Photoshop", "Gimp", "Paint.NET"]} checked={true} />
 
 #### Online conversion
 
@@ -643,10 +631,7 @@ There are a lot of tools and programs out there, both premium and free, that you
 
 #### GUI desktop tools
 
-<Checklist
-  items={["FileOptimizer", "ImageOptim", "Trimage"]}
-  checked={true}
-/>
+<Checklist items={["FileOptimizer", "ImageOptim", "Trimage"]} checked={true} />
 
 #### Node.JS Libraries
 

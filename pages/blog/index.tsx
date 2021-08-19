@@ -1,28 +1,29 @@
-import fs from 'fs'
-import path from 'path'
-import { InferGetStaticPropsType, NextPage } from 'next'
-import matter from 'gray-matter'
+import fs from "fs";
+import path from "path";
+import { InferGetStaticPropsType, NextPage } from "next";
+import matter from "gray-matter";
 
-import { postFilePaths, BLOG_POSTS_PATH } from '@utils/mdx'
+import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Posts from "@components/Blog/Posts";
 import Layout from "@components/Layout";
 import meta from "@lib/meta.json";
 
-const generatePosts = (folderPath: string) => postFilePaths(folderPath).map((filePath: string) => {
-  const source = fs.readFileSync(path.join(folderPath, filePath))
-  const { data } = matter(source)
+const generatePosts = (folderPath: string) =>
+  postFilePaths(folderPath).map((filePath: string) => {
+    const source = fs.readFileSync(path.join(folderPath, filePath));
+    const { data } = matter(source);
 
-  return {
-    data,
-    slug: filePath.replace('.mdx', ''),
-  }
-})
+    return {
+      data,
+      slug: filePath.replace(".mdx", ""),
+    };
+  });
 
 export const getStaticProps = async () => {
-  const articles = generatePosts(`${BLOG_POSTS_PATH}/articles`)
-  const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`)
-  const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`)
-  const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`)
+  const articles = generatePosts(`${BLOG_POSTS_PATH}/articles`);
+  const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
+  const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
+  const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
 
   return {
     props: {
@@ -31,11 +32,16 @@ export const getStaticProps = async () => {
       tutorials,
       comparisons,
     },
-  }
-}
+  };
+};
 
-type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>
-const BlogAvif: NextPage<PostsPageProps> = ({ articles, comparisons, releases, tutorials }) => {
+type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
+const BlogAvif: NextPage<PostsPageProps> = ({
+  articles,
+  comparisons,
+  releases,
+  tutorials,
+}) => {
   return (
     <Layout meta={meta.blog}>
       <main className="p-2 md:p-4 archive blog">
@@ -51,6 +57,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({ articles, comparisons, releases, t
         </div>
       </main>
     </Layout>
-)}
+  );
+};
 
-export default BlogAvif
+export default BlogAvif;

@@ -1,6 +1,7 @@
 ---
 title: AVIF vs HEIF
-description: An in-depth guide on how the brand-new file format AVIF stacks up against
+description:
+  An in-depth guide on how the brand-new file format AVIF stacks up against
   its competitor HEIF.
 url: blog/comparisons/avif-vs-heif/
 image: "/logo_draft.png"
@@ -58,12 +59,11 @@ relatedPosts:
   - avif-vs-gif
 ---
 
-
 ## Introduction
 
 The fight to replace JPEG as the main image format for web delivery is heating up. Its formats are derived from video codecs that are currently at the forefront of this battle. Introducing AVIF and HEIC: two image file formats vying it out for the web delivery crown.
 
-AVIF, developed by the Alliance for Open Media in 2019, is an open **image file format based on the AV1 video codec.** HEIC (also known as HEIF) stands for High Efficiency Image Format, and it was released by the MPEG group in 2015 and is most known for its use on iOS. The HEIC format is derived from the HEVC (High Efficiency Video Coding) codec (also known as H.265 or MPEG-H Part 2)  
+AVIF, developed by the Alliance for Open Media in 2019, is an open **image file format based on the AV1 video codec.** HEIC (also known as HEIF) stands for High Efficiency Image Format, and it was released by the MPEG group in 2015 and is most known for its use on iOS. The HEIC format is derived from the HEVC (High Efficiency Video Coding) codec (also known as H.265 or MPEG-H Part 2)
 
 Here's how the two competing image formats compare. Ultimately, we think AVIF will overtake JPEG and HEIF as the dominant image format for web delivery and more.
 
@@ -81,7 +81,7 @@ Barring support for 4:4:4, HEIC and AVIF have highly similar sets of limitations
 
 ## Compression
 
-The main advantage of using image formats derived from video codecs is their excellent compression algorithm. **  Both HEIC and AVIF perform excellently in high compressed scenarios.**  
+The main advantage of using image formats derived from video codecs is their excellent compression algorithm. ** Both HEIC and AVIF perform excellently in high compressed scenarios.**
 
 **AVIF functions well in low-fidelity situations**, where it can still retain high appeal while keeping file sizes down. High appeal images lack the compression artifacts that make a low-fidelity image look bad, like color banding and blockiness. This is one of JPEG's main disadvantages as highly compressed JPEG's lack appeal.
 
@@ -101,7 +101,7 @@ Where AVIF and HEIC can pull ahead of older formats like JPEG and PNG is with **
 
 With computer hardware trending towards CPUs with higher core and thread counts, we anticipate that multi-core encode and decode speeds will be more critical in the coming years than single-core results.
 
-**Overall, HEIC and AVIF are similarly slow with single-core speeds. Still, with excellent parallelization, multi-core machines won't see too much of a problem working with these formats.**  
+**Overall, HEIC and AVIF are similarly slow with single-core speeds. Still, with excellent parallelization, multi-core machines won't see too much of a problem working with these formats.**
 
 ## Other Features
 
@@ -109,7 +109,7 @@ With computer hardware trending towards CPUs with higher core and thread counts,
 
 Moreover, both of these codecs support alpha transparency, which is another critical advantage over the aging JPEG format. The feature set similarities continue with overlay and depth map support.
 
-**Both formats support overlays, which allow for independently encoded layers. ** This makes it easy to add crisp text and graphics layers to a highly compressed photographic background. **  Depth maps enable users to apply effects to the foreground and background.**  
+**Both formats support overlays, which allow for independently encoded layers. ** This makes it easy to add crisp text and graphics layers to a highly compressed photographic background. ** Depth maps enable users to apply effects to the foreground and background.**
 
 **Neither format supports progressive rendering**. This is a method used by formats like JPEG to accelerate page load times by displaying a low-resolution preview. At the same time, the rest of the image is being decoded. The lack of progressive rendering, paired with both AVIF and HEIC's poor decode speeds, may cause issues with underpowered machines.
 
@@ -125,15 +125,15 @@ Users of Firefox can enable AVIF support from their browser config settings. How
 
 **Mobile support for AVIF is good too.** Android Browser, Chrome for Android, and Samsung Internet all fully support the standard.
 
-**Safari and Microsoft Edge do not provide any support for AVIF as of yet.**  
+**Safari and Microsoft Edge do not provide any support for AVIF as of yet.**
 
 ## Summary
 
-HEIC and AVIF are remarkably similar formats on the spec sheet. They boast identical feature sets, supporting valuable features like **overlays, depth maps,** and **high bit depth support.**  
+HEIC and AVIF are remarkably similar formats on the spec sheet. They boast identical feature sets, supporting valuable features like **overlays, depth maps,** and **high bit depth support.**
 
 These standards are two sides of the same coin. They both come from highly efficient and advanced video codecs, and both work well with animated images and adequate compression.
 
-Aside from the slight advantage AVIF has over HEIC in file size efficacy and HEIC's slightly faster encode speed, it's **challenging to separate the two-image file formats.**  
+Aside from the slight advantage AVIF has over HEIC in file size efficacy and HEIC's slightly faster encode speed, it's **challenging to separate the two-image file formats.**
 
 That is until we consider their market adoption. AVIF's royalty-free nature grants it a huge advantage in how willing browsers are to support it. AVIF carries a lot of momentum after Chrome included full support for the format. While browsers like Safari and Firefox are yet to support it fully, Firefox is very close, and we expect Safari to follow suit eventually.
 

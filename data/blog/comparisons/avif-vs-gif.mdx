@@ -1,6 +1,7 @@
 ---
-title: 'AVIF vs GIF: The battle for the animated picture format'
-description: An in-depth guide on how the brand-new file format AVIF stacks up against
+title: "AVIF vs GIF: The battle for the animated picture format"
+description:
+  An in-depth guide on how the brand-new file format AVIF stacks up against
   GIF.
 url: blog/comparisons/avif-vs-gif/
 image: "/logo_draft.png"
@@ -85,7 +86,7 @@ GIF’s poor compression is one of the driving forces behind why GIF images tend
 
 ## Speed
 
-GIF as an animated image format is relatively slow to encode and decode. This is due to – in part - the inefficiency of its compression algorithm, LZW. This, compounded with the more significant data size inherent to GIF,  **makes this image format very slow**.
+GIF as an animated image format is relatively slow to encode and decode. This is due to – in part - the inefficiency of its compression algorithm, LZW. This, compounded with the more significant data size inherent to GIF, **makes this image format very slow**.
 
 AVIF supports parallelism. Instead of limiting the task of encoding or decode an image to one CPU core, parallelization allows multiple cores to work in parallel with each other to speed up encode and decode times. GIF is an entirely sequential codec and can only take advantage of one CPU core.
 
@@ -128,11 +129,7 @@ Since animated image files can be quite large, most platforms that host short vi
 The good news is that this is another area where significant results can be achieved with relatively little effort. You can reduce your bandwidth requirements by converting large GIFs to videos. A video must be able to reproduce the following three characteristics of animated GIFs:
 
 <Checklist
-  items={[
-    "Playing automatically",
-    "Looping continuously",
-    "Being silent",
-  ]}
+  items={["Playing automatically", "Looping continuously", "Being silent"]}
   checked={true}
 />
 

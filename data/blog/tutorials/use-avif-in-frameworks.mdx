@@ -1,52 +1,52 @@
 ---
 title: Use AVIF in Frameworks like Vue, React and Angular
-description: Serving AVIF images via JavaScript frameworks is quite easy - find out
+description:
+  Serving AVIF images via JavaScript frameworks is quite easy - find out
   more here.
 url: blog/tutorials/use-avif-in-frameworks/
 image: "/logo_draft.png"
 datePublished: 21.10.20
 dateModified: 21.10.20
 sources:
-- github.com/angular/angular-cli/releases?after=v11.0.2
-- github.com/facebook/create-react-app/pull/9611
-- image.nuxtjs.org/
-- newreleases.io/project/github/angular/angular-cli/release/v11.0.0-rc.1
-- nuxtjs.org/docs/release-notes
-- stackoverflow.com/questions/59433854/how-do-i-use-avif-images-in-react-single-page-web-app
-- webpack.js.org/loaders/file-loader
+  - github.com/angular/angular-cli/releases?after=v11.0.2
+  - github.com/facebook/create-react-app/pull/9611
+  - image.nuxtjs.org/
+  - newreleases.io/project/github/angular/angular-cli/release/v11.0.0-rc.1
+  - nuxtjs.org/docs/release-notes
+  - stackoverflow.com/questions/59433854/how-do-i-use-avif-images-in-react-single-page-web-app
+  - webpack.js.org/loaders/file-loader
 tags:
-- avif
-- image optimization
-- javascript
-- framework
-- angular
-- svelte
-- react
-- vue
-- nuxt
-- gatbsy
-- meteor
-- backbone
-- polymer
-- ember
-- javascript framework
+  - avif
+  - image optimization
+  - javascript
+  - framework
+  - angular
+  - svelte
+  - react
+  - vue
+  - nuxt
+  - gatbsy
+  - meteor
+  - backbone
+  - polymer
+  - ember
+  - javascript framework
 questions:
-- How do I use AVIF images in React Single page Web App
-- Do JS frameworks support AVIF images?
+  - How do I use AVIF images in React Single page Web App
+  - Do JS frameworks support AVIF images?
 keyword: Frameworks
 category: tutorials
 blog: true
-relatedPosts: 
+relatedPosts:
   - use-avif-in-css
   - use-avif-in-html
   - use-avif-in-nextjs
 ---
 
-
-
 ## Framework List
-  
-Now that you've learned how fantastic AVIF is, you may be asking yourself, "**How do I use AVIF images in frameworks?** Since AVIF is relatively new, the implementation must be super complicated and time-consuming!" The answer is simple:{" "} **Most Javascript front-end frameworks support AVIF natively** and rely on HTML and CSS implementation. To make sure we are not talking nonsense, we tested it with the following frameworks: 
+
+Now that you've learned how fantastic AVIF is, you may be asking yourself, "**How do I use AVIF images in frameworks?** Since AVIF is relatively new, the implementation must be super complicated and time-consuming!" The answer is simple:{" "} **Most Javascript front-end frameworks support AVIF natively** and rely on HTML and CSS implementation. To make sure we are not talking nonsense, we tested it with the following frameworks:
+
 <Checklist
   items={[
     "facebook/react",
@@ -62,7 +62,7 @@ Now that you've learned how fantastic AVIF is, you may be asking yourself, "**Ho
 
 ## Other frameworks
 
-In principle, other frameworks might work differently. We found out from our research that Meteor and Ember support AVIF files without additional configuration, but since we did not experiment with the latest version live, we list it here as "maybe works" until we were in the science lab. 
+In principle, other frameworks might work differently. We found out from our research that Meteor and Ember support AVIF files without additional configuration, but since we did not experiment with the latest version live, we list it here as "maybe works" until we were in the science lab.
 
 <Checklist
   items={[
@@ -75,8 +75,8 @@ In principle, other frameworks might work differently. We found out from our res
 />
 
 ## Example code
-  
-This is the code we used to display the image below in React and Next.JS: 
+
+This is the code we used to display the image below in React and Next.JS:
 
 <Syntax language="html">
   {`<picture>
@@ -88,22 +88,20 @@ This is the code we used to display the image below in React and Next.JS:
 <Image url="react-avif" alt="using avif in react" />
 <Image url="angular-avif" alt="using avif in angular" />
 
-
 ## Webpack File Loader
 
-In some cases, especially with older versions and when using webpack, you may encounter some problems. Especially: 
+In some cases, especially with older versions and when using webpack, you may encounter some problems. Especially:
 
 <Syntax language="html">
   Module parse failed: Unexpected character ' ' (1:0) You may need an
   appropriate loader to handle this file type, currently no loaders are
-  configured to process this fail. See
-  https://webpack.js.org/concepts#loaders
+  configured to process this fail. See https://webpack.js.org/concepts#loaders
 </Syntax>
 
-Simply add the detection for AVIF files to the fileloader in your webpack.config.js: 
+Simply add the detection for AVIF files to the fileloader in your webpack.config.js:
 
 <Syntax language="javascript">
-{`module.exports = {
+  {`module.exports = {
   module: {
     rules: [{
         test: /\.(png|jpe?g|gif|webp|avif)$/i,
@@ -114,5 +112,5 @@ Simply add the detection for AVIF files to the fileloader in your webpack.config
 </Syntax>
 
 ## Automatic conversion
-  
+
 We could not find a plugin that converts the image to other sizes and formats such as AVIF to match the device of the client. Node.JS library Sharp implemented AVIF support, which might be a good choice for you. Have you ever encountered such a plugin? Have you had any good or bad experiences with it? Please let us know so we can complete this article.
