@@ -13,17 +13,23 @@ import MDXComponents from '@components/MDXComponents'
 import Blog from '@components/Blog';
 import ContentTable from '@components/Blog/ContentTable'
 
-import meta from '@lib/meta.json';
-
-
-
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const filePath = path.join(`${BLOG_POSTS_PATH}/comparisons`, `${ctx.params?.slug}.mdx`)
-  const source = fs.readFileSync(filePath)
 
+  const source = fs.readFileSync(filePath)
+  
   const { data, content } = matter(source)
   const headings = await getHeadings(content)
+  
+  const relatedPosts = data.relatedPosts.map((post: string) => {
+    const file = path.join(`${BLOG_POSTS_PATH}/comparisons`, `${post}.mdx`)
+    const sourceFile = fs.readFileSync(file)
+    const {data} = matter(sourceFile)
 
+    return {
+      ...data,
+    }
+  })
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
@@ -44,6 +50,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       },
       source: mdxSource,
       headings,
+      relatedPosts,
     },
   }
 }
@@ -60,12 +67,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type PostDetailPageProps = InferGetStaticPropsType<typeof getStaticProps>
-const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source, headings }) => {
+const PostDetail: NextPage<PostDetailPageProps> = ({ frontMatter, source, headings, relatedPosts }) => {
+  
   return (
     <>
       <Blog
         postMeta={{ ...frontMatter }}
-        posts={frontMatter.relatedPosts.map((post: string) => (meta as any)[post]) || []}
+        posts={relatedPosts}
       >
         <ContentTable contentTable={headings} />
         <MDXRemote {...source} components={MDXComponents} />
