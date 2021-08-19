@@ -3,8 +3,6 @@ import Link from "next/link";
 export default function BlogPosts(props: any) {
   const posts = props.posts;
 
-  console.log(posts)
-
   const listItems = posts.map(({data, slug, keyword, description, category}: any, index: any) => (
     <Link href={`/blog/${props.title || category}/${slug}`} key={index}>
       <a

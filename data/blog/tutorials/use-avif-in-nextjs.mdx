@@ -39,13 +39,10 @@ keyword: NextJS
 category: tutorials
 blog: true
 relatedPosts: 
-  - tutCss, 
-  - tutFrameworks, 
+  - tutCss
+  - tutFrameworks
   - tutHtml
 ---
-
-
-
 
 ## Introduction
 
@@ -53,7 +50,7 @@ NextJS images is easy! The blog you're reading uses both the latest version of R
 **You simply need to include the AVIF files in your project and insert them via the usual methods using HTML or CSS** . No configuration is required, but you must make sure that next.config.js includes the following:
 
 <Syntax language="javascript">
-  {`const images = require("next-images");
+{`const images = require("next-images");
 module.exports = withImages()`}
 </Syntax>
 Next.JS will handle all the hard work behind the scenes for you. The team behind Next. JS has been working to improve image processing since version 10\. They now offer both an integrated image component and a service for automatic image optimization. They describe their image component as **an extension of the HTML img element designed for the modern web.**  
