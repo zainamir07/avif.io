@@ -38,23 +38,22 @@ questions:
 keyword: CSS
 category: tutorials
 blog: true
-relatedPosts: 
-  - use-avif-in-framework
+relatedPosts:
+  - use-avif-in-frameworks
   - use-avif-in-html
   - use-avif-in-windows
 ---
 
-
 ## Introduction
-  
+
 Using AVIF images via HTML is very easy as you can read <Link text="in this tutorial." link="/blog/tutorials/use-avif-in-html/" />
-Furthermore, it is easy because **HTML provides a media-type hint** that helps the browser deliver the best version of your image. Unfortunately, CSS does not have such an option. However, with a simple Javascript function, we can easily support WebP and AVIF. We have created a detection script that manipulates the HTML element of your page by writing classes. 
+Furthermore, it is easy because **HTML provides a media-type hint** that helps the browser deliver the best version of your image. Unfortunately, CSS does not have such an option. However, with a simple Javascript function, we can easily support WebP and AVIF. We have created a detection script that manipulates the HTML element of your page by writing classes.
 
 ## How CSS works
 
 We must remember that in CSS, the first rule does not win, but **the last rule wins**. We have created a script that checks AVIF and WebP support by loading an AVIF-encoded 1x1 pixel image. If the browser successfully loads the AVIF image, the HTML element receives an "avif" class.  
 If the browser does not load the AVIF image, the script will further check the browser's support for WebP using the method described above. If your browser successfully loads the image, the HTML element gets a "webp" class. Of course, this function is optional, and you can remove it according to your preferences.  
-If it is very unlikely that your browser will not pass this test, the HTML element will not get any class at all. 
+If it is very unlikely that your browser will not pass this test, the HTML element will not get any class at all.
 
 <Syntax language="html">
 {`<html></html> <!-- no class at all, you have to use jpg (oh god)-->
@@ -63,11 +62,11 @@ If it is very unlikely that your browser will not pass this test, the HTML eleme
 </Syntax>
 
 ## AVIF support detection script
-  
+
 To avoid visible image changes when adding the avif/webp class to your DOM, add the following content as an inline script in your header above any CSS content. The minified version of this script is a tiny 600-byte-piece and takes 5ms to load, which is perfectly fine for the benefit it provides.
 
 <Syntax language="javascript">
-{`function AddClass(class) { document.documentElement.classList.add(class) };
+  {`function AddClass(class) { document.documentElement.classList.add(class) };
 var avif = new Image();
 avif.src = "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
 avif.onload = function () { AddClass("avif") };
@@ -85,11 +84,11 @@ Minified version (600 Bytes):
 </Syntax>
 
 ## Code Snippet
-  
-Once implemented, we can simply use the following CSS due to the high-level classes and cascading. 
+
+Once implemented, we can simply use the following CSS due to the high-level classes and cascading.
 
 <Syntax language="css">
-{`/* Simple approach */
+  {`/* Simple approach */
 .img { background-image: url('avif-in-css.jpg') }
 .webp .img { background-image: url('avif-in-css.webp') }
 .avif .img { background-image: url('avif-in-css.avif') }
@@ -104,19 +103,22 @@ Once implemented, we can simply use the following CSS due to the high-level clas
 }`}
 </Syntax>
 
-Using this script leads to the following screenshots. Back in the day, Firefox Quantum did not support WebP or AVIF, so there is no class. Chrome currently supports AVIF, so AVIF is displayed. Edge does not support AVIF and supports WebP, so our site has a webp class.    
+Using this script leads to the following screenshots. Back in the day, Firefox Quantum did not support WebP or AVIF, so there is no class. Chrome currently supports AVIF, so AVIF is displayed. Edge does not support AVIF and supports WebP, so our site has a webp class.
 
 <Image url="css-firefox" alt="firefox quantum without any class" />
 <Image url="css-chrome" alt="our website on chrome gets an avif class" />
-<Image url="css-edge" alt="microsoft edge with a webp class in the html element" />
+<Image
+  url="css-edge"
+  alt="microsoft edge with a webp class in the html element"
+/>
 
 ## SCSS background mixin
-  
+
 Earlier this week, <Link link="raoulkramer.de/avif-and-webp-images-as-css-background-images/" text="Raoul Kramer" ext="" />
- posted an absolutely amazing SCSS background mixin that can be used to support AVIF and WebP. 
+posted an absolutely amazing SCSS background mixin that can be used to support AVIF and WebP.
 
 <Syntax language="scss">
-{`@mixin bg-url($url, $url2x: false, $webp1x: false, $webp2x: false, $avif1x: false, $avif2x: false) {
+  {`@mixin bg-url($url, $url2x: false, $webp1x: false, $webp2x: false, $avif1x: false, $avif2x: false) {
   background-image: url($url);
   @if $webp1x { .webp & { background-image: url($webp1x) }}
   @if $avif1x { .avif & { background-image: url($avif1x) }}
@@ -134,13 +136,13 @@ Earlier this week, <Link link="raoulkramer.de/avif-and-webp-images-as-css-backgr
 </Syntax>
 
 ## Future implementation
-  
-The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property allows us to specify different image formats. **The browser renders the first image format supported by the browser.**   
+
+The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property allows us to specify different image formats. **The browser renders the first image format supported by the browser.**  
 The following example shows how the type() can be used to deliver multiple images in high-quality formats and older formats that are more widely used. Note that the AVIF is shown first, as both images have the same resolution. JPEG, which comes second, is automatically deleted in user agents that support AVIF images.  
-Older user agents, however, ignore AVIF images because they know they do not support image / avif files, and instead select JPEG images. 
+Older user agents, however, ignore AVIF images because they know they do not support image / avif files, and instead select JPEG images.
 
 <Syntax language="css">
-{`background-image:
+  {`background-image:
   image-set(
     "zebra.avif" type("image/avif"),
     "zebra.webp" type("image/webp"),
@@ -148,9 +150,9 @@ Older user agents, however, ignore AVIF images because they know they do not sup
   );`}
 </Syntax>
 
-Currently, 90% of browsers support image-set , but do not yet support type declaration. This is a brand-new feature for CSS4\. Until browsers support this feature, we must use JavaScript to detect AVIF and WebP support. 
+Currently, 90% of browsers support image-set , but do not yet support type declaration. This is a brand-new feature for CSS4\. Until browsers support this feature, we must use JavaScript to detect AVIF and WebP support.
 
 ## Generating AVIF images
-  
+
 Creating AVIF files with <Link text="avif.io" link="/" />
 is child's play. Simply drag the files into the converter and it will do the rest. You will get the best results in the shortest time.

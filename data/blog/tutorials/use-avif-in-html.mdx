@@ -1,64 +1,64 @@
 ---
 title: How to get started with AVIF using HTML
-description: Enjoy this in-depth guide on how to use AVIF in HTML. Featuring examples
+description:
+  Enjoy this in-depth guide on how to use AVIF in HTML. Featuring examples
   with modern delivery standards.
 url: blog/tutorials/use-avif-in-html/
 image: "/logo_draft.png"
 datePublished: 04.11.20
 dateModified: 04.11.20
 sources:
-- aomedia.org/about
-- aomedia.org/av1-features/get-started
-- caniuse.com/picture
-- caniuse.com/avif
-- caniuse.com/loading-lazy-attr
-- caniuse.com/webp
-- css-tricks.com/avif-has-landed
-- developer.apple.com/documentation/safari-release-notes/safari-14-release-notes
-- industrialempathy.com/posts/image-optimizations/
-- tollwerk.de/blog/schlanke-responsive-bilder-mit-picture-mozjpeg-webp-avif-sqip
-- mediaevent.de/bilddatenformate-jpg-avif-png-webp
+  - aomedia.org/about
+  - aomedia.org/av1-features/get-started
+  - caniuse.com/picture
+  - caniuse.com/avif
+  - caniuse.com/loading-lazy-attr
+  - caniuse.com/webp
+  - css-tricks.com/avif-has-landed
+  - developer.apple.com/documentation/safari-release-notes/safari-14-release-notes
+  - industrialempathy.com/posts/image-optimizations/
+  - tollwerk.de/blog/schlanke-responsive-bilder-mit-picture-mozjpeg-webp-avif-sqip
+  - mediaevent.de/bilddatenformate-jpg-avif-png-webp
 tags:
-- files
-- image avif
-- img src
-- image format
-- avif support
-- image webp
-- sizes
-- firefox
-- avif images
-- webp image
-- file size
-- avif files
-- file format
-- image file
-- picture
+  - files
+  - image avif
+  - img src
+  - image format
+  - avif support
+  - image webp
+  - sizes
+  - firefox
+  - avif images
+  - webp image
+  - file size
+  - avif files
+  - file format
+  - image file
+  - picture
 questions:
-- AVIF Image Format – The Next-Gen Compression Codec
-- 'Future Of AVIF: Browser Compatibility for Chrome and Firefox'
-- A More Optimal Image Format for websites
-- A way to leverage new image formats in HTML
-- How to Use AVIF, The New Next-Gen Image Compression Format in HTML
-- Is your browser capable of displaying AVIF images?
+  - AVIF Image Format – The Next-Gen Compression Codec
+  - "Future Of AVIF: Browser Compatibility for Chrome and Firefox"
+  - A More Optimal Image Format for websites
+  - A way to leverage new image formats in HTML
+  - How to Use AVIF, The New Next-Gen Image Compression Format in HTML
+  - Is your browser capable of displaying AVIF images?
 keyword: HTML
 category: tutorials
 blog: true
-relatedPosts: 
+relatedPosts:
   - use-avif-in-css
   - use-avif-in-firefox
-  - use-avif-in-framework
+  - use-avif-in-frameworks
 ---
-
 
 ## Introduction
 
-AVIF is a file format based on a video codec and supports a high bit depth while maintaining a small file size. You can find many articles about how fantastic AVIF is right here, as well as anywhere else on the web. You clicked on this article because you want to learn how to use AVIF in HTML, so let's take a look at the topic. 
+AVIF is a file format based on a video codec and supports a high bit depth while maintaining a small file size. You can find many articles about how fantastic AVIF is right here, as well as anywhere else on the web. You clicked on this article because you want to learn how to use AVIF in HTML, so let's take a look at the topic.
 
 ## Browser Support
 
 The most important thing to keep in mind when using AVIF is that it is unfortunately not yet supported everywhere. That's a pity, isn't it? It took WebP (another excellent image format, but not good enough to keep up with AVIF) ten years to be fully supported as Apple wasn't ready to implement the format in Safari. But there is still only 90% support.  
-At the time of writing, **AVIF has 64% support on browsers**. Google Chrome and Opera support it. Firefox will support it from June 2021\. Safari doesn't yet have AVIF support. However, AVIF is an invention of the non-profit industry consortium Alliance of Open Media AOM. Major browser giants Apple, Mozilla and Google are all part of the project, so **support can be expected relatively quickly.** 
+At the time of writing, **AVIF has 64% support on browsers**. Google Chrome and Opera support it. Firefox will support it from June 2021\. Safari doesn't yet have AVIF support. However, AVIF is an invention of the non-profit industry consortium Alliance of Open Media AOM. Major browser giants Apple, Mozilla and Google are all part of the project, so **support can be expected relatively quickly.**
 
 ## The picture element
 
@@ -76,9 +76,10 @@ For now, you can still use the format in its almost complete glory with the nati
 
 ## Implementation
 
-Currently **96% of browsers support the picture element**. Even if your grandma visits your website with her disgusting Internet Explorer 6, her browser will simply revert to the default image format when you specify it. Have a look at the following example and copy it if you want to use it for your website: 
+Currently **96% of browsers support the picture element**. Even if your grandma visits your website with her disgusting Internet Explorer 6, her browser will simply revert to the default image format when you specify it. Have a look at the following example and copy it if you want to use it for your website:
+
 <Syntax language="html">
-{`<picture>
+  {`<picture>
   <source srcSet="image.avif" type="image/avif" />
   <source srcSet="image.webp" type="image/webp" />
   <img
@@ -89,14 +90,14 @@ Currently **96% of browsers support the picture element**. Even if your grandma 
 
 ##### PS: The lazy loading attribute is supported by 75% of all browsers, make use of it! Also, don't forget to add width and height to avoid a Layout Shift. Providing width and height is more important than ever.
 
-This is a nice set up for all visitors. Just make sure ** the first source tag is an AVIF image** for the browser to display the first media type it can handle. 
+This is a nice set up for all visitors. Just make sure ** the first source tag is an AVIF image** for the browser to display the first media type it can handle.
 
 ## Responsiveness
 
 At this point, it seems great, doesn't it? Well, no, not yet, because our platform still lacks support for different types of devices. It's a little more difficult to create an optimal experience for Retina displays. We also want to make sure that mobile devices don't download images that are much larger than their screen.
 
 <Syntax language="html">
-{`<picture>
+  {`<picture>
 <source
 sizes="(max-width: 640px) 100vw, 640px"
 srcSet="/image-1280.avif 1280w, /image-640.avif 640w, /image-320.avif 320w"
