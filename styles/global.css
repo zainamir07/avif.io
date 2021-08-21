@@ -93,9 +93,13 @@
   html {
     @apply box-border overflow-x-hidden text-white font-normal cursor-default;
     font-family: "Poppins", "fallback-font";
-    -webkit-font-smoothing: antialiased; /* font antialias */
-    -moz-osx-font-smoothing: grayscale; /* font antialias */
     scroll-padding: 150px;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   img {
@@ -193,6 +197,17 @@
 
   article a {
     @apply text-red-700 underline cursor-pointer;
+  }
+
+  article p {
+    @apply mb-3;
+  }
+
+  article p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  article p strong {
+    color: #fff;
   }
 }
 
