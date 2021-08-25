@@ -66,6 +66,12 @@ module.exports = {
       "24": "25rem",
       "48": "50rem",
     },
+    backgroundSize: {
+      auto: "auto",
+      cover: "cover",
+      contain: "contain",
+      200: "200% 200%",
+    },
     borderRadius: {
       none: "0",
       md: "0.5rem",

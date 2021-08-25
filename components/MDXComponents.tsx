@@ -3,7 +3,6 @@ import Link from "@components/Link";
 import Heading from "@components/Blog/H";
 import Checklist from "@components/Blog/Checklist";
 import Image from "@components/Blog/Image";
-import ContentTable from "@components/Blog/ContentTable";
 import Syntax from "@components/Blog/Syntax";
 
 interface ChildrenProps {

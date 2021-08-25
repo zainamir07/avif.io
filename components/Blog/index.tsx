@@ -27,9 +27,13 @@ export default function Blog(props: {
     <Layout meta={props.postMeta}>
       <main className={`blog ${props.className}`}>
         <div
-          className="py-12 px-4 md:p-10 lg:p-12 bg-gradient animation-delay-2"
+          className="relative py-12 px-4 md:p-10 lg:p-12 bg-gradient animation-delay-2"
           transition-style="in:circle:center"
         >
+          <div
+            className="absolute right-0 left-0 top-1 bottom-1 w-full h-full rounded-md opacity-25 transform scale-105 -z-1 bg-gradient blur-xl bg-200"
+            transition-style="gradientAnimation"
+          />
           <div className="container max-w-screen-md">
             <Breadcrumbs postMeta={props.postMeta} />
             <h1
@@ -43,13 +47,7 @@ export default function Blog(props: {
                 transition-style="in:wipe:right"
                 className="animation-delay-7"
               >
-                {props.postMeta.dateModified}
-              </span>{" "}
-              <span
-                transition-style="in:wipe:right"
-                className="animation-delay-8"
-              >
-                · {readingTime} min read
+                {readingTime} min reading time
               </span>
             </div>
           </div>
