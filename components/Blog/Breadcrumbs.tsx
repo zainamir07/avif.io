@@ -38,7 +38,7 @@ export default function Breadcrumbs(props: any) {
           {urlSplit[2] ? (
             <div className="inline">
               <Link
-                link={`/${urlSplit[0]}#${urlSplit[1]}`}
+                link={`/${urlSplit[0]}/#${urlSplit[1]}`}
                 text={`#${urlSplit[1]}`}
               />
             </div>
