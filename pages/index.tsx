@@ -484,8 +484,8 @@ export default function App(): ReactElement {
         <b>There is no other codec that seems as promising as AVIF</b>. With its
         widespread support, current feature rate, royalty-free usage and highest
         compression rate achieved, we are only a few steps away from creating a
-        truly modern web. avif.io helps strengthening the support of AVIF by
-        providing information, news, ressources and an image converter.
+        truly modern web. avif.io helps to strengthen the support of AVIF by
+        providing information, news, resources and an image converter.
       </div>
     </Layout>
   );
