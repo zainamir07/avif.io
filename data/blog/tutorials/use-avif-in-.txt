@@ -1,0 +1,29 @@
+---
+description:
+title:
+url: blog/tutorials/use-avif-in-/
+image: "/logo_draft.png"
+datePublished:
+dateModified:
+support:
+sources:
+  -
+tags:
+  -
+questions:
+  -
+keyword:
+category: tutorials
+subcategory:
+
+relatedPosts:
+  -
+---
+
+## What is AVIF
+
+## What is Paint.NET
+
+## Paint.NET supports AVIF
+
+## How to open AVIF files
