@@ -264,13 +264,7 @@ Another way to bypass the restriction is to upload your files via FTP. Connect t
 
 There's a considerable disadvantage when modifying the functions.php. It's theme-related. Whenever you switch a theme or update your current one, the shortcode snippet will be gone. Multiple plugin solutions exist for this issue:
 
-<Checklist
-  items={[
-"WP Add Mime Types"
-"Lord of the Files"
-  ]}
-  checked={true}
-/>
+<Checklist items={["WP Add Mime Types", "Lord of the Files"]} checked={true} />
 
 To quote: WordPress relies primarily on name-based validation when deciding whether or not to allow a particular file, leaving the door open for various kinds of attacks. Lord of the Files (previously known as "blob mimes") adds to this content-based validation and sanitizing, ensuring that files are what they say they are and safe for inclusion on your site.
 
