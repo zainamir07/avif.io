@@ -73,7 +73,7 @@ export default function Footer() {
                 ext
               />
               <FooterLink
-                text="Join Discord"
+                text="Discord"
                 link="https://discord.com/invite/6w42YpF5hm"
                 ext
               />

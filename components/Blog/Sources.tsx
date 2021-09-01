@@ -8,17 +8,11 @@ export default function Sources(props: SourcesProps) {
   let sources = props.sources.map((original) => {
     original = original.replace(/^https?:\/\//, "");
     let short = original.replace(/\/$/, "");
-    if (short.length >= 40) {
-      const split = short.split(/[/]/);
-      if (split.length > 1) {
-        const a = split[0];
-        const c = a.replace(/^www./, "");
-        const b = short.slice(-20);
-        short = `${c} (..) ${b}`;
-      }
-    }
+    const split = short.split(/[/]/);
+    const a = split[0];
+    const c = a.replace(/^www./, "");
+    short = `${c}`;
     original = `https://${original}`;
-    short = short.replace(/\//g, " · ");
     return { original, short };
   });
   sources = _.sortBy(sources, (s) => s.short);
