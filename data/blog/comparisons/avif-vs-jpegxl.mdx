@@ -71,7 +71,7 @@ Released in 2021 by the Joint Photographic Experts Group (the same organization 
 As an image format based on a video frame, the resolution limit makes perfect sense. Still, it can be limiting for non-web delivery applications like print. **AVIF has a maximum resolution of 65536 x 65536 pixels.**  
 It is possible to push past this limit through tiling. Independently encoded tiles can then be placed on a grid to create a theoretical maximum resolution of 2,147,483,647 x 2,147,483,647 pixels or 2500 megapixels. However, when using this method, you come out with artifacts at the edges of each encoded tile, making AVIF overall unsuitable for ultra-high resolution images.  
 **On the other hand, JPEG XL has a maximum dimension of 1,152,921,502,459 megapixels or over 1 billion pixels on each side of an image.** It's safe to say you'll never be limited by the max dimensions of a JPEG XL image.  
-**AVIF has a max color depth of 12 bits with a max number of channels of three** . AVIF also supports a **high dynamic range (HDR) and includes support for wide color gamuts** .  
+**AVIF has a max color depth of 12 bits with a max number of channels of three**. AVIF also supports a **high dynamic range (HDR) and includes support for wide color gamuts**.  
 **JPEG XL's max bit depth can push up to 24-bit integer or true color,** or 32-bit floats. Although, in reality, for image delivery, 12-bit color precision is usually good enough, and you're unlikely to make use of the very high bit depth support of JPEG XL.
 
 ## Compression
@@ -109,7 +109,7 @@ The situation does look brighter for AVIF. **Google Chrome has fully supported A
 ## Summary for Nerds
 
 In practice, AVIF and JPEG XL have a lot in common. They are both eying to be a long-term replacement for the legacy JPEG standard, and it is up to market adoption to see who will win out on top.  
-**JPEG XL is the overall faster and more feature-rich image format** . For lossless compression, it is unmatched even by the old lossless king PNG. Although AVIF does support lossless encoding, it is nowhere near as efficient.  
+**JPEG XL is the overall faster and more feature-rich image format**. For lossless compression, it is unmatched even by the old lossless king PNG. Although AVIF does support lossless encoding, it is nowhere near as efficient.  
 **AVIF edges out JPEG XL is low-fidelity high-appeal photos** , benefiting from a tremendous lossy compression method. This does give it an edge in web delivery.  
 The two standards have a similar set of niche features. Both support overlays, depth maths, both support 4:4:4 and high-bit rate images. As mentioned before, although JPEG XL can reach up to 24-bit true color, for photo delivery, 12-bit is precise enough for most people.
 
@@ -136,7 +136,7 @@ or to experiment with the formats yourself, on sites like
 ## Summary for Marketeers
 
 For most people, **images encoded in AVIF and images encoded in JPEG XL will be very similar.** Yes, JPEG XL is faster, but most users won't notice this difference. Both do incredibly well with maintaining appeal when highly compressed so that web pictures will look great, especially compared to the old legacy JPEG standard.  
-**The main difference between these two standards is their market adoption** . If you are looking for a format that is intended for your users right now, opt for AVIF.
+**The main difference between these two standards is their market adoption**. If you are looking for a format that is intended for your users right now, opt for AVIF.
 
 ## Conclusion
 
