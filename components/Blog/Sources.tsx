@@ -12,8 +12,9 @@ export default function Sources(props: SourcesProps) {
       const split = short.split(/[/]/);
       if (split.length > 1) {
         const a = split[0];
+        const c = a.replace(/^www./, "");
         const b = short.slice(-20);
-        short = `${a} (..) ${b}`;
+        short = `${c} (..) ${b}`;
       }
     }
     original = `https://${original}`;
