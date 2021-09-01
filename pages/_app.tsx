@@ -10,12 +10,12 @@ export default function AvifIo({ Component, pageProps }: any) {
       {/*<Script src="/hotjar.js" /> Disabled for now*/}
       <Script
         strategy="beforeInteractive"
-        src="/__/firebase/8.7.1/firebase-app.js"
+        src="/__/firebase/8.10.0/firebase-app.js"
       />
       <Script strategy="beforeInteractive" src="/__/firebase/init.js" />
       <Script
         strategy="beforeInteractive"
-        src="/__/firebase/8.7.1/firebase-analytics.js"
+        src="/__/firebase/8.10.0/firebase-analytics.js"
       />
       <Script>firebase.analytics()</Script>
       <Script
