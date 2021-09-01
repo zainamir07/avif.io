@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import tw from "@assets/twitter.svg";
 import rd from "@assets/reddit.svg";
 import fb from "@assets/facebook.svg";

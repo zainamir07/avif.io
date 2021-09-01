@@ -9,7 +9,6 @@ import { uniqueId } from "@utils/utils";
 import Link from "next/link";
 import { ReactElement, useEffect, useState } from "react";
 import ReactCompareImage from "react-compare-image";
-import meta from "@lib/meta.json";
 
 import visualizer1 from "@assets/visualizer-1.svg";
 import visualizer2 from "@assets/visualizer-2.svg";
@@ -159,6 +158,18 @@ export default function App(): ReactElement {
     convertedFiles.push(file);
     setConvertedFiles([...convertedFiles]);
   }
+
+  const meta = {
+    index: {
+      title: "AVIF Converter - unlimited free conversions",
+      description:
+        "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
+      url: "",
+      image: "/logo_draft.png",
+      datePublished: "01.09.20",
+      dateModified: "30.05.21",
+    },
+  };
 
   return (
     <Layout meta={meta.index}>

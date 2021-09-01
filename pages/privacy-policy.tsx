@@ -1,8 +1,18 @@
 import ContentTable, { ContentTableEntry } from "@components/Blog/ContentTable";
 import H from "@components/Blog/H";
-import meta from "@lib/meta.json";
 import Blog from "@components/Blog";
 import { useState } from "react";
+
+const meta = {
+  privacyPolicy: {
+    title: "Privacy Policy",
+    description: "Learn how we utilize your data to optimize our service.",
+    url: "privacy-policy/",
+    image: "/logo_draft.png",
+    datePublished: "01.09.20",
+    dateModified: "10.01.21",
+  },
+};
 
 export default function BlogPost() {
   const [contentTable, setContentTable] = useState<ContentTableEntry[]>([]);

@@ -6,7 +6,18 @@ import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Posts from "@components/Blog/Posts";
 import Layout from "@components/Layout";
-import meta from "@lib/meta.json";
+
+const meta = {
+  blog: {
+    title: "Articles about AVIF",
+    description:
+      "Read a lot of articles related to AVIF and images on the web.",
+    url: "blog/",
+    image: "/logo_draft.png",
+    datePublished: "01.09.20",
+    dateModified: "10.01.21",
+  },
+};
 
 const generatePosts = (folderPath: string) =>
   postFilePaths(folderPath).map((filePath: string) => {
