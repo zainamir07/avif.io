@@ -25,23 +25,39 @@ export const getStaticProps = async () => {
   const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
   const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
 
+  const listPostsByFolder = {
+    articles,
+    comparisons,
+    releases,
+    tutorials,
+  }
+
+  const defaultFilteredPost = [
+    ...articles,
+    ...comparisons,
+    ...releases,
+    ...tutorials,
+  ]
+
+  const listSubCategories = [...new Set(defaultFilteredPost.map(post => post.data.subcategory))].filter(Boolean)
+  const listCategories = [...new Set(defaultFilteredPost.map(post => post.data.category))].filter(Boolean)
+
   return {
     props: {
-      articles,
-      releases,
-      tutorials,
-      comparisons,
+      defaultFilteredPost,
+      listSubCategories,
+      listCategories,
+      posts: listPostsByFolder as any,
     },
   };
 };
 
 type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const BlogAvif: NextPage<PostsPageProps> = ({
-  articles,
-  comparisons,
-  releases,
-  tutorials,
+  defaultFilteredPost,
+  posts,
 }) => {
+
   return (
     <Layout meta={meta.blog}>
       <main className="p-2 md:p-4 archive blog">
@@ -50,10 +66,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           <h2 className="text-base">{meta.blog.description}</h2>
         </div>
         <div className="container max-w-screen-lg">
-          <Posts posts={articles} title="articles" />
-          <Posts posts={tutorials} title="tutorials" />
-          <Posts posts={comparisons} title="comparisons" />
-          <Posts posts={releases} title="releases" />
+          {Object.keys(posts).map((key) =>
+            <Posts key={key} title={key} posts={posts[key]} />
+          )}
         </div>
       </main>
     </Layout>
