@@ -69,7 +69,7 @@ export default function Footer() {
             <nav className="list-none">
               <FooterLink
                 text="ProductHunt"
-                link="https://producthunt.com/posts/avif-io-avif-image-converter"
+                link="https://www.producthunt.com/posts/avif-io-avif-image-converter"
                 ext
               />
               <FooterLink
