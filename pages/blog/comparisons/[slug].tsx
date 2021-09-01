@@ -12,6 +12,8 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import readingTime from "reading-time";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
 
 import { postFilePaths, BLOG_POSTS_PATH, getHeadings } from "@utils/mdx";
 
@@ -45,8 +47,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [
-        require("remark-autolink-headings"),
-        require("remark-slug"),
+        remarkAutolinkHeadings,
+        remarkSlug,
         require("remark-code-titles"),
       ],
     },

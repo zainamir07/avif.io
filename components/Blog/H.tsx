@@ -21,7 +21,7 @@ export default function H(props: HProps) {
 
   function copyToClipboard(e: any) {
     navigator.clipboard.writeText(
-      `https://avif.io${router.pathname}/#${trimmedText}`
+      `https://avif.io${router.asPath}#${trimmedText}`
     );
     e.target.focus();
   }

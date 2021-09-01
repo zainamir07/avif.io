@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
 
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const BLOG_POSTS_PATH = path.join(process.cwd(), "data/blog");
@@ -25,8 +27,8 @@ export const getDataByFilename = async (filename: string) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [
-        require("remark-autolink-headings"),
-        require("remark-slug"),
+        remarkAutolinkHeadings,
+        remarkSlug,
         require("remark-code-titles"),
       ],
     },
