@@ -25,8 +25,7 @@ export default function Blog() {
     navigator.share({ url: url });
   }
 
-  const router = useRouter();
-  const url = "https://avif.io" + router.pathname;
+  const url = "https://avif.io";
   return (
     <div className="flex fixed right-4 bottom-4 z-50 justify-items-center content-center p-2 rounded-lg bg-bg-500">
       <ShareButton
