@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const Post = ({ slug, category, url, keyword, description }: any) => {
   return (
-    <Link href={slug ? `/blog/${category}s/${slug}/` : `/` + url}>
+    <Link href={slug ? `/blog/${category}/${slug}/` : `/` + url}>
       <a
-        href={slug ? `/blog/${category}s/${slug}/` : `/` + url}
+        href={slug ? `/blog/${category}/${slug}/` : `/` + url}
         tabIndex={0}
         className="p-2 cursor-pointer group"
       >

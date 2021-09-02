@@ -3,7 +3,6 @@ import path from "path";
 import * as React from "react";
 import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
-import clsx from "clsx";
 
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Posts from "@components/Blog/Posts";
@@ -114,20 +113,20 @@ const BlogAvif: NextPage<PostsPageProps> = ({
       <main className="p-2 md:p-4 archive blog">
         <div className="mt-12 text-center">
           <h1>{meta.blog.title}</h1>
-          <h2 className="text-base">{meta.blog.description}</h2>
+          <h2 className="mb-8 text-base">{meta.blog.description}</h2>
         </div>
         <div className="container max-w-screen-lg">
-          <div className="relative mt-1 mb-2 rounded-md shadow-sm">
+          <div className="relative mt-1 mb-3 rounded-md">
             <input
               type="text"
-              placeholder="Search Articles"
-              className="block py-1 px-3 pr-10 w-full text-gray-800 rounded-md outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-4 focus:ring-offset-bg-700"
+              placeholder="Search articles"
+              className="block py-3 px-3 pr-10 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
               onChange={handleFilterByKeyword}
             />
-            <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none">
+            <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none group">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-gray-800"
+                className="w-4 h-4 text-gray-600"
                 aria-hidden="true"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -145,16 +144,16 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={clsx(
-                  "inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-full text-sm font-medium cursor-pointer bg-red-100 text-red-800",
-                  selectedCategoryPill === category &&
-                    "bg-indigo-600 border-transparent text-white hover:bg-indigo-700"
-                )}
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm cursor-pointer ${
+                  selectedCategoryPill === category
+                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                    : "bg-bg-500 text-gray-300"
+                }`}
               >
                 {selectedCategoryPill === category && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="mr-2 -ml-1 w-3 h-3"
+                    className="mr-1 -ml-1 w-3 h-3"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -171,7 +170,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           </div>
 
           {filterKeyword.length > 0 || filteredPost.length ? (
-            <div className="grid grid-cols-1 gap-4 m-2 md:grid-cols-2 md:m-3 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredPost.map((post: any) => (
                 <Post key={post.slug} {...post.data} slug={post.slug} />
               ))}
