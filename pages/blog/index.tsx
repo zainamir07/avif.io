@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
+import * as React from "react";
 import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
 
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Posts from "@components/Blog/Posts";
+import Post from "@components/Blog/Post";
 import Layout from "@components/Layout";
 import meta from "@lib/meta.json";
 
@@ -30,17 +32,21 @@ export const getStaticProps = async () => {
     comparisons,
     releases,
     tutorials,
-  }
+  };
 
   const defaultFilteredPost = [
     ...articles,
     ...comparisons,
     ...releases,
     ...tutorials,
-  ]
+  ];
 
-  const listSubCategories = [...new Set(defaultFilteredPost.map(post => post.data.subcategory))].filter(Boolean)
-  const listCategories = [...new Set(defaultFilteredPost.map(post => post.data.category))].filter(Boolean)
+  const listSubCategories = [
+    ...new Set(defaultFilteredPost.map((post) => post.data.subcategory)),
+  ].filter(Boolean);
+  const listCategories = [
+    ...new Set(defaultFilteredPost.map((post) => post.data.category)),
+  ].filter(Boolean);
 
   return {
     props: {
@@ -53,10 +59,20 @@ export const getStaticProps = async () => {
 };
 
 type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
-const BlogAvif: NextPage<PostsPageProps> = ({
-  defaultFilteredPost,
-  posts,
-}) => {
+const BlogAvif: NextPage<PostsPageProps> = ({ defaultFilteredPost, posts }) => {
+  const [filteredPost, setFilteredPost] = React.useState([]);
+  const [filterKeyword, setFilterKeyword] = React.useState("");
+
+  const handleFilterByKeyword = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const keyword = event.target.value;
+    const filtered = defaultFilteredPost.filter((post) =>
+      post.data.title.toLowerCase().includes(keyword.toLowerCase())
+    );
+    setFilterKeyword(keyword);
+    setFilteredPost(filtered as any);
+  };
 
   return (
     <Layout meta={meta.blog}>
@@ -65,9 +81,24 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           <h1>{meta.blog.title}</h1>
           <h2 className="text-base">{meta.blog.description}</h2>
         </div>
+        <div>
+          <input
+            type="text"
+            placeholder="search"
+            onChange={handleFilterByKeyword}
+          />
+        </div>
         <div className="container max-w-screen-lg">
-          {Object.keys(posts).map((key) =>
-            <Posts key={key} title={key} posts={posts[key]} />
+          {filterKeyword.length > 0 ? (
+            <div className="grid grid-cols-1 gap-4 m-2 md:grid-cols-2 md:m-3 lg:grid-cols-3">
+              {filteredPost.map((post: any) => (
+                <Post key={post.slug} {...post.data} slug={post.slug} />
+              ))}
+            </div>
+          ) : (
+            Object.keys(posts).map((key) => (
+              <Posts key={key} title={key} posts={posts[key]} />
+            ))
           )}
         </div>
       </main>
