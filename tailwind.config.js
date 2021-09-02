@@ -163,6 +163,7 @@ module.exports = {
       filter: ["hover", "focus", "group-hover", "group-focus"],
       opacity: ["hover", "focus", "group-hover", "group-focus"],
       blur: ["hover", "focus", "group-hover", "group-focus"],
+      text: ["hover", "focus", "group-hover", "group-focus"],
     },
   },
   plugins: [],

@@ -84,7 +84,7 @@
     @apply outline-none; /* keyboard focus but no mouse focus */
   }
 
-  :focus-visible {
+  :focus-visible:not(input) {
     outline: 2px solid theme("colors.white");
     transform: translateY(-2px);
     @apply ease-in-out transition-all duration-300;
