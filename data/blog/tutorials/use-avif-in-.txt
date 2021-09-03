@@ -1,6 +1,6 @@
 ---
-description:
-title:
+description: Find out how you can use AVIF images in .
+title: AVIF support
 url: blog/tutorials/use-avif-in-/
 image: "/logo_draft.png"
 datePublished:
@@ -9,6 +9,9 @@ support:
 sources:
   -
 tags:
+  - avif
+  - image format
+  - av1 image file format
   -
 questions:
   -
@@ -22,8 +25,8 @@ relatedPosts:
 
 ## What is AVIF
 
-## What is Paint.NET
+## What is 
 
-## Paint.NET supports AVIF
+## supports AVIF
 
 ## How to open AVIF files
