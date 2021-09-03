@@ -18,11 +18,6 @@ export default function AvifIo({ Component, pageProps }: any) {
         src="/__/firebase/8.10.0/firebase-analytics.js"
       />
       <Script id="analytics">firebase.analytics()</Script>
-      <Script
-        strategy="lazyOnload"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
-
       <div className="overflow-x-hidden page">
         <Component {...pageProps} />
       </div>
