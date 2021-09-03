@@ -27,7 +27,7 @@ export default function Tags(props: TagsProps) {
 
   return (
     <div className="tags_container f0">
-      <div className="tags_wrapper">{listTags}</div>
+      <ol className="tags_wrapper">{listTags}</ol>
     </div>
   );
 }

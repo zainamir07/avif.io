@@ -516,7 +516,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="in:circle:center"] {
+[data-transition-style="in:circle:center"] {
   animation: 1.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
 }
 
@@ -531,7 +531,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="in:wipe:right"] {
+[data-transition-style="in:wipe:right"] {
   animation: 1s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-right both;
 }
 
@@ -552,7 +552,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="cta"] {
+[data-transition-style="cta"] {
   animation: cta 10s infinite alternate-reverse both;
 }
 
@@ -570,7 +570,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="glow"] {
+[data-transition-style="glow"] {
   animation: glow 15s ease-in-out infinite alternate-reverse both;
 }
 
@@ -604,7 +604,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="bouncingIn"] {
+[data-transition-style="bouncingIn"] {
   animation: bouncingIn 1s forwards 1;
 }
 
@@ -648,7 +648,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="bounceIn"] {
+[data-transition-style="bounceIn"] {
   animation: bounceIn 0.75s cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
@@ -665,7 +665,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="ctaBackground"] {
+[data-transition-style="ctaBackground"] {
   animation: ctaBackground 5s infinite both;
 }
 
@@ -683,6 +683,6 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-[transition-style="gradientAnimation"] {
+[data-transition-style="gradientAnimation"] {
   animation: gradientAnimation 14s cubic-bezier(0.23, 1, 0.32, 1) infinite;
 }

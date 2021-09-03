@@ -44,7 +44,7 @@ export default function H(props: HProps) {
             href={`${router.asPath}#${trimmedText}`}
             onClick={copyToClipboard}
           >
-            <div className="inline-block p-2" title="Copy link to heading">
+            <span className="inline-block p-2" title="Copy link to heading">
               <span role="img" aria-label="copy">
                 <svg width="24" height="24">
                   <g fill="currentColor" fillRule="evenodd">
@@ -53,7 +53,7 @@ export default function H(props: HProps) {
                   </g>
                 </svg>
               </span>
-            </div>
+            </span>
           </a>
         )}
       </CustomTag>

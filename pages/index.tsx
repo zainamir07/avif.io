@@ -175,17 +175,19 @@ export default function App(): ReactElement {
     <Layout meta={meta.index}>
       <section className="px-3 mt-12 mb-4 text-center">
         <h1>Convert all images to AVIF for free.</h1>
-        <h2 className="mb-6 text-base font-normal">
-          No data is sent. The magic happens in your browser.
+        <div className="block justify-center mb-6 md:flex">
+          <h2 className="mt-0 mb-0 text-base font-normal">
+            No data is sent. The magic happens in your browser.
+          </h2>
           <Tooltip
             text="How?"
             explanation="We use Rav1e, Rust, and WASM to convert your images clientside."
-          />
-        </h2>
+          />{" "}
+        </div>
 
         <div
           style={{ width: 720 }}
-          transition-style="bouncingIn"
+          data-transition-style="bouncingIn"
           className={
             "relative mx-auto flex flex-col items-center justify-center max-w-full rounded-xl p-0 md:p-4 bg-white bg-opacity-5 " +
             " " +
@@ -207,7 +209,7 @@ export default function App(): ReactElement {
               filter: `${
                 settingsBoxOpen
                   ? "invert(15%) sepia(52%) saturate(6095%) hue-rotate(348deg) brightness(87%) contrast(88%)"
-                  : ""
+                  : "none"
               }`,
             }}
             onClick={() => setSettingsBoxOpen(!settingsBoxOpen)}
@@ -243,7 +245,7 @@ export default function App(): ReactElement {
       <section className="hidden overflow-hidden px-3 mt-12 mb-4 max-w-screen-lg md:block">
         <div
           className="absolute top-0 right-0 bottom-0 left-0 mx-auto w-3/5 rounded-full ease-in-out -z-1 bg-gradient"
-          transition-style="glow"
+          data-transition-style="glow"
           style={{
             filter: "blur(100px)",
           }}

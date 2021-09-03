@@ -28,23 +28,23 @@ export default function Blog(props: {
       <main className={`blog ${props.className}`}>
         <div
           className="relative py-12 px-4 md:p-10 lg:p-12 bg-gradient animation-delay-2"
-          transition-style="in:circle:center"
+          data-transition-style="in:circle:center"
         >
           <div
             className="absolute right-0 left-0 top-1 bottom-1 w-full h-full rounded-md opacity-25 transform scale-105 -z-1 bg-gradient blur-xl bg-200"
-            transition-style="gradientAnimation"
+            data-transition-style="gradientAnimation"
           />
           <div className="container max-w-screen-md">
             <Breadcrumbs postMeta={props.postMeta} />
             <h1
               className="md:text-4xl animation-delay-5"
-              transition-style="in:wipe:right"
+              data-transition-style="in:wipe:right"
             >
               {props.postMeta.title}
             </h1>
             <div>
               <span
-                transition-style="in:wipe:right"
+                data-transition-style="in:wipe:right"
                 className="animation-delay-7"
               >
                 {readingTime} min reading time

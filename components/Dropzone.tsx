@@ -46,7 +46,7 @@ export default function Dropzone(props: DropzoneProps) {
       href="#"
       role="button"
       style={{
-        boxShadow: `${isDragActive ? "0 0 0 2000px rgb(0 0 0 / 95%)" : ""}`,
+        boxShadow: `${isDragActive ? "0 0 0 2000px rgb(0 0 0 / 95%)" : "none"}`,
         zIndex: isDragActive ? 9999 : 50,
       }}
       aria-label="This is the dropzone. Choose your images here to convert them to AVIF"
@@ -73,7 +73,7 @@ export default function Dropzone(props: DropzoneProps) {
           ></div>
           <div
             className="absolute top-0 right-0 bottom-0 left-0 z-10 bg-gradient blur-sm"
-            transition-style="ctaBackground"
+            data-transition-style="ctaBackground"
           ></div>
         </div>
         <b>Drop images or browse</b>
