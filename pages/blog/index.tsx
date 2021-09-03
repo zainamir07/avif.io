@@ -58,13 +58,22 @@ export const getStaticProps = async () => {
   const listCategories = [
     ...new Set(defaultFilteredPost.map((post) => post.data.category)),
   ].filter(Boolean);
+  const listSupport = [
+    ...new Set(defaultFilteredPost.map((post) => post.data.support)),
+  ].filter(Boolean);
 
   return {
     props: {
       defaultFilteredPost,
       listSubCategories,
       listCategories,
-      listAllCategories: [...listCategories, ...listSubCategories],
+      listSupport,
+      listAllCategories: [
+        ...listCategories,
+        ...listSubCategories,
+        ...listSupport,
+      ],
+
       posts: listPostsByFolder as any,
     },
   };
@@ -74,7 +83,10 @@ type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const BlogAvif: NextPage<PostsPageProps> = ({
   defaultFilteredPost,
   posts,
-  listAllCategories,
+  /*listAllCategories,*/
+  listSupport,
+  listSubCategories,
+  listCategories,
 }) => {
   const [filteredPost, setFilteredPost] = React.useState([]);
   const [filterKeyword, setFilterKeyword] = React.useState("");
@@ -90,7 +102,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
     setSelectedCategoryPill(category);
     const filteredPosts = defaultFilteredPost.filter((post) => {
       return (
-        post.data.category === category || post.data.subcategory === category
+        post.data.category === category ||
+        post.data.subcategory === category ||
+        post.data.support === category
       );
     });
 
@@ -139,8 +153,66 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               </svg>
             </div>
           </div>
-          <div>
-            {listAllCategories.map((category) => (
+          <div className="mb-2">
+            {listCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleSelectedPill(category)}
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm cursor-pointer ${
+                  selectedCategoryPill === category
+                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                    : "bg-bg-500 text-gray-300"
+                }`}
+              >
+                {selectedCategoryPill === category && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="mr-1 -ml-1 w-3 h-3"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+                <p>{category}</p>
+              </button>
+            ))}
+          </div>
+          <div className="mb-2">
+            {listSubCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleSelectedPill(category)}
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm cursor-pointer ${
+                  selectedCategoryPill === category
+                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                    : "bg-bg-500 text-gray-300"
+                }`}
+              >
+                {selectedCategoryPill === category && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="mr-1 -ml-1 w-3 h-3"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+                <p>{category}</p>
+              </button>
+            ))}
+          </div>
+          <div className="mb-2">
+            {listSupport.map((category) => (
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}

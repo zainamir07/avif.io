@@ -2,31 +2,24 @@
 import NextLink from "next/link";
 
 export default function Link(props: {
-  link: any;
-  text?: string;
-  id?: string;
+  href: any;
+  text: string;
   className?: string;
-  aria?: string;
-  ext?: boolean;
-  tabindex?: number;
 }) {
+  const href = props.href;
+  const isInternal = href && (href.startsWith("/") || href.startsWith("#"));
+
   return (
-    <>
-      {" "}
-      <NextLink href={props.ext ? `https://` + props.link : props.link}>
-        <a
-          title={props.aria ? props.aria : undefined}
-          tabIndex={props.tabindex ? props.tabindex : undefined}
-          href={props.ext ? `https://` + props.link : props.link}
-          rel={props.ext ? "noreferrer" : "prerender"}
-          target={props.ext ? "_blank" : "_self"}
-          id={props.id}
-          aria-label={props.aria}
-          className={props.className}
-        >
-          {props.text}
-        </a>
-      </NextLink>{" "}
-    </>
+    <NextLink href={`https://` + href}>
+      <a
+        title={props.text}
+        href={isInternal ? href : `https://` + href}
+        rel={isInternal ? "prerender" : "noopener noreferrer"}
+        target={isInternal ? "_self" : "_blank"}
+        className={props.className}
+      >
+        {props.text}
+      </a>
+    </NextLink>
   );
 }

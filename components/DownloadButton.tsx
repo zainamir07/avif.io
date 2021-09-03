@@ -27,8 +27,7 @@ export default function DownloadButton(props: DownloadButtonProps) {
       <Link
         className="underline"
         text="Join our Discord!"
-        link="discord.com/invite/6w42YpF5hm"
-        ext
+        href="discord.com/invite/6w42YpF5hm"
       />
     </div>
   );

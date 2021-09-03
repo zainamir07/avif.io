@@ -31,18 +31,16 @@ export default function Header() {
     >
       <div className="flex flex-col flex-wrap items-center md:flex-row">
         <nav className="flex flex-wrap justify-center items-center text-base md:pl-4 md:mr-auto">
-          <Link className="p-2 md:p-3" text="Blog" link="/blog/" />
+          <Link className="p-2 md:p-3" text="Blog" href="/blog/" />
           <Link
             className="p-2 md:p-3"
             text="Discord"
-            link="discord.com/invite/6w42YpF5hm"
-            ext
+            href="discord.com/invite/6w42YpF5hm"
           />
           <Link
             className="p-2 md:p-3"
             text="Github"
-            link="github.com/justinschmitz97/avif.io/"
-            ext
+            href="github.com/justinschmitz97/avif.io/"
           />
         </nav>
         <NextLink href="/">

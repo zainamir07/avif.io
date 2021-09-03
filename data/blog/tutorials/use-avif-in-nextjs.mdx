@@ -7,7 +7,7 @@ url: blog/tutorials/use-avif-in-nextjs/
 image: "/logo_draft.png"
 datePublished: 11.11.20
 dateModified: 11.11.20
-support: yes
+support: full support
 sources:
   - github.com/cyrilwanner/next-optimized-images
   - github.com/twopluszero/next-images
@@ -69,7 +69,7 @@ the images of the website is a CDN and not a server hosted by the website.
 
 ## Next.JS image component
 
-All in all, it's a simple "Put this image in your project, add it to the component and we'll do the entire conversion and optimization" approach. While it converts images to newer formats, it does not yet do so for AVIF. There is a <Link link="github.com/vercel/next.js/pull/20381" text="canary version" ext /> on Github that refers to AVIF more than once, so hopefully we will see this supported in future versions. Finally, the images loaded via CSS will not be optimized, although we pray that this will be the case in future versions.
+All in all, it's a simple "Put this image in your project, add it to the component and we'll do the entire conversion and optimization" approach. While it converts images to newer formats, it does not yet do so for AVIF. There is a <Link href="github.com/vercel/next.js/pull/20381" text="canary version" /> on Github that refers to AVIF more than once, so hopefully we will see this supported in future versions. Finally, the images loaded via CSS will not be optimized, although we pray that this will be the case in future versions.
 
 <Syntax language="javascript">
   {`import Image from 'next/image'
@@ -85,7 +85,7 @@ All in all, it's a simple "Put this image in your project, add it to the compone
 
 ## Next Optimized Images
 
-Until this point, if you rely heavily on CSS images, you can use the third-party plugin in Next.JS called <Link text="next-optimized-images" link="github.com/cyrilwanner/next-optimized-images" ext /> . It has many additional features, and it ** supports loading images with CSS**, which is very useful. However, the plugin does not yet support AVIF as well. Nevertheless, the author is currently working on a complete overhaul of the entire plugin, and a Canary version is already published.
+Until this point, if you rely heavily on CSS images, you can use the third-party plugin in Next.JS called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" /> . It has many additional features, and it ** supports loading images with CSS**, which is very useful. However, the plugin does not yet support AVIF as well. Nevertheless, the author is currently working on a complete overhaul of the entire plugin, and a Canary version is already published.
 
 ## How do we at avif.io deal with AVIF support?
 
@@ -101,11 +101,11 @@ To find out if you as a visitor have a browser with AVIF support, we have implem
 
 ### 2. Create image component with modern markup
 
-We have developed our own image component, which uses all the features that modern image markup should take into account, from the lazy load to the aspect ratio. We only have to choose a path and an alt text. For more information on the perfect image markup visit <Link text="Guide to Image Performance." link="/blog/articles/optimize-images-for-web-performance/" />
+We have developed our own image component, which uses all the features that modern image markup should take into account, from the lazy load to the aspect ratio. We only have to choose a path and an alt text. For more information on the perfect image markup visit <Link text="Guide to Image Performance." href="/blog/articles/optimize-images-for-web-performance/" />
 
 ### 3. Convert images with sharp on build time
 
-Finally, we have the NodeJS library <Link text="sharp" link="sharp.pixelplumbing.com/" ext /> integrated into our build and release script to convert images before we upload our website data to Firebase. The sharp script detects all images in a specific folder and converts them into all the different formats and sizes we need. Below is the current script we are using.
+Finally, we have the NodeJS library <Link text="sharp" href="sharp.pixelplumbing.com/" /> integrated into our build and release script to convert images before we upload our website data to Firebase. The sharp script detects all images in a specific folder and converts them into all the different formats and sizes we need. Below is the current script we are using.
 
 <Syntax language="javascript">
   {`const sharp = require("sharp");
@@ -145,4 +145,4 @@ fs.readdir(input, (err, files) => {
 `}
 </Syntax>
 
-Keep in mind that this is only suitable for website without many images, as it significantly increases build time. A way to bypass that could be creating an own sharp API and using <Link text="Incremental Static Regeneration." link="www.youtube.com/watch?v=nrfuN_Hyd3Y" ext />
+Keep in mind that this is only suitable for website without many images, as it significantly increases build time. A way to bypass that could be creating an own sharp API and using <Link text="Incremental Static Regeneration." href="www.youtube.com/watch?v=nrfuN_Hyd3Y" />
