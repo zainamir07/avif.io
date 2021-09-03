@@ -178,7 +178,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                     />
                   </svg>
                 )}
-                <p>{category}</p>
+                {category}
               </button>
             ))}
           </div>
@@ -187,7 +187,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm cursor-pointer ${
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm font-regular cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
@@ -207,7 +207,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                     />
                   </svg>
                 )}
-                <p>{category}</p>
+                {category}
               </button>
             ))}
           </div>
@@ -236,7 +236,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                     />
                   </svg>
                 )}
-                <p>{category}</p>
+                {category}
               </button>
             ))}
           </div>
