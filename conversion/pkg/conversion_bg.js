@@ -471,7 +471,7 @@ export function __wbg_error_4bb6c2a97407129a(arg0, arg1) {
   }
 }
 
-export function __wbg_call_4438b4bab9ab5268() {
+export function __wbg_call_e3c72355d091d5d4() {
   return handleError(function (arg0, arg1, arg2) {
     var ret = getObject(arg0).call(getObject(arg1), getObject(arg2));
     return addHeapObject(ret);
