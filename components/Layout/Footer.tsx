@@ -23,8 +23,7 @@ export default function Footer() {
             />
 
             <div className="my-4 text-gray-400">
-              A tool by <Link text="Justin Schmitz" href="justinschmitz.de/" />
-              and Niksa Sporin that is now open-source.
+              A tool by Justin Schmitz and Niksa Sporin that is now open-source.
               <Link text="- @jschmitz97" href="twitter.com/jschmitz97" />
             </div>
           </div>
