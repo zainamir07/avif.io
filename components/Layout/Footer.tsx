@@ -5,7 +5,7 @@ const FooterLink = (props: any) => {
     <Link
       className="block text-gray-400 hover:text-white"
       text={props.text}
-      href={props.link}
+      href={props.href}
     />
   );
 };
@@ -68,20 +68,21 @@ export default function Footer() {
             <nav className="list-none">
               <FooterLink
                 text="ProductHunt"
-                href="https://www.producthunt.com/posts/avif-io-avif-image-converter"
+                href="www.producthunt.com/posts/avif-io-avif-image-converter"
                 ext
               />
               <FooterLink
                 text="Discord"
-                href="https://discord.com/invite/6w42YpF5hm"
+                href="discord.com/invite/6w42YpF5hm"
                 ext
               />
               <FooterLink
                 text="Github"
-                href="https://github.com/justinschmitz97/avif.io/issues"
+                href="github.com/justinschmitz97/avif.io/issues"
                 ext
               />
               <FooterLink text="Sitemap" href="/sitemap.xml" />
+              <FooterLink text="RSS Feed" href="/rss.xml" />
               <FooterLink text="Legal and Privacy" href="/privacy-policy/" />
             </nav>
           </div>
