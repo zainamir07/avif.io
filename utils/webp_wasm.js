@@ -1,3 +1,4 @@
+/* eslint-disable no-global-assign */
 /* eslint-disable @typescript-eslint/no-extra-semi */
 /* eslint-disable no-fallthrough */
 /* eslint-disable @typescript-eslint/no-this-alias */

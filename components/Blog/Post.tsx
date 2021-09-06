@@ -1,22 +1,70 @@
 import * as React from "react";
 import Link from "next/link";
 
-const Post = ({ slug, category, url, keyword, description }: any) => {
+const Post = ({
+  slug,
+  category,
+  subcategory,
+  url,
+  keyword,
+  description,
+  support,
+}: any) => {
+  function getDot(support: any) {
+    if (support === "full support") {
+      return "bg-green-700";
+    } else if (support === "partial support") {
+      return "bg-yellow-700";
+    } else if (support === "no support") {
+      return "bg-red-700";
+    }
+  }
+  function getBackground(support: any) {
+    if (support === "full support") {
+      return "bg-green-1000";
+    } else if (support === "partial support") {
+      return "bg-yellow-1000";
+    } else if (support === "no support") {
+      return "bg-red-1000";
+    }
+  }
+
   return (
     <Link href={slug ? `/blog/${category}/${slug}/` : `/` + url}>
       <a
         href={slug ? `/blog/${category}/${slug}/` : `/` + url}
         tabIndex={0}
-        className="p-2 cursor-pointer group"
+        className={`p-2 cursor-pointer group ${support}`}
       >
-        <div className="overflow-hidden h-full rounded-md bg-bg-300">
-          <div className="p-3 bg-bg-500 group-hover:bg-gradient">
-            <div className="font-bold text-white">
-              #{keyword || keyword || ""}
+        <div className="overflow-hidden relative p-3 h-full rounded-sm bg-bg-500">
+          <div className="absolute right-0 bottom-0 z-0 w-4 h-3 transition-all transform scale-0 translate-x-4 translate-y-2 bg-gradient rotate-300 group-hover:scale-1500"></div>
+          <div
+            className={`relative mb-2 flex ${
+              category !== "tutorials" && "hidden"
+            }`}
+          >
+            <div
+              className={`inline-flex items-center relative px-2 py-1 ${getBackground(
+                support
+              )}
+         rounded-md text-tiny text-white mr-1`}
+            >
+              <span
+                className={`w-1 h-1 rounded-full inline-block mr-1 ${getDot(
+                  support
+                )}`}
+              ></span>
+              {support}
+            </div>
+            <div className="inline-flex relative py-1 px-2 mr-2 text-white rounded-md bg-bg-700 text-tiny">
+              {subcategory}
             </div>
           </div>
-          <div className="p-3 border-t-2 group-hover:text-white border-bg-700">
-            <p>{description || description || ""}</p>
+          <div className="relative mb-0 ml-1 font-bold text-white">
+            {keyword || keyword || ""}
+          </div>
+          <div className="relative ml-1 text-white text-tiny">
+            {description}
           </div>
         </div>
       </a>

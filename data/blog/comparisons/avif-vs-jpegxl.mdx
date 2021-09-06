@@ -3,6 +3,8 @@ title: "AVIF vs JPEG XL: The Battle to Replace JPEG"
 description:
   An in-depth guide on how the brand-new file format AVIF stacks up against
   its competitor JPEGXL.
+keyword: JPEGXL
+category: comparisons
 url: blog/comparisons/avif-vs-jpegxl/
 image: "/logo_draft.png"
 datePublished: 11.07.21
@@ -51,9 +53,6 @@ sources:
   - www.reddit.com/r/AV1/comments/k9kq5t/updated_my_image_formats_comparison_including/
   - sourceful.us/doc/385/lossless-image-formats-comparison-jpeg-xl-avif-web
   - www.youtube.com/watch?v=lqi5U6dxeZU
-keyword: jpegxl
-category: comparisons
-
 relatedPosts:
   - avif-vs-jpg
   - avif-vs-png
@@ -84,7 +83,6 @@ JPEG XL is excellent for those who want to share lossless photos. It is also gre
 "Most images on the web are (the equivalent of) libjpeg q60-90\. AVIF beats JXL below the equivalent of q40\. Above q50, JXL is better."
 
 <Link text="@Jon Sneyers" href="twitter.com/jonsneyers" />
-
 ## Speed
 
 **AVIF had problems with its decoding and encoding speed.** Recent releases of decoders achieved various performance improvements. Encoding is however still a problem and quite slow. **It doesn't support progressive rendering** - a process of decoding where portions of an image are incrementally decoded from an incomplete image file. This can dramatically increase the viewing speed by allowing for a lower-quality preview image to be displayed while the rest of the image is decoded. Unlike some legacy formats like PNG, AVIF is parallelizable, allowing the encoder to take advantage of multi-threaded processors instead of leaving all the encoding and decoding to a single core.  
@@ -132,7 +130,6 @@ Due to the fact that every browser that supports image/jxl will also support ima
 />
 or to experiment with the formats yourself, on sites like
 <Link text="squoosh.app from Google." href="squoosh.app/" />
-
 ## Summary for Marketeers
 
 For most people, **images encoded in AVIF and images encoded in JPEG XL will be very similar.** Yes, JPEG XL is faster, but most users won't notice this difference. Both do incredibly well with maintaining appeal when highly compressed so that web pictures will look great, especially compared to the old legacy JPEG standard.  

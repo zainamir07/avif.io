@@ -3,11 +3,14 @@ title: How to get started with AVIF using HTML
 description:
   Enjoy this in-depth guide on how to use AVIF in HTML. Featuring examples
   with modern delivery standards.
+keyword: HTML
+category: tutorials
+subcategory: language
+support: full support
 url: blog/tutorials/use-avif-in-html/
 image: "/logo_draft.png"
 datePublished: 04.11.20
 dateModified: 04.11.20
-support: full support
 sources:
   - aomedia.org/about/
   - aomedia.org/av1-features/get-started/
@@ -43,10 +46,6 @@ questions:
   - A way to leverage new image formats in HTML
   - How to Use AVIF, The New Next-Gen Image Compression Format in HTML
   - Is your browser capable of displaying AVIF images?
-keyword: HTML
-category: tutorials
-subcategory: language
-
 relatedPosts:
   - use-avif-in-css
   - use-avif-in-firefox
@@ -75,7 +74,6 @@ For now, you can still use the format in its almost complete glory with the nati
   ]}
   checked={true}
 />
-
 ## Implementation
 
 Currently **96% of browsers support the picture element**. Even if your grandma visits your website with her disgusting Internet Explorer 6, her browser will simply revert to the default image format when you specify it. Have a look at the following example and copy it if you want to use it for your website:
@@ -89,8 +87,9 @@ Currently **96% of browsers support the picture element**. Even if your grandma 
   src="image.jpg" alt="an avif image" />
 </picture>`}
 </Syntax>
-
-##### PS: The lazy loading attribute is supported by 75% of all browsers, make use of it! Also, don't forget to add width and height to avoid a Layout Shift. Providing width and height is more important than ever.
+##### PS: The lazy loading attribute is supported by 75% of all browsers, make use
+of it! Also, don't forget to add width and height to avoid a Layout Shift. Providing
+width and height is more important than ever.
 
 This is a nice set up for all visitors. Just make sure ** the first source tag is an AVIF image** for the browser to display the first media type it can handle.
 
