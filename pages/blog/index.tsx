@@ -11,9 +11,9 @@ import Layout from "@components/Layout";
 
 const meta = {
   blog: {
-    title: "Articles about AVIF",
+    title: "AVIF Blog",
     description:
-      "Read a lot of articles related to AVIF and images on the web.",
+      "Read AVIF tutorials and get an overview of all supported software (caniuse-style)",
     url: "blog/",
     image: "/logo_draft.png",
     datePublished: "01.09.20",
@@ -133,7 +133,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           <div className="relative mt-1 mb-3 rounded-md">
             <input
               type="text"
-              placeholder="Search articles"
+              placeholder="Search all posts"
               className="block py-3 px-3 pr-10 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
               onChange={handleFilterByKeyword}
             />
@@ -158,7 +158,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm cursor-pointer ${
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md font-normal cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
@@ -187,7 +187,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm font-regular cursor-pointer ${
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md font-normal cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
@@ -216,7 +216,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md text-sm cursor-pointer ${
+                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md font-normal cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
@@ -240,7 +240,6 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               </button>
             ))}
           </div>
-
           {filterKeyword.length > 0 || filteredPost.length ? (
             <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredPost.map((post: any) => (

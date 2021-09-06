@@ -1,11 +1,14 @@
 ---
 title: Use AVIF images as CSS Background
 description: Learn how to boost your website by using the new AVIF image format in the `background-images` of your CSS.
+keyword: CSS
+category: tutorials
+subcategory: language
+support: full support
 url: blog/tutorials/use-avif-in-css/
 image: "/logo_draft.png"
 datePublished: 01.10.20
 dateModified: 01.10.20
-support: full support
 sources:
   - caniuse.com/css-image-set
   - caniuse.com/avif
@@ -36,10 +39,6 @@ questions:
   - Is there a PostCSS plugin to use AVIF in CSS background?
   - Is there a SCSS solution for CSS avif images?
   - AVIF and WebP images as CSS background images?
-keyword: CSS
-category: tutorials
-subcategory: language
-
 relatedPosts:
   - use-avif-in-frameworks
   - use-avif-in-html
@@ -62,7 +61,6 @@ If it is very unlikely that your browser will not pass this test, the HTML eleme
 <html class="webp"></html> <!-- you can use webp-->
 <html class="avif"></html> <!-- you can use avif (heck yeah!)-->`}
 </Syntax>
-
 ## AVIF support detection script
 
 To avoid visible image changes when adding the avif/webp class to your DOM, add the following content as an inline script in your header above any CSS content. The minified version of this script is a tiny 600-byte-piece and takes 5ms to load, which is perfectly fine for the benefit it provides.
@@ -84,7 +82,6 @@ Minified version (600 Bytes):
 <Syntax language="javascript">
   {`function F(a){document.documentElement.classList.add(a)}var A=new Image;A.src="data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=",A.onload=function(){F("avif")},A.onerror=function(){var a=new Image;a.src="data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",a.onload=function(){F("webp")}};`}
 </Syntax>
-
 ## Code Snippet
 
 Once implemented, we can simply use the following CSS due to the high-level classes and cascading.
@@ -113,7 +110,6 @@ Using this script leads to the following screenshots. Back in the day, Firefox Q
   url="css-edge"
   alt="microsoft edge with a webp class in the html element"
 />
-
 ## SCSS background mixin
 
 Earlier this week, <Link href="raoulkramer.de/avif-and-webp-images-as-css-background-images/" text="Raoul Kramer" />
@@ -136,7 +132,6 @@ posted an absolutely amazing SCSS background mixin that can be used to support A
   }
 }`}
 </Syntax>
-
 ## Future implementation
 
 The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property allows us to specify different image formats. **The browser renders the first image format supported by the browser.**  

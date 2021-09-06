@@ -14,13 +14,12 @@ export default function BlogPosts(props: any) {
           tabIndex={0}
           className="p-2 cursor-pointer md:w-1/2 lg:w-1/3 group"
         >
-          <div className="overflow-hidden h-full rounded-md bg-bg-300">
-            <div className="p-3 bg-bg-500 group-hover:bg-gradient">
-              <div className="font-bold text-white">
-                #{data?.keyword || keyword || ""}
-              </div>
+          <div className="overflow-hidden relative p-3 h-full rounded-sm bg-bg-500">
+            <div className="absolute right-0 bottom-0 z-0 w-4 h-3 transition-all transform scale-0 translate-x-4 translate-y-2 bg-gradient rotate-300 group-hover:scale-1500"></div>
+            <div className="relative mb-1 ml-1 font-bold text-white">
+              {data?.keyword || keyword || ""}
             </div>
-            <div className="p-3 border-t-2 group-hover:text-white border-bg-700">
+            <div className="relative ml-1 text-white text-tiny">
               <p>{data?.description || description || ""}</p>
             </div>
           </div>
@@ -31,14 +30,12 @@ export default function BlogPosts(props: any) {
   return (
     <>
       <h3
-        className="mt-8 mb-6 text-xl font-bold text-center capitalize"
+        className="mt-8 mb-6 ml-3 text-xl font-bold capitalize"
         id={props.title ? props.title : "related"}
       >
         {props.title ? props.title : "Related articles"}
       </h3>
-      <div className="container py-6 mx-auto">
-        <div className="flex flex-wrap m-2 md:m-3">{listItems}</div>
-      </div>
+      <div className="flex flex-wrap">{listItems}</div>
     </>
   );
 }

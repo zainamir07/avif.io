@@ -10,6 +10,25 @@ const Post = ({
   description,
   support,
 }: any) => {
+  function getDot(support: any) {
+    if (support === "full support") {
+      return "bg-green-700";
+    } else if (support === "partial support") {
+      return "bg-yellow-700";
+    } else if (support === "no support") {
+      return "bg-red-700";
+    }
+  }
+  function getBackground(support: any) {
+    if (support === "full support") {
+      return "bg-green-1000";
+    } else if (support === "partial support") {
+      return "bg-yellow-1000";
+    } else if (support === "no support") {
+      return "bg-red-1000";
+    }
+  }
+
   return (
     <Link href={slug ? `/blog/${category}/${slug}/` : `/` + url}>
       <a
@@ -17,29 +36,36 @@ const Post = ({
         tabIndex={0}
         className={`p-2 cursor-pointer group ${support}`}
       >
-        <div className="p-3 overflow-hidden h-full rounded-md bg-bg-300 relative">
-          <div className="absolute bottom-0 right-0 z-0 bg-gradient w-3 h-3 transform rotate-300 scale-400 opacity-5 group-hover:opacity-100 group-hover:scale-2000 transition-all"></div>
-
-          <div className="relative mb-2 flex">
-            <div className="inline-flex items-center relative px-2 py-1 bg-bg-700 rounded-md text-tiny text-white mr-1">
+        <div className="overflow-hidden relative p-3 h-full rounded-sm bg-bg-500">
+          <div className="absolute right-0 bottom-0 z-0 w-4 h-3 transition-all transform scale-0 translate-x-4 translate-y-2 bg-gradient rotate-300 group-hover:scale-1500"></div>
+          <div
+            className={`relative mb-2 flex ${
+              category !== "tutorials" && "hidden"
+            }`}
+          >
+            <div
+              className={`inline-flex items-center relative px-2 py-1 ${getBackground(
+                support
+              )}
+         rounded-md text-tiny text-white mr-1`}
+            >
               <span
-                className="w-1 h-1 rounded-full inline-block mr-1"
-                style={{
-                  backgroundColor:
-                    support == "full support" ? "#28b720" : "#b72028",
-                }}
+                className={`w-1 h-1 rounded-full inline-block mr-1 ${getDot(
+                  support
+                )}`}
               ></span>
               {support}
             </div>
-            <div className="relative px-2 py-1 bg-bg-700 rounded-md inline-flex text-tiny text-white mr-2">
+            <div className="inline-flex relative py-1 px-2 mr-2 text-white rounded-md bg-bg-700 text-tiny">
               {subcategory}
             </div>
           </div>
-          <div className="relative font-bold text-white mb-0">
+          <div className="relative mb-0 ml-1 font-bold text-white">
             {keyword || keyword || ""}
           </div>
-
-          <div className="relative text-tiny text-white">{description}</div>
+          <div className="relative ml-1 text-white text-tiny">
+            {description}
+          </div>
         </div>
       </a>
     </Link>
