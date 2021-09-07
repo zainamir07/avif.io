@@ -157,6 +157,7 @@ firebase/
 #custom
 public/img/*
 public/sitemap.xml
+public/rss.xml
 
 #github
 .github/

@@ -54,6 +54,13 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "redirects": [
+      {
+        "regex": "/blog/tutorials/use-avif-in-(?P<post>.+)",
+        "destination": "/blog/tutorials/:post",
+        "type":"301"
+      }
     ]
   }
 }

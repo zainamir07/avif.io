@@ -99,8 +99,8 @@ function AdvantageItem(props: Advantages) {
 
 function TutorialsBox(props: TutorialsBoxProps) {
   return (
-    <Link href={`/blog/tutorials/use-avif-in-${props.url}/`}>
-      <a href={`/blog/tutorials/use-avif-in-${props.url}/`} tabIndex={0}>
+    <Link href={`/blog/tutorials/${props.url}/`}>
+      <a href={`/blog/tutorials/${props.url}/`} tabIndex={0}>
         <div
           className={
             "py-7 md:p-rectangle group relative w-full cursor-pointer rounded-md md:rounded-xl lg:rounded-xl ease-in-out duration-300 overlay-before group transform hover:scale-105 hover:rotate-1 md:hover:rotate-6"

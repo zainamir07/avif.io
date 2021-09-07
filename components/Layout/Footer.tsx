@@ -42,20 +42,17 @@ export default function Footer() {
             <nav className="list-none">
               <FooterLink
                 text="AVIF in Wordpress"
-                href="/blog/tutorials/use-avif-in-wordpress/"
+                href="/blog/tutorials/wordpress/"
               />
               <FooterLink
                 text="AVIF in Safari"
-                href="/blog/tutorials/use-avif-in-safari/"
+                href="/blog/tutorials/safari/"
               />
               <FooterLink
                 text="AVIF in JS Frameworks"
-                href="/blog/tutorials/use-avif-in-frameworks/"
+                href="/blog/tutorials/frameworks/"
               />
-              <FooterLink
-                text="AVIF in CSS"
-                href="/blog/tutorials/use-avif-in-css/"
-              />
+              <FooterLink text="AVIF in CSS" href="/blog/tutorials/css/" />
               <FooterLink
                 text="Image Web Perf"
                 href="/blog/articles/optimize-images-for-web-performance/"
