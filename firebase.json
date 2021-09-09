@@ -59,7 +59,7 @@
       {
         "regex": "/blog/tutorials/use-avif-in-(?P<post>.+)",
         "destination": "/blog/tutorials/:post",
-        "type":"301"
+        "type": "301"
       }
     ]
   }
