@@ -104,7 +104,11 @@ relatedPosts:
   ]}
   checked={true}
 />
-## Introduction ##### Summary: Images are a huge part of the web. Performance is
+
+## Introduction
+
+##### Summary: Images are a huge part of the web. Performance is
+
 one of the biggest success factors for websites. Optimize your images to improve
 your user’s experience.
 
@@ -197,6 +201,7 @@ If your target audience falls into one of the unsupported browser / device categ
   ]}
   checked={true}
 />
+
 ### Explaining the best usecase for all formats #### (Not) Using GIF
 
 Most platforms that host short videos do not use GIFs because **animated GIFs can be quite large**. Twitter, for instance, converts animated GIFs to video file formats such as MP4 to significantly reduce the total file size. Even GIPHY, an online directory and search engine that provides users with access to short loop videos without audio, uses
@@ -283,7 +288,11 @@ To implement this progressive improvement for AVIF, **use the picture element**.
   ]}
   checked={true}
 />
-## 2) Efficiently encode images ##### Summary: Always compress images. Find a good
+
+## 2) Efficiently encode images
+
+##### Summary: Always compress images. Find a good
+
 compromise between the quality settings and compression of images. Use lossless compression
 for photography, lossy for everything else. Images shouldn’t look blurry or pixelated.
 
@@ -318,6 +327,7 @@ There are a few strategies to efficiently encode images, such as:
   ]}
   checked={true}
 />
+
 ## 3) Properly size images
 
 One of the most worthwhile optimizations you can make in the interest of web performance is to **provide images in the correct size**. An all too common problem is that images are uploaded at full resolution or of enormous dimensions. In this case, the browser must resize these images to a fraction of their original size for display, wasting time and resources.
@@ -366,6 +376,7 @@ sizes="(max-width: 720px) 100vw, 720px">
 <img loading="lazy" decoding="async" width="2880" height="1620" src="/img/image-1440.jpg" alt="example image">
 
 </picture>`}</Syntax>
+
 ### How do we automate the resize process?
 
 With so many lines of code, manually performing this task can be a difficult process for any image, so here are some automation options:
@@ -383,7 +394,11 @@ With so many lines of code, manually performing this task can be a difficult pro
   ]}
   checked={true}
 />
-## 4) Optimize image loading process ##### Summary: Optimize the loading process
+
+## 4) Optimize image loading process
+
+##### Summary: Optimize the loading process
+
 by using an explicit width and height for aspect ratio as well as lazy-loading. ###
 a) Use a responsive layout
 
@@ -399,6 +414,7 @@ This is a well-understood technique for using an image horizontally up to its ma
 <!-- Providing width and height is more important than ever. -->
 <img height="853" width="1280" … />`}
 </Syntax>
+
 ### b) Use explicit width and height on image elements
 
 Always **include width and height size** attributes to your images and video elements. This approach ensures that the browser can allocate the right amount of space in the document while loading the image. Image and /or video elements that are not explicitly declared with height and width attributes are usually re-dimensioned using CSS.
@@ -412,6 +428,7 @@ In addition, **the browser needs to do more work to recalculate the page layout*
 More importantly, **the width and height attributes are used to calculate the aspect ratio of the image before it is loaded**. It provides this information right at the beginning of the layout calculation. As soon as an image has a certain width, for example width: 100%, the aspect ratio is used to calculate the height.
 
 <Syntax language="html">{`<img src="image.jpg" width="640" height="360" alt="Image">`}</Syntax>
+
 ### c) Defer offscreen images
 
 Deferring offscreen images or lazy loading is the practice of **delaying the loading of images that are not in your visitors viewport** until they are needed. Generally, when the browser loads a page, it downloads all the requested images, even those that are not immediately visible to your visitors.
@@ -434,6 +451,7 @@ Browsers such as Chrome and Firefox support native lazy-loading for images embed
   ]}
   checked={true}
 />
+
 ### d) Content-visibility
 
 The content-visibility property could be one of the most powerful new CSS properties to improve the performance of page loading. **content-visibility** allows the user agent to **skip the rendering work of an element**, including layout and painting, until it is needed. Since the rendering is skipped when much of your content is not on the screen, using the content visibility property makes the initial user load much faster.
@@ -445,12 +463,17 @@ It also allows for faster interactions with the content on the screen. Pretty ne
     content-visibility: auto;
   }
 </style>`}</Syntax>
+
 ### e) Asynchronous decoding
 
 The decoding property controls if the browser is allowed to try to parallelize loading your image. Adding decoding="async" to the image gives the browser permission to **decode the image off the main thread** avoiding user impact of the CPU time used to decode the image. It effectively **reduces delay in presenting other content**.
 
 <Syntax language="html">{`<img src="image.jpg" decoding="async">`}</Syntax>
-## 5) Improve hosting behavior ##### Summary: Configure a cache-control header with
+
+## 5) Improve hosting behavior
+
+##### Summary: Configure a cache-control header with
+
 a high max-age so users don’t have to download images multiple times. Use an image
 CDN and disable hotlinking to optimize your resources ### Caching
 
@@ -479,6 +502,7 @@ Content Delivery Networks are powerful tools for site optimization. Cloudflare i
   ]}
   checked={true}
 />
+
 ### Disable hotlinking
 
 Hotlinking means when an individual or company copies the URL of an image that belongs to another website and embeds it on their website, causing the image to appear as if it were their own content. Hotlinking is a neighbor of copyright infringement, but despite this fact, the practice is widespread.
@@ -494,7 +518,11 @@ In many cases, hotlinking is unintentional, but can cost the original owner of t
   ]}
   checked={true}
 />
-## 6) SEO Image Optimization ##### Summary: Use an explanatory file name as well
+
+## 6) SEO Image Optimization
+
+##### Summary: Use an explanatory file name as well
+
 as describing title and alt attributes."
 
 SEO stands for Search Engine Optimization, and it refers to all the small improvements that can be made to a website to make it more readable to search engine crawlers - and therefore more likely to rank high on search engine results pages.
@@ -552,6 +580,7 @@ sizes="(max-width: 720px) 100vw, 720px">
 <img loading="lazy" decoding="async" width="2880" height="1620" src="/img/image-1440.jpg" alt="example image">
 
 </picture>`}</Syntax>
+
 ## More Tips
 
 Thanks for reading the article! Have fun implementing all the features mentioned above. Here are some more general best practices when it comes down to how to optimize images for web:
@@ -570,6 +599,7 @@ Thanks for reading the article! Have fun implementing all the features mentioned
   ]}
   checked={true}
 />
+
 ## All Image optimization tools
 
 There are a lot of tools and programs out there, both premium and free, that you can use to optimize your images. Some give you the tools to perform your own optimizations and others do the work for you.

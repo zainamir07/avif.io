@@ -60,6 +60,7 @@ Now that you've learned how fantastic AVIF is, you may be asking yourself, "**Ho
   ]}
   checked={true}
 />
+
 ## Other frameworks
 
 In principle, other frameworks might work differently. We found out from our research that Meteor and Ember support AVIF files without additional configuration, but since we did not experiment with the latest version live, we list it here as "maybe works" until we were in the science lab.
@@ -73,6 +74,7 @@ In principle, other frameworks might work differently. We found out from our res
   ]}
   checked={false}
 />
+
 ## Example code
 
 This is the code we used to display the image below in React and Next.JS:
@@ -86,6 +88,7 @@ This is the code we used to display the image below in React and Next.JS:
 </Syntax>
 <Image url="react-avif" alt="using avif in react" />
 <Image url="angular-avif" alt="using avif in angular" />
+
 ## Webpack File Loader
 
 In some cases, especially with older versions and when using webpack, you may encounter some problems. Especially:
@@ -108,6 +111,7 @@ Simply add the detection for AVIF files to the fileloader in your webpack.config
   }
 }`}
 </Syntax>
+
 ## Automatic conversion
 
 We could not find a plugin that converts the image to other sizes and formats such as AVIF to match the device of the client. Node.JS library Sharp implemented AVIF support, which might be a good choice for you. Have you ever encountered such a plugin? Have you had any good or bad experiences with it? Please let us know so we can complete this article.

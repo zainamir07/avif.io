@@ -246,7 +246,9 @@ WordPress restricts files that do not match its list of Internet media types, al
 <Image url="mimetype" alt="example showing mime types" />
 WordPress uses these mime types. They have a list of files they allow and a list
 of files they disallow. There are several methods to change this behavior and add
-mime types. ### Solution 1: Funtions.php
+mime types.
+
+### Solution 1: Funtions.php
 
 Functions.php is a file that appears on every theme in WordPress and contains basic functionalities. You can open it by going to Appearance and choosing the Theme Editor. If a warning appears, confirm you know what you are doing. Select your active theme in the right sidebar, and below you will find all theme files listed, including functions.php.
 
@@ -268,6 +270,7 @@ new image formats, copy the code below.
 }
 add_filter( 'upload_mimes', 'allow_modern_images', 1, 1 );`}
 </Syntax>
+
 ### Solution 2: FTP Upload
 
 Another way to bypass the restriction is to upload your files via FTP. Connect to your server and drop your images in the upload folder, where most of your current photos should be saved. If you don't know how to access your files directly, please ask your web host. Most providers offer great tutorials.
@@ -281,6 +284,7 @@ There's a considerable disadvantage when modifying the functions.php. It's theme
 To quote: WordPress relies primarily on name-based validation when deciding whether or not to allow a particular file, leaving the door open for various kinds of attacks. Lord of the Files (previously known as "blob mimes") adds to this content-based validation and sanitizing, ensuring that files are what they say they are and safe for inclusion on your site.
 
 <Image url="mimetype-plugin" alt="screenshot of the mime type plugin website" />
+
 ### No automatic conversion
 
 Uploading images is an excellent thing, but a colossal problem remains. For every image you want to serve to your users, you need to convert it manually. Bulk converters like avif.io offer a solution to convert multiple files. However, using the HTML picture tag remains. A more straightforward idea would be an image plugin that automatically converts images to modern formats and offers the best solution based on your user's browser.
