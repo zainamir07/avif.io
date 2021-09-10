@@ -86,7 +86,7 @@ Minified version (600 Bytes):
 
 ## Code Snippet
 
-Once implemented, we can simply use the following CSS due to the high-level classes and cascading.
+Once implemented, we can use the following CSS due to the high-level classes and cascading.
 
 <Syntax language="css">
   {`/* Simple approach */
@@ -116,7 +116,7 @@ Using this script leads to the following screenshots. Back in the day, Firefox Q
 ## SCSS background mixin
 
 Earlier this week, <Link href="raoulkramer.de/avif-and-webp-images-as-css-background-images/" text="Raoul Kramer" />
-posted an absolutely amazing SCSS background mixin that can be used to support AVIF and WebP.
+posted an amazing SCSS background mixin that can be used to support AVIF and WebP.
 
 <Syntax language="scss">
   {`@mixin bg-url($url, $url2x: false, $webp1x: false, $webp2x: false, $avif1x: false, $avif2x: false) {
@@ -138,9 +138,9 @@ posted an absolutely amazing SCSS background mixin that can be used to support A
 
 ## Future implementation
 
-The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property allows us to specify different image formats. **The browser renders the first image format supported by the browser.**  
-The following example shows how the type() can be used to deliver multiple images in high-quality formats and older formats that are more widely used. Note that the AVIF is shown first, as both images have the same resolution. JPEG, which comes second, is automatically deleted in user agents that support AVIF images.  
-Older user agents, however, ignore AVIF images because they know they do not support image / avif files, and instead select JPEG images.
+The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property will enable us to specify different image formats. **The browser renders the first image format supported by the browser.**  
+The following example shows how type() can deliver multiple images in high-quality and older formats that are more widely used. Note that the AVIF is shown first, as both pictures have the same resolution. JPEG, which comes second, is automatically deleted in user agents that support AVIF images.  
+However, older user agents ignore AVIF images because they know they do not support image / avif files and instead select JPEG images.
 
 <Syntax language="css">
   {`background-image:
@@ -151,9 +151,9 @@ Older user agents, however, ignore AVIF images because they know they do not sup
   );`}
 </Syntax>
 
-Currently, 90% of browsers support image-set , but do not yet support type declaration. This is a brand-new feature for CSS4\. Until browsers support this feature, we must use JavaScript to detect AVIF and WebP support.
+Currently, 90% of browsers support image-set but do not yet support type declaration. This is a brand-new feature for CSS4. Until browsers support this feature, we must use JavaScript to detect AVIF and WebP support.
 
 ## Generating AVIF images
 
 Creating AVIF files with <Link text="avif.io" href="/" />
-is child's play. Simply drag the files into the converter and it will do the rest. You will get the best results in the shortest time.
+is child's play. Drag the files into the converter, and it will do the rest. You will get the best results in the shortest time.
