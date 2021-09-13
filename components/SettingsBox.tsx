@@ -7,6 +7,7 @@ export interface Settings {
   quality: number;
   useYuv444: boolean;
   keepTransparency: boolean;
+  autoDownload: boolean;
 }
 
 interface StoredSettings extends Settings {
@@ -27,6 +28,7 @@ export default function SettingsBox(props: SettingsBoxProps) {
   const [useYuv444, setUseYuv444] = useState(true);
   const [keepTransparency, setKeepTransparency] = useState(true);
   const [lossless, setLossless] = useState(false);
+  const [autoDownload, setAutoDownload] = useState(true);
 
   function saveSettings() {
     setCookieJson(settingsCookieKey, {
@@ -35,6 +37,7 @@ export default function SettingsBox(props: SettingsBoxProps) {
       useYuv444,
       keepTransparency,
       lossless,
+      autoDownload
     });
   }
 
@@ -50,14 +53,15 @@ export default function SettingsBox(props: SettingsBoxProps) {
       setUseYuv444(loadedSettings.useYuv444);
       setKeepTransparency(loadedSettings.keepTransparency);
       setLossless(loadedSettings.lossless);
+      setAutoDownload(loadedSettings.autoDownload);
     }
   }, []);
 
   useEffect(() => {
     saveSettings();
-    props.onSettingsUpdate({ effort, quality, useYuv444, keepTransparency });
+    props.onSettingsUpdate({ effort, quality, useYuv444, keepTransparency, autoDownload });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [effort, quality, useYuv444, keepTransparency]);
+  }, [effort, quality, useYuv444, keepTransparency, autoDownload]);
 
   useEffect(() => {
     saveSettings();
@@ -67,9 +71,10 @@ export default function SettingsBox(props: SettingsBoxProps) {
         quality: 100,
         effort,
         keepTransparency,
+        autoDownload
       });
     } else {
-      props.onSettingsUpdate({ useYuv444, quality, effort, keepTransparency });
+      props.onSettingsUpdate({ useYuv444, quality, effort, keepTransparency, autoDownload });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lossless]);
@@ -80,6 +85,10 @@ export default function SettingsBox(props: SettingsBoxProps) {
 
   function onKeepTransparencyChanged(event: ChangeEvent<HTMLInputElement>) {
     setKeepTransparency(event.target.checked);
+  }
+
+  function onAutoDownloadChanged(event: ChangeEvent<HTMLInputElement>) {
+    setAutoDownload(event.target.checked);
   }
 
   return (
@@ -123,6 +132,14 @@ export default function SettingsBox(props: SettingsBoxProps) {
             onChange={onKeepTransparencyChanged}
           />
           Keep transparency
+        </label>
+        <label>
+          <input
+            type={"checkbox"}
+            checked={autoDownload}
+            onChange={onAutoDownloadChanged}
+          />
+          Automatically download
         </label>
       </div>
     </div>

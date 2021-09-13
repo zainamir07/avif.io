@@ -1,6 +1,7 @@
 import _ from "lodash";
 import { fileExtension } from "./utils";
 import webpToRgba from "./webpToRgba";
+import { saveFile } from "@utils/utils";
 
 export interface ConversionResult {
   data: Uint8Array;
@@ -19,6 +20,7 @@ export interface ConversionOptions extends ConversionMessageCallbacks {
   quality: number; // Quality as a 0-100 percentage
   useYuv444: boolean;
   keepTransparency: boolean;
+  autoDownload: boolean;
 }
 
 interface PendingConversion {
@@ -89,6 +91,7 @@ export default class Converter {
       onProgress: options.onProgress,
       onFinished: (result: ConversionResult) => {
         options.onFinished(result);
+        saveFile(new File([result.data], "images.zip"))
         workerWithConversionId.conversionId = undefined;
         this.tryConvertingFiles();
       },

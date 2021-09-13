@@ -19,7 +19,8 @@ onmessage = async function (msg) {
       msg.data.options.effort,
       msg.data.options.quality,
       msg.data.options.useYuv444 ? Subsampling.YUV444 : Subsampling.YUV420,
-      msg.data.options.keepTransparency
+      msg.data.options.keepTransparency,
+      msg.data.options.autoDownload
     );
     if (msg.data.isRawRgba) {
       return rgbaToAvif(
