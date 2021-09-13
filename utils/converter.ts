@@ -91,7 +91,9 @@ export default class Converter {
       onProgress: options.onProgress,
       onFinished: (result: ConversionResult) => {
         options.onFinished(result);
-        saveFile(new File([result.data], "images.zip"))
+        if (options.autoDownload) {
+        saveFile(new File([result.data], "images.zip"));
+        }
         workerWithConversionId.conversionId = undefined;
         this.tryConvertingFiles();
       },
