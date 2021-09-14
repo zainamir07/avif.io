@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { fileExtension } from "./utils";
+import { fileExtension, splitNameAndExtension } from "./utils";
 import webpToRgba from "./webpToRgba";
 import { saveFile } from "@utils/utils";
 
@@ -92,7 +92,7 @@ export default class Converter {
       onFinished: (result: ConversionResult) => {
         options.onFinished(result);
         if (options.autoDownload) {
-        saveFile(new File([result.data], "images.zip"));
+        saveFile(new File([result.data], `${splitNameAndExtension(file.name)[0]}.avif`));
         }
         workerWithConversionId.conversionId = undefined;
         this.tryConvertingFiles();
