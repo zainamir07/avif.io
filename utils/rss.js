@@ -37,7 +37,7 @@ fs.readdirSync(articles)
     feed.item({
       title,
       description,
-      url: `https://avif.io/blog/articles/${fileName.replace(".mdx", "")}`,
+      url: `https://avif.io/blog/articles/${fileName.replace(".mdx", "")}/`,
       date: datePublished,
     });
   });
@@ -57,7 +57,7 @@ fs.readdirSync(comparisons)
     feed.item({
       title,
       description,
-      url: `https://avif.io/blog/comparisons/${fileName.replace(".mdx", "")}`,
+      url: `https://avif.io/blog/comparisons/${fileName.replace(".mdx", "")}/`,
       date: datePublished,
     });
   });
@@ -77,7 +77,7 @@ fs.readdirSync(releases)
     feed.item({
       title,
       description,
-      url: `https://avif.io/blog/releases/${fileName.replace(".mdx", "")}`,
+      url: `https://avif.io/blog/releases/${fileName.replace(".mdx", "")}/`,
       date: datePublished,
     });
   });
@@ -97,7 +97,7 @@ fs.readdirSync(tutorials)
     feed.item({
       title,
       description,
-      url: `https://avif.io/blog/tutorials/${fileName.replace(".mdx", "")}`,
+      url: `https://avif.io/blog/tutorials/${fileName.replace(".mdx", "")}/`,
       date: datePublished,
     });
   });
