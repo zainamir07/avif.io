@@ -84,3 +84,10 @@ of the code is explicitly checking whether it's working with WebP.
 ## Installing dependencies and building the front-end
 
 You can find the related commands in the package.json file.
+
+<br/>
+
+# Special thanks to all contributors:
+1. ennmichael / Nikša
+2. mikqi / Muhammad Rivki
+3. ageofadz / Sam Robertson
