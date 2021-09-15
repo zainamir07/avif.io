@@ -28,7 +28,7 @@ export default function SettingsBox(props: SettingsBoxProps) {
   const [useYuv444, setUseYuv444] = useState(true);
   const [keepTransparency, setKeepTransparency] = useState(true);
   const [lossless, setLossless] = useState(false);
-  const [autoDownload, setAutoDownload] = useState(true);
+  const [autoDownload, setAutoDownload] = useState(false);
 
   function saveSettings() {
     setCookieJson(settingsCookieKey, {
@@ -37,7 +37,7 @@ export default function SettingsBox(props: SettingsBoxProps) {
       useYuv444,
       keepTransparency,
       lossless,
-      autoDownload
+      autoDownload,
     });
   }
 
@@ -59,7 +59,13 @@ export default function SettingsBox(props: SettingsBoxProps) {
 
   useEffect(() => {
     saveSettings();
-    props.onSettingsUpdate({ effort, quality, useYuv444, keepTransparency, autoDownload });
+    props.onSettingsUpdate({
+      effort,
+      quality,
+      useYuv444,
+      keepTransparency,
+      autoDownload,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [effort, quality, useYuv444, keepTransparency, autoDownload]);
 
@@ -71,10 +77,16 @@ export default function SettingsBox(props: SettingsBoxProps) {
         quality: 100,
         effort,
         keepTransparency,
-        autoDownload
+        autoDownload,
       });
     } else {
-      props.onSettingsUpdate({ useYuv444, quality, effort, keepTransparency, autoDownload });
+      props.onSettingsUpdate({
+        useYuv444,
+        quality,
+        effort,
+        keepTransparency,
+        autoDownload,
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lossless]);
