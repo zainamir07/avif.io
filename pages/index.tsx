@@ -138,7 +138,7 @@ export default function App(): ReactElement {
     quality: 75,
     useYuv444: false,
     keepTransparency: true,
-    autoDownload: false
+    autoDownload: false,
   });
 
   useEffect(() => setConverter(new Converter()), []);

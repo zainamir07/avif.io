@@ -92,7 +92,12 @@ export default class Converter {
       onFinished: (result: ConversionResult) => {
         options.onFinished(result);
         if (options.autoDownload) {
-        saveFile(new File([result.data], `${splitNameAndExtension(file.name)[0]}.avif`));
+          saveFile(
+            new File(
+              [result.data],
+              `${splitNameAndExtension(file.name)[0]}.avif`
+            )
+          );
         }
         workerWithConversionId.conversionId = undefined;
         this.tryConvertingFiles();

@@ -88,6 +88,7 @@ You can find the related commands in the package.json file.
 <br/>
 
 # Special thanks to all contributors:
+
 1. ennmichael / Nikša
 2. mikqi / Muhammad Rivki
 3. ageofadz / Sam Robertson
