@@ -18,12 +18,12 @@ build-wasm = ["web-sys"]
 default = ["console_error_panic_hook", "build-wasm"]
 
 [dependencies]
-avif-serialize = "0.7.4"
+avif-serialize = "0.7.5"
 image = {version = "0.23.14", default-features = false, features = ["gif", "jpeg", "ico", "png", "pnm", "tga", "tiff", "bmp", "hdr", "dxt", "dds", "farbfeld"]}
-js-sys = "0.3.54"
+js-sys = "0.3.55"
 rav1e = {git = "https://github.com/justinschmitz97/rav1e", branch = "master", default-features = false}
-wasm-bindgen = {version = "0.2.77"}
-web-sys = {version = "0.3.54", features = ["console"], optional = true}
+wasm-bindgen = {version = "0.2.78"}
+web-sys = {version = "0.3.55", features = ["console"], optional = true}
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires
@@ -39,7 +39,7 @@ console_error_panic_hook = {version = "0.1.6", optional = true}
 wee_alloc = {version = "0.4.5", optional = true}
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.27"
+wasm-bindgen-test = "0.3.28"
 
 [profile.release]
 lto = true
