@@ -19,14 +19,12 @@ export default function Breadcrumbs(props: any) {
                 "name": "blog",
                 "item": "https://avif.io/blog/",
               },
-              urlSplit[2]
-                ? {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": urlSplit[1],
-                    "item": "https://avif.io/blog/#" + urlSplit[1],
-                  }
-                : "",
+              urlSplit[2] && {
+                "@type": "ListItem",
+                "position": 2,
+                "name": urlSplit[1],
+                "item": "https://avif.io/blog/#" + urlSplit[1],
+              },
             ],
           })}
         />
@@ -38,15 +36,13 @@ export default function Breadcrumbs(props: any) {
           className="animation-delay-3"
         >
           <Link href={`/${urlSplit[0]}/`} text={`#${urlSplit[0]}`} />
-          {urlSplit[2] ? (
+          {urlSplit[2] && (
             <div className="inline ml-2">
               <Link
                 href={`/${urlSplit[0]}/#${urlSplit[1]}`}
                 text={`#${urlSplit[1]}`}
               />
             </div>
-          ) : (
-            ""
           )}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { jsonLdScriptProps } from "react-schemaorg";
-import { BlogPosting } from "schema-dts";
+import { BlogPosting, Organization } from "schema-dts";
 
 export interface MetaProps {
   title?: string;
@@ -62,6 +62,21 @@ export default function Meta(props: MetaProps) {
         <meta name="twitter:image" content="https://avif.io/twitter.png" />
       )}
 
+      <script
+        {...jsonLdScriptProps<Organization>({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "avif.io",
+          "url": "https://avif.io",
+          "logo": "https://avif.io/json-logo.png",
+          "sameAs": [
+            "https://github.com/justinschmitz97/avif.io/",
+            "https://discord.com/invite/6w42YpF5hm",
+            "https://www.producthunt.com/posts/avif-io-avif-image-converter",
+          ],
+        })}
+      />
+
       {props.blog && (
         <script
           {...jsonLdScriptProps<BlogPosting>({
@@ -77,6 +92,14 @@ export default function Meta(props: MetaProps) {
             "author": {
               "@type": "Person",
               "name": "Justin Schmitz",
+              "sameAs": [
+                "https://twitter.com/jschmitz97",
+                "https://dribbble.com/justinschmitz",
+                "https://www.fiverr.com/zoayenemies",
+                "https://www.upwork.com/freelancers/~014b24a2eaf9eac622",
+                "https://www.xing.com/profile/Justin_Schmitz9/",
+                "https://www.linkedin.com/in/justinschmitz97/",
+              ],
             },
             "publisher": {
               "@type": "Organization",
