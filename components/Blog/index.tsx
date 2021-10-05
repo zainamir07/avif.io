@@ -96,6 +96,8 @@ export default function Blog(props: {
           0,
           -1
         )}.mdx`}
+        target="_blank"
+        rel="noreferrer"
       >
         Help improve this article
       </a>
