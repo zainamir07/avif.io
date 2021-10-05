@@ -91,7 +91,7 @@ export default function Blog(props: {
         {props.posts[0] && <Posts posts={props.posts} />}
       </div>
       <a
-        className="invisible md:visible fixed w-auto px-2 py-1 bottom-2 left-2 bg-bg-300 z-50 text-tiny rounded-sm"
+        className="fixed bottom-2 left-2 invisible z-50 py-1 px-2 w-auto rounded-sm md:visible bg-bg-300 text-tiny"
         href={`https://github.com/justinschmitz97/avif.io/blob/master/data/${props.postMeta.url.slice(
           0,
           -1
