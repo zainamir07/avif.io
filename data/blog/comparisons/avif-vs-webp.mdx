@@ -71,8 +71,8 @@ The million-dollar question is, however, which is better: AVIF or WEBP? This art
 ## Quality and limits
 
 AVIF as a format derived from frames of video with the AV1 codec, there are some image dimension limitations adopters will need to look out for. **AVIF has an image resolution limit of 65536 x 65536 pixels.**  
-It is possible to **exceed this limit by rendering independently encoded tiles**. But, with **artifacts at the edges of each tile**, AVIF is unsuitable for large resolution images.  
-**WebP** also has a hard limit to an image's frame size, with its maximum dimension being **16,383 x 16,383.** While this is an improvement over AVIF, there is no way to push past this. Neither formats compare to the limits of PNG and JPEG 2000 with 2500 megapixels and 5000-megapixel max dimensions, respectively.  
+By default, AVIF has an 8K limit, but it is possible to **exceed this limit by rendering independently encoded tiles**. But, with **artifacts at the edges of each tile**, AVIF is unsuitable for large resolution images.  
+**WebP** also has a hard limit to an image's frame size, with its maximum dimension being **16,383 x 16,383.** While this is an improvement over the default AVIF size limit, there is no way to push past this like AVIF as. Neither formats compare to the limits of PNG and JPEG 2000 with 2500 megapixels and 5000-megapixel max dimensions, respectively.  
 WebP falls short with its limitations compared to AVIF because of its wide color gamut and precision support. **WebP only supports a max bit depth of 8-bit** and does support wide gamut/HDR images. WebP also does not support images without chroma subsampling.  
 **AVIF flexes a max bit depth of 10, supports 4:4:4, and supports HDR photos**. Despite WebP's advantage with max dimension, we find the other limitations too great of a sacrifice to hand the win to WebP for this category.
 
