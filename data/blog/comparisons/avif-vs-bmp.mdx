@@ -53,9 +53,9 @@ AVIF is derived from a video codec, and it shares some similar limitations to th
 
 It is possible to produce larger AVIF images than this maximum resolution by **independently encoding tiles and tiling them to create a larger image**. However, using this method introduces some artifacts at the borders of these individual frames, making AVIF unsuitable for large print images.
 
-As for BMP, while the maximum resolution is usually up to debate and depends on which software you use to export the image, there is a **consensus that a realistic full resolution for BMP is 32,000 x 32,000 pixels**. This is a significantly higher limit than AVIF; however, once we cover compression, it will become apparent it is impractical to create BMP images as large as this.
+As for BMP, while the maximum resolution is usually up to debate and depends on which software you use to export the image, there is a **consensus that a realistic full resolution for BMP is 32,000 x 32,000 pixels**. However, once we cover compression, it will become apparent it is impractical to create BMP images as large as this.
 
-**AVIF supports wide color gamut images, including HDR (high dynamic range) photos.** This is a feature that BMP does not support. AVIF can support a **max bit depth of 10-bits**, whereas BMP images are usually limited to 8-bit precision.
+**AVIF supports wide color gamut images, including HDR (high dynamic range) photos.** This is a feature that BMP does not support. AVIF can support a **max bit depth of 12-bits**, whereas BMP images are usually limited to 8-bit precision.
 
 ## Compression
 
