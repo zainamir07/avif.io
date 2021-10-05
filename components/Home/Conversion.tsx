@@ -1,11 +1,11 @@
-import ProgressBar from "@components/ProgressBar";
-import { Settings } from "@components/SettingsBox";
+import ProgressBar from "@components/Home/ProgressBar";
+import { Settings } from "@components/Home/SettingsBox";
 import ConversionTimeEstimator from "@utils/ConversionTimeEstimator";
 import Converter, { ConversionId, ConversionResult } from "@utils/converter";
 import { splitNameAndExtension } from "@utils/utils";
 import prettyBytes from "pretty-bytes";
 import { ReactElement, useEffect, useState } from "react";
-import Tooltip from "@components/Tooltip";
+import Tooltip from "@components/Home/Tooltip";
 
 import arrow from "@assets/arrow.svg";
 
@@ -129,10 +129,10 @@ export default function Conversion(props: ConversionProps): ReactElement {
               (remainingTime !== "" ? " · " + remainingTime : "")}
 
           {percentageSaved === 0 && (
-            <Tooltip
-              text="Why 0%?"
-              explanation="Adjust your conversion settings to achieve higher compression."
-            />
+            <Tooltip text="Why 0%?">
+              explanation="Adjust your conversion settings to achieve higher
+              compression."
+            </Tooltip>
           )}
         </p>
       </div>

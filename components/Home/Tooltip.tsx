@@ -1,4 +1,4 @@
-export default function Tooltip(props: { text: string; explanation: string }) {
+export default function Tooltip(props: { text: string; children: any }) {
   return (
     <>
       <div
@@ -11,7 +11,7 @@ export default function Tooltip(props: { text: string; explanation: string }) {
           className="hidden absolute z-50 p-2 w-12 text-left text-white rounded-lg border-2 group-hover:block bg-bg-500 border-bg-300"
           style={{ top: "-20px", left: "120%" }}
         >
-          {props.explanation}
+          {props.children}
         </div>
       </div>
     </>

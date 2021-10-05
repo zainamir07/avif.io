@@ -174,6 +174,9 @@ module.exports = {
         300: "300deg",
         315: "315deg",
       },
+      blur: {
+        100: "100px",
+      },
     },
   },
   variants: {

@@ -1,4 +1,4 @@
-import PercentageSlider from "@components/PercentageSlider";
+import PercentageSlider from "@components/Home/PercentageSlider";
 import { getCookieJson, setCookieJson } from "@utils/cookies";
 import React, { ChangeEvent, useEffect, useState } from "react";
 

@@ -1,4 +1,4 @@
-import Tooltip from "@components/Tooltip";
+import Tooltip from "@components/Home/Tooltip";
 
 export interface PercentageSliderProps {
   className?: string;
@@ -16,7 +16,7 @@ export default function PercentageSlider(props: PercentageSliderProps) {
     <div className="mb-3" id={props.id}>
       <div className="flex align-center">
         <p className="font-bold">{props.name}</p>
-        <Tooltip text="?" explanation={props.explanation} />
+        <Tooltip text="?">{props.explanation}</Tooltip>
       </div>
       <div className="flex content-center items-center">
         <label className="text-none">
