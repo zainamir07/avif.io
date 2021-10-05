@@ -90,6 +90,15 @@ export default function Blog(props: {
       <div className="container mt-12 max-w-screen-lg bg-bg-700">
         {props.posts[0] && <Posts posts={props.posts} />}
       </div>
+      <a
+        className="invisible md:visible fixed w-auto px-2 py-1 bottom-2 left-2 bg-bg-300 z-50 text-tiny rounded-sm"
+        href={`https://github.com/justinschmitz97/avif.io/blob/master/data/${props.postMeta.url.slice(
+          0,
+          -1
+        )}.mdx`}
+      >
+        Help improve this article
+      </a>
     </Layout>
   );
 }
