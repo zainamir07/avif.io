@@ -148,7 +148,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
           <a
             role="button"
             title="stop conversion"
-            className="flex left-full z-50 justify-center items-center pb-1 ml-1 w-4 h-4 text-red-700 bg-red-1000 rounded-lg opacity-0 transition-all duration-300 ease-out group-hover:opacity-100"
+            className="flex left-full z-50 justify-center items-center pb-1 ml-1 w-4 h-4 text-red-700 rounded-lg opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 bg-red-1000"
             onClick={cancelConverison}
             onKeyPress={cancelConverison}
             tabIndex={0}
