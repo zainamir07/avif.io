@@ -3,9 +3,7 @@ import path from "path";
 import * as React from "react";
 import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
-
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
-import Posts from "@components/Blog/Posts";
 import Post from "@components/Blog/Post";
 import Layout from "@components/Layout";
 
@@ -64,6 +62,10 @@ export const getStaticProps = async () => {
 
   return {
     props: {
+      articles,
+      comparisons,
+      releases,
+      tutorials,
       defaultFilteredPost,
       listSubCategories,
       listCategories,
@@ -82,7 +84,10 @@ export const getStaticProps = async () => {
 type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const BlogAvif: NextPage<PostsPageProps> = ({
   defaultFilteredPost,
-  posts,
+  articles,
+  comparisons,
+  releases,
+  tutorials,
   /*listAllCategories,*/
   listSupport,
   listSubCategories,
@@ -202,9 +207,52 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               ))}
             </div>
           ) : (
-            Object.keys(posts).map((key) => (
-              <Posts key={key} title={key} posts={posts[key]} />
-            ))
+            <>
+              <h3
+                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                id={"articles"}
+              >
+                Articles
+              </h3>
+              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+                {articles.map((post: any) => (
+                  <Post key={post.slug} {...post.data} slug={post.slug} />
+                ))}
+              </div>
+              <h3
+                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                id={"tutorials"}
+              >
+                Tutorials
+              </h3>
+              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+                {tutorials.map((post: any) => (
+                  <Post key={post.slug} {...post.data} slug={post.slug} />
+                ))}
+              </div>
+              <h3
+                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                id={"comparisons"}
+              >
+                Comparisons
+              </h3>
+              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+                {comparisons.map((post: any) => (
+                  <Post key={post.slug} {...post.data} slug={post.slug} />
+                ))}
+              </div>
+              <h3
+                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                id={"articles"}
+              >
+                Changelog
+              </h3>
+              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+                {releases.map((post: any) => (
+                  <Post key={post.slug} {...post.data} slug={post.slug} />
+                ))}
+              </div>
+            </>
           )}
         </div>
       </main>

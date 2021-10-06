@@ -29,16 +29,26 @@ export default function Header() {
           : { zIndex: 9999 }
       }
     >
-      <div className="flex flex-col flex-wrap items-center md:flex-row">
+      <div className="flex flex-wrap items-center md:flex-row justify-between">
         <nav className="flex flex-wrap justify-center items-center text-base md:pl-4 md:mr-auto">
           <Link className="p-2 md:p-3" text="Blog" href="/blog/" />
           <Link
-            className="p-2 md:p-3"
+            className="hidden md:block p-2 md:p-3"
+            text="Tutorials"
+            href="/blog/#tutorials"
+          />
+          <Link
+            className="hidden md:block p-2 md:p-3"
+            text="Comparisons"
+            href="/blog/#comparisons"
+          />
+          <Link
+            className="hidden md:block p-2 md:p-3"
             text="Discord"
             href="discord.com/invite/6w42YpF5hm"
           />
           <Link
-            className="p-2 md:p-3"
+            className="hidden md:block p-2 md:p-3"
             text="Github"
             href="github.com/justinschmitz97/avif.io/"
           />

@@ -88,7 +88,19 @@ export default function Blog(props: {
         </div>
       </main>
       <div className="container mt-12 max-w-screen-lg bg-bg-700">
-        {props.posts[0] && <Posts posts={props.posts} />}
+        {props.posts[0] && (
+          <>
+            <h3
+              className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+              id="related"
+            >
+              Related articles
+            </h3>
+            <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+              <Posts posts={props.posts} />
+            </div>
+          </>
+        )}
       </div>
       <a
         className="fixed bottom-2 left-2 invisible z-50 py-1 px-2 w-auto rounded-sm md:visible bg-bg-300 text-tiny"
