@@ -59,12 +59,12 @@ export default function Boxes() {
     <section className="container relative z-10 px-3 mt-12 max-w-screen-xl">
       <h2 className="text-center">How to use AVIF</h2>
       <div className="my-6 mx-auto max-w-screen-md text-center">
-        Support is constantly rising across browsers, software and hardware.
-        Thanks to being royalty-free, companies can include the format without
-        having to deal with patents. We created articles for you on how to get
-        started on all different type of browsers, operating systems and
-        software. We didn't cover your software? Feel free to tell us on
-        support@avif.io and we will write an article about it.
+        Support is constantly rising across software and hardware. Thanks to
+        being royalty-free, companies can include the format without having to
+        deal with patents. We created articles for you on getting started on all
+        different types of browsers, operating systems, and software. We didn't
+        cover your software? Feel free to tell us on support@avif.io, and we
+        will write an article about it.
       </div>
       <div className="grid gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4 tutorials">
         <Box id="firefox" text="Firefox" url="firefox" img={img1} />

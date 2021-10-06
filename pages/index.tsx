@@ -42,7 +42,7 @@ function ImageSlider() {
           handle={
             <div
               role="button"
-              className="py-4 px-2 bg-pink-700 rounded-lg"
+              className="py-4 px-2 bg-pink-700 rounded-xl"
               tabIndex={0}
               id="handle"
             />
@@ -113,7 +113,7 @@ export default function App(): ReactElement {
 
   return (
     <Layout meta={meta.index}>
-      <section className="px-3 mt-12 mb-4 text-center">
+      <section className="px-3 mt-12 text-center">
         <h1>Convert all images to AVIF for free.</h1>
         <div className="block justify-center mb-6 md:flex">
           <h2 className="mt-0 mb-0 text-base font-normal">
@@ -137,7 +137,7 @@ export default function App(): ReactElement {
           <button
             aria-label="Conversion settings"
             className={`absolute top-4 right-4 z-50 block w-5 h-5 p-5 cursor-pointer transition-all transform ease-cog duration-300 bg-no-repeat bg-center invisible md:visible ${
-              settingsBoxOpen ? " rotate-180" : ""
+              settingsBoxOpen ? " rotate-180" : "rotate-0"
             }`}
             style={{
               backgroundImage: `url(${cog})`,

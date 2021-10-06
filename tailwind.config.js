@@ -70,7 +70,9 @@ module.exports = {
       auto: "auto",
       cover: "cover",
       contain: "contain",
-      200: "200% 200%",
+      200: "200%",
+      50: "50%",
+      100: "100%",
     },
     borderRadius: {
       none: "0",

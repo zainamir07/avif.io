@@ -90,10 +90,12 @@
     @apply ease-in-out transition-all duration-300;
   }
 
-  a:hover,
-  button:hover {
+  a:hover {
     transform: translateY(-2px);
     @apply ease-in-out transition-all duration-300;
+  }
+
+  button:hover {
   }
 
   html {
@@ -185,7 +187,7 @@
   }
 
   button {
-    @apply block z-0 py-2 px-3 text-white font-bold text-center border-0 rounded-md cursor-pointer;
+    @apply block z-0 py-2 px-3 text-white font-bold text-center border-2 border-transparent rounded-md cursor-pointer;
   }
 
   button:focus-visible {
@@ -207,7 +209,7 @@
   }
 
   article p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.85);
   }
   article p strong {
     color: #fff;
@@ -472,6 +474,10 @@ input[type="range"] {
   outline: none;
   appearance: none;
   min-width: 128px;
+}
+
+input[type="range"]:disabled::-webkit-slider-thumb {
+  background: theme("colors.gray.700");
 }
 
 input[type="range"]::-webkit-slider-thumb {

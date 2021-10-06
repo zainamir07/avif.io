@@ -1,3 +1,6 @@
+import "atropos/css";
+import Atropos from "atropos/react";
+
 import visualizer1 from "@assets/visualizer-1.svg";
 import visualizer2 from "@assets/visualizer-2.svg";
 import visualizer3 from "@assets/visualizer-3.svg";
@@ -22,103 +25,112 @@ interface Advantages {
 
 function AdvantageItem(props: Advantages) {
   return (
-    <div
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-      tabIndex={0}
-      className="overflow-hidden relative z-50 text-lg rounded-xl transition-all duration-200 ease-out transform-gpu hover:scale-105 group bg-bg-600 hover:bg-bg-500"
-      style={{
-        padding: "calc(100% - 8px) 8px 8px 8px",
-      }}
+    <Atropos
+      activeOffset={20}
+      shadowScale={1.01}
+      rotateXMax={20}
+      scaleClassName="rounded-lg h-full"
+      rotateClassName="rounded-lg h-full"
+      innerClassName="rounded-lg h-full"
+      durationEnter={200}
+      shadow={false}
     >
-      <div className="absolute top-4 right-4 left-4 ease-in">
-        {props.children}
-      </div>
       <div
-        className="absolute top-0 right-0 bottom-0 left-0 z-0 bg-center bg-contain rounded-lg ease-out origin-center group-hover:opacity-5 group-hover:scale-110 background-no-repeat group-hover:blur-md"
-        id={props.number}
-        style={{
-          backgroundImage: `url(${props.image})`,
-          opacity: "0.025",
-          filter: "blur(4px)",
-        }}
-      ></div>
-    </div>
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={0}
+        className="h-full text-center p-4 grid overflow-hidden relative z-50 rounded-lg transition-all duration-200 ease-out transform-gpu hover:scale-105 group bg-bg-600"
+        data-atropos-offset="0"
+      >
+        <div
+          className="mb-4 h-6 z-0 bg-center bg-no-repeat bg-contain rounded-lg ease-out origin-center background-no-repeat group-hover:scale-200 transition-all duration-500"
+          data-atropos-offset="10"
+          id={props.number}
+          style={{
+            backgroundImage: `url(${props.image})`,
+          }}
+        ></div>
+        <div
+          className="ease-in h-auto md:h-7 leading-snug"
+          data-atropos-offset="2"
+        >
+          {props.children}
+        </div>
+        <div
+          className="absolute top-0 right-0 bottom-0 left-0 bg-cover bg-center md:bg-no-repeat"
+          style={{
+            backgroundImage: `url(${props.image})`,
+            opacity: "0.025",
+            filter: "blur(4px)",
+          }}
+        ></div>
+      </div>
+    </Atropos>
   );
 }
 
 export default function Advantages() {
   return (
-    <section
-      className="container relative px-3 max-w-screen-xl"
-      id="avifadvantages"
-    >
-      <div className="grid grid-cols-1 gap-4 mb-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <section className="container relative p-4 lg:p-0" id="avifadvantages">
+      <div className="grid grid-cols-1 gap-4 mb-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         <AdvantageItem number="visualizer-1" image={visualizer1}>
-          <span className="font-bold text-pink-700">reduces file size </span>of
-          images by 20-90% for faster page loading
-        </AdvantageItem>
-        <AdvantageItem number="visualizer-2" image={visualizer2}>
-          <span className="font-bold text-pink-700">
-            decreases required bandwidth{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            reduces file size{" "}
           </span>
-          for service providers
+          of images by 20-90%
         </AdvantageItem>
         <AdvantageItem number="visualizer-3" image={visualizer3}>
-          <span className="font-bold text-pink-700">
-            actively developed by tech giants{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            developed by tech giants{" "}
           </span>
-          like Google, Apple and Microsoft
+          like Google
         </AdvantageItem>
         <AdvantageItem number="visualizer-4" image={visualizer4}>
-          <span className="font-bold text-pink-700">
-            open to use and royalty-free{" "}
+          open to use and{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            royalty-free{" "}
           </span>
-          for everyone
-        </AdvantageItem>
-        <AdvantageItem number="visualizer-5" image={visualizer5}>
-          provides the{" "}
-          <span className="font-bold text-pink-700">
-            highest quality to compression rate{" "}
-          </span>
-          ever achieved
         </AdvantageItem>
         <AdvantageItem number="visualizer-6" image={visualizer6}>
           already{" "}
-          <span className="font-bold text-pink-700">
-            supported by Chrome, Opera and Firefox
+          <span className="font-bold text-pink-700 leading-snug">
+            70% browser support
           </span>
         </AdvantageItem>
         <AdvantageItem number="visualizer-7" image={visualizer7}>
-          <span className="font-bold text-pink-700">
+          <span className="font-bold text-pink-700 leading-snug">
             supports transparency{" "}
           </span>
-          and is therefore a better version of PNG
+          to replace PNG
         </AdvantageItem>
         <AdvantageItem number="visualizer-8" image={visualizer8}>
-          <span className="font-bold text-pink-700">
-            supports animated frames{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            supports animations{" "}
           </span>
-          which can replace GIFs and aPNGs
+          to replace GIFs
         </AdvantageItem>
         <AdvantageItem number="visualizer-9" image={visualizer9}>
-          <span className="font-bold text-pink-700">embraces HDR </span>
-          with 12-bit color depth and wide color gamut
+          <span className="font-bold text-pink-700 leading-snug">
+            embraces HDR{" "}
+          </span>
+          and 12-bit color depth
         </AdvantageItem>
         <AdvantageItem number="visualizer-10" image={visualizer10}>
-          provides{" "}
-          <span className="font-bold text-pink-700">
-            future-proof VP-10 codec technology
+          future-proof{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            VP-10 codec technology
           </span>
         </AdvantageItem>
         <AdvantageItem number="visualizer-11" image={visualizer11}>
-          latest GPUs already support{" "}
-          <span className="font-bold text-pink-700">hardware decoding</span>
+          latest GPUs support{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            hardware decoding
+          </span>
         </AdvantageItem>
         <AdvantageItem number="visualizer-12" image={visualizer12}>
-          <span className="font-bold text-pink-700">
-            rich of features for smartphones{" "}
+          <span className="font-bold text-pink-700 leading-snug">
+            full of features{" "}
           </span>
-          like live photos
+          for mobile phones
         </AdvantageItem>
       </div>
     </section>
