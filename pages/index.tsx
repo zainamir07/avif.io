@@ -113,7 +113,7 @@ export default function App(): ReactElement {
 
   return (
     <Layout meta={meta.index}>
-      <section className="px-2 md:px-3 mt-12 text-center">
+      <section className="px-2 mt-12 text-center md:px-3">
         <h1>Convert all images to AVIF for free.</h1>
         <div className="block justify-center mb-6 md:flex">
           <h2 className="mt-0 mb-0 text-base font-normal">

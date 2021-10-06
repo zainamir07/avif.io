@@ -109,21 +109,21 @@ export default function Conversion(props: ConversionProps): ReactElement {
       } ${cancelled ? "hidden" : ""}`}
       data-transition-style={finished ? "bounceIn" : ""}
     >
-      <div className="ml-3 flex flex-col justify-between items-baseline py-2">
-        <p className="overflow-hidden relative z-50  whitespace-nowrap select-none overflow-ellipsis font-bold">
+      <div className="flex flex-col justify-between items-baseline py-2 ml-3">
+        <p className="overflow-hidden relative z-50 font-bold whitespace-nowrap select-none overflow-ellipsis">
           {typeof fileName === "string" && fileName.length > 40
             ? fileName.substring(0, 40) + "[..]"
             : fileName}
           {finished ? ".avif " : `.${originalFormat}`}
         </p>
         <div className="flex my-1">
-          <p className="z-50 mr-2 rounded-sm text-tiny bg-red-1000 px-2 py-1">
+          <p className="z-50 py-1 px-2 mr-2 rounded-sm text-tiny bg-red-1000">
             <span className="conversion_format">
               {originalFormat} | {prettyBytes(originalSize)}
             </span>
           </p>
           {finished && (
-            <p className="z-50 text-tiny  rounded-sm bg-green-1000 px-2 py-1">
+            <p className="z-50 py-1 px-2 rounded-sm text-tiny bg-green-1000">
               avif |{" "}
               {prettyBytes(outputSize, { maximumFractionDigits: 0 }) +
                 " | -" +
@@ -133,7 +133,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
           )}
         </div>
       </div>
-      <p className={`hidden md:block z-50 text-tiny rounded-sm  px-2 py-1`}>
+      <p className={`hidden md:flex z-50 text-tiny rounded-sm  px-2 py-1`}>
         {!finished &&
           (remainingTime !== "" ? remainingTime + " · " : "") +
             (progress * 100).toFixed() +
@@ -143,6 +143,18 @@ export default function Conversion(props: ConversionProps): ReactElement {
             explanation="Adjust your conversion settings to achieve higher
             compression."
           </Tooltip>
+        )}
+        {status === "inProgress" && (
+          <a
+            role="button"
+            title="stop conversion"
+            className="flex left-full z-50 justify-center items-center pb-1 ml-1 w-4 h-4 text-red-700 bg-red-1000 rounded-lg opacity-0 transition-all duration-300 ease-out group-hover:opacity-100"
+            onClick={cancelConverison}
+            onKeyPress={cancelConverison}
+            tabIndex={0}
+          >
+            ■
+          </a>
         )}
       </p>
       {finished && (
@@ -173,20 +185,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
           </button>
         </a>
       )}
-
       {status === "inProgress" && <ProgressBar progress={progress} />}
-      {status === "inProgress" && (
-        <a
-          role="button"
-          title="stop conversion"
-          className="flex absolute left-full z-50 justify-center items-center pb-1 ml-1 w-4 h-4 text-gray-900 bg-white rounded-lg opacity-0 transition-all duration-300 ease-out group-hover:opacity-100"
-          onClick={cancelConverison}
-          onKeyPress={cancelConverison}
-          tabIndex={0}
-        >
-          ■
-        </a>
-      )}
     </div>
   );
 }
