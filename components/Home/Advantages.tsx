@@ -2,10 +2,8 @@ import "atropos/css";
 import Atropos from "atropos/react";
 
 import visualizer1 from "@assets/visualizer-1.svg";
-import visualizer2 from "@assets/visualizer-2.svg";
 import visualizer3 from "@assets/visualizer-3.svg";
 import visualizer4 from "@assets/visualizer-4.svg";
-import visualizer5 from "@assets/visualizer-5.svg";
 import visualizer6 from "@assets/visualizer-6.svg";
 import visualizer7 from "@assets/visualizer-7.svg";
 import visualizer8 from "@assets/visualizer-8.svg";

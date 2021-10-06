@@ -13,17 +13,13 @@ export interface ConversionProps {
   file: File;
   converter: Converter;
   settings: Settings;
-
   onFinished(outputFile: File): void;
 }
 
 function formatRemainingTimeEstimate(estimator: ConversionTimeEstimator) {
   if (estimator.minutes === undefined) return "";
   if (estimator.seconds === undefined) return "";
-
-  if (estimator.minutes === 0 && estimator.seconds === 0)
-    return "almost ready..";
-
+  if (estimator.minutes === 0 && estimator.seconds === 0) return "almost ready";
   let result = "";
   if (estimator.minutes !== 0) {
     result += `${estimator.minutes} minute`;
@@ -33,7 +29,6 @@ function formatRemainingTimeEstimate(estimator: ConversionTimeEstimator) {
   } else {
     result += `${estimator.seconds} seconds`;
   }
-
   result += " left";
   return result;
 }
@@ -109,65 +104,76 @@ export default function Conversion(props: ConversionProps): ReactElement {
 
   return (
     <div
-      className={`conversion justify-between w-full relative z-10 flex flex-row items-center self-auto mt-4 py-2 px-3 bg-white rounded-md text-gray-900${
-        finished ? "pointer-events-auto" : "progress group"
+      className={`text-tiny text-white conversion justify-between w-full relative z-10 flex flex-row items-center self-auto mt-3 py-1 bg-bg-600 overflow-hidden rounded-md${
+        finished ? " pointer-events-auto bg-bg-600" : " progress group"
       } ${cancelled ? "hidden" : ""}`}
       data-transition-style={finished ? "bounceIn" : ""}
     >
-      <div className="flex flex-col justify-between items-baseline py-2">
-        <p className="overflow-hidden relative z-50 text-gray-900 whitespace-nowrap select-none overflow-ellipsis">
-          {fileName?.substring(0, 20)}
-          {finished ? ".avif " : " "}
+      <div className="ml-3 flex flex-col justify-between items-baseline py-2">
+        <p className="overflow-hidden relative z-50  whitespace-nowrap select-none overflow-ellipsis font-bold">
+          {typeof fileName === "string" && fileName.length > 40
+            ? fileName.substring(0, 40) + "[..]"
+            : fileName}
+          {finished ? ".avif " : `.${originalFormat}`}
         </p>
-        <p className={`z-50 text-tiny text-gray-400 `}>
-          {cancelled
-            ? "cancelled"
-            : finished
-            ? percentageSaved + "% smaller · " + prettyBytes(outputSize)
-            : (progress * 100).toFixed() +
-              "%" +
-              (remainingTime !== "" ? " · " + remainingTime : "")}
-
-          {percentageSaved === 0 && (
-            <Tooltip text="Why 0%?">
-              explanation="Adjust your conversion settings to achieve higher
-              compression."
-            </Tooltip>
+        <div className="flex my-1">
+          <p className="z-50 mr-2 rounded-sm text-tiny bg-red-1000 px-2 py-1">
+            <span className="conversion_format">
+              {originalFormat} | {prettyBytes(originalSize)}
+            </span>
+          </p>
+          {finished && (
+            <p className="z-50 text-tiny  rounded-sm bg-green-1000 px-2 py-1">
+              avif |{" "}
+              {prettyBytes(outputSize, { maximumFractionDigits: 0 }) +
+                " | -" +
+                percentageSaved +
+                "%"}
+            </p>
           )}
-        </p>
+        </div>
       </div>
-      {finished ? (
-        ""
-      ) : (
-        <p className="z-50 mr-6 ml-2 text-gray-900 rounded-md">
-          <span className="conversion_format">
-            {originalFormat} · {prettyBytes(originalSize)}
-          </span>
-        </p>
+      <p className={`hidden md:block z-50 text-tiny rounded-sm  px-2 py-1`}>
+        {!finished &&
+          (remainingTime !== "" ? remainingTime + " · " : "") +
+            (progress * 100).toFixed() +
+            "%"}
+        {percentageSaved === 0 && (
+          <Tooltip text="Why 0%?">
+            explanation="Adjust your conversion settings to achieve higher
+            compression."
+          </Tooltip>
+        )}
+      </p>
+      {finished && (
+        <a
+          download={`${fileName}.avif`}
+          tabIndex={0}
+          role="button"
+          href={outputObjectURL}
+        >
+          <button
+            title={`download ${fileName}`}
+            className={`group absolute top-0 right-0 w-6 h-full overflow-hidden cursor-pointer transform ${
+              finished ? "" : "hidden"
+            }`}
+          >
+            {" "}
+            <span
+              style={{ backgroundSize: "200%" }}
+              className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer bg-gradient"
+            ></span>
+            <span
+              className="absolute top-0 right-0 bottom-0 left-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
+              style={{
+                backgroundImage: `url(${arrow})`,
+                backgroundSize: "30%",
+              }}
+            ></span>
+          </button>
+        </a>
       )}
-      <a
-        role="button"
-        tabIndex={0}
-        title={`download ${fileName}`}
-        download={`${fileName}.avif`}
-        href={outputObjectURL}
-        className={`group absolute top-0 right-0 w-6 h-full overflow-hidden cursor-pointer transform ${
-          finished ? "" : "hidden"
-        }`}
-      >
-        {" "}
-        <span
-          style={{ backgroundSize: "200%" }}
-          className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer bg-gradient"
-        ></span>
-        <span
-          className="absolute top-0 right-0 bottom-0 left-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
-          style={{
-            backgroundImage: `url(${arrow})`,
-            backgroundSize: "30%",
-          }}
-        ></span>
-      </a>
+
       {status === "inProgress" && <ProgressBar progress={progress} />}
       {status === "inProgress" && (
         <a

@@ -11,9 +11,8 @@ export default function ProgressBar(props: ProgressBarProps) {
 
   return (
     <div
-      style={{ width: "calc(100% - 3rem" }}
       className={
-        "absolute bottom-2 z-50 h-1 m-0 bg-gray-200 rounded-lg origin-right transition-all ease-out duration-500"
+        "w-full absolute bottom-0 z-50 h-1 m-0 rounded-lg origin-right transition-all ease-out duration-500 bg-red-1000"
       }
     >
       <div
@@ -23,8 +22,12 @@ export default function ProgressBar(props: ProgressBarProps) {
         style={innerStyle}
       >
         <div
-          className="relative w-2 h-2 bg-pink-700 rounded-full m"
-          style={{ marginRight: "-4px", boxShadow: "0 0 3px 2px #fff" }}
+          className="relative w-2 h-2 bg-pink-700"
+          style={{
+            marginRight: "-4px",
+            boxShadow: "0 0 3px 2px rgba(255,255,255,0.05)",
+            borderRadius: "2px",
+          }}
         />
       </div>
     </div>
