@@ -138,19 +138,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               onChange={handleFilterByKeyword}
             />
             <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none group">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-gray-600"
-                aria-hidden="true"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              🔎︎
             </div>
           </div>
           <div className="mb-2">
@@ -158,25 +146,14 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md font-normal cursor-pointer ${
+                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
                 }`}
               >
                 {selectedCategoryPill === category && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-1 -ml-1 w-3 h-3"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <span className="mr-1">✓</span>
                 )}
                 {category}
               </button>
@@ -187,25 +164,14 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md font-normal cursor-pointer ${
+                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
                 }`}
               >
                 {selectedCategoryPill === category && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-1 -ml-1 w-3 h-3"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <span className="mr-1">✓</span>
                 )}
                 {category}
               </button>
@@ -216,25 +182,14 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               <button
                 key={category}
                 onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-3 py-0 mt-2 mr-2 py-0.5 rounded-md font-normal cursor-pointer ${
+                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
                   selectedCategoryPill === category
                     ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                     : "bg-bg-500 text-gray-300"
                 }`}
               >
                 {selectedCategoryPill === category && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-1 -ml-1 w-3 h-3"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <span className="mr-1">✓</span>
                 )}
                 {category}
               </button>
