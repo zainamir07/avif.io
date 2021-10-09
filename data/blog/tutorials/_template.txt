@@ -1,10 +1,10 @@
 ---
 blog: true
 title: XYZ AVIF support
-description: Learn how to use AVIF images within XYZ.
+description: XYZ is. Learn how to use AVIF images within XYZ.
 keyword: XYZ
 category: tutorials
-subcategory: 
+subcategory: cms
 support: no support
 url: blog/tutorials/xyz/
 image: "/logo_draft.png"
@@ -16,7 +16,6 @@ tags:
   - avif
   - image format
   - av1 image file format
-  - 
 questions:
   - Does XYZ support AVIF?
 relatedPosts:
