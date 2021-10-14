@@ -7,8 +7,8 @@ const path = require("path");
 const output = "../public/img/";
 const input = "../images/";
 const jpgQuality = { mozjpeg: true, quality: 50, progressive: true };
-const webpQuality = { quality: 48, reductionEffort: 3 };
-const avifQuality = { quality: 55, speed: 3 };
+const webpQuality = { quality: 48, reductionEffort: 2 };
+const avifQuality = { quality: 55, speed: 4 };
 const sizes = [1536, 768, 576, 384];
 fs.readdir(input, (err, files) => {
   console.log(
