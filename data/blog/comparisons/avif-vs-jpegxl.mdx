@@ -33,6 +33,7 @@ tags:
   - lossless encoding
   - lossy compressions
   - modern image codecs
+  - avif vs jpegxl
 sources:
   - blobfolio.com/2021/jpeg-xl/
   - chipsandcheese.com/2021/02/28/modern-data-compression-in-2021-part-2-the-battle-to-dethrone-jpeg-with-jpeg-xl-avif-and-webp/
@@ -62,7 +63,7 @@ relatedPosts:
 
 ## Introduction
 
-The battle to replace the aging JPEG image standard is heating up, and two competitors are eying for the crown. AVIF and JPEG XL. In this article, we'll compare how the two formats stack up against each other and see which is likely to dethrone JPEG as the de-facto king of image web delivery.  
+The battle to replace the aging JPEG image standard is heating up, and two competitors are eying for the crown. AVIF and JPEG XL are the latest modern image formats. In this article, we'll compare how the two formats stack up against each other and see which is likely to dethrone JPEG as the de-facto king of image web delivery.  
 Released in 2021 by the Joint Photographic Experts Group (the same organization that developed the original JPEG standard), **JPEG XL aims to be a long-term replacement for legacy JPEG** (Hence X'L' as in 'long-term'). As a royalty-free and open-source standard, JPEG XL's creators hope that the open nature of their format will invite web developers to adopt the standard. The JXL core bitstream was frozen in January 2021, the file format was finalized in April 2021.  
 **AVIF is another recent image format developed by the Alliance for Open Media (AOM) and released in 2019.** The format is based on the AV1 video codec and is derived from video frames. Here are the technical specs and limitations of both of these image formats compared. The AV1 bitstream was frozen in 2018, the AVIF container spec was finalized in February 2019.
 
@@ -77,10 +78,10 @@ It is possible to push past this limit through tiling. Independently encoded til
 ## Compression
 
 Unlike the original legacy JPEG standard, **JPEG XL supports lossless compression alongside the traditional lossy compression.** **AVIF also supports both lossy and lossless compression.**  
-AVIF performs excellently with low-fidelity lossy compression. A highly compressed AVIF image retains high-appeal, meaning it avoids annoying compression artifacts like color banding. Low-fidelity AVIF images look fantastic while also keeping the file size down.  
+An AVIF file performs excellently with low-fidelity lossy image compression. A highly compressed AVIF image retains high-appeal, meaning it avoids annoying compression artifacts like color banding. Low-fidelity AVIF images look fantastic while also keeping the file size down.  
 JPEG XL doesn't perform well with its appeal, with low-fidelity images looking slightly worse, with more noticeable artifacts in heavily compressed images. JPEG XL pulls ahead with lossless compression, providing more efficient files for both non-photo and photo lossless images.
 
-JPEG XL is excellent for those who want to share lossless photos. It is also great for web delivery too. AVIF offers great-looking lossy photos as well, making them perfect for web delivery as they are much kinder on bandwidth. This statement however depends highly on the quality you are looking for.  
+JPEG XL is an excellent image codec for those who want to share lossless photos. It is also great for web delivery too. AVIF offers great-looking lossy photos as well, making them perfect for web delivery as they are much kinder on bandwidth. This statement however depends highly on the quality you are looking for.  
 "Most images on the web are (the equivalent of) libjpeg q60-90\. AVIF beats JXL below the equivalent of q40\. Above q50, JXL is better."
 
 <Link text="@Jon Sneyers" href="twitter.com/jonsneyers" />
@@ -88,7 +89,7 @@ JPEG XL is excellent for those who want to share lossless photos. It is also gre
 ## Speed
 
 **AVIF had problems with its decoding and encoding speed.** Recent releases of decoders achieved various performance improvements. Encoding is however still a problem and quite slow. **It doesn't support progressive rendering** - a process of decoding where portions of an image are incrementally decoded from an incomplete image file. This can dramatically increase the viewing speed by allowing for a lower-quality preview image to be displayed while the rest of the image is decoded. Unlike some legacy formats like PNG, AVIF is parallelizable, allowing the encoder to take advantage of multi-threaded processors instead of leaving all the encoding and decoding to a single core.  
-**JPEG XL is faster across the board with single-core encode and decode speeds and is more parallelizable than AVIF.** Suppose you want a speedy codec, with fast decode times being crucial for web delivery. In that case, JPEG XL is a compelling option. Although, the slightly lower file sizes achieved by AVIF for low-fidelity photos could give a speed advantage in download times, especially on slow broadband.
+**JPEG XL is faster across the board with single-core encode and decode speeds and is more parallelizable than AVIF.** Suppose you want a speedy codec, with fast decode times being crucial for web delivery. In that case, JPEG XL is a compelling option. Although, the slightly lower file sizes achieved by AVIF for low-fidelity photos could give a speed advantage in download times, especially on slow broadband. Further than that, JPEG XL also offers progressive decoding for enhanced web experience.
 
 ## Other Features
 

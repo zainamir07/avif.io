@@ -37,6 +37,7 @@ tags:
   - modern video codecs
   - encoding
   - compression efficiency
+  - chroma subsampling
 sources:
   - developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
   - www.lambdatest.com/blog/avif-image-format/
@@ -117,7 +118,7 @@ AVIF changes that. This relatively new format’s significant low-fidelity compr
 
 Animated GIFs have had quite a resurgence in recent years. We expect the demand for animated images only to grow as the web becomes more interactive. However, the GIF format **is too limited to deliver high-quality animated images**, and that’s where AVIF steps in to solve this problem.
 
-**Animated AVIF images have much smaller file sizes and can take advantage of multi-core processors**. These two features combined make AVIF animations much faster to load. The reduced file size alleviates the stress of bandwidth limits and data caps. This is because AVIF images can be compressed much more efficiently while still retaining the image quality. This allows image makers to upload better quality and higher resolution animated images without worrying about data size limitations.
+**Animated AVIF images have much smaller file sizes and can take advantage of multi-core processors**. The strong compression codec and encoding power combined make AVIF animations much faster to load. The reduced file size alleviates the stress of bandwidth limits and data caps. This is because AVIF images can be compressed much more efficiently while still retaining the image quality. This allows image makers to upload better quality and higher resolution animated images without worrying about data size limitations.
 
 The biggest downside currently to AVIF is its lack of support from some key web browsers. Google Chrome fully supports AVIF. However, Firefox and Safari have yet to support animated GIFs.
 
@@ -140,4 +141,4 @@ Fortunately, these behaviors are easily replicated using the video element.
 
 ## Conclusion
 
-It’s been quite 35 years for GIF, but it’s now high time to replace the aging image format. AVIF has all the qualities to be a strong contender for its replacement for animated image delivery. Still, the web will most likely keep favoring real video formats due to their compression to quality ratio.
+It’s been quite 35 years for GIF, but it’s now high time to replace the aging image format. AVIF has all the qualities to be a strong contender for its replacement for animated image delivery. Still, the web will most likely keep favoring real video formats due to their compression to quality ratio. Thanks to the latest av1 codec that AVIF has derived from, we can expect different formats such as webm to fall behind and av1 take over the dominant place in web video delivery.

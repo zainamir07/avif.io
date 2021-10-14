@@ -49,24 +49,24 @@ relatedPosts:
 ## Introduction
 
 For years, the go-to image codec for users looking to save their work in a high-quality, raster file format with transparency has been PNG or Portable Network Graphics. Designed in 1996, PNG is a lossless format that supports alpha channels – making it loved by those working with bitmap graphics.  
-**AVIF is an image format that is derived from the frames of AV1 video.** It’s a reasonably novel file format, having been initially released in 2019\. Let’s see how this brand-new file format stacks up against PNG:
+**AVIF is an image format that is derived from the frames of AV1 codec for videos.** It’s a reasonably novel file format, having been initially released in 2019\. Let’s see how this brand-new file format stacks up against PNG:
 
 ## Quality and Limits
 
 Let’s first look at the limitations of both file formats. AVIF has a maximum image resolution of of 65536 x 65536 pixels.  
 PNG has a theoretical resolution limit of 2,147,483,647 x 2,147,483,647 pixels or 2500 megapixels. I think it’s safe to say no one is going to reach that in their day-to-day work.  
-**AVIF offers 12-bit precision, while PNG offers a 16-bit max bit depth.** In reality, 12-bit precision is enough for image delivery, and most image designers aren’t going to make use of the extra bits. Both PNG and AVIF offer **support for HDR and wide color gamuts**.
+**An AVIF image offers 12-bit precision, while PNG offers a 16-bit max bit depth.** In reality, 12-bit precision is enough for image delivery, and most image designers aren’t going to make use of the extra bits. Both PNG and AVIF offer **support for HDR and wide color gamuts**.
 
 ## Compression
 
-As a lossless compression file format, PNG images are notorious for their large file sizes. AVIF supports both lossy and lossless compression. It is this versatility that gives AVIF an edge when it comes to file sizes.  
+As a lossless compression file format, PNG images are notorious for their large file sizes. AVIF supports both lossy and lossless compression. It is this versatility that gives AVIF an edge when it comes to file sizes due to its efficient compression algorithm.  
 For lossless compression, Reddit user Balance found that PNG is significantly more efficient in file size when comparing an input PNG and an output AVIF file. For example, one 21,265kb input PNG was converted to an AVIF file of 42,503kb. If you’re looking for a lossless file format, PNG is much more size efficient.  
-**Where AVIF pulls ahead, though, is with its lossy compression.** AVIF performs excellently with low-fidelity photos – common for web images – with file sizes beating JPEG. Highly compressed AVIF images have great “appeal,” meaning they don’t include many compression artifacts like color banding. AVIF is excellent if you want to convert a PNG for sharing on the Internet without any noticeable drop in image quality.
+**Where the AVIF image format pulls ahead, though, is with its lossy compression.** AVIF performs excellently with low-fidelity photos – common for web images – with file sizes beating JPEG. Highly compressed AVIF images have great “appeal,” meaning they don’t include many compression artifacts like color banding. AVIF is excellent if you want to convert a PNG for sharing on the Internet without any noticeable drop in image quality.
 
 ## Speed
 
 Decoding a PNG is almost instant, thanks to the lack of complexity in the format. In fact, with the large file size, any perceived slowness in accessing a PNG shared on the Internet is more likely going to be a problem with Internet speed rather than the computation power needed to decode the image.  
-Newer file formats like AVIF tend to be more complex. Therefore slower systems may struggle a bit more to decode the image. Single-core decode speed for AVIFs can be significantly slower than PNG. AVIF, however, struggles with encode speed on single-threaded machines. However, AVIF is very parallelizable, allowing multiple cores and multiple threads to ‘pitch-in’ to help encode and decode. PNG is a sequential codec and therefore can’t take advantage of multicore machines. **As computer processors tend towards more cores and threads, AVIF looks much more future-proof with proper multicore performance.**
+Newer image file formats like AVIF tend to be more complex. Therefore slower systems may struggle a bit more to decode the image. Single-core decode speed for AVIFs can be significantly slower than PNG. AVIF, however, struggles with encode speed on single-threaded machines. However, AVIF is very parallelizable, allowing multiple cores and multiple threads to ‘pitch-in’ to help encode and decode. PNG is a sequential codec and therefore can’t take advantage of multicore machines. **As computer processors tend towards more cores and threads, AVIF looks much more future-proof with proper multicore performance.**
 
 ## Other Features
 

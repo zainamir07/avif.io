@@ -76,8 +76,8 @@ Another critical aspect of the JPEG-vs-AVIF discussion is about artifacts. Today
 ## Speed comparison
 
 Another crucial aspect, is speed. JPEG was written before the invention of multicore CPU chips. So it is designed to work only with a sequential process where the number of cores does not matter; it is the clock speed. Today, CPU development is primarily focused on multiple cores, so **JPEG cannot benefit from multicore processing**. AVIF can do what makes it a more suitable form of image compression for the future.  
-Tit should be noted that **AVIF currently has extremely slow encoding times**. This should change over time; AVIF is still relatively new, so hardware support is still arriving. **Expect an improvement in encoding times.**  
-Furthermore, **AVIF does not support progressive rendering**, so files must be downloaded entirely before they can be displayed. Often, this has little impact on the real-world user experience, as AVIF files are much smaller than the corresponding JPEG or PNG files, and therefore can be downloaded and displayed much faster. For larger file sizes, the impact can be significant, and you should consider using a format that supports progressive rendering.
+Tit should be noted that **the AVIF image format currently has extremely slow encoding times**. This should change over time; AVIF is still relatively new, so hardware support is still arriving. **Expect an improvement in encoding times.**  
+Furthermore, **an AVIF image does not support progressive rendering**, so files must be downloaded entirely before they can be displayed. Often, this has little impact on the real-world user experience, as AVIF files are much smaller than the corresponding JPEG or PNG files, and therefore can be downloaded and displayed much faster. For larger file sizes, the impact can be significant, and you should consider using a format that supports progressive rendering.
 
 ## Animation capacity
 
@@ -124,10 +124,10 @@ Simply put, AVIF has a better chance of being supported in the long term. It als
   checked={true}
 />
 
-At the moment, many still see the use of JPEG as an ideal way to move forward in the short term. As more and more images fall within the overlay standards mentioned above, it should be assumed that **JPEG will show its age within the next 3-5 years**. AVIF will be used more frequently, as it simply offers the speed of loading, if not processing, and the quality of the image. Also, in terms of the number of image options, and this is a no-brainer: **AVIF has more or less everything that JPEG lacks, apart from the broad uptake on the market.** In time that will change.
+At the moment, many still see the use of JPEG as an ideal way to move forward in the short term. As more and more images fall within the overlay standards mentioned above, it should be assumed that **JPEG will show its age within the next 3-5 years**. The AVIF format will be used more frequently, as it simply offers the speed of loading, if not processing, and the quality of the image. Also, in terms of the number of image options, and this is a no-brainer: **AVIF has more or less everything that JPEG lacks, apart from the broad uptake on the market.** In time that will change.
 
 ## Conclusion
 
 Most image codecs will be a significant improvement over what we have used in JPEG so far. Although the improved JPEG 2000 also offers substantial improvements over its predecessor, it still cannot compete with AVIF in many ways. **AVIF has become the ideal choice for those who need to manage encoding in a low bandwidth setting.**  
-So while JPEG might have the advantage of progressive rendering – it would be fair to say that AVIF has all the features that JPEG lacks and frankly needs. AVIF is a superior image file format over JPEG / JPG. However, **hardware and software support is still evolving at the time of writing**. Fallbacks in the code can allow you to use AVIF alongside image formats such as JPEG, WebP, PNG, etc.  
+So while JPEG might have the advantage of progressive rendering – it would be fair to say that AVIF has all the features that JPEG lacks and frankly needs. The AVIF file is a superior image file format over JPEG / JPG. However, **hardware and software support is still evolving at the time of writing**. Fallbacks in the code can allow you to use AVIF alongside image formats such as JPEG, WebP, PNG, etc.  
 There is still much to consider regarding both image types. At the moment, AVIF has the best chance of still being available in a decade compared to JPEG. Although JPEG may be the old pioneer of image codecs, it may finally replace it.

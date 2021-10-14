@@ -26,6 +26,8 @@ tags:
   - compression
   - file size
   - image format
+  - bitmap image
+  - bitmap image file
 sources:
   - developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
   - jakearchibald.com/2020/avif-has-landed/
@@ -51,11 +53,11 @@ Here's how these two image formats compare in feature-set, performance, and effi
 
 AVIF is derived from a video codec, and it shares some similar limitations to the AV1 video format. **AVIF boasts a maximum resolution of 65536 x 65536 pixels.**
 
-It is possible to produce larger AVIF images than this maximum resolution by **independently encoding tiles and tiling them to create a larger image**. However, using this method introduces some artifacts at the borders of these individual frames, making AVIF unsuitable for large print images.
+The common limit for AVIFs image size is around 8000 pixels, but it is possible to produce larger AVIF images than this maximum resolution by **independently encoding tiles and tiling them to create a larger image**. However, using this method introduces some artifacts at the borders of these individual frames, making AVIF unsuitable for large print images.
 
 As for BMP, while the maximum resolution is usually up to debate and depends on which software you use to export the image, there is a **consensus that a realistic full resolution for BMP is 32,000 x 32,000 pixels**. However, once we cover compression, it will become apparent it is impractical to create BMP images as large as this.
 
-**AVIF supports wide color gamut images, including HDR (high dynamic range) photos.** This is a feature that BMP does not support. AVIF can support a **max bit depth of 12-bits**, whereas BMP images are usually limited to 8-bit precision.
+**An AVIF image supports wide color gamut, including HDR (high dynamic range).** This is a feature that BMP does not support. AVIF can support a **max bit depth of 12-bits**, whereas BMP images are usually limited to 8-bit precision.
 
 ## Compression
 
@@ -113,6 +115,6 @@ We believe AVIF is destined to replace JPEG to become the dominant image format.
 
 The winner for the average user is straightforward: **AVIF is a solid contender to become the dominant image format. We expect it will go all the way to replace JPEG.**
 
-AVIF offers very similar quality images using its excellent lossy compression algorithm as uncompressed BMP offers. Most users won't distinguish between lossy AVIF and uncompressed bitmap images, thanks to the high appeal of low-fidelity lossy AVIF images. Every day users will appreciate the excellent file size efficiency of AVIF, allowing them to store more photos and improve page load times for web delivery.
+AVIF offers very similar quality images using its excellent lossy compression algorithm as the uncompressed BMP file format offers. Most users won't distinguish between lossy AVIF and uncompressed bitmap image data, thanks to the high appeal of low-fidelity lossy AVIF images. Every day users will appreciate the excellent file size efficiency of AVIF resulting in way smaller file size than BMP, allowing them to store more photos and improve page load times for web delivery.
 
-We expect that in the coming years, AVIF will go from strength to strength. We're sure that AVIF will add a few more browsers to its belt of full browser support, and web admins will start to take AVIF for web delivery seriously. AVIF is perfectly placed to become the definitive image format for image delivery.
+We expect that in the coming years, AVIF will go from strength to strength. We're sure that AVIF will add a few more browsers to its belt of full browser support, and web admins will start to take AVIF files for web delivery seriously. AVIF is perfectly placed to become the definitive image format for image delivery.
