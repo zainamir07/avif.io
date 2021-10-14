@@ -34,6 +34,8 @@ tags:
   - avif images
   - 16 bit integer
   - gimp supported formats
+  - gimp avif
+  - gegl
 questions:
   - GIMP 2.10.22 Is Released With AVIF Support And Improved Support For Many Other File Formats
   - GIMP 2.10.22 Released with Major File Format Improvements
@@ -50,7 +52,7 @@ relatedPosts:
 
 ## Introduction
 
-GNU Image Manipulation Program (GIMP) is a free and open-source graphics editor. Although it was developed as a Linux image editor, it has become an effective alternative for Adobe Photoshop, while remaining both free and open source.
+AVIF is a somewhat modern and different format that derived from the AV1 codec. It offers efficient lossy and lossless compression and is meant to supersede JPEG. Additionally, it provides several features such as wide color gamut. GNU Image Manipulation Program (GIMP) is a free and open-source graphics editor. Although it was developed as a Linux image editor, it has become an effective alternative for Adobe Photoshop, while remaining both free and open source.
 
 ## Exporting as AVIF
 
@@ -59,13 +61,14 @@ As GIMP 3.0 development has been going on, on the 7th of October 2020, GIMP 2.10
 <Image url="gimp" alt="gimp can export as avif" />
 When you export an image from the editor, select the file type "HEIF / AVIF" or use
 the extension ".avif." A prompt will appear in which you will be able to choose between
-several possible options. First, you will have the option to select the degree to
-which you want to preserve the quality of the image. We recommend a value above 20
-and give you a more detailed comparison below this text. In addition, you can adjust
-the bit depth of the image. You can choose between 8, 10 or 12 bits per channel.
-The higher the bit depth, the greater the number of colors stored in your image.
-By way of comparison, JPG has 8 bits. So if you are not a photographer and only want
-to use AVIF images for your website, we recommend sticking to 8 bits.
+several possible options on how the AVIF file should be saved. First, you will have
+the option to select the degree to which you want to preserve the quality of the
+image. We recommend a value above 20. You can also save files with lossless compression.
+In addition, you can adjust the bit depth of the image. You can choose between 8,
+10 or 12 bits per channel. The higher the bit depth, the greater the number of colors
+stored in your image. By way of comparison, JPG has 8 bits. So if you are not a photographer
+and only want to use the AVIF format for images for your website, we recommend sticking
+to 8 bits and a lossy compression for low file size..
 
 <Image
   url="gimp-bitdepth"
@@ -74,7 +77,7 @@ to use AVIF images for your website, we recommend sticking to 8 bits.
 
 ## AVIF Plugin
 
-There is also a plugin called <Link text="gimp-avif-plugin by novemesk" href="github.com/novomesk/gimp-avif-plugin" /> . Despite the non-creative name, the user interface is fantastic. It allows you to choose from many options, such as minimum and maximum quantizer, pixel format, bit depth, encoder, encoder speed, alpha channel settings, EXIF data and XMP data processing, as well as the ICC color profile. If you do not understand most of these settings, don't worry, you will probably get along well with the default interface.
+There is also a GIMP plugin called <Link text="gimp-avif-plugin by novemesk" href="github.com/novomesk/gimp-avif-plugin" /> . Despite the non-creative name, the user interface is fantastic. It allows you to choose from many options, such as minimum and maximum quantizer, pixel format, bit depth, encoder, encoder speed, alpha channel settings, EXIF data and XMP data processing, as well as the ICC color profile. If you do not understand most of these settings, don't worry, you will probably get along well with the default interface.
 
 ## Converting existing images
 

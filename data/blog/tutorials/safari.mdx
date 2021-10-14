@@ -43,6 +43,7 @@ tags:
   - avif format
   - avif file
   - avif safari
+  - chroma subsampling
 questions:
   - Safari adding avif support soon?
   - Is your browser capable of displaying AVIF images?
@@ -60,10 +61,10 @@ relatedPosts:
 
 ## Introduction
 
-AVIF support is under development in web browsers. Google released a Chrome version in mid-August 2020 that includes full AVIF support. Opera also supports the image format, and Mozilla is working on it for Firefox 92. Google Chrome 89 for Android adds AVIF support.  
+AVIF is a new image format meant to replace JPEG and WebP images. It is an image codec offering lossy compression and lossless compression while maintaing a small image size due to its efficient compression algorithm. AVIF has derived from the av1 codec, which is a video codec designed for transmitting videos over the internet. AIVF support is under development in web browsers. Google released a Chrome version in mid-August 2020 that includes full AVIF support. Opera also supports the image format, and Mozilla is working on it for Firefox 92. Google Chrome 89 for Android adds AVIF support. After a long period of development, Firefox 92 has AVIF support enabled by default.
 So far, **we have heard little from Apple about their plans to support AVIF on their platforms, notably Safari**. Incompatible browsers are one major factor for an unsupported format.
 
-It took Apple more than ten years to implement WebP. Since they are among the Alliance for Open Media companies actively developing AVIF, **we can expect them to release support faster than they did with WebP**. However, support for AV1, the video coding format that AVIF has derived from, is still pending as well.
+It took Apple more than ten years to implement WebP. For a long period, the browser only supported GIF, SVG, PNG images and the jpeg format, as well as their own HEIF codec. Since they are among the Alliance for Open Media companies actively developing AVIF, **we can expect them to release support faster than they did with WebP**. However, support for AV1, the video coding format that AVIF has derived from, is still pending as well.
 
 ## Safari AVIF support soon
 
@@ -71,7 +72,7 @@ But there's excellent news in the bug tracker for Webkit, which is the core of S
 
 The tracked bug mentions implemented AVIF support on March 5th, 2021, with initial support of the AVIF image format to the gtk port. As if this wasn't already good news, developers integrated **animated AVIF support** a short time later. They updated the decoder dav1d and the libavif dependencies, fixed parsing issues, and started to turn on AVIF support by default on April 14th, 2021.
 
-Now that WebKit has general AVIF support with basic decoding of still images and animated sequences, **it is Apple's turn to implement the format**.
+Now that WebKit has general AVIF file format support with basic decoding of still images and animated sequences, **it is Apple's turn to implement the format**.
 
 Unfortunately, there is no indication from Apple yet who has to issue the flip on Apple ports. It is uncertain whether they will enable the format this year.
 
