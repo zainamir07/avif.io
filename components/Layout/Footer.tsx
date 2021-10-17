@@ -23,7 +23,8 @@ export default function Footer() {
             />
 
             <div className="my-4 text-gray-400">
-              A tool by Justin Schmitz and Niksa Sporin that is now open-source.
+              An open-source platform by Justin Schmitz and Niksa Sporin that
+              converts image formats like PNG, JPG, GIF, WEBP to AVIF.
               <Link text="- @jschmitz97" href="twitter.com/jschmitz97" />
             </div>
           </div>

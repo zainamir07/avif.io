@@ -52,11 +52,12 @@ export default function Header() {
             text="Github"
             href="github.com/justinschmitz97/avif.io/"
           />
+          {/*
           <Link
             className="hidden p-2 md:block md:p-3"
             text="JXL Converter"
             href="jpegxl.io"
-          />
+    />*/}
         </nav>
         <NextLink href="/">
           <button className="inline-flex items-center py-1 px-2 text-base rounded border-0 md:mt-0 focus:outline-none bg-bg-200 hover:bg-bg-300">
