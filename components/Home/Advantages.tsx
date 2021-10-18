@@ -32,6 +32,7 @@ function AdvantageItem(props: Advantages) {
       innerClassName="rounded-lg h-full"
       durationEnter={200}
       shadow={false}
+      rotateTouch={false}
     >
       <div
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
