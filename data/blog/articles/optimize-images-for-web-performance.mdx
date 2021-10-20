@@ -1,14 +1,13 @@
 ---
 blog: true
 title: Optimizing Images for Web Performance - a 6-step guide for 2021
-description: Straightforward optimization tips.
-  Maximally improve your image performance with this 6-step guide.
+description: Straightforward optimization tips. Maximally improve your image performance with this 6-step guide.
 keyword: Image Optimization
 category: articles
 url: blog/articles/optimize-images-for-web-performance/
 image: "/logo_draft.png"
 datePublished: 04.05.21
-dateModified: 04.05.21
+dateModified: 20.10.21
 sources:
   - httparchive.org/reports/page-weight
   - kinsta.com/blog/optimize-images-for-web/
@@ -70,6 +69,9 @@ tags:
   - image size
   - image optimizer
   - optimized image
+  - image web performance
+  - image optimisation
+  - lazy loading images
 questions:
   - How do you optimize images for the Web?
   - How do I optimize an image for Web without losing quality?
@@ -114,12 +116,9 @@ relatedPosts:
 
 ## Introduction
 
-##### Summary: Images are a huge part of the web. Performance is
+##### Summary: Images are a huge part of the web. Performance is one of the biggest success factors for websites. Optimize your images to improve your user’s experience.
 
-one of the biggest success factors for websites. Optimize your images to improve
-your user’s experience.
-
-When building a modern web experience, **it is essential to measure, optimize and monitor the speed of your website**. Performance plays a significant role in the success of any website, as powerful websites appeal to and engage users better than low-performing websites. Websites should focus on optimizing user-centric happiness metrics. Consider this: **No one likes small but ugly images, but no one wants to wait. Welcome to the world of image compression.**
+When building a modern web experience, **it is essential to measure, optimize and monitor the speed of your website**. Performance plays a significant role in the success of any website, as powerful websites appeal to and engage users better than low-performing websites. Websites should focus on optimizing user-centric happiness metrics. Consider this: **No one likes small but ugly images, but no one wants to wait. Welcome to the world of image compression. **
 
 In this article, we outline all the methods to optimize your images. We minimize the bandwidth used to load images and reduce the CPU usage for displaying images. In addition, I offer you all kinds of solutions to ensure perfect optimization, including SEO.
 
@@ -127,7 +126,7 @@ Suppose you have formatted your images for better performance and follow best pr
 
 ### Google Core Web Vitals
 
-To understand how and why we should optimize our images, we need to understand Core Web Vitals. Several case studies confirm that**increased page load time leads to frustrated users** and an increased bounce rate.
+To understand how and why we should optimize our images, we need to understand Core Web Vitals. Several case studies confirm that **increased page load time leads to frustrated users** and an increased bounce rate.
 
 To address this problem, Google has introduced Core Web Vitals, which will become an integral part of its ranking algorithm starting from July 2021. Core Web Vitals provides you with a **comprehensive view of how the performance of your application impacts your end-user experience**.
 
@@ -145,7 +144,7 @@ The FID metric helps measure your user's first impression of the interactivity a
 
 The first impression users have of how quickly your website is can be measured with First Contentful Paint (FCP). But how fast your website can paint pixels on the screen is only part of the story. Equally important is **how responsive your website reacts** when users try to interact with these pixels. If you have ever tried clicking within an input box and nothing happens, then you are familiar with the frustration that can be caused by large input delays.
 
-FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser is actually able to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques, **we will reduce FID through reduced (main-thread) CPU usage.**
+FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser is actually able to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques, **we will reduce FID through reduced (main-thread) CPU usage. **
 
 #### 3. Cumulative Layout Shift (CLS)
 
@@ -157,7 +156,7 @@ CLS is an important, user-centric metric for measuring visual stability because 
 
 Depending on how your website is structured, images make up the bulk of data that needs to be loaded. The smaller the file sizes of the images, the faster a website loads. But you don't want to end up with a grainy or blurry-looking website, especially in times of high-resolution screens.
 
-**Properly optimized images still have their visual quality intact**- and when you run an e-commerce site, that's really important to win customers' trust. By improving your vitals, you can boost your site's ranking in comparison with your competitors.
+**Properly optimized images still have their visual quality intact** - and when you run an e-commerce site, that's really important to win customers' trust. By improving your vitals, you can boost your site's ranking in comparison with your competitors.
 
 #### Main advantages
 
@@ -177,7 +176,7 @@ Let's examine they ways in which you can be optimizing images.
 
 ##### Summary: Use AVIF, then WebP and JPG as a fallback. Try to automate this process for your own sake.
 
-The primary goal of formatting your images is to find the **balance between the lowest file size and acceptable quality.**The two primary things to consider are the file format and the type of compression you use. You need to experiment with some images to see what works best. When comparing images, remember to view them in the dimensions in which they will appear on your website.
+The primary goal of formatting your images is to find the **balance between the lowest file size and acceptable quality. **The two primary things to consider are the file format and the type of compression you use. You need to experiment with some images to see what works best. When comparing images, remember to view them in the dimensions in which they will appear on your website.
 
 The goal is not to compare enlarged 1:1 previews of high-resolution files, but to **compare images with realistic pixel dimensions**. This chapter focuses on the file format, while the next chapter will focus on the type of compression.
 
@@ -190,11 +189,11 @@ visitors. These formats are:
 
 <Checklist items={["WebP", "AVIF", "JPEGXL"]} checked={true} />
 
-Although device and browser compatibility varies for each format, **it is worth evaluating for the reduction in image file size**and overall faster downloading of your website. WebP, for example, can be an excellent replacement for JPEG, PNG and even GIF images in many cases. It also supports lossless compression, lossy compression and animated images. In most cases, WebP images can reduce image file size by about 25-50%.
+Although device and browser compatibility varies for each format, **it is worth evaluating for the reduction in image file size **and overall faster downloading of your website. WebP, for example, can be an excellent replacement for JPEG, PNG and even GIF images in many cases. It also supports lossless compression, lossy compression and animated images. In most cases, WebP images can reduce image file size by about 25-50%.
 
 ### Browser compatibility
 
-If your target audience falls into one of the unsupported browser / device categories, you should ship optimized **fallback images in the original JPEG / PNG format**so that your users do not see a broken or poorly designed page. There are several types of files you can use that you can see below. There are several others, such as JPEG XR, JPEG2000 and HEIC. However, they are quite old and have no support for their age.
+If your target audience falls into one of the unsupported browser / device categories, you should ship optimized **fallback images in the original JPEG / PNG format **so that your users do not see a broken or poorly designed page. There are several types of files you can use that you can see below. There are several others, such as JPEG XR, JPEG2000 and HEIC. However, they are quite old and have no support for their age.
 
 <Checklist
   items={[
@@ -209,7 +208,9 @@ If your target audience falls into one of the unsupported browser / device categ
   checked={true}
 />
 
-### Explaining the best usecase for all formats #### (Not) Using GIF
+### Explaining the best usecase for all formats
+
+#### (Not) Using GIF
 
 Most platforms that host short videos do not use GIFs because **animated GIFs can be quite large**. Twitter, for instance, converts animated GIFs to video file formats such as MP4 to significantly reduce the total file size. Even GIPHY, an online directory and search engine that provides users with access to short loop videos without audio, uses
 MP4 video files.
@@ -230,6 +231,7 @@ Luckily, you can recreate these behaviors using the video element.
 <Syntax language="html">
   {`<video autoplay loop muted playsinline></video>`}
 </Syntax>
+
 #### Using PNG
 
 The Portable Network Graphics PNGs format was best used when saving graphics with limited colors. **Logos and icons are good examples of images that would use the .png image file format.** Simple graphics with few colors can be saved as .png files to create high-quality images with low file sizes that are perfect for use on a website. This format is higher-quality than JPG images, so it is usually used for graphical images with more complicated designs.
@@ -242,11 +244,11 @@ JPG has done an excellent job in keeping file sizes small over the last 20 years
 
 Although there are several other file formats that already surpass JPG in every aspect, the fact that it is supported everywhere makes it a durable format. **It can be assumed that JPG is dying out quite slowly and will be replaced by AVIF or JPEGXL in the future**.
 
-Until then, it is best to use JPGs on your site for fallback support if your visitors browsers do not support the latest image formats. Fortunately, Mozilla Research has developed mozjpeg for the file size of your images, a production-quality JPEG encoder that is compressiong images while maintaining compatibility with the vast majority of decoders used. Utilizing it will **save around 15% of the high file size**that jpg has in comparison to newer formats.
+Until then, it is best to use JPGs on your site for fallback support if your visitors browsers do not support the latest image formats. Fortunately, Mozilla Research has developed mozjpeg for the file size of your images, a production-quality JPEG encoder that is compressiong images while maintaining compatibility with the vast majority of decoders used. Utilizing it will **save around 15% of the high file size **that jpg has in comparison to newer formats.
 
 #### Using SVG
 
-Vector images are images that do not use pixel data, but **use mathematical code-based data to create an image.**Vector files have historically been used for all printing forms because a vector image retains its quality regardless of size.
+Vector images are images that do not use pixel data, but **use mathematical code-based data to create an image. **Vector files have historically been used for all printing forms because a vector image retains its quality regardless of size.
 
 A vector-format logo can be printed on a business card, and the same file can be used to print the logo on a billboard. The quality of the image will be perfect without data loss of any size. SVGs are often used for logos or backgrounds that do not use many different colors.
 
@@ -256,13 +258,13 @@ A vector-format logo can be printed on a business card, and the same file can be
 
 WebP is a modern image format developed by Google to provide superior lossless and lossy compression for optimizing web images. At a comparable quality **compared to JPG, WebP images are 25% smaller**.
 
-In addition to better compression, the format also **supports transparency**and is therefore a good substitute for PNG.
+In addition to better compression, the format also **supports transparency **and is therefore a good substitute for PNG.
 
 Browser support for WebP is almost universal at 95%. You will need to provide a PNG or JPEG image for other browser support. Instructions on how to do this can be found at the end of this chapter.
 
 #### Using AVIF
 
-AVIF is the newest image format that has taken hold in web browsers and is currently supported in Chrome, Opera and Firefox. Safari support is not yet available, but is being actively edited. As Apple is in the group behind the format, we can expect future support. **AVIF is remarkable because it significantly exceeds JPEG in every aspect, especially the file size.**
+AVIF is the newest image format that has taken hold in web browsers and is currently supported in Chrome, Opera and Firefox. Safari support is not yet available, but is being actively edited. As Apple is in the group behind the format, we can expect future support. **AVIF is remarkable because it significantly exceeds JPEG in every aspect, especially the file size. **
 
 #### Using JXL
 
@@ -276,12 +278,13 @@ To implement this progressive improvement for AVIF, **use the picture element**.
 
 <Syntax language="html">
   {`<picture>
-   <source srcset="image.avif" type="image/avif">
-   <source srcset="image.webp" type="image/webp">
-   <img src="image.jpg" alt="AVIF example with WebP and JPEG fallback">
+  <source srcset="image.avif" type="image/avif">
+  <source srcset="image.webp" type="image/webp">
+  <img src="image.jpg" alt="AVIF example with WebP and JPEG fallback">
 </picture>`}
 </Syntax>
-#### There are more possibilities for support and conversion"
+
+#### There are more possibilities for support and conversion
 
 <Checklist
   items={[
@@ -298,14 +301,11 @@ To implement this progressive improvement for AVIF, **use the picture element**.
 
 ## 2) Efficiently encode images
 
-##### Summary: Always compress images. Find a good
-
-compromise between the quality settings and compression of images. Use lossless compression
-for photography, lossy for everything else. Images shouldn’t look blurry or pixelated.
+##### Summary: Always compress images. Find a good compromise between the quality settings and compression of images. Use lossless compression for photography, lossy for everything else. Images shouldn’t look blurry or pixelated.
 
 When you look at your page requests, **images are likely to account for the majority of your total page size** compared to HTML, CSS, or JavaScript files. If these images are uncompressed, they waste bandwidth and increase page load times, as the browser has to spend more time downloading.
 
-Uncompressed images are likely to be served in very high quality, resulting in a large file size. The larger the image, the more time the browser spends downloading, further increasing the waiting time for your visitors to the page. If this is done for multiple images on your page, file sizes can increase significantly and result in a very slow page. **Efficient image encoding reduces your image file and thus the page size and helps to speed up page loading.**
+Uncompressed images are likely to be served in very high quality, resulting in a large file size. The larger the image, the more time the browser spends downloading, further increasing the waiting time for your visitors to the page. If this is done for multiple images on your page, file sizes can increase significantly and result in a very slow page. **Efficient image encoding reduces your image file and thus the page size and helps to speed up page loading. **
 
 ### Lossy vs. lossless compression
 
@@ -315,7 +315,7 @@ Lossy - this is a filter that eliminates some of the data, which degrades the im
 
 **Lossless compression reduces the size of an image file without compromising image quality**. No data is lost using this method. However, the file size cannot be improved as much as with lossy compression. Simply use a good image optimization tool to handle image compression for you, at the quality level you feel comfortable with.
 
-**Lossless suits photography websites, use lossy for everything else.**
+**Lossless suits photography websites, use lossy for everything else. **
 
 ### How to efficiently encode images?
 
@@ -325,7 +325,7 @@ There are a few strategies to efficiently encode images, such as:
   items={[
     "Manually compressing with tools like npmavif.io or Imageoptim",
     "NodeJS: sharp librbary",
-    "Drupal:  Consider using a module that automatically optimizes and reduces the size of images. Ensure you are using the Drupal's built-in Responsive Image Styles",
+    "Drupal: Consider using a module that automatically optimizes and reduces the size of images. Ensure you are using the Drupal's built-in Responsive Image Styles",
     "Joomla: Consider using an image optimization plugin that compresses your images while retaining quality.",
     "Magento: Consider using a third-party Magento extension that optimizes images.",
     "WordPress: Consider using a plugin that compresses your images while retaining quality and optimizing image delivery.",
@@ -341,7 +341,7 @@ One of the most worthwhile optimizations you can make in the interest of web per
 
 Ideally, your site should **never provide images larger than the version rendered on the user's screen**. For optimum website performance, images should be as large as they are needed to fill their "containers," based on your page layout.
 
-Slide show images, for example, are usually wider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger will only result in wasted bytes and slow the page's loading time.**
+Slide show images, for example, are usually wider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger will only result in wasted bytes and slow the page's loading time. **
 
 The main strategy for providing correspondingly large images is called "responsive images." With responsive images, you generate multiple versions of each image and then specify which version to use in which scenario.
 
@@ -404,19 +404,18 @@ With so many lines of code, manually performing this task can be a difficult pro
 
 ## 4) Optimize image loading process
 
-##### Summary: Optimize the loading process
+##### Summary: Optimize the loading process by using an explicit width and height for aspect ratio as well as lazy-loading.
 
-by using an explicit width and height for aspect ratio as well as lazy-loading. ###
-a) Use a responsive layout
+### a) Use a responsive layout
 
 This is a well-understood technique for using an image horizontally up to its maximum size while maintaining the aspect ratio. A new feature in 2020 is that **web browsers reserve the correct vertical space for the image before it is loaded** when the **width** and **height** attributes are provided for the img element.
 
 <Syntax language="html">{`<style>
-  img {
-    max-width: 100%;
-    height: auto;
-    width: 100% /* if you like to resize the image to the width of the container */
-  }
+ img {
+  max-width: 100%;
+  height: auto;
+  width: 100% /* if you like to resize the image to the width of the container */
+ }
 </style>
 <!-- Providing width and height is more important than ever. -->
 <img height="853" width="1280" … />`}
@@ -466,9 +465,9 @@ The content-visibility property could be one of the most powerful new CSS proper
 It also allows for faster interactions with the content on the screen. Pretty neat. The main advantage for us could be that the browser doesn't bother decoding the image unless it must, and saves the CPU.
 
 <Syntax language="html">{`<style>
-  img {
-    content-visibility: auto;
-  }
+ img {
+  content-visibility: auto;
+ }
 </style>`}</Syntax>
 
 ### e) Asynchronous decoding
@@ -479,10 +478,7 @@ The decoding property controls if the browser is allowed to try to parallelize l
 
 ## 5) Improve hosting behavior
 
-##### Summary: Configure a cache-control header with
-
-a high max-age so users don’t have to download images multiple times. Use an image
-CDN and disable hotlinking to optimize your resources ### Caching
+##### Summary: Configure a cache-control header with a high max-age so users don’t have to download images multiple times. Use an image CDN and disable hotlinking to optimize your resources ### Caching
 
 Browser caching instructs the visitor’s browser to **save certain files on the local system of the visitor** instead of downloading them repeatedly. Thus, for example, a visitor must download the logo image of a website on the first visit.
 
@@ -528,9 +524,7 @@ In many cases, hotlinking is unintentional, but can cost the original owner of t
 
 ## 6) SEO Image Optimization
 
-##### Summary: Use an explanatory file name as well
-
-as describing title and alt attributes."
+##### Summary: Use an explanatory file name as well as describing title and alt attributes."
 
 SEO stands for Search Engine Optimization, and it refers to all the small improvements that can be made to a website to make it more readable to search engine crawlers - and therefore more likely to rank high on search engine results pages.
 
@@ -540,7 +534,7 @@ The higher you can rank your pages in Google results, the more clicks you will g
 
 But apart from speeding up loading times, image SEO also involves contextualizing images so that visitors and search engines can understand them more easily. SEO image optimization differs from the more comprehensive image optimization described above.
 
-So how can you use **SEO image optimization for better visibility**? There are a number of ways to make your images more accessible to search engines, which we will explain below.
+So how can you use **SEO image optimization for better visibility **? There are a number of ways to make your images more accessible to search engines, which we will explain below.
 
 ### 1. Optimize image file names
 
@@ -614,6 +608,7 @@ There are a lot of tools and programs out there, both premium and free, that you
 #### Image editors
 
 <Checklist items={["Adobe Photoshop", "Gimp", "Paint.NET"]} checked={true} />
+
 #### Online conversion
 
 <Checklist
@@ -624,24 +619,29 @@ There are a lot of tools and programs out there, both premium and free, that you
   ]}
   checked={true}
 />
+
 #### Image CDNs
 
 <Checklist
   items={["Cloudflare", "Kraken.io", "ImageKit", "ImageEngine"]}
   checked={true}
 />
+
 #### Command line tools
 
 <Checklist
   items={["GIFsicle", "JPEGtran", "JPEG Mini", "OptiPNG", "pngquant"]}
   checked={true}
 />
+
 #### GUI desktop tools
 
 <Checklist items={["FileOptimizer", "ImageOptim", "Trimage"]} checked={true} />
+
 #### Node.JS Libraries
 
 <Checklist items={["sharp"]} checked={true} />
+
 #### Wordpress plugins
 
 <Checklist
@@ -654,6 +654,7 @@ There are a lot of tools and programs out there, both premium and free, that you
   ]}
   checked={true}
 />
+
 #### Shopify plugins
 
 <Checklist items={["Crush.pics", "Minifier"]} checked={true} />
