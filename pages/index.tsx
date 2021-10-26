@@ -356,9 +356,9 @@ const Index: NextPage<PostsPageProps> = ({
         </div>
       </section>
       <main className="p-2 md:p-4 archive blog">
-        <div className="mt-12 text-center ">
+        <div className="mt-12 text-center">
           <h3>How to use AVIF</h3>
-          <h4 className="mb-8 text-base font-normal max-w-lg m-auto">
+          <h4 className="m-auto mb-8 max-w-lg text-base font-normal">
             Support is constantly rising across software and hardware. Thanks to
             being royalty-free, companies can include the format without having
             to deal with patents. We created articles for you on getting started
@@ -423,7 +423,7 @@ const Index: NextPage<PostsPageProps> = ({
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
                 {tutorials.map((post: any) => (
                   <Post key={post.slug} {...post.data} slug={post.slug} />
                 ))}
