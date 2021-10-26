@@ -35,27 +35,3 @@ fs.readdir(input, (err, files) => {
     }
   });
 });
-
-fs.copyFile(
-  "../images/comparison.jpg",
-  "../public/img/comparison.jpg",
-  (err) => {
-    if (err) throw err;
-  }
-);
-
-fs.copyFile(
-  "../images/comparison.avif",
-  "../public/img/comparison.avif",
-  (err) => {
-    if (err) throw err;
-  }
-);
-
-fs.copyFile(
-  "../images/firefox-test.avif",
-  "../public/img/firefox-test.avif",
-  (err) => {
-    if (err) throw err;
-  }
-);

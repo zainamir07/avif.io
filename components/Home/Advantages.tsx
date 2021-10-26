@@ -30,7 +30,6 @@ function AdvantageItem(props: Advantages) {
       scaleClassName="rounded-lg h-full"
       rotateClassName="rounded-lg h-full"
       innerClassName="rounded-lg h-full"
-      durationEnter={200}
       shadow={false}
       rotateTouch={false}
     >

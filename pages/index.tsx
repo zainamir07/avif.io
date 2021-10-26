@@ -8,8 +8,13 @@ import Converter from "@utils/converter";
 import { uniqueId } from "@utils/utils";
 import { ReactElement, useEffect, useState } from "react";
 import ReactCompareImage from "react-compare-image";
-import TutorialBoxes from "@components/Home/TutorialBoxes";
 import Advantages from "@components/Home/Advantages";
+import fs from "fs";
+import path from "path";
+import { InferGetStaticPropsType, NextPage } from "next";
+import matter from "gray-matter";
+import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
+import Post from "@components/Blog/Post";
 
 import cog from "@assets/settings.svg";
 
@@ -18,7 +23,7 @@ interface FileWithId {
   id: number;
 }
 
-function Glow() {
+const Glow = () => {
   return (
     <section className="hidden overflow-hidden px-3 mt-12 mb-4 max-w-screen-lg md:block">
       <div
@@ -27,47 +32,79 @@ function Glow() {
       ></div>
     </section>
   );
-}
+};
 
-function ImageSlider() {
-  return (
-    <section className="px-3 mx-auto max-w-screen-xl">
-      <div className="relative">
-        <ReactCompareImage
-          leftImage={"/img/comparison.jpg"}
-          rightImage={"/img/comparison.avif"}
-          leftImageAlt="jpg image"
-          rightImageAlt="avif image"
-          sliderLineWidth={4}
-          handle={
-            <div
-              role="button"
-              className="py-4 px-2 bg-pink-700 rounded-xl"
-              tabIndex={0}
-              id="handle"
-            />
-          }
-          sliderLineColor="rgba(255,255,255,0.2)"
-          sliderPositionPercentage={0.5}
-        />
-        <p
-          className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
-          id="jpg"
-        >
-          jpg · 18kB
-        </p>
-        <p
-          className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
-          id="avif"
-        >
-          avif · 18kB
-        </p>
-      </div>
-    </section>
-  );
-}
+const generatePosts = (folderPath: string) =>
+  postFilePaths(folderPath).map((filePath: string) => {
+    const source = fs.readFileSync(path.join(folderPath, filePath));
+    const { data } = matter(source);
 
-export default function App(): ReactElement {
+    return {
+      data,
+      slug: filePath.replace(".mdx", ""),
+    };
+  });
+
+export const getStaticProps = async () => {
+  const articles = generatePosts(`${BLOG_POSTS_PATH}/articles`);
+  const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
+  const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
+  const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
+
+  const listPostsByFolder = {
+    articles,
+    comparisons,
+    releases,
+    tutorials,
+  };
+
+  const defaultFilteredPost = [
+    ...articles,
+    ...comparisons,
+    ...releases,
+    ...tutorials,
+  ];
+
+  const listSubCategories = [
+    ...new Set(defaultFilteredPost.map((post) => post.data.subcategory)),
+  ].filter(Boolean);
+  const listCategories = [
+    ...new Set(defaultFilteredPost.map((post) => post.data.category)),
+  ].filter(Boolean);
+  const listSupport = [
+    ...new Set(defaultFilteredPost.map((post) => post.data.support)),
+  ].filter(Boolean);
+
+  return {
+    props: {
+      articles,
+      comparisons,
+      releases,
+      tutorials,
+      defaultFilteredPost,
+      listSubCategories,
+      listCategories,
+      listSupport,
+      listAllCategories: [
+        ...listCategories,
+        ...listSubCategories,
+        ...listSupport,
+      ],
+
+      posts: listPostsByFolder as any,
+    },
+  };
+};
+
+type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
+const Index: NextPage<PostsPageProps> = ({
+  defaultFilteredPost,
+  tutorials,
+  listSupport,
+  listSubCategories,
+  listCategories,
+}) => {
+  const [image, setImage] = useState("butterfly");
   const [converter, setConverter] = useState<Converter>();
   const [files, setFiles] = useState<FileWithId[]>([]);
   const [convertedFiles, setConvertedFiles] = useState<File[]>([]);
@@ -109,6 +146,39 @@ export default function App(): ReactElement {
       datePublished: "01.09.20",
       dateModified: "30.05.21",
     },
+  };
+  const [filteredPost, setFilteredPost] = useState([]);
+  const [filterKeyword, setFilterKeyword] = useState("");
+  const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
+
+  const handleSelectedPill = (category: string) => {
+    if (category === selectedCategoryPill) {
+      setSelectedCategoryPill("");
+      setFilteredPost([]);
+      return;
+    }
+
+    setSelectedCategoryPill(category);
+    const filteredPosts = defaultFilteredPost.filter((post) => {
+      return (
+        post.data.category === category ||
+        post.data.subcategory === category ||
+        post.data.support === category
+      );
+    });
+
+    setFilteredPost(filteredPosts as any);
+  };
+
+  const handleFilterByKeyword = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const keyword = event.target.value;
+    const filtered = defaultFilteredPost.filter((post) =>
+      post.data.title.toLowerCase().includes(keyword.toLowerCase())
+    );
+    setFilterKeyword(keyword);
+    setFilteredPost(filtered as any);
   };
 
   return (
@@ -179,8 +249,189 @@ export default function App(): ReactElement {
       </section>
       <Glow />
       <Advantages />
-      <ImageSlider />
-      <TutorialBoxes />
+      <section className="px-3 mx-auto max-w-screen-xl">
+        <div className="relative">
+          <div className="flex mt-2 mb-2">
+            <button
+              style={{ backgroundImage: "url(/comparison/butterfly.avif)" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "butterfly" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("butterfly")}
+              name="avif vs jpg comparison image 1: butterfly"
+            />
+            <button
+              style={{ backgroundImage: "url(/comparison/doggo.avif" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "doggo" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("doggo")}
+              name="avif vs jpg comparison image 2: doggo"
+            />
+            <button
+              style={{ backgroundImage: "url(/comparison/partyhand.avif" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "partyhand" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("partyhand")}
+              name="avif vs jpg comparison image 3: partyhand"
+            />
+            <button
+              style={{ backgroundImage: "url(/comparison/party.avif" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "party" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("party")}
+              name="avif vs jpg comparison image 4: waterdrop on leaflet"
+            />
+            <button
+              style={{ backgroundImage: "url(/comparison/slines.avif" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "slines" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("slines")}
+              name="avif vs jpg comparison image 5: slines"
+            />
+            <button
+              style={{ backgroundImage: "url(/comparison/explosion.avif" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "explosion" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("explosion")}
+              name="avif vs jpg comparison image 5: explosion"
+            />
+            <button
+              style={{ backgroundImage: "url(/comparison/vector.avif" }}
+              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+                image == "vector" ? "border-4 border-pink-700" : "opacity-50"
+              }`}
+              onClick={() => setImage("vector")}
+              name="avif vs jpg comparison image 5: vector"
+            />
+          </div>
+          <div className="relative">
+            <ReactCompareImage
+              leftImage={`/comparison/${image}.avif`}
+              rightImage={`/comparison/${image}.jpg`}
+              leftImageAlt="jpg image"
+              rightImageAlt="avif image"
+              sliderLineWidth={4}
+              handle={
+                <div
+                  role="button"
+                  className="py-4 px-2 bg-pink-700 rounded-xl"
+                  tabIndex={0}
+                  id="handle"
+                />
+              }
+              sliderLineColor="rgba(255,255,255,0.2)"
+              sliderPositionPercentage={0.5}
+            />
+
+            <p
+              className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
+              id="avif"
+            >
+              avif ·{image == "butterfly" && " 18kb"}
+              {image == "doggo" && " 44kb"}
+              {image == "partyhand" && " 18kb"}
+              {image == "party" && " 60kb"}
+              {image == "slines" && " 50kb"}
+              {image == "explosion" && " 23kb"}
+              {image == "vector" && " 35kb"}
+            </p>
+            <p
+              className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
+              id="jpg"
+            >
+              jpg ·{image == "butterfly" && " 18kb"}
+              {image == "doggo" && " 44kb"}
+              {image == "partyhand" && " 18kb"}
+              {image == "party" && " 60kb"}
+              {image == "slines" && " 50kb"}
+              {image == "explosion" && " 23kb"}
+              {image == "vector" && " 35kb"}
+            </p>
+          </div>
+        </div>
+      </section>
+      <main className="p-2 md:p-4 archive blog">
+        <div className="mt-12 text-center ">
+          <h3>How to use AVIF</h3>
+          <h4 className="mb-8 text-base font-normal max-w-lg m-auto">
+            Support is constantly rising across software and hardware. Thanks to
+            being royalty-free, companies can include the format without having
+            to deal with patents. We created articles for you on getting started
+            on all different types of browsers, operating systems, and software.
+            We didn't cover your software? Feel free to tell us on
+            support@avif.io, and we will write an article about it.
+          </h4>
+        </div>
+        <div className="container max-w-screen-lg">
+          <div className="relative mt-1 mb-3 rounded-md">
+            <input
+              type="text"
+              placeholder="Search all posts"
+              className="block py-3 px-3 pr-10 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+              onChange={handleFilterByKeyword}
+            />
+            <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none group">
+              🔎︎
+            </div>
+          </div>
+          <div className="mb-2">
+            {listSubCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleSelectedPill(category)}
+                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                  selectedCategoryPill === category
+                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                    : "bg-bg-500 text-gray-300"
+                }`}
+              >
+                {selectedCategoryPill === category && (
+                  <span className="mr-1">✓</span>
+                )}
+                {category}
+              </button>
+            ))}
+          </div>
+          <div className="mb-2">
+            {listSupport.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleSelectedPill(category)}
+                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                  selectedCategoryPill === category
+                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                    : "bg-bg-500 text-gray-300"
+                }`}
+              >
+                {selectedCategoryPill === category && (
+                  <span className="mr-1">✓</span>
+                )}
+                {category}
+              </button>
+            ))}
+          </div>
+          {filterKeyword.length > 0 || filteredPost.length ? (
+            <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
+              {filteredPost.map((post: any) => (
+                <Post key={post.slug} {...post.data} slug={post.slug} />
+              ))}
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+                {tutorials.map((post: any) => (
+                  <Post key={post.slug} {...post.data} slug={post.slug} />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </main>
       <div className="container px-2 my-12 max-w-screen-md text-left md:text-center">
         In the last ten years,{" "}
         <b>
@@ -215,4 +466,6 @@ export default function App(): ReactElement {
       </div>
     </Layout>
   );
-}
+};
+
+export default Index;
