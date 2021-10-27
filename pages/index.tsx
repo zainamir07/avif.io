@@ -6,7 +6,7 @@ import Tooltip from "@components/Home/Tooltip";
 import SettingsBox, { Settings } from "@components/Home/SettingsBox";
 import Converter from "@utils/converter";
 import { uniqueId } from "@utils/utils";
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactCompareImage from "react-compare-image";
 import Advantages from "@components/Home/Advantages";
 import fs from "fs";
@@ -23,17 +23,6 @@ interface FileWithId {
   id: number;
 }
 
-const Glow = () => {
-  return (
-    <section className="hidden overflow-hidden px-3 mt-12 mb-4 max-w-screen-lg md:block">
-      <div
-        className="absolute top-0 right-0 bottom-0 left-0 mx-auto w-3/5 rounded-full ease-in-out -z-1 bg-gradient blur-100"
-        data-transition-style="glow"
-      ></div>
-    </section>
-  );
-};
-
 const generatePosts = (folderPath: string) =>
   postFilePaths(folderPath).map((filePath: string) => {
     const source = fs.readFileSync(path.join(folderPath, filePath));
@@ -46,64 +35,34 @@ const generatePosts = (folderPath: string) =>
   });
 
 export const getStaticProps = async () => {
-  const articles = generatePosts(`${BLOG_POSTS_PATH}/articles`);
-  const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
-  const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
   const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
 
-  const listPostsByFolder = {
-    articles,
-    comparisons,
-    releases,
-    tutorials,
-  };
-
-  const defaultFilteredPost = [
-    ...articles,
-    ...comparisons,
-    ...releases,
-    ...tutorials,
-  ];
-
   const listSubCategories = [
-    ...new Set(defaultFilteredPost.map((post) => post.data.subcategory)),
+    ...new Set([...tutorials].map((post) => post.data.subcategory)),
   ].filter(Boolean);
-  const listCategories = [
-    ...new Set(defaultFilteredPost.map((post) => post.data.category)),
-  ].filter(Boolean);
+
   const listSupport = [
-    ...new Set(defaultFilteredPost.map((post) => post.data.support)),
+    ...new Set([...tutorials].map((post) => post.data.support)),
   ].filter(Boolean);
 
   return {
     props: {
-      articles,
-      comparisons,
-      releases,
       tutorials,
-      defaultFilteredPost,
       listSubCategories,
-      listCategories,
       listSupport,
-      listAllCategories: [
-        ...listCategories,
-        ...listSubCategories,
-        ...listSupport,
-      ],
-
-      posts: listPostsByFolder as any,
     },
   };
 };
 
 type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const Index: NextPage<PostsPageProps> = ({
-  defaultFilteredPost,
   tutorials,
   listSupport,
   listSubCategories,
-  listCategories,
 }) => {
+  const [filteredPost, setFilteredPost] = useState([]);
+  const [filterKeyword, setFilterKeyword] = useState("");
+  const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
   const [image, setImage] = useState("butterfly");
   const [converter, setConverter] = useState<Converter>();
   const [files, setFiles] = useState<FileWithId[]>([]);
@@ -136,21 +95,6 @@ const Index: NextPage<PostsPageProps> = ({
     setConvertedFiles([...convertedFiles]);
   }
 
-  const meta = {
-    index: {
-      title: "AVIF Converter - unlimited free conversions",
-      description:
-        "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
-      url: "",
-      image: "/logo_draft.png",
-      datePublished: "01.09.20",
-      dateModified: "30.05.21",
-    },
-  };
-  const [filteredPost, setFilteredPost] = useState([]);
-  const [filterKeyword, setFilterKeyword] = useState("");
-  const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
-
   const handleSelectedPill = (category: string) => {
     if (category === selectedCategoryPill) {
       setSelectedCategoryPill("");
@@ -159,11 +103,9 @@ const Index: NextPage<PostsPageProps> = ({
     }
 
     setSelectedCategoryPill(category);
-    const filteredPosts = defaultFilteredPost.filter((post) => {
+    const filteredPosts = tutorials.filter((post) => {
       return (
-        post.data.category === category ||
-        post.data.subcategory === category ||
-        post.data.support === category
+        post.data.subcategory === category || post.data.support === category
       );
     });
 
@@ -174,15 +116,25 @@ const Index: NextPage<PostsPageProps> = ({
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const keyword = event.target.value;
-    const filtered = defaultFilteredPost.filter((post) =>
+    const filtered = tutorials.filter((post) =>
       post.data.title.toLowerCase().includes(keyword.toLowerCase())
     );
     setFilterKeyword(keyword);
     setFilteredPost(filtered as any);
   };
 
+  const meta = {
+    title: "AVIF Converter - unlimited free conversions",
+    description:
+      "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
+    url: "",
+    image: "/logo_draft.png",
+    datePublished: "01.09.20",
+    dateModified: "30.05.21",
+  };
+
   return (
-    <Layout meta={meta.index}>
+    <Layout meta={meta}>
       <section className="px-2 mt-12 text-center md:px-3">
         <h1>Convert all images to AVIF for free.</h1>
         <div className="block justify-center mb-6 md:flex">
@@ -247,7 +199,12 @@ const Index: NextPage<PostsPageProps> = ({
           <DownloadButton files={convertedFiles} />
         </div>
       </section>
-      <Glow />
+      <section className="hidden overflow-hidden px-3 mt-12 mb-4 max-w-screen-lg md:block">
+        <div
+          className="absolute top-0 right-0 bottom-0 left-0 mx-auto w-3/5 rounded-full ease-in-out -z-1 bg-gradient blur-100"
+          data-transition-style="glow"
+        ></div>
+      </section>
       <Advantages />
       <section className="px-3 mx-auto max-w-screen-xl">
         <div className="relative">
@@ -283,14 +240,6 @@ const Index: NextPage<PostsPageProps> = ({
               }`}
               onClick={() => setImage("party")}
               name="avif vs jpg comparison image 4: waterdrop on leaflet"
-            />
-            <button
-              style={{ backgroundImage: "url(/comparison/slines.avif" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "slines" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("slines")}
-              name="avif vs jpg comparison image 5: slines"
             />
             <button
               style={{ backgroundImage: "url(/comparison/explosion.avif" }}
@@ -336,7 +285,6 @@ const Index: NextPage<PostsPageProps> = ({
               {image == "doggo" && " 44kb"}
               {image == "partyhand" && " 18kb"}
               {image == "party" && " 60kb"}
-              {image == "slines" && " 50kb"}
               {image == "explosion" && " 23kb"}
               {image == "vector" && " 35kb"}
             </p>
@@ -348,7 +296,6 @@ const Index: NextPage<PostsPageProps> = ({
               {image == "doggo" && " 44kb"}
               {image == "partyhand" && " 18kb"}
               {image == "party" && " 60kb"}
-              {image == "slines" && " 50kb"}
               {image == "explosion" && " 23kb"}
               {image == "vector" && " 35kb"}
             </p>

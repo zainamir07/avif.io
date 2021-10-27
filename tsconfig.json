@@ -9,17 +9,37 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./components/*"],
-      "@assets/*": ["./assets/*"],
-      "@images/*": ["./public/images/*"],
-      "@utils/*": ["utils/*"],
-      "@styles/*": ["styles/*"],
-      "@pages/*": ["pages/*"],
-      "@public/*": ["public/*"],
-      "@lib/*": ["lib/*"]
+      "@components/*": [
+        "./components/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@images/*": [
+        "./public/images/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ]
     },
     "allowSyntheticDefaultImports": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,8 +47,15 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "removeComments": true
+    "removeComments": true,
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
