@@ -67,18 +67,17 @@ Next.js will handle all the hard work behind the scenes for you. The team behind
 Next.js has been working to improve image processing since version 10 and AVIF is supported since version 12.
 They offer both an integrated `<Image>` component (`next/image`) and a built-in Image Optimization API.
 They describe their image component as **an extension of the HTML img element designed
-for the modern web.** Why, you may ask? Well, images in this component are resized,
+for the modern web.** Images in this component are resized,
 optimized and automatically served in the correct format based on the visitor's device
-and browser. For example, you would not deliver a high-resolution image to a Nintendo
-Game Boy. Furthermore, the images **support the Core Web Vitals** by not shifting
+and browser. For example, you would not deliver a high-resolution image to a mobile device. Furthermore, the images **support the Core Web Vitals** by not shifting
 their layouts while lazy-loading images. Furthermore, this service can also be used if the server that contains
 the images of the website is a CDN and not a server hosted by the website.
 
-See the <Link text="Next.js Documentation" href="https://nextjs.org/docs/api-reference/next/image#acceptable-formats" /> for more information.
+See the <Link text="Next.js Documentation" href="nextjs.org/docs/api-reference/next/image#acceptable-formats" /> for more information.
 
 ## Next.js image component
 
-All in all, it's a simple "Put this image in your project, add it to the component and we'll do the entire conversion and optimization" approach. While it converts images to both AVIF or WebP depending on the browser's support. Finally, the images loaded via CSS will not be optimized, although we pray that this will be the case in future versions.
+To use the Next.js image component, you add the image file to your project directory or use an external source and pass it as a source argument to the Next.Js image component, which you have imported on top of the file. It will convert images to both WebP and AVIF depending on the browser support of your visitors. Please note that to this date, images loaded via CSS will not be optimized, although we hope that this will be the case in future versions.
 
 <Syntax language="javascript">
   {`import Image from 'next/image'
@@ -94,7 +93,7 @@ All in all, it's a simple "Put this image in your project, add it to the compone
 
 ## CSS Images
 
-Until this point, if you rely heavily on CSS images, you can use the third-party plugin with Next.js called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" /> . It has many additional features, and it ** supports loading images with CSS**, which is very useful. However, the plugin does not yet support AVIF as well. Nevertheless, the author is currently working on a complete overhaul of the entire plugin, and a Canary version is already published.
+Until this point, if you rely heavily on CSS images, you can use the third-party plugin with Next.js called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" />. It has many additional features, and it ** supports loading images with CSS**, which is very useful. However, the plugin does not support AVIF and only opts for WebP. Even though the author released news on a new version following a canary branch with promised AVIF support, the development has not been continued as of August 2020.
 
 ## How do we at avif.io deal with AVIF support?
 
@@ -110,7 +109,7 @@ To find out if you as a visitor have a browser with AVIF support, we have implem
 
 ### 2. Create image component with modern markup
 
-We have developed our own image component, which uses all the features that modern image markup should take into account, from the lazy load to the aspect ratio. We only have to choose a path and an alt text. For more information on the perfect image markup visit <Link text="Guide to Image Performance." href="/blog/articles/optimize-images-for-web-performance/" />
+We have developed our own image component <Link href="github.com/justinschmitz97/avif.io/blob/master/components/Blog/Image.tsx" text="(visit Github for the latest version)"/>, which uses all the features that modern image markup should take into account, from the lazy load to the aspect ratio. We only have to choose a path and an alt text. For more information on the perfect image markup visit <Link text="Guide to Image Performance." href="/blog/articles/optimize-images-for-web-performance/" />
 
 ### 3. Convert images with sharp on build time
 
