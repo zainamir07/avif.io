@@ -17,7 +17,6 @@ export default function Layout(props: Layout) {
         title={props.meta.title}
         description={props.meta.description}
         url={props.meta.url}
-        image={props.meta.image}
         datePublished={props.meta.datePublished}
         dateModified={props.meta.dateModified}
         blog={props.meta.blog}

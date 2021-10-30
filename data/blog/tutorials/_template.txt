@@ -1,5 +1,5 @@
 ---
-blog: true
+
 title: XYZ AVIF support
 description: XYZ is. Learn how to use AVIF images within XYZ.
 keyword: XYZ
@@ -7,7 +7,7 @@ category: tutorials
 subcategory: cms
 support: no support
 url: blog/tutorials/xyz/
-image: "/logo_draft.png"
+
 datePublished: 08.10.21
 dateModified: 08.10.21
 sources:

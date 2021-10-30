@@ -29,7 +29,12 @@ const generatePosts = (folderPath: string) =>
     const { data } = matter(source);
 
     return {
-      data,
+      title: data.title,
+      description: data.description,
+      support: data.support ? data.support : "",
+      category: data.category,
+      subcategory: data.subcategory ? data.subcategory : "",
+      keyword: data.keyword,
       slug: filePath.replace(".mdx", ""),
     };
   });
@@ -38,11 +43,11 @@ export const getStaticProps = async () => {
   const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
 
   const listSubCategories = [
-    ...new Set([...tutorials].map((post) => post.data.subcategory)),
+    ...new Set([...tutorials].map((post) => post.subcategory)),
   ].filter(Boolean);
 
   const listSupport = [
-    ...new Set([...tutorials].map((post) => post.data.support)),
+    ...new Set([...tutorials].map((post) => post.support)),
   ].filter(Boolean);
 
   return {
@@ -104,9 +109,7 @@ const Index: NextPage<PostsPageProps> = ({
 
     setSelectedCategoryPill(category);
     const filteredPosts = tutorials.filter((post) => {
-      return (
-        post.data.subcategory === category || post.data.support === category
-      );
+      return post.subcategory === category || post.support === category;
     });
 
     setFilteredPost(filteredPosts as any);
@@ -117,7 +120,7 @@ const Index: NextPage<PostsPageProps> = ({
   ) => {
     const keyword = event.target.value;
     const filtered = tutorials.filter((post) =>
-      post.data.title.toLowerCase().includes(keyword.toLowerCase())
+      post.title.toLowerCase().includes(keyword.toLowerCase())
     );
     setFilterKeyword(keyword);
     setFilteredPost(filtered as any);
@@ -128,7 +131,6 @@ const Index: NextPage<PostsPageProps> = ({
     description:
       "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
     url: "",
-    image: "/logo_draft.png",
     datePublished: "01.09.20",
     dateModified: "30.05.21",
   };
@@ -365,14 +367,32 @@ const Index: NextPage<PostsPageProps> = ({
           {filterKeyword.length > 0 || filteredPost.length ? (
             <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredPost.map((post: any) => (
-                <Post key={post.slug} {...post.data} slug={post.slug} />
+                <Post
+                  key={post.slug}
+                  title={post.title}
+                  description={post.description}
+                  support={post.support}
+                  category={post.category}
+                  subcategory={post.subcategory}
+                  keyword={post.keyword}
+                  slug={post.slug}
+                />
               ))}
             </div>
           ) : (
             <>
               <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
                 {tutorials.map((post: any) => (
-                  <Post key={post.slug} {...post.data} slug={post.slug} />
+                  <Post
+                    key={post.slug}
+                    title={post.title}
+                    description={post.description}
+                    support={post.support}
+                    category={post.category}
+                    subcategory={post.subcategory}
+                    keyword={post.keyword}
+                    slug={post.slug}
+                  />
                 ))}
               </div>
             </>

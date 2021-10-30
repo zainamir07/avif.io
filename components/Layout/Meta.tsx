@@ -6,7 +6,6 @@ export interface MetaProps {
   title?: string;
   description?: string;
   url?: string;
-  image?: string;
   datePublished: string;
   dateModified: string;
   blog?: boolean;
@@ -47,7 +46,7 @@ export default function Meta(props: MetaProps) {
       <meta property="og:url" content={`https://avif.io/${props.url}`} />
       <meta property="og:title" content={props.title + " | " + "avif.io"} />
       <meta property="og:description" content={props.description} />
-      {props.image && <meta property="og:image" content={`${props.image}`} />}
+      <meta property="og:image" content="/logo_draft.png" />
 
       <meta name="twitter:card" content="summary"></meta>
       <meta property="twitter:creator" content="@jschmitz97" />
@@ -58,9 +57,7 @@ export default function Meta(props: MetaProps) {
         content={props.title + " | " + "avif.io ✨"}
       />
       <meta property="twitter:description" content={props.description} />
-      {props.image && (
-        <meta name="twitter:image" content="https://avif.io/twitter.png" />
-      )}
+      <meta name="twitter:image" content="https://avif.io/twitter.png" />
 
       <script
         {...jsonLdScriptProps<Organization>({
@@ -88,7 +85,7 @@ export default function Meta(props: MetaProps) {
             },
             "headline": props.title,
             "description": props.description,
-            "image": props.image,
+            "image": "https://avif.io/logo_draft.png",
             "author": {
               "@type": "Person",
               "name": "Justin Schmitz",
