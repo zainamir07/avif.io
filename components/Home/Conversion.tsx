@@ -101,12 +101,15 @@ export default function Conversion(props: ConversionProps): ReactElement {
 
   const finished = status === "finished";
   const cancelled = status === "cancelled";
+  const inProgress = status === "inProgress";
 
   return (
     <div
-      className={`text-tiny text-white conversion justify-between w-full relative z-10 flex flex-row items-center self-auto mt-3 py-1 bg-bg-600 overflow-hidden rounded-md${
-        finished ? " pointer-events-auto bg-bg-600" : " progress group"
-      } ${cancelled ? "hidden" : ""}`}
+      className={`text-tiny text-white conversion justify-between w-full relative z-10 flex flex-row items-center self-auto mt-3 py-1 overflow-hidden rounded-md${
+        inProgress ? " bg-bg-500" : ""
+      }${finished ? " pointer-events-auto bg-bg-600" : " progress group"}${
+        cancelled ? " hidden" : ""
+      }`}
       data-transition-style={finished ? "bounceIn" : ""}
     >
       <div className="flex flex-col justify-between items-baseline py-2 ml-3">
@@ -172,8 +175,12 @@ export default function Conversion(props: ConversionProps): ReactElement {
           >
             {" "}
             <span
+              style={{ backgroundImage: `url(${outputObjectURL}` }}
+              className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer"
+            ></span>
+            <span
               style={{ backgroundSize: "200%" }}
-              className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer bg-gradient"
+              className="opacity-75 absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer bg-gradient"
             ></span>
             <span
               className="absolute top-0 right-0 bottom-0 left-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
