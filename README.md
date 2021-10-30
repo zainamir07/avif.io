@@ -2,13 +2,6 @@
 
 This Github repo is the source code behind the website [avif.io](https://avif.io). You can use avif.io to convert a wide variety of file formats into AVIF, directly inside your web browser.
 
-<br/>
-
-## Background & State
-
-This source code has been published in July 2021. Feel free to create issues or pull requests. We appreciate any help!
-
-This project has been started by Justin (UX Designer) & Niksa (Developer). Each project comes with a set of responsibilities. As a two-person team involved in our day-to-day jobs and family, we could not dedicate the time necessary to keep the development as steady as we would have liked. Due to the fast-paced nature of the project, we thought it would be best to provide people with the ability to create their own versions and work on their own features. Multiple requests have been made for the source code to be released. Many people have asked how they can assist us with the development. We are pleased to announce that we are now an open-source project. Besides making the development process easier, the general public is also able to gain insight into how and what data we process. Due to the fact that file converters typically save your images in the cloud, being open-source provides people with the confidence that their images are secure
 
 <br/>
 
@@ -92,3 +85,4 @@ You can find the related commands in the package.json file.
 1. ennmichael / Nikša
 2. mikqi / Muhammad Rivki
 3. ageofadz / Sam Robertson
+4. styfle / Steven
