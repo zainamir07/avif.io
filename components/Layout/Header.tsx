@@ -48,16 +48,10 @@ export default function Header() {
       </div>
       <div className="flex flex-wrap justify-between items-center py-1 px-3 md:flex-row">
         <nav className="flex flex-wrap justify-center items-center text-base md:pl-4 md:mr-auto">
-          <Link className="p-2 md:p-3" text="Blog" href="/blog/" />
           <Link
-            className="hidden p-2 md:block md:p-3"
-            text="Tutorials"
-            href="/blog/#tutorials"
-          />
-          <Link
-            className="hidden p-2 md:block md:p-3"
-            text="Comparisons"
-            href="/blog/#comparisons"
+            className="p-2 md:p-3"
+            text="Blog and Tutorials"
+            href="/blog/"
           />
           <Link
             className="hidden p-2 md:block md:p-3"

@@ -53,7 +53,7 @@ export default function Footer() {
                 text="AVIF in JS Frameworks"
                 href="/blog/tutorials/frameworks/"
               />
-              <FooterLink text="AVIF in CSS" href="/blog/tutorials/css/" />
+              <FooterLink text="AVIF FAQ" href="/blog/articles/avif-faq/" />
               <FooterLink
                 text="Image Web Perf"
                 href="/blog/articles/optimize-images-for-web-performance/"
