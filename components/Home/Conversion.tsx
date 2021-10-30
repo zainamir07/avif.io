@@ -180,7 +180,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
             ></span>
             <span
               style={{ backgroundSize: "200%" }}
-              className="opacity-75 absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer bg-gradient"
+              className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md opacity-75 cursor-pointer bg-gradient"
             ></span>
             <span
               className="absolute top-0 right-0 bottom-0 left-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
