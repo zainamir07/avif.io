@@ -330,24 +330,24 @@ const Index: NextPage<PostsPageProps> = ({
               </button>
             ))}
           </div>
-          {filterKeyword.length > 0 || filteredPost.length ? (
-            <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
-              {filteredPost.map((post: any) => (
-                <Post
-                  key={post.slug}
-                  title={post.title}
-                  description={post.description}
-                  support={post.support}
-                  category={post.category}
-                  subcategory={post.subcategory}
-                  keyword={post.keyword}
-                  slug={post.slug}
-                />
-              ))}
-            </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
+            {filterKeyword.length > 0 || filteredPost.length ? (
+              <>
+                {filteredPost.map((post: any) => (
+                  <Post
+                    key={post.slug}
+                    title={post.title}
+                    description={post.description}
+                    support={post.support}
+                    category={post.category}
+                    subcategory={post.subcategory}
+                    keyword={post.keyword}
+                    slug={post.slug}
+                  />
+                ))}
+              </>
+            ) : (
+              <>
                 {tutorials.map((post: any) => (
                   <Post
                     key={post.slug}
@@ -360,9 +360,9 @@ const Index: NextPage<PostsPageProps> = ({
                     slug={post.slug}
                   />
                 ))}
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
       </main>
       <div className="container px-2 my-12 max-w-screen-md text-left md:text-center">
