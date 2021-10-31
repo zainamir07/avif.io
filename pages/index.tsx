@@ -100,6 +100,27 @@ const Index: NextPage<PostsPageProps> = ({
     setConvertedFiles([...convertedFiles]);
   }
 
+  const sliderImages = [
+    ["butterfly", "18"],
+    ["doggo", "44"],
+    ["partyhand", "18"],
+    ["party", "60"],
+    ["explosion", "23"],
+    ["vector", "35"],
+  ];
+
+  const sliderButtons = sliderImages.map((item: any, i) => (
+    <button
+      key={item[1]}
+      style={{ backgroundImage: `url(/comparison/${item[0]}.avif` }}
+      className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
+        image == item[0] ? "border-4 border-pink-700" : "opacity-50"
+      }`}
+      onClick={() => setImage(`${item[0]}`)}
+      name={`avif vs jpg comparison image ${i + 1}: ${item[0]}`}
+    />
+  ));
+
   const handleSelectedPill = (category: string) => {
     if (category === selectedCategoryPill) {
       setSelectedCategoryPill("");
@@ -210,56 +231,7 @@ const Index: NextPage<PostsPageProps> = ({
       <Advantages />
       <section className="px-3 mx-auto max-w-screen-xl">
         <div className="relative">
-          <div className="flex mt-2 mb-2">
-            <button
-              style={{ backgroundImage: "url(/comparison/butterfly.avif)" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "butterfly" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("butterfly")}
-              name="avif vs jpg comparison image 1: butterfly"
-            />
-            <button
-              style={{ backgroundImage: "url(/comparison/doggo.avif" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "doggo" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("doggo")}
-              name="avif vs jpg comparison image 2: doggo"
-            />
-            <button
-              style={{ backgroundImage: "url(/comparison/partyhand.avif" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "partyhand" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("partyhand")}
-              name="avif vs jpg comparison image 3: partyhand"
-            />
-            <button
-              style={{ backgroundImage: "url(/comparison/party.avif" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "party" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("party")}
-              name="avif vs jpg comparison image 4: waterdrop on leaflet"
-            />
-            <button
-              style={{ backgroundImage: "url(/comparison/explosion.avif" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "explosion" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("explosion")}
-              name="avif vs jpg comparison image 5: explosion"
-            />
-            <button
-              style={{ backgroundImage: "url(/comparison/vector.avif" }}
-              className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-                image == "vector" ? "border-4 border-pink-700" : "opacity-50"
-              }`}
-              onClick={() => setImage("vector")}
-              name="avif vs jpg comparison image 5: vector"
-            />
-          </div>
+          <div className="flex mt-2 mb-2">{sliderButtons}</div>
           <div className="relative">
             <ReactCompareImage
               leftImage={`/comparison/${image}.avif`}

@@ -30,7 +30,6 @@ export default function AvifIo({ Component, pageProps }: any) {
   return (
     <>
       <Script strategy="beforeInteractive" src="/avif.js" />
-      {/*<Script strategy="afterInteractive" src="/hotjar.js" />*/}
       <div className="overflow-x-hidden">
         <Component {...pageProps} />
       </div>
