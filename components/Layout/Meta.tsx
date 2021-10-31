@@ -46,7 +46,7 @@ export default function Meta(props: MetaProps) {
       <meta property="og:url" content={`https://avif.io/${props.url}`} />
       <meta property="og:title" content={props.title + " | " + "avif.io"} />
       <meta property="og:description" content={props.description} />
-      <meta property="og:image" content="/logo_draft.png" />
+      <meta property="og:image" content="https://avif.io/logo_draft.png" />
 
       <meta name="twitter:card" content="summary"></meta>
       <meta property="twitter:creator" content="@jschmitz97" />

@@ -2,7 +2,6 @@
 
 This Github repo is the source code behind the website [avif.io](https://avif.io). You can use avif.io to convert a wide variety of file formats into AVIF, directly inside your web browser.
 
-
 <br/>
 
 ## Advantages
