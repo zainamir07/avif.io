@@ -69,6 +69,7 @@ const Index: NextPage<PostsPageProps> = ({
   const [filterKeyword, setFilterKeyword] = useState("");
   const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
   const [image, setImage] = useState("butterfly");
+  const [imageSize, setImageSize] = useState("18");
   const [converter, setConverter] = useState<Converter>();
   const [files, setFiles] = useState<FileWithId[]>([]);
   const [convertedFiles, setConvertedFiles] = useState<File[]>([]);
@@ -116,7 +117,10 @@ const Index: NextPage<PostsPageProps> = ({
       className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
         image == item[0] ? "border-4 border-pink-700" : "opacity-50"
       }`}
-      onClick={() => setImage(`${item[0]}`)}
+      onClick={() => {
+        setImage(`${item[0]}`);
+        setImageSize(`${item[1]}`);
+      }}
       name={`avif vs jpg comparison image ${i + 1}: ${item[0]}`}
     />
   ));
@@ -255,23 +259,13 @@ const Index: NextPage<PostsPageProps> = ({
               className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
               id="avif"
             >
-              avif ·{image == "butterfly" && " 18kb"}
-              {image == "doggo" && " 44kb"}
-              {image == "partyhand" && " 18kb"}
-              {image == "party" && " 60kb"}
-              {image == "explosion" && " 23kb"}
-              {image == "vector" && " 35kb"}
+              {"avif · " + imageSize + "kb"}
             </p>
             <p
               className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
               id="jpg"
             >
-              jpg ·{image == "butterfly" && " 18kb"}
-              {image == "doggo" && " 44kb"}
-              {image == "partyhand" && " 18kb"}
-              {image == "party" && " 60kb"}
-              {image == "explosion" && " 23kb"}
-              {image == "vector" && " 35kb"}
+              {"jpg · " + imageSize + "kb"}
             </p>
           </div>
         </div>

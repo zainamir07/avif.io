@@ -74,7 +74,7 @@ There is no official AVIF support. **WordPress recently started to support WebP 
 
 2. WordPress is the world's most dominant CMS, with over 455 million websites in 2020. This means that WordPress powers about 35% of the web. Further statistics of WordPress show that in November 2020, over 409 million people view more than 20 billion pages every month.
 
-<Image url="wordpress-usage" alt="graph showcasing how popular WordPress is" />
+<Image src="wordpress-usage" alt="graph showcasing how popular WordPress is" />
 
 ## Security check
 
@@ -263,7 +263,7 @@ Adam Silverstein, a Developer Relations Engineer at Google who regularly contrib
 
 WordPress restricts files that do not match its list of Internet media types, also known as content types or mime-types. The MIME type is a two-part identifier for file formats and format content transferred on the Internet. It is pretty simple to explain: A media file consists of a type and a subtype that defines content and file extension. An HTML file has the mime-type text/html, and a jpg has the mime-type image/jpeg.
 
-<Image url="mimetype" alt="example showing mime types" />
+<Image src="mimetype" alt="example showing mime types" />
 WordPress uses these mime types. They have a list of files they allow and a list
 of files they disallow. There are several methods to change this behavior and add
 mime types.
@@ -272,7 +272,7 @@ mime types.
 
 Functions.php is a file that appears on every theme in WordPress and contains basic functionalities. You can open it by going to Appearance and choosing the Theme Editor. If a warning appears, confirm you know what you are doing. Select your active theme in the right sidebar, and below you will find all theme files listed, including functions.php.
 
-<Image url="functionsphp" alt="place where the functions.php is located" />
+<Image src="functionsphp" alt="place where the functions.php is located" />
 Click to open the file and scroll down to the bottom. Create a new line after the
 end of the file, and add the following. This code will allow you to upload AVIF files
 just like you upload any other image. If you wish to add more support for all the
@@ -303,7 +303,7 @@ There's a considerable disadvantage when modifying the functions.php. It's theme
 
 To quote: WordPress relies primarily on name-based validation when deciding whether or not to allow a particular file, leaving the door open for various kinds of attacks. Lord of the Files (previously known as "blob mimes") adds to this content-based validation and sanitizing, ensuring that files are what they say they are and safe for inclusion on your site.
 
-<Image url="mimetype-plugin" alt="screenshot of the mime type plugin website" />
+<Image src="mimetype-plugin" alt="screenshot of the mime type plugin website" />
 
 ### No automatic conversion
 
