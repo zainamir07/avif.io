@@ -4,13 +4,11 @@ import Blog from "@components/Blog";
 import { useState } from "react";
 
 const meta = {
-  privacyPolicy: {
-    title: "Privacy Policy",
-    description: "Learn how we utilize your data to optimize our service.",
-    url: "privacy-policy/",
-    datePublished: "01.09.20",
-    dateModified: "10.01.21",
-  },
+  title: "Privacy Policy",
+  description: "Learn how we utilize your data to optimize our service.",
+  url: "privacy-policy/",
+  datePublished: "01.09.20",
+  dateModified: "10.01.21",
 };
 
 export default function BlogPost() {
@@ -21,7 +19,7 @@ export default function BlogPost() {
     setContentTable([...contentTable]);
   }
   return (
-    <Blog postMeta={meta.privacyPolicy} posts={[]}>
+    <Blog postMeta={meta} posts={[]}>
       <ContentTable contentTable={contentTable} />
       <H
         callback={callback}
