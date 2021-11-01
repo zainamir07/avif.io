@@ -47,7 +47,7 @@ const Column = (props: any) => {
 export default function Footer() {
   return (
     <footer className="flex flex-wrap order-first px-1 pt-4 pb-8 mx-auto text-left bg-bg-400">
-      <div className="flex flex-col px-4 pr-2 md:pr-6 xl:pr-8 mt-6 w-full text-gray-400 md:w-1/2 lg:w-1/4">
+      <div className="flex flex-col px-4 pr-2 mt-6 w-full text-gray-400 md:pr-6 md:w-1/2 lg:w-1/4 xl:pr-8">
         <Link
           className="mb-4 text-xl font-bold text-white"
           text="avif.io"
