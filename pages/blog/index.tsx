@@ -24,7 +24,6 @@ const generatePosts = (folderPath: string) =>
     const { data } = matter(source);
 
     return {
-      title: data.title,
       description: data.description,
       support: data.support ? data.support : "",
       category: data.category,
@@ -125,7 +124,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
   ) => {
     const keyword = event.target.value;
     const filtered = defaultFilteredPost.filter((post) =>
-      post.title.toLowerCase().includes(keyword.toLowerCase())
+      post.keyword.toLowerCase().includes(keyword.toLowerCase())
     );
     setFilterKeyword(keyword);
     setFilteredPost(filtered as any);

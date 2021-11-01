@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 export function fileExtension(fileName: string): string {
   return splitNameAndExtension(fileName)[1];
 }
@@ -31,18 +29,4 @@ export function minutesAndSeconds(ms: number): [number, number] {
   const minutes = Math.floor(seconds / 60);
   seconds = Math.floor(seconds) % 60;
   return [minutes, seconds];
-}
-
-export function randomRange(start: number, end: number): number {
-  console.assert(end > start);
-  return start + Math.random() * (end - start);
-}
-
-export function formatNumberWithDecimalCommas(n: number): string {
-  const s = n.toString();
-  const parts = [
-    s.slice(0, s.length % 3),
-    ..._.chunk(s.slice(s.length % 3), 3).map((chunk) => chunk.join("")),
-  ].filter((part) => part !== "");
-  return parts.join(",");
 }

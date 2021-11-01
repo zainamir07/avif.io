@@ -27,9 +27,6 @@ module.exports = withPlugins(
             use: [
               {
                 loader: "url-loader",
-                options: {
-                  limit: 8192,
-                },
               },
             ],
           });

@@ -29,7 +29,6 @@ const generatePosts = (folderPath: string) =>
     const { data } = matter(source);
 
     return {
-      title: data.title,
       description: data.description,
       support: data.support ? data.support : "",
       category: data.category,
@@ -145,7 +144,7 @@ const Index: NextPage<PostsPageProps> = ({
   ) => {
     const keyword = event.target.value;
     const filtered = tutorials.filter((post) =>
-      post.title.toLowerCase().includes(keyword.toLowerCase())
+      post.keyword.toLowerCase().includes(keyword.toLowerCase())
     );
     setFilterKeyword(keyword);
     setFilteredPost(filtered as any);
@@ -336,7 +335,6 @@ const Index: NextPage<PostsPageProps> = ({
                 {filteredPost.map((post: any) => (
                   <Post
                     key={post.slug}
-                    title={post.title}
                     description={post.description}
                     support={post.support}
                     category={post.category}
@@ -351,7 +349,6 @@ const Index: NextPage<PostsPageProps> = ({
                 {tutorials.map((post: any) => (
                   <Post
                     key={post.slug}
-                    title={post.title}
                     description={post.description}
                     support={post.support}
                     category={post.category}
