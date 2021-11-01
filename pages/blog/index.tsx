@@ -25,6 +25,7 @@ const generatePosts = (folderPath: string) =>
 
     return {
       description: data.description,
+      title: data.title,
       support: data.support ? data.support : "",
       category: data.category,
       subcategory: data.subcategory ? data.subcategory : "",
@@ -124,7 +125,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
   ) => {
     const keyword = event.target.value;
     const filtered = defaultFilteredPost.filter((post) =>
-      post.keyword.toLowerCase().includes(keyword.toLowerCase())
+      post.title.toLowerCase().includes(keyword.toLowerCase())
     );
     setFilterKeyword(keyword);
     setFilteredPost(filtered as any);
@@ -206,7 +207,16 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           {filterKeyword.length > 0 || filteredPost.length ? (
             <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredPost.map((post: any) => (
-                <Post key={post.slug} {...post.data} slug={post.slug} />
+                <Post
+                  key={post.slug}
+                  title={post.title}
+                  description={post.description}
+                  support={post.support}
+                  category={post.category}
+                  subcategory={post.subcategory}
+                  keyword={post.keyword}
+                  slug={post.slug}
+                />
               ))}
             </div>
           ) : (
