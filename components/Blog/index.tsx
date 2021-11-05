@@ -27,14 +27,14 @@ export default function Blog(props: {
     <Layout meta={props.postMeta}>
       <main className={`blog ${props.className}`}>
         <div
-          className="relative pt-8 pb-6 md:py-8 px-2 md:px-4 md:p-8 lg:pt-12 lg:pb-8 bg-gradient animation-delay-2"
+          className="relative px-2 pt-8 pb-6 md:p-8 md:py-8 md:px-4 lg:pt-12 lg:pb-8 bg-gradient animation-delay-2"
           data-transition-style="in:circle:center"
         >
           <div
-            className="absolute right-0 left-0 top-1 bottom-1 w-full md:h-full rounded-md opacity-25 transform scale-105 -z-1 bg-gradient blur-xl bg-200"
+            className="absolute right-0 left-0 top-1 bottom-1 w-full rounded-md opacity-25 transform scale-105 md:h-full -z-1 bg-gradient blur-xl bg-200"
             data-transition-style="gradientAnimation"
           />
-          <div className="mt-4 md:mt-0 container max-w-screen-md">
+          <div className="container mt-4 max-w-screen-md md:mt-0">
             <Breadcrumbs postMeta={props.postMeta} />
             <h1
               className="mt-2 md:mt-6 md:text-4xl animation-delay-5"

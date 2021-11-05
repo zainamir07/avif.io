@@ -14,7 +14,10 @@ export default function ContentTable(props: ContentTableProps) {
       style={{ counterIncrement: "step-counter" }}
       key={entry.href}
     >
-      <a className="text-tiny md:text-base text-red-700 no-underline" href={entry.href}>
+      <a
+        className="text-red-700 no-underline md:text-base text-tiny"
+        href={entry.href}
+      >
         {entry.text}
       </a>
     </li>

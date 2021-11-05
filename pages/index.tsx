@@ -161,7 +161,7 @@ const Index: NextPage<PostsPageProps> = ({
 
   return (
     <Layout meta={meta}>
-      <section className="px-2 mt-8 md:mt-12 text-center md:px-3">
+      <section className="px-2 mt-8 text-center md:px-3 md:mt-12">
         <h1>Convert all images to AVIF for free.</h1>
         <div className="block justify-center mb-6 md:flex">
           <h2 className="mt-0 mb-0 text-base font-normal">
