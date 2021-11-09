@@ -161,7 +161,7 @@ const Index: NextPage<PostsPageProps> = ({
 
   return (
     <Layout meta={meta}>
-      <section className="px-2 mt-12 text-center md:px-3">
+      <section className="px-2 mt-8 text-center md:px-3 md:mt-12">
         <h1>Convert all images to AVIF for free.</h1>
         <div className="block justify-center mb-6 md:flex">
           <h2 className="mt-0 mb-0 text-base font-normal">
@@ -232,7 +232,7 @@ const Index: NextPage<PostsPageProps> = ({
         ></div>
       </section>
       <Advantages />
-      <section className="px-3 mx-auto max-w-screen-xl">
+      <section className="px-2 mx-auto max-w-screen-xl">
         <div className="relative">
           <div className="flex mt-2 mb-2">{sliderButtons}</div>
           <div className="relative">
@@ -392,7 +392,9 @@ const Index: NextPage<PostsPageProps> = ({
         widespread support, current feature rate, royalty-free usage and highest
         compression rate achieved, we are only a few steps away from creating a
         truly modern web. avif.io helps to strengthen the support of AVIF by
-        providing information, news, resources and an image converter.
+        providing information, news, resources and an AVIF converter to convert PNG to AVIF, JPG to AVIF and more image formats.
+        <br/>
+        Enjoy the free AVIF converter online, convert your images to AVIF today and enjoy the amazing compression it provides.
       </div>
     </Layout>
   );

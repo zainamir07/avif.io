@@ -27,17 +27,17 @@ export default function Blog(props: {
     <Layout meta={props.postMeta}>
       <main className={`blog ${props.className}`}>
         <div
-          className="relative py-12 px-4 md:p-10 lg:p-12 bg-gradient animation-delay-2"
+          className="relative px-2 pt-8 pb-6 md:p-8 md:py-8 md:px-4 lg:pt-12 lg:pb-8 bg-gradient animation-delay-2"
           data-transition-style="in:circle:center"
         >
           <div
-            className="absolute right-0 left-0 top-1 bottom-1 w-full h-full rounded-md opacity-25 transform scale-105 -z-1 bg-gradient blur-xl bg-200"
+            className="absolute right-0 left-0 top-1 bottom-1 w-full rounded-md opacity-25 transform scale-105 md:h-full -z-1 bg-gradient blur-xl bg-200"
             data-transition-style="gradientAnimation"
           />
-          <div className="container max-w-screen-md">
+          <div className="container mt-4 max-w-screen-md md:mt-0">
             <Breadcrumbs postMeta={props.postMeta} />
             <h1
-              className="md:text-4xl animation-delay-5"
+              className="mt-2 md:mt-6 md:text-4xl animation-delay-5"
               data-transition-style="in:wipe:right"
             >
               {props.postMeta.title}
@@ -54,13 +54,13 @@ export default function Blog(props: {
         </div>
 
         <div className="container mx-auto max-w-screen-md">
-          <article ref={articleRef} className="p-3 md:p-0">
+          <article ref={articleRef} className="p-2 md:p-0">
             {props.children}
           </article>
           <div className="mt-12">
             {props.postMeta.sources && (
               <>
-                <h5 className="inline-block py-0 px-3 mt-6 font-bold rounded-md">
+                <h5 className="inline-block py-1 px-3 mt-6 font-bold rounded-md">
                   Sources
                 </h5>
                 <Sources sources={props.postMeta.sources} />
@@ -69,7 +69,7 @@ export default function Blog(props: {
 
             {props.postMeta.tags && (
               <>
-                <h5 className="inline-block py-0 px-3 mt-6 font-bold rounded-md">
+                <h5 className="inline-block py-1 px-3 mt-6 font-bold rounded-md">
                   Topic clusters
                 </h5>
                 <Tags tags={props.postMeta.tags} />
@@ -78,7 +78,7 @@ export default function Blog(props: {
 
             {props.postMeta.questions && (
               <>
-                <h5 className="inline-block py-0 px-3 mt-6 font-bold rounded-md">
+                <h5 className="inline-block py-1 px-3 mt-6 font-bold rounded-md">
                   Related search terms
                 </h5>
                 <Questions questions={props.postMeta.questions} />

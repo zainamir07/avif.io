@@ -10,11 +10,14 @@ export interface ContentTableProps {
 export default function ContentTable(props: ContentTableProps) {
   const contentItem = props.contentTable.map((entry) => (
     <li
-      className="py-1 list-item"
+      className="py-0 md:py-1 list-item"
       style={{ counterIncrement: "step-counter" }}
       key={entry.href}
     >
-      <a className="text-red-700 no-underline" href={entry.href}>
+      <a
+        className="text-red-700 no-underline md:text-base text-tiny"
+        href={entry.href}
+      >
         {entry.text}
       </a>
     </li>
@@ -23,7 +26,7 @@ export default function ContentTable(props: ContentTableProps) {
   return (
     <nav
       aria-label="chapters"
-      className="p-2 mt-8 rounded-lg md:p-5 md:pt-2 bg-bg-400"
+      className="p-2 mt-4 rounded-lg md:p-5 md:pt-2 bg-bg-400"
     >
       <h4 className="mb-4 bold">Table of Content</h4>
       <ol className="list-none">{contentItem}</ol>
