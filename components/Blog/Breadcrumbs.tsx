@@ -31,20 +31,15 @@ export default function Breadcrumbs(props: any) {
         )
       </Head>
       <div>
-        <div
-          data-transition-style="in:wipe:right"
-          className="animation-delay-3"
-        >
-          <Link href={`/${urlSplit[0]}/`} text={`#${urlSplit[0]}`} />
-          {urlSplit[2] && (
-            <div className="inline ml-2">
-              <Link
-                href={`/${urlSplit[0]}/#${urlSplit[1]}`}
-                text={`#${urlSplit[1]}`}
-              />
-            </div>
-          )}
-        </div>
+        <Link href={`/${urlSplit[0]}/`} text={`#${urlSplit[0]}`} />
+        {urlSplit[2] && (
+          <div className="inline ml-2">
+            <Link
+              href={`/${urlSplit[0]}/#${urlSplit[1]}`}
+              text={`#${urlSplit[1]}`}
+            />
+          </div>
+        )}
       </div>
     </>
   );

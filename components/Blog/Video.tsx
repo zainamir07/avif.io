@@ -8,15 +8,15 @@ interface Props {
 export default function Video(props: Props) {
   const { id, title, description, length } = props;
   return (
-    <div className="my-6 rounded-md border-8 border-bg-300 bg-bg-300 box-border">
+    <div className="p-2 my-6 rounded-md border-8 border-bg-300 bg-bg-300 box-border">
       <div className="overflow-hidden rounded-md bg-bg-300">
         <iframe
-          width="752"
-          height="423"
+          width="736"
+          height="414"
           src={`https://www.youtube-nocookie.com/embed/${id}`}
           title="YouTube video player"
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="encrypted-media; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>
