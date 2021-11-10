@@ -45,16 +45,11 @@ ImageKit.io provides image management services for online businesses. Image opti
 
 With effect from 15 December 2020, ImageKit will begin rolling out support for automatically converting images to AVIF onto devices that support the format. These devices will send the image/avif header in the Accept request. Here is how the rollout is planned:
 
-<Checklist
-  items={[
-    "By adding the format transformation parameter f-avif to the transformation string, users can force their images to AVIF format.",
-    "Users will gradually be able to convert to AVIF automatically without updating their URLs. Under Image Settings > Optimization, you can see if your account has access to this feature. Interested users can reach out to support@imagekit.io or start a live chat from their dashboard if this feature is not enabled.",
-    "By 15 December 2020, users with custom CDNs will not be able to use this feature. Before enabling the feature, support will assist these customers with any CDN configuration changes required, if any.",
-    "The AVIF format is supported by all transformations, with the exception of Preserve color profile (via dashboard settings or the URL parameter cp-true) and Unsharp Mask (e-usm). In the case that either of these two features is used in the transformation string or the dashboard settings, the final output image will not be delivered in AVIF. In such cases, WebP and other formats will continue to be effective.",
-    "AVIF images can also be used as input images.",
-  ]}
-  checked={true}
-/>
+- By adding the format transformation parameter f-avif to the transformation string, users can force their images to AVIF format.
+- Users will gradually be able to convert to AVIF automatically without updating their URLs. Under Image Settings > Optimization, you can see if your account has access to this feature. Interested users can reach out to support@imagekit.io or start a live chat from their dashboard if this feature is not enabled.
+- By 15 December 2020, users with custom CDNs will not be able to use this feature. Before enabling the feature, support will assist these customers with any CDN configuration changes required, if any.
+- The AVIF format is supported by all transformations, with the exception of Preserve color profile (via dashboard settings or the URL parameter cp-true) and Unsharp Mask (e-usm). In the case that either of these two features is used in the transformation string or the dashboard settings, the final output image will not be delivered in AVIF. In such cases, WebP and other formats will continue to be effective.
+- AVIF images can also be used as input images.
 
 ### Forcing AVIF
 

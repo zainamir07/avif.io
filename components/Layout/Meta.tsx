@@ -2,7 +2,7 @@ import Head from "next/head";
 import { jsonLdScriptProps } from "react-schemaorg";
 import { BlogPosting, Organization } from "schema-dts";
 
-export interface MetaProps {
+export interface Props {
   title?: string;
   description?: string;
   url?: string;
@@ -11,8 +11,9 @@ export interface MetaProps {
   blog?: boolean;
 }
 
-export default function Meta(props: MetaProps) {
-  const publishedSplit = props.datePublished.split(".");
+export default function Meta(props: Props) {
+  const { title, description, url, datePublished, dateModified, blog } = props;
+  const publishedSplit = datePublished.split(".");
   const publishedDate =
     "20" +
     publishedSplit[2] +
@@ -21,13 +22,13 @@ export default function Meta(props: MetaProps) {
     "-" +
     publishedSplit[0];
 
-  const modifiedSplit = props.dateModified.split(".");
+  const modifiedSplit = dateModified.split(".");
   const modifiedDate =
     "20" + modifiedSplit[2] + "-" + modifiedSplit[1] + "-" + modifiedSplit[0];
 
   return (
     <Head>
-      <link rel="canonical" href={`https://avif.io/${props.url}`} />
+      <link rel="canonical" href={`https://avif.io/${url}`} />
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link
@@ -36,27 +37,24 @@ export default function Meta(props: MetaProps) {
         href="/apple-touch-icon.png"
       />
 
-      <title>{props.title} | avif.io ✨</title>
+      <title>{title} | avif.io ✨</title>
 
-      <meta name="description" content={props.description} />
+      <meta name="description" content={description} />
       <meta name="author" content="Justin Schmitz" />
 
       <meta property="og:site_name" content="AVIF Converter | avif.io ✨" />
-      <meta property="og:type" content={props.blog ? "article" : "website"} />
-      <meta property="og:url" content={`https://avif.io/${props.url}`} />
-      <meta property="og:title" content={props.title + " | " + "avif.io"} />
-      <meta property="og:description" content={props.description} />
+      <meta property="og:type" content={blog ? "article" : "website"} />
+      <meta property="og:url" content={`https://avif.io/${url}`} />
+      <meta property="og:title" content={title + " | " + "avif.io"} />
+      <meta property="og:description" content={description} />
       <meta property="og:image" content="https://avif.io/logo_draft.png" />
 
       <meta name="twitter:card" content="summary"></meta>
       <meta property="twitter:creator" content="@jschmitz97" />
       <meta property="twitter:site" content="@jschmitz97" />
       <meta property="twitter:url" content="https://twitter.com/jschmitz97" />
-      <meta
-        property="twitter:title"
-        content={props.title + " | " + "avif.io ✨"}
-      />
-      <meta property="twitter:description" content={props.description} />
+      <meta property="twitter:title" content={title + " | " + "avif.io ✨"} />
+      <meta property="twitter:description" content={description} />
       <meta name="twitter:image" content="https://avif.io/twitter.png" />
 
       <script
@@ -74,17 +72,17 @@ export default function Meta(props: MetaProps) {
         })}
       />
 
-      {props.blog && (
+      {blog && (
         <script
           {...jsonLdScriptProps<BlogPosting>({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://avif.io/" + props.url,
+              "@id": "https://avif.io/" + url,
             },
-            "headline": props.title,
-            "description": props.description,
+            "headline": title,
+            "description": description,
             "image": "https://avif.io/logo_draft.png",
             "author": {
               "@type": "Person",
