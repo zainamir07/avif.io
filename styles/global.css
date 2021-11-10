@@ -208,7 +208,7 @@
   }
   article ul li:before {
     content: "\2714\0020";
-    @apply mr-2;
+    @apply mr-2 text-pink-700;
   }
 
   article ul {
