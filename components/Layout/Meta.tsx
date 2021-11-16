@@ -58,6 +58,10 @@ export default function Meta(props: MetaProps) {
       />
       <meta property="twitter:description" content={props.description} />
       <meta name="twitter:image" content="https://avif.io/twitter.png" />
+      <meta
+        name="twitter:image:alt"
+        content="Logo for the AVIF Converter avif.io"
+      />
 
       <script
         {...jsonLdScriptProps<Organization>({
