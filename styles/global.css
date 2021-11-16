@@ -206,6 +206,18 @@
   article p strong {
     color: #fff;
   }
+  article ul li:before {
+    content: "\2714\0020";
+    @apply mr-2 text-pink-700;
+  }
+
+  article ul {
+    @apply my-4;
+  }
+
+  article ul li {
+    @apply mb-2 items-baseline;
+  }
   .subcategory {
     @apply inline-flex relative py-1 px-2 mr-2 text-white rounded-md bg-bg-700 text-tiny;
   }
