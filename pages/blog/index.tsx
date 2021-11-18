@@ -29,7 +29,7 @@ const generatePosts = (folderPath: string) =>
       support: data.support ? data.support : "",
       category: data.category,
       subcategory: data.subcategory ? data.subcategory : "",
-      keyword: data.keyword,
+      keyword: data.keyword ? data.keyword : data.title,
       slug: filePath.replace(".mdx", ""),
     };
   });
@@ -39,12 +39,14 @@ export const getStaticProps = async () => {
   const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
   const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
   const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
+  const faq = generatePosts(`${BLOG_POSTS_PATH}/faq`);
 
   const listPostsByFolder = {
     articles,
     comparisons,
     releases,
     tutorials,
+    faq
   };
 
   const defaultFilteredPost = [
@@ -52,6 +54,7 @@ export const getStaticProps = async () => {
     ...comparisons,
     ...releases,
     ...tutorials,
+    ...faq
   ];
 
   const listSubCategories = [
