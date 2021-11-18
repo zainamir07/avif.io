@@ -7,9 +7,9 @@ export default function Image(props: { alt: string; src: string }) {
     ["image/jpeg", "jpg"],
   ];
 
-  const sources = formats.map((format: any) => (
+  const sources = formats.map((format: any, index: any) => (
     <source
-      key={format[1]}
+      key={index}
       type={`image/${format[0]}`}
       srcSet={`/img/${props.src}-${sizes[0]}.${format[1]} ${sizes[0]}w, /img/${props.src}-${sizes[1]}.${format[1]} ${sizes[1]}w, /img/${props.src}-${sizes[2]}.${format[1]} ${sizes[2]}w, /img/${props.src}-${sizes[3]}.${format[1]} ${sizes[3]}w`}
       sizes="(max-width: 768px) 100vw, 768px"

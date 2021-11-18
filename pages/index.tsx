@@ -24,11 +24,12 @@ interface FileWithId {
 }
 
 const generatePosts = (folderPath: string) =>
-  postFilePaths(folderPath).map((filePath: string) => {
+  postFilePaths(folderPath).map((filePath: string, index: any) => {
     const source = fs.readFileSync(path.join(folderPath, filePath));
     const { data } = matter(source);
 
     return {
+      index: index,
       description: data.description,
       support: data.support ? data.support : "",
       category: data.category,
@@ -109,9 +110,9 @@ const Index: NextPage<PostsPageProps> = ({
     ["vector", "35"],
   ];
 
-  const sliderButtons = sliderImages.map((item: any, i) => (
+  const sliderButtons = sliderImages.map((item: any, index: any) => (
     <button
-      key={item[1]}
+      key={index}
       style={{ backgroundImage: `url(/comparison/${item[0]}.avif` }}
       className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
         image == item[0] ? "border-4 border-pink-700" : "opacity-50"
@@ -120,7 +121,7 @@ const Index: NextPage<PostsPageProps> = ({
         setImage(`${item[0]}`);
         setImageSize(`${item[1]}`);
       }}
-      name={`avif vs jpg comparison image ${i + 1}: ${item[0]}`}
+      name={`avif vs jpg comparison image ${index + 1}: ${item[0]}`}
     />
   ));
 

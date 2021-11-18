@@ -283,7 +283,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               </div>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
-                id={"articles"}
+                id={"releasenotes"}
               >
                 Changelog
               </h3>
