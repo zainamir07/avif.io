@@ -139,13 +139,13 @@ export default function BlogFaq(props: Props) {
         <main>
           <div className="relative px-2 pt-8 pb-8 md:p-8 md:py-8 md:px-4 lg:pt-8 lg:pb-8 bg-gradient">
             <div className="absolute right-0 left-0 top-1 bottom-1 w-full rounded-md opacity-25 transform scale-105 md:h-full -z-1 bg-gradient blur-xl bg-200" />
-            <h1 className="container max-w-screen-md mt-2 md:mt-6 md:text-4xl">
+            <h1 className="container mt-2 max-w-screen-md md:mt-6 md:text-4xl">
               {postMeta.title}
             </h1>
           </div>
-          <article className="container mt-8 p-2 mx-auto max-w-screen-md md:p-0">
+          <article className="container p-2 mx-auto mt-8 max-w-screen-md md:p-0">
             <MDXRemote {...source} components={MDXComponents} />
-            <div className=" p-2 mt-2 text-red-700 rounded-md bg-red-1000">
+            <div className="p-2 mt-2 text-red-700 rounded-md bg-red-1000">
               Source:{" "}
               <Link
                 href="/blog/articles/avif-faq/"
@@ -160,7 +160,7 @@ export default function BlogFaq(props: Props) {
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
             />
           </aside>
-          <aside className="container max-w-3xl mt-8">
+          <aside className="container mt-8 max-w-3xl">
             <nav
               aria-label="chapters"
               className="p-2 mt-4 rounded-lg md:p-5 md:pt-2 bg-bg-400"
