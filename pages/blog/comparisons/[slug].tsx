@@ -19,7 +19,6 @@ import { postFilePaths, BLOG_POSTS_PATH, getHeadings } from "@utils/mdx";
 import MDXComponents from "@components/MDXComponents";
 import Blog from "@components/Blog";
 import ContentTable from "@components/Blog/ContentTable";
-import Script from "next/script";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const filePath = path.join(
@@ -84,10 +83,6 @@ const PostDetail: NextPage<PostDetailPageProps> = ({
 }) => {
   return (
     <>
-      <Script
-        strategy="lazyOnload"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
       <Blog postMeta={{ ...frontMatter }} posts={relatedPosts}>
         <ContentTable contentTable={headings} />
         <MDXRemote {...source} components={MDXComponents} />

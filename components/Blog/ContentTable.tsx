@@ -8,11 +8,11 @@ export interface ContentTableProps {
 }
 
 export default function ContentTable(props: ContentTableProps) {
-  const contentItem = props.contentTable.map((entry) => (
+  const contentItem = props.contentTable.map((entry, index: any) => (
     <li
       className="py-0 md:py-1 list-item"
       style={{ counterIncrement: "step-counter" }}
-      key={entry.href}
+      key={index}
     >
       <a
         className="text-red-700 no-underline md:text-base text-tiny"

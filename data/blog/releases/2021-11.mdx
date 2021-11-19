@@ -1,0 +1,174 @@
+---
+title: Changelog for November 2021
+description: 50% faster conversions, Next.js 12, updated content and a giant FAQ. Stay exicted for more.
+keyword: Changelog November 2021
+category: releases
+url: blog/releases/2021-11/
+datePublished: 25.11.21
+dateModified: 25.11.21
+tags:
+  - release notes
+  - avif converter changelog
+questions:
+  - What changed on avif.io in November 2021?
+sources:
+  - nextjs.org/blog/next-12
+  - jpegxl.io
+  - github.com/xiph/rav1e/releases/tag/v0.5.0
+  - github.com/justinschmitz97/avif.io/commit/661490069c2d42f0edbbfeacfa4da3a6496c9cc3
+  - github.com/justinschmitz97/avif.io/commit/d7c0761231a1594763a9ee3316a5537b4e1e8e39
+  - github.com/justinschmitz97/avif.io/commit/ec4cfc6ab1d80a67eac27fc090a8e702e97bcd8d
+  - github.com/justinschmitz97/avif.io/commit/dd7102a7e3ae9b509007b304462c5db7a34aa588
+  - github.com/justinschmitz97/avif.io/commit/79c099130cd3bdfde2c70c5eb9d53d6c6c82ab5b
+  - github.com/justinschmitz97/avif.io/commit/b107dd0f644588696dcd0c423498ddd5784b8436
+  - github.com/justinschmitz97/avif.io/commit/ba122e0315ec2ea67e9d5a84af618dfbaffe4632
+  - github.com/justinschmitz97/avif.io/commit/f167b4b96ccf314f65c033c834491f569d1cdd16
+  - github.com/justinschmitz97/avif.io/commit/06c5ca6ec517712f29c6275d42953b7f48213c59
+  - github.com/justinschmitz97/avif.io/commit/3636628b6c61c6e9b3d68e26ef58bc262110c570
+  - github.com/justinschmitz97/avif.io/commit/1efbfce63733c82989296ba60ed84ae2bb31119c
+  - github.com/justinschmitz97/avif.io/commit/c98bbf8c5926cdaa4d6ce884e2100e32a67643f3
+  - github.com/justinschmitz97/avif.io/commit/8919c714276dd9de30fd451eae4a4d166177657d
+  - github.com/justinschmitz97/avif.io/commit/fafbf53f9fa096b0c7389cf662ac3f2d750c22eb
+  - github.com/justinschmitz97/avif.io/commit/3f378605202cfcfa283fe6f9e857a938670dc0d7
+  - github.com/justinschmitz97/avif.io/commit/18e420a4d1622e7af74f2dec50a50dbc5e92cfdf
+  - github.com/justinschmitz97/avif.io/commit/461f027f0785b45850530f409a0479bc9ba324b9
+  - github.com/justinschmitz97/avif.io/commit/1b3abddf45f4ff1ae8a8a890f67f3b3bf68b6b99
+  - github.com/justinschmitz97/avif.io/commit/f99692a80deaa6d7df3c51c4052a81798e59776b
+  - github.com/justinschmitz97/avif.io/commit/104d544e5d6d24a42990526f84b15703c1a46222
+  - github.com/justinschmitz97/avif.io/commit/5687dd590eb4934ab6798323f8fe5a39972d106f
+  - github.com/justinschmitz97/avif.io/commit/a3d0195e7f67ba2baf9c8585eb9a6d31c0db838d
+  - github.com/justinschmitz97/avif.io/commit/ae35570424bfcf1fe9337e1df59da8cc4101484d
+  - github.com/justinschmitz97/avif.io/commit/01216ec48dcedd5a41adfa65c4210eea7f6785a8
+  - github.com/justinschmitz97/avif.io/commit/564f3f6eb217a207a49a299745d8443e3ddc4629
+  - github.com/justinschmitz97/avif.io/commit/9b20009b3ab66fa425143f2a3e06b2234c30d5cd
+  - github.com/justinschmitz97/avif.io/commit/25e1c2f8db4a27cce14e81449f43e74c7086116a
+  - github.com/justinschmitz97/avif.io/commit/5540f0a18ce017d81489c9800c81e75610d14480
+  - github.com/justinschmitz97/avif.io/commit/3937e7006ebe563d25ecd8ee8c28c2e93f059131
+  - github.com/justinschmitz97/avif.io/commit/4cff69f1fd0042139c67dd3cb49164e21ae6e030
+  - github.com/justinschmitz97/avif.io/commit/ce7a7accb43211204e9dda0b75c3cb572e608a80
+  - github.com/justinschmitz97/avif.io/commit/e2da7ca63ae0499eb16ac5ca9db1a5846a6b8567
+  - github.com/justinschmitz97/avif.io/commit/9a62aff4ab407cc4250639815fa6557383d8d8d7
+  - github.com/justinschmitz97/avif.io/commit/bb66d1f51738f31f161746fa043fdc8799ca3cee
+  - github.com/justinschmitz97/avif.io/commit/25725a440c528bfad3de13509d23cac8ef44c185
+  - github.com/justinschmitz97/avif.io/commit/0571f06b32050580263fedb9d54646e1943d6783
+  - github.com/justinschmitz97/avif.io/commit/eadb7aa9d22d25633fa922ebf1924f10ad7b0ca0
+  - github.com/justinschmitz97/avif.io/commit/b7003b383af2d324e4bc81c14f0d3ff441d5ab6b
+  - github.com/justinschmitz97/avif.io/commit/8492242231f28db89c60cf62c9acb0f2d5e6cea7
+  - github.com/justinschmitz97/avif.io/commit/6585a1bb21329e5d29e4287aa3ec2794ed4fe2bf
+  - github.com/justinschmitz97/avif.io/commit/9eee85e869e3f17fde42ebffcfc490db746b89c5
+  - github.com/justinschmitz97/avif.io/commit/1072426be379d028f4ac0d2321d45af4cbbf69ea
+  - github.com/justinschmitz97/avif.io/commit/c13f6b8b3681b16481139cb49de98354c6574b68
+  - github.com/justinschmitz97/avif.io/commit/f98b195b989af1aae100d8304c86034b5f688007
+  - github.com/justinschmitz97/avif.io/commit/0d687aae769310969b7b665f7f646b40e7073605
+  - github.com/justinschmitz97/avif.io/commit/1c1df875e98f8ad897556dbf486ca65fb21775e8
+  - github.com/justinschmitz97/avif.io/commit/7e9d2266dc35d3330c349a562fecc63e00ac2137
+  - github.com/justinschmitz97/avif.io/commit/1a4c601d536226db8e07e63951fdb73271a89860
+  - github.com/justinschmitz97/avif.io/commit/8771cfdb5b0d1bfc7005af5dfb0e03c4cb4c63a3
+  - github.com/justinschmitz97/avif.io/commit/0b5286b911853e6cc28940ae8eaabb8c4648dede
+  - github.com/justinschmitz97/avif.io/commit/e149cd56a7dbcc12d0ac8e46bc078f31d0525f86
+  - github.com/justinschmitz97/avif.io/commit/ca0b53ffb36de5ff332f93dccfdbf577ef980d9b
+  - github.com/justinschmitz97/avif.io/commit/f93c9af1448b38bd1795532de515f478d79f11d9
+  - github.com/justinschmitz97/avif.io/commit/1a9f13376e326573fa705d843ff25fc6629ecb49
+  - github.com/justinschmitz97/avif.io/commit/89be858b61d4d599715e2f01c8f451a1a69f7aa8
+  - github.com/justinschmitz97/avif.io/commit/52e54690be730d18f112537d7d2ffbfbcf1af440
+  - github.com/justinschmitz97/avif.io/commit/b647da788f7436499cc438c6363394375664d4b8
+  - github.com/justinschmitz97/avif.io/commit/73a7c3a836b0add64a34c15f90ad8dbfb37931a5
+  - github.com/justinschmitz97/avif.io/commit/7977290a1d8ec05e980c29a5d37416f105be4371
+  - github.com/justinschmitz97/avif.io/commit/1b9b3935c3a9b6b21a349145c40cadab8c811d4c
+  - github.com/justinschmitz97/avif.io/commit/c5d5fbac2e952df7d05bbc8a2181dfa93bc7e51e
+  - github.com/justinschmitz97/avif.io/commit/e5832a3b079e0b1f0db1b0919f37cb3a5842be6d
+  - github.com/justinschmitz97/avif.io/commit/a4bb895b9598ccab0d73f252c4003166d0d7989f
+  - github.com/justinschmitz97/avif.io/commit/2efd96ee52917dc52c8897bde9bf8c974a555e95
+  - github.com/justinschmitz97/avif.io/commit/cdda66930f75708907c127acb27864e58c5b626f
+  - github.com/justinschmitz97/avif.io/commit/4a26cc3d39a41544a8f48b398e648c23f6d8340e
+  - github.com/justinschmitz97/avif.io/commit/4c92f521ce9a5628328ae92d1e4e7d177caaccc9
+  - github.com/justinschmitz97/avif.io/commit/2011725f5d9b9ab7d4461e59ca3d83ab44a3e2e7
+  - github.com/justinschmitz97/avif.io/commit/59f0fd6ba5a3a7ec4b5ec3f918ec9287f41836f5
+  - github.com/justinschmitz97/avif.io/commit/6f96250a874bcca1f957ab2846d99340b32d269a
+  - github.com/justinschmitz97/avif.io/commit/9d6d8ad432544d507ac8105da1e415f77ce746b7
+  - github.com/justinschmitz97/avif.io/commit/597be5cedd11e202618eae8002831122b513cf7a
+  - github.com/justinschmitz97/avif.io/commit/11b409c81c020013f9b056dc9bddaa349eb7601b
+  - github.com/justinschmitz97/avif.io/commit/8ac4b6ecd6616214c33ffb29e7983d68cf60bc0c
+  - github.com/justinschmitz97/avif.io/commit/ecb15f773f4240e7327973d4428825f3a6f4e97c
+  - github.com/justinschmitz97/avif.io/commit/a83b56d80368acb5f658504852346a76147305cc
+  - github.com/justinschmitz97/avif.io/commit/1b970bee02c6842099081ee75a32a30f6fef8763
+  - github.com/justinschmitz97/avif.io/commit/7799491ae0432643064c9e6028d5ecf362a9d464
+relatedPosts:
+  - 2021-03
+  - 2021-07
+  - 2021-08
+---
+
+## Faster conversions
+
+We updated our encoding dependencies, especially rav1e. This lead to an average performance increase in our conversion process of 40%.
+
+## JPEGXL.io launch
+
+We have launched <Link href="jpegxl.io/" text="Jpegxl.io, a free bulk image converter for the JPEG XL format"/>. Convert JPG, PNG, WebP or AVIF to JPEG XL today.
+
+## Homepage
+
+- Visual upgrades
+- Added tutorials
+- Improved Header & Footer
+
+## UI Improvements
+
+- More visual conversion
+- More comparison images
+- Overall fancier UI
+
+## Content: More Tutorials
+
+We've released lots of content. Check out all the articles on our overview page, link in the header.
+
+**Operating Systems**
+
+- Windows
+- Android
+- ChromeOS
+- iOS
+- Linux
+- macOS
+
+**Graphics**
+
+- Emulsion
+- GooglePhotos
+- LibrePhotos
+- Meshroom
+- OpenCV
+- Photopea
+- PhotoPrism
+- Sitecore
+
+**Browsers**
+
+- Chrome
+- Internet Explorer
+- Vivaldi
+- AndroidBrowser
+- SamsungInternet
+- UC Browser
+
+**CDNs**
+
+- Peakhour
+
+**CMS**
+
+- Eleventy
+- Kirby
+- Shopify
+
+## Misc & Bugfixes
+
+- Updated to Next.JS 12
+- RSS Feed works properly
+- Sitemap works properly
+- Schema JSON data is formatted better#
+- Further dependency updates
+- Blog Performance improvements
+
+Stay safe ~ Justin

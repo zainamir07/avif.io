@@ -14,9 +14,9 @@ export default function Tags(props: TagsProps) {
   });
   tags = sortBy(tags, (s) => s.short);
 
-  const listTags = tags.map((source: any) => (
+  const listTags = tags.map((source: any, index: any) => (
     <li
-      key={source.original}
+      key={index}
       className="inline-block p-1 m-1 text-red-700 rounded-md text-tiny bg-red-1000"
     >
       <a target="_blank" rel="noreferrer" href={source.original}>

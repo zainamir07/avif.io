@@ -2,9 +2,12 @@ import React from "react";
 
 const Ad = () => {
   return (
-    <div className="block w-full">
+    <div
+      className="block p-2 my-6 w-full rounded-md border-2 border-bg-400"
+      style={{ backgroundColor: "#110817" }}
+    >
       <ins
-        className="block my-6 w-full text-center adsbygoogle"
+        className="block w-full text-center adsbygoogle"
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client="ca-pub-4499854243209236"

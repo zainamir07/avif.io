@@ -14,9 +14,9 @@ export default function Questions(props: QuestionsProps) {
   });
   questions = sortBy(questions, (s) => s.short);
 
-  const listQuestions = questions.map((source: any) => (
+  const listQuestions = questions.map((source: any, index: any) => (
     <li
-      key={source.original}
+      key={index}
       className="inline-block p-1 m-1 text-red-700 rounded-md text-tiny bg-red-1000"
     >
       <a target="_blank" rel="noreferrer" href={source.original}>

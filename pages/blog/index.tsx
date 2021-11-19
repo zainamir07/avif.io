@@ -6,12 +6,12 @@ import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Post from "@components/Blog/Post";
 import Layout from "@components/Layout";
+import Ad from "@components/Blog/Ad";
 
 const meta = {
   blog: {
     title: "AVIF Blog",
-    description:
-      "Read AVIF tutorials and get an overview of all supported software (caniuse-style)",
+    description: "Get a support overview, find tutorials or ask a question",
     url: "blog/",
     datePublished: "01.09.20",
     dateModified: "10.01.21",
@@ -29,7 +29,7 @@ const generatePosts = (folderPath: string) =>
       support: data.support ? data.support : "",
       category: data.category,
       subcategory: data.subcategory ? data.subcategory : "",
-      keyword: data.keyword,
+      keyword: data.keyword ? data.keyword : data.title,
       slug: filePath.replace(".mdx", ""),
     };
   });
@@ -39,12 +39,14 @@ export const getStaticProps = async () => {
   const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
   const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
   const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
+  const faq = generatePosts(`${BLOG_POSTS_PATH}/faq`);
 
   const listPostsByFolder = {
     articles,
     comparisons,
     releases,
     tutorials,
+    faq,
   };
 
   const defaultFilteredPost = [
@@ -52,6 +54,7 @@ export const getStaticProps = async () => {
     ...comparisons,
     ...releases,
     ...tutorials,
+    ...faq,
   ];
 
   const listSubCategories = [
@@ -241,6 +244,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   />
                 ))}
               </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
                 id={"tutorials"}
@@ -261,6 +267,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   />
                 ))}
               </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
                 id={"comparisons"}
@@ -281,9 +290,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   />
                 ))}
               </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
-                id={"articles"}
+                id={"releasenotes"}
               >
                 Changelog
               </h3>
