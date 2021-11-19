@@ -6,12 +6,12 @@ import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Post from "@components/Blog/Post";
 import Layout from "@components/Layout";
+import Ad from "@components/Blog/Ad";
 
 const meta = {
   blog: {
     title: "AVIF Blog",
-    description:
-      "Read AVIF tutorials and get an overview of all supported software (caniuse-style)",
+    description: "Get a support overview, find tutorials or ask a question",
     url: "blog/",
     datePublished: "01.09.20",
     dateModified: "10.01.21",
@@ -46,7 +46,7 @@ export const getStaticProps = async () => {
     comparisons,
     releases,
     tutorials,
-    faq
+    faq,
   };
 
   const defaultFilteredPost = [
@@ -54,7 +54,7 @@ export const getStaticProps = async () => {
     ...comparisons,
     ...releases,
     ...tutorials,
-    ...faq
+    ...faq,
   ];
 
   const listSubCategories = [
@@ -244,6 +244,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   />
                 ))}
               </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
                 id={"tutorials"}
@@ -264,6 +267,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   />
                 ))}
               </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
                 id={"comparisons"}
@@ -284,6 +290,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   />
                 ))}
               </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
               <h3
                 className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
                 id={"releasenotes"}

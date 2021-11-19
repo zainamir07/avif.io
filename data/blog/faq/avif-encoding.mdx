@@ -1,0 +1,10 @@
+---
+title: How good is AVIF encoding speed?
+description: Read everything you need to know about this question.
+category: faq
+url: blog/faq/avif-encoding/
+datePublished: 18.11.21
+dateModified: 18.11.21
+---
+
+AVIF encodes very slowly in general. AOM will continue to improve the codec and reference encoder to improve encoding speed. The AVIF format allows for separately encoding and decoding tiled images since they are sliced into smaller blocks. Encoding blocks in parallel is beneficial because it uses all the CPU cores available.

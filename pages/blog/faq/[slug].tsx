@@ -9,7 +9,7 @@ import { MDXRemote } from "next-mdx-remote";
 import remarkSlug from "remark-slug";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import MDXComponents from "@components/MDXComponents";
-import Script from "next/script";
+import Ad from "@components/Blog/Ad";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const filePath = path.join(
@@ -53,79 +53,59 @@ interface Props {
 }
 
 const contentTable = [
-  ["What is an AVIF file?", "https://avif.io/faq/"],
-  ["What are the benefits of AVIF?", "https://avif.io/faq/"],
-  ["What is the downside of AVIF?", "https://avif.io/faq/"],
-  ["What is the goal of AVIF?", "https://avif.io/faq/"],
-  ["Why AVIF?", "https://avif.io/faq/"],
-  ["What is AVIF used for?", "https://avif.io/faq/"],
-  ["Who created AVIF?", "https://avif.io/faq/"],
-  ["How was AVIF created?", "https://avif.io/faq/"],
-  ["What is the technology stack behind AVIF?", "https://avif.io/faq/"],
-  ["Is AVIF based on other formats?", "https://avif.io/faq/"],
-  ["Is AVIF open source?", "https://avif.io/faq/"],
-  ["Does AVIF have patents?", "https://avif.io/faq/"],
-  ["What features does AVIF support?", "https://avif.io/faq/"],
-  ["Is AVIF a lossless or lossy format?", "https://avif.io/faq/"],
-  ["Is AVIF lossless?", "https://avif.io/faq/"],
-  ["Is AVIF lossy?", "https://avif.io/faq/"],
-  ["Does AVIF support transparency?", "https://avif.io/faq/"],
-  ["Does AVIF support animation?", "https://avif.io/faq/"],
-  ["Does AVIF support SDR?", "https://avif.io/faq/"],
-  ["Does AVIF support HDR?", "https://avif.io/faq/"],
-  ["What is the highest megapixel count for AVIF?", "https://avif.io/faq/"],
-  ["Does AVIF support Wide Color Gamut?", "https://avif.io/faq/"],
-  ["What color bit depth does AVIF support?", "https://avif.io/faq/"],
-  ["What color space does AVIF support?", "https://avif.io/faq/"],
-  ["What chroma subsampling does AVIF support?", "https://avif.io/faq/"],
-  ["Does AVIF support film grain?", "https://avif.io/faq/"],
-  ["Does AVIF support tiling?", "https://avif.io/faq/"],
-  ["Does AVIF support layers?", "https://avif.io/faq/"],
-  ["How good is AVIF encoding speed?", "https://avif.io/faq/"],
-  ["How good is AVIF decoding speed?", "https://avif.io/faq/"],
-  ["Why is AVIF better than other compression codecs?", "https://avif.io/faq/"],
-  ["Why is AVIF worse than other codecs?", "https://avif.io/faq/"],
-  ["What is the best file format for a web graphic?", "https://avif.io/faq/"],
-  ["Is AVIF better than JPG?", "https://avif.io/faq/"],
-  ["What does AVIF offer over JPEG 2000?", "https://avif.io/faq/"],
-  ["Is AVIF better than PNG?", "https://avif.io/faq/"],
-  ["What is the difference between AVIF and HEIF?", "https://avif.io/faq/"],
-  ["Is AVIF better than WebP?", "https://avif.io/faq/"],
-  ["Is AVIF better than JPEG XL?", "https://avif.io/faq/"],
-  ["Should I use AVIF or JXL?", "https://avif.io/faq/"],
-  ["How do I convert to AVIF?", "https://avif.io/faq/"],
-  ["How do I convert AVIF to JPG?", "https://avif.io/faq/"],
-  ["How do I convert AVIF to PNG?", "https://avif.io/faq/"],
-  ["How do I make an AVIF file?", "https://avif.io/faq/"],
-  ["Should I use AVIF?", "https://avif.io/faq/"],
-  ["How can I use AVIF in a web environment?", "https://avif.io/faq/"],
-  ["How do I view an AVIF file?", "https://avif.io/faq/"],
-  ["Is AVIF supported?", "https://avif.io/faq/"],
-  ["What type of software and services support AVIF?", "https://avif.io/faq/"],
-  ["What browsers support AVIF?", "https://avif.io/faq/"],
-  ["Do smartphone browsers support AVIF?", "https://avif.io/faq/"],
-  ["Which OS supports AVIF?", "https://avif.io/faq/"],
-  ["What software supports AVIF?", "https://avif.io/faq/"],
-  ["What mail clients support AVIF?", "https://avif.io/faq/"],
-  ["What online services support AVIF?", "https://avif.io/faq/"],
-  ["What CDNs support AVIF?", "https://avif.io/faq/"],
-  ["How do I open an AVIF file on mac?", "https://avif.io/faq/"],
-  ["Does Android support AVIF?", "https://avif.io/faq/"],
-  ["Does WordPress support AVIF?", "https://avif.io/faq/"],
+  ["What is an AVIF file?", "/faq/what-is-avif/"],
+  ["What are the benefits of AVIF?", "/faq/avif-benefits/"],
+  ["What is the downside of AVIF?", "/faq/avif-downsides/"],
+  ["What is the goal of AVIF?", "/faq/avif-goal/"],
+  ["Why AVIF?", "/faq/why-avif/"],
+  ["What is AVIF used for?", "/faq/avif-use/"],
+  ["Who created AVIF?", "/faq/avif-creator/"],
+  ["How was AVIF created?", "/faq/avif-creation/"],
+  ["What is the technology stack behind AVIF?", "/faq/avif-technologies/"],
+  ["Is AVIF based on other formats?", "/faq/avif-other-formats/"],
+  ["Is AVIF open source?", "/faq/avif-opensource/"],
+  ["Does AVIF have patents?", "/faq/avif-patents/"],
+  ["What features does AVIF support?", "/faq/avif-features/"],
+  ["Is AVIF a lossless or lossy format?", "/faq/avif-loss/"],
+  ["Is AVIF lossless?", "/faq/avif-lossless/"],
+  ["Is AVIF lossy?", "/faq/avif-lossy/"],
+  ["Does AVIF support transparency?", "/faq/avif-transparency/"],
+  ["Does AVIF support animation?", "/faq/avif-animation/"],
+  ["Does AVIF support SDR?", "/faq/avif-sdr/"],
+  ["Does AVIF support HDR?", "/faq/avif-hdr/"],
+  ["What is the highest megapixel count for AVIF?", "/faq/avif-megapixel/"],
+  ["Does AVIF support Wide Color Gamut?", "/faq/avif-wcg/"],
+  ["What color bit depth does AVIF support?", "/faq/avif-bitdepth/"],
+  ["What color space does AVIF support?", "/faq/avif-colorspace/"],
+  [
+    "What chroma subsampling does AVIF support?",
+    "/faq/avif-chromasubsampling/",
+  ],
+  ["Does AVIF support film grain?", "/faq/avif-filmgrain/"],
+  ["Does AVIF support tiling?", "/faq/avif-tiling/"],
+  ["Does AVIF support layers?", "/faq/avif-layers/"],
+  ["How good is AVIF encoding speed?", "/faq/avif-encoding/"],
+  ["How good is AVIF decoding speed?", "/faq/avif-decoding/"],
+  [
+    "Why is AVIF better than other compression codecs?",
+    "/faq/avif-better-codec/",
+  ],
+  ["Why is AVIF worse than other codecs?", "/faq/avif-worse-codec/"],
+  ["How do I convert AVIF to JPG?", "/faq/avif-to-jpg/"],
+  ["How do I convert AVIF to PNG?", "/faq/avif-to-png/"],
 ];
 
 const contentItem = contentTable.map((entry, i) => (
   <li
-    className="py-0 md:py-1 list-item"
+    className="py-0 list-item"
     style={{ counterIncrement: "step-counter" }}
     key={entry[0] + i}
   >
-    <a
+    <Link
+      text={entry[0]}
       className="text-red-700 no-underline md:text-base text-tiny"
       href={`${entry[1]}`}
-    >
-      {entry[0]}
-    </a>
+    />
   </li>
 ));
 
@@ -145,20 +125,35 @@ export default function BlogFaq(props: Props) {
           </div>
           <article className="container p-2 mx-auto mt-8 max-w-screen-md md:p-0">
             <MDXRemote {...source} components={MDXComponents} />
-            <div className="p-2 mt-2 text-red-700 rounded-md bg-red-1000">
-              Source:{" "}
-              <Link
-                href="/blog/articles/avif-faq/"
-                className="no-underline"
-                text="AVIF FAQ"
-              />
-            </div>
+            <div className="font-bold">Primary sources</div>
+            <Link
+              href="/blog/articles/avif-faq/"
+              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
+              text="1. AVIF - The Full Guide and FAQ"
+            />
+            <Link
+              href="aomedia.org/"
+              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
+              text="2. AVIF AOMedia Specification"
+            />
+            <Link
+              href="en.wikipedia.org/wiki/AVIF"
+              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
+              text="3. AVIF Wikipedia"
+            />
+            <Link
+              href="jakearchibald.com/2020/avif-has-landed/"
+              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
+              text="4. Jake Archibald Article"
+            />
+            <Link
+              href="netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4"
+              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
+              text="5. AVIF Netflix article"
+            />
           </article>
           <aside>
-            <Script
-              strategy="lazyOnload"
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-            />
+            <Ad />
           </aside>
           <aside className="container mt-8 max-w-3xl">
             <nav
@@ -168,6 +163,9 @@ export default function BlogFaq(props: Props) {
               <h4 className="mb-4 bold">More questions</h4>
               <ol className="list-none">{contentItem}</ol>
             </nav>
+          </aside>
+          <aside>
+            <Ad />
           </aside>
         </main>
       </Layout>

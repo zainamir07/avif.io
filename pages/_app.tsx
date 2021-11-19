@@ -30,6 +30,10 @@ export default function AvifIo({ Component, pageProps }: any) {
   return (
     <>
       <Script strategy="beforeInteractive" src="/avif.js" />
+      <Script
+        strategy="lazyOnload"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      />
       <div className="overflow-x-hidden">
         <Component {...pageProps} />
       </div>

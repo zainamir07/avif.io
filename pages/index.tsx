@@ -15,6 +15,7 @@ import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Post from "@components/Blog/Post";
+import Ad from "@components/Blog/Ad";
 
 import cog from "@assets/settings.svg";
 
@@ -270,6 +271,9 @@ const Index: NextPage<PostsPageProps> = ({
           </div>
         </div>
       </section>
+      <aside className="px-2 mx-auto max-w-screen-md">
+        <Ad />
+      </aside>
       <main className="p-2 md:p-4 archive blog">
         <div className="mt-12 text-center">
           <h3>How to use AVIF</h3>
@@ -363,6 +367,9 @@ const Index: NextPage<PostsPageProps> = ({
           </div>
         </div>
       </main>
+      <aside className="px-2 mx-auto max-w-screen-md">
+        <Ad />
+      </aside>
       <div className="container px-2 my-12 max-w-screen-md text-left md:text-center">
         In the last ten years,{" "}
         <b>
