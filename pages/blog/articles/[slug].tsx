@@ -75,7 +75,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-
 const contentTable = [
   ["What is an AVIF file?", "/faq/what-is-avif/"],
   ["What are the benefits of AVIF?", "/faq/avif-benefits/"],
@@ -146,14 +145,14 @@ const PostDetail: NextPage<PostDetailPageProps> = ({
         <ContentTable contentTable={headings} />
         <MDXRemote {...source} components={MDXComponents} />
         <aside className="container mt-8 max-w-3xl">
-            <nav
-              aria-label="chapters"
-              className="p-2 mt-4 rounded-lg md:p-5 md:pt-2 bg-bg-400"
-            >
-              <h4 className="mb-4 bold">Any questions left?</h4>
-              <ol className="list-none">{contentItem}</ol>
-            </nav>
-          </aside>
+          <nav
+            aria-label="chapters"
+            className="p-2 mt-4 rounded-lg md:p-5 md:pt-2 bg-bg-400"
+          >
+            <h4 className="mb-4 bold">Any questions left?</h4>
+            <ol className="list-none">{contentItem}</ol>
+          </nav>
+        </aside>
       </Blog>
     </>
   );

@@ -7,17 +7,17 @@ export default function Image(props: { alt: string; src: string }) {
     ["image/jpeg", "jpg"],
   ];
 
-  const sources = formats.map((format: any, index: any) => (
+  const sources = formats.map((format: any) => (
     <source
-      key={index}
-      type={`image/${format[0]}`}
-      srcSet={`/img/${props.src}-${sizes[0]}.${format[1]} ${sizes[0]}w, /img/${props.src}-${sizes[1]}.${format[1]} ${sizes[1]}w, /img/${props.src}-${sizes[2]}.${format[1]} ${sizes[2]}w, /img/${props.src}-${sizes[3]}.${format[1]} ${sizes[3]}w`}
+      key={format[1]}
       sizes="(max-width: 768px) 100vw, 768px"
+      srcSet={`/img/${props.src}-${sizes[0]}.${format[1]} ${sizes[0]}w, /img/${props.src}-${sizes[1]}.${format[1]} ${sizes[1]}w, /img/${props.src}-${sizes[2]}.${format[1]} ${sizes[2]}w, /img/${props.src}-${sizes[3]}.${format[1]} ${sizes[3]}w`}
+      type={`${format[0]}`}
     />
   ));
 
   return (
-    <picture className="overflow-hidden rounded-md bg-bg-300">
+    <picture className="overflow-hidden rounded-md">
       {sources}
       <img
         loading="lazy"
