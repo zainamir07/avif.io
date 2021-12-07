@@ -281,7 +281,7 @@ const Index: NextPage<PostsPageProps> = ({
             being royalty-free, companies can include the format without having
             to deal with patents. We created articles for you on getting started
             on all different types of browsers, operating systems, and software.
-            We didn't cover your software? Feel free to tell us on
+            We didn&apos;t cover your software? Feel free to tell us on
             support@avif.io, and we will write an article about it.
           </h4>
         </div>

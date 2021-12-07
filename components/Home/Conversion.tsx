@@ -143,8 +143,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
             "%"}
         {percentageSaved === 0 && (
           <Tooltip text="Why 0%?">
-            explanation="Adjust your conversion settings to achieve higher
-            compression."
+            Adjust your conversion settings to achieve higher compression.
           </Tooltip>
         )}
         {status === "inProgress" && (

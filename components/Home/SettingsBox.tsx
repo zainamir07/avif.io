@@ -106,7 +106,9 @@ export default function SettingsBox(props: SettingsBoxProps) {
   return (
     <div className={"text-left" + " " + (props.open ? "open" : "closed")}>
       <h2 className="mb-1">Conversion settings</h2>
-      <div className="mb-4">Settings don't change a running conversion.</div>
+      <div className="mb-4">
+        Settings don&apos;t change a running conversion.
+      </div>
       <div className="my-4">
         <PercentageSlider
           value={effort}
