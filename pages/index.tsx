@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import Conversion from "@components/Home/Conversion";
 import DownloadButton from "@components/Home/DownloadButton";
 import Dropzone from "@components/Home/Dropzone";
@@ -141,9 +142,7 @@ const Index: NextPage<PostsPageProps> = ({
     setFilteredPost(filteredPosts as any);
   };
 
-  const handleFilterByKeyword = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFilterByKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     const keyword = event.target.value;
     const filtered = tutorials.filter((post) =>
       post.keyword.toLowerCase().includes(keyword.toLowerCase())

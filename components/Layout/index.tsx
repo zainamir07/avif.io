@@ -5,12 +5,12 @@ import Header from "@components/Layout/Header";
 import Meta from "@components/Layout/Meta";
 import Share from "@components/Layout/Share";
 
-interface Layout {
+interface LayoutProps {
   meta: any;
   children: any;
 }
 
-export default function Layout(props: Layout) {
+export default function Layout(props: LayoutProps) {
   return (
     <>
       <Meta {...props.meta} />

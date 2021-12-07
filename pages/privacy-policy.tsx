@@ -1,6 +1,4 @@
-import ContentTable, { ContentTableEntry } from "@components/Blog/ContentTable";
 import Heading from "@components/Blog/Heading";
-import { useState } from "react";
 import Layout from "@components/Layout";
 
 const meta = {

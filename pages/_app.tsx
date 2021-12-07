@@ -22,7 +22,7 @@ export default function AvifIo({ Component, pageProps }: any) {
   useEffect(() => {
     if (process.env.NODE_ENV === "production") {
       const app = initializeApp(firebaseConfig);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line
       const analytics = getAnalytics(app);
     }
   }, []);

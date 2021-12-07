@@ -12,7 +12,7 @@ import visualizer10 from "@assets/visualizer-10.svg";
 import visualizer11 from "@assets/visualizer-11.svg";
 import visualizer12 from "@assets/visualizer-12.svg";
 
-interface Advantages {
+interface AdvantagesProps {
   pre?: string;
   text?: string;
   post?: string;
@@ -21,7 +21,7 @@ interface Advantages {
   children: any;
 }
 
-function AdvantageItem(props: Advantages) {
+function AdvantageItem(props: AdvantagesProps) {
   return (
     <Atropos
       activeOffset={20}
