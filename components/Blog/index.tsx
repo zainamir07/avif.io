@@ -1,6 +1,7 @@
 import Breadcrumbs from "@components/Blog/Breadcrumbs";
 import Posts from "@components/Blog/Posts";
 import Questions from "@components/Blog/Questions";
+import PostCloud from "@components/Blog/PostCloud";
 import Sources from "@components/Blog/Sources";
 import Tags from "@components/Blog/Tags";
 import Layout from "@components/Layout";
@@ -48,6 +49,7 @@ export default function Blog(props: Props) {
           <Sources sources={postMeta.sources} />
           <Tags tags={postMeta.tags} />
           <Questions questions={postMeta.questions} />
+          <PostCloud />
         </aside>
       </main>
       <aside className="container mt-12 max-w-screen-lg bg-bg-700">
