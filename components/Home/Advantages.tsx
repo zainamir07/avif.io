@@ -1,16 +1,17 @@
 import "atropos/css";
 import Atropos from "atropos/react";
+import dynamic from "next/dynamic";
 
-import visualizer1 from "@assets/visualizer-1.svg";
-import visualizer3 from "@assets/visualizer-3.svg";
-import visualizer4 from "@assets/visualizer-4.svg";
-import visualizer6 from "@assets/visualizer-6.svg";
-import visualizer7 from "@assets/visualizer-7.svg";
-import visualizer8 from "@assets/visualizer-8.svg";
-import visualizer9 from "@assets/visualizer-9.svg";
-import visualizer10 from "@assets/visualizer-10.svg";
-import visualizer11 from "@assets/visualizer-11.svg";
-import visualizer12 from "@assets/visualizer-12.svg";
+const visualizer1 = dynamic(() => import("@assets/visualizer-1.svg"));
+const visualizer3 = dynamic(() => import("@assets/visualizer-3.svg"));
+const visualizer4 = dynamic(() => import("@assets/visualizer-4.svg"));
+const visualizer6 = dynamic(() => import("@assets/visualizer-6.svg"));
+const visualizer7 = dynamic(() => import("@assets/visualizer-7.svg"));
+const visualizer8 = dynamic(() => import("@assets/visualizer-8.svg"));
+const visualizer9 = dynamic(() => import("@assets/visualizer-9.svg"));
+const visualizer10 = dynamic(() => import("@assets/visualizer-10.svg"));
+const visualizer11 = dynamic(() => import("@assets/visualizer-11.svg"));
+const visualizer12 = dynamic(() => import("@assets/visualizer-12.svg"));
 
 interface AdvantagesProps {
   pre?: string;
