@@ -172,12 +172,13 @@ export default function Conversion(props: ConversionProps): ReactElement {
               finished ? "" : "hidden"
             }`}
           >
-            {" "}
+            {/* eslint-disable-next-line*/}
             <img
-              className="absolute inset-0 rounded-r-md cursor-pointer object-cover aspect-square w-full h-full"
+              className="object-cover absolute inset-0 w-full h-full rounded-r-md cursor-pointer aspect-square"
               src={`${outputObjectURL}`}
               width="16"
               height="16"
+              alt=""
             />
             <span
               style={{ backgroundSize: "200%" }}
