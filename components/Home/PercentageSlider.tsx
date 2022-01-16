@@ -22,6 +22,7 @@ export default function PercentageSlider(props: PercentageSliderProps) {
         <label className="text-none">
           {props.label}
           <input
+            className="w-8 bg-white"
             type={"range"}
             value={props.value}
             onChange={(e) => props.onChange(Number(e.target.value))}

@@ -136,11 +136,13 @@ export default function SettingsBox(props: SettingsBoxProps) {
             type={"checkbox"}
             checked={lossless}
             onChange={onLosslessChanged}
+            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
           />
           Lossless
         </label>
         <label>
           <input
+            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
             type={"checkbox"}
             checked={keepTransparency}
             onChange={onKeepTransparencyChanged}
@@ -149,6 +151,7 @@ export default function SettingsBox(props: SettingsBoxProps) {
         </label>
         <label>
           <input
+            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
             type={"checkbox"}
             checked={autoDownload}
             onChange={onAutoDownloadChanged}

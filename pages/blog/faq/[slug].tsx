@@ -121,7 +121,6 @@ export default function BlogFaq(props: Props) {
       <Layout meta={postMeta}>
         <main>
           <div className="relative px-2 pt-8 pb-8 md:p-8 md:py-8 md:px-4 lg:pt-8 lg:pb-8 bg-gradient">
-            <div className="absolute right-0 left-0 top-1 bottom-1 w-full rounded-md opacity-25 transform scale-105 md:h-full -z-1 bg-gradient blur-xl bg-200" />
             <h1 className="container mt-2 max-w-screen-md md:mt-6 md:text-4xl">
               {postMeta.title}
             </h1>
@@ -161,9 +160,9 @@ export default function BlogFaq(props: Props) {
           <aside className="container mt-8 max-w-3xl">
             <nav
               aria-label="chapters"
-              className="p-2 mt-4 rounded-lg md:p-5 md:pt-2 bg-bg-400"
+              className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
             >
-              <h4 className="mb-4 bold">More questions</h4>
+              <h4 className="mb-2 bold">More questions</h4>
               <ol className="list-none">{contentItem}</ol>
             </nav>
           </aside>

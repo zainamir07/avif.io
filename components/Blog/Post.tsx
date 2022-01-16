@@ -1,4 +1,3 @@
-import * as React from "react";
 import Link from "next/link";
 
 const Post = ({
@@ -34,9 +33,9 @@ const Post = ({
       <a
         href={slug ? `/blog/${category}/${slug}/` : `/` + url}
         tabIndex={0}
-        className={`p-0 mt-1 md:mt-0 md:p-2 cursor-pointer group ${support}`}
+        className={`p-0 mt-1 md:mt-0 cursor-pointer group ${support}`}
       >
-        <div className="overflow-hidden relative py-2 px-1 h-full rounded-sm md:p-3 bg-bg-500">
+        <div className="overflow-hidden relative py-2 px-1 h-full rounded-md md:p-2 bg-bg-500">
           <div className="absolute right-0 bottom-0 z-0 w-4 h-3 transition-all transform scale-0 translate-x-4 translate-y-2 bg-gradient rotate-300 group-hover:scale-1500"></div>
           <div
             className={`relative mb-2 flex ${
@@ -55,14 +54,14 @@ const Post = ({
               ></span>
               {support}
             </div>
-            <div className="subcategory">{subcategory}</div>
+            <div className="inline-flex relative py-1 px-2 mr-2 text-white rounded-md bg-bg-700 text-tiny">
+              {subcategory}
+            </div>
           </div>
-          <div className="relative mb-0 ml-1 font-bold text-white">
+          <div className="relative mb-0 font-bold text-white">
             {keyword || keyword || ""}
           </div>
-          <div className="relative ml-1 text-white text-tiny">
-            {description}
-          </div>
+          <div className="relative text-white text-tiny">{description}</div>
         </div>
       </a>
     </Link>

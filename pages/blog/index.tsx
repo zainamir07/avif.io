@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import * as React from "react";
+import { useState } from "react";
 import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
@@ -100,9 +100,9 @@ const BlogAvif: NextPage<PostsPageProps> = ({
   listSubCategories,
   listCategories,
 }) => {
-  const [filteredPost, setFilteredPost] = React.useState([]);
-  const [filterKeyword, setFilterKeyword] = React.useState("");
-  const [selectedCategoryPill, setSelectedCategoryPill] = React.useState("");
+  const [filteredPost, setFilteredPost] = useState([]);
+  const [filterKeyword, setFilterKeyword] = useState("");
+  const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
 
   const handleSelectedPill = (category: string) => {
     if (category === selectedCategoryPill) {
@@ -141,7 +141,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           <h1>{meta.blog.title}</h1>
           <h2 className="mb-8 text-base">{meta.blog.description}</h2>
         </div>
-        <div className="container max-w-screen-lg">
+        <div className="container px-2">
           <div className="relative mt-1 mb-3 rounded-md">
             <input
               type="text"
@@ -208,7 +208,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
             ))}
           </div>
           {filterKeyword.length > 0 || filteredPost.length ? (
-            <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
               {filteredPost.map((post: any) => (
                 <Post
                   key={post.slug}
@@ -225,12 +225,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           ) : (
             <>
               <h3
-                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                className="mt-8 mb-3 text-xl font-bold capitalize"
                 id={"articles"}
               >
                 Articles
               </h3>
-              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {articles.map((post: any) => (
                   <Post
                     key={post.slug}
@@ -248,12 +248,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                 <Ad />
               </aside>
               <h3
-                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                className="mt-8 mb-3 text-xl font-bold capitalize"
                 id={"tutorials"}
               >
                 Tutorials
               </h3>
-              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {tutorials.map((post: any) => (
                   <Post
                     key={post.slug}
@@ -271,12 +271,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                 <Ad />
               </aside>
               <h3
-                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                className="mt-8 mb-3 text-xl font-bold capitalize"
                 id={"comparisons"}
               >
                 Comparisons
               </h3>
-              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {comparisons.map((post: any) => (
                   <Post
                     key={post.slug}
@@ -294,12 +294,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                 <Ad />
               </aside>
               <h3
-                className="mt-8 mb-2 ml-3 text-xl font-bold capitalize"
+                className="mt-8 mb-3 text-xl font-bold capitalize"
                 id={"releasenotes"}
               >
                 Changelog
               </h3>
-              <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {releases.map((post: any) => (
                   <Post
                     key={post.slug}

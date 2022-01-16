@@ -233,7 +233,7 @@ const Index: NextPage<PostsPageProps> = ({
         ></div>
       </section>
       <Advantages />
-      <section className="px-2 mx-auto max-w-screen-xl">
+      <section className="container px-2">
         <div className="relative">
           <div className="flex mt-2 mb-2">{sliderButtons}</div>
           <div className="relative">
@@ -276,7 +276,7 @@ const Index: NextPage<PostsPageProps> = ({
       <main className="p-2 md:p-4 archive blog">
         <div className="mt-12 text-center">
           <h3>How to use AVIF</h3>
-          <h4 className="m-auto mb-8 max-w-lg text-base font-normal">
+          <h4 className="m-auto mb-8 max-w-screen-md text-base font-normal">
             Support is constantly rising across software and hardware. Thanks to
             being royalty-free, companies can include the format without having
             to deal with patents. We created articles for you on getting started
@@ -285,7 +285,7 @@ const Index: NextPage<PostsPageProps> = ({
             support@avif.io, and we will write an article about it.
           </h4>
         </div>
-        <div className="container max-w-screen-lg">
+        <div className="container px-2">
           <div className="relative mt-1 mb-3 rounded-md">
             <input
               type="text"
@@ -333,7 +333,7 @@ const Index: NextPage<PostsPageProps> = ({
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {filterKeyword.length > 0 || filteredPost.length ? (
               <>
                 {filteredPost.map((post: any) => (
@@ -369,7 +369,7 @@ const Index: NextPage<PostsPageProps> = ({
       <aside className="px-2 mx-auto max-w-screen-md">
         <Ad />
       </aside>
-      <div className="container px-2 my-12 max-w-screen-md text-left md:text-center">
+      <div className="container px-2 mt-12 max-w-screen-md text-left md:text-center">
         In the last ten years,{" "}
         <b>
           the size of an average web page has increased from 500 kb to 2000 kb
