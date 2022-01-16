@@ -105,9 +105,9 @@ export default function Conversion(props: ConversionProps): ReactElement {
 
   return (
     <div
-      className={`text-tiny text-white conversion justify-between w-full relative z-10 flex flex-row items-center self-auto mt-3 py-1 overflow-hidden rounded-md${
-        inProgress ? " bg-bg-500" : ""
-      }${finished ? " pointer-events-auto bg-bg-600" : " progress group"}${
+      className={`group text-tiny text-white conversion justify-between w-full relative z-10 flex flex-row items-center self-auto mt-3 py-1 overflow-hidden hover:bg-opacity-50 transition-all duration-1000 rounded-md${
+        inProgress ? " bg-bg-600" : ""
+      }${finished ? " pointer-events-auto bg-bg-500" : " progress group"}${
         cancelled ? " hidden" : ""
       }`}
       data-transition-style={finished ? "bounceIn" : ""}
@@ -168,13 +168,13 @@ export default function Conversion(props: ConversionProps): ReactElement {
         >
           <button
             title={`download ${fileName}`}
-            className={`group absolute top-0 right-0 w-6 h-full overflow-hidden cursor-pointer transform ${
+            className={`group absolute top-0 right-0 w-6 h-full overflow-hidden cursor-pointer transform z-50 transition-all duration-500 group-hover:w-full ${
               finished ? "" : "hidden"
             }`}
           >
             {/* eslint-disable-next-line*/}
             <img
-              className="object-cover absolute inset-0 w-full h-full rounded-r-md cursor-pointer aspect-square"
+              className="object-cover absolute inset-0 w-full h-full rounded-r-md group-hover:rounded-sm  cursor-pointer aspect-square"
               src={`${outputObjectURL}`}
               width="16"
               height="16"
@@ -182,13 +182,13 @@ export default function Conversion(props: ConversionProps): ReactElement {
             />
             <span
               style={{ backgroundSize: "200%" }}
-              className="absolute inset-0 bg-center bg-cover rounded-r-md opacity-75 cursor-pointer bg-gradient"
+              className="absolute inset-0 bg-center bg-cover rounded-r-md group-hover:rounded-sm opacity-80 cursor-pointer bg-gradient"
             ></span>
             <span
               className="absolute inset-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
               style={{
                 backgroundImage: `url(${arrow})`,
-                backgroundSize: "30%",
+                backgroundSize: "16px",
               }}
             ></span>
           </button>

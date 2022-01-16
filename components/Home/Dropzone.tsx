@@ -55,7 +55,7 @@ export default function Dropzone(props: DropzoneProps) {
     >
       <div
         className={
-          "text-center py-7 px-3 text-pink-700 bg-white rounded-xl group transform"
+          "text-center py-7 px-3 text-pink-700 bg-white rounded-xl group transform hover:scale-[0.99] transition-all duration-200 active:scale-[0.95]"
         }
         {...getRootProps()}
       >
