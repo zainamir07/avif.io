@@ -264,10 +264,6 @@ nav ol li:before {
   animation-play-state: running !important;
 }
 
-.ad:first-of-type {
-  display: none;
-}
-
 /*  */
 /* Animations */
 /*  */

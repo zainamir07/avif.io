@@ -173,16 +173,18 @@ export default function Conversion(props: ConversionProps): ReactElement {
             }`}
           >
             {" "}
-            <span
-              style={{ backgroundImage: `url(${outputObjectURL}` }}
-              className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md cursor-pointer"
-            ></span>
+            <img
+              className="absolute inset-0 rounded-r-md cursor-pointer object-cover aspect-square w-full h-full"
+              src={`${outputObjectURL}`}
+              width="16"
+              height="16"
+            />
             <span
               style={{ backgroundSize: "200%" }}
-              className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover rounded-r-md opacity-75 cursor-pointer bg-gradient"
+              className="absolute inset-0 bg-center bg-cover rounded-r-md opacity-75 cursor-pointer bg-gradient"
             ></span>
             <span
-              className="absolute top-0 right-0 bottom-0 left-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
+              className="absolute inset-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
               style={{
                 backgroundImage: `url(${arrow})`,
                 backgroundSize: "30%",
