@@ -174,7 +174,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
           >
             {/* eslint-disable-next-line*/}
             <img
-              className="object-cover absolute inset-0 w-full h-full rounded-r-md group-hover:rounded-sm  cursor-pointer aspect-square"
+              className="object-cover absolute inset-0 w-full h-full rounded-r-md cursor-pointer group-hover:rounded-sm aspect-square"
               src={`${outputObjectURL}`}
               width="16"
               height="16"
@@ -182,7 +182,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
             />
             <span
               style={{ backgroundSize: "200%" }}
-              className="absolute inset-0 bg-center bg-cover rounded-r-md group-hover:rounded-sm opacity-80 cursor-pointer bg-gradient"
+              className="absolute inset-0 bg-center bg-cover rounded-r-md opacity-80 cursor-pointer group-hover:rounded-sm bg-gradient"
             ></span>
             <span
               className="absolute inset-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
