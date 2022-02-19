@@ -68,7 +68,8 @@ Shortcodes, filters, and async-friendly functions can benefit from this utility.
 
 We recommend generateHTML since it is more maintainable and enables all necessary image optimizations. A code example is shown below that generates AVIF and WebP alternative images of different sizes.
 
-<Syntax language="javascript">{`const Image = require("@11ty/eleventy-img");
+<Syntax language="javascript">
+  {`const Image = require("@11ty/eleventy-img");
 async function imageShortcode(src, alt, sizes) {
 let metadata = await Image(src, {
 widths: [360, 720, 1080, 1440],
@@ -84,7 +85,6 @@ eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 eleventyConfig.addLiquidShortcode("image", imageShortcode);
 eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 }`}
-
 </Syntax>
 
 You can then use this information in your templates. You will automatically generate the corresponding HTML based upon the Image options you specify. See the following example code:

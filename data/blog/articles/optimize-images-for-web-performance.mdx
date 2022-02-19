@@ -259,9 +259,9 @@ To implement this progressive improvement for AVIF, **use the picture element**.
 
 <Syntax language="html">
   {`<picture>
-  <source srcset="image.avif" type="image/avif">
-  <source srcset="image.webp" type="image/webp">
-  <img src="image.jpg" alt="AVIF example with WebP and JPEG fallback">
+<source srcset="image.avif" type="image/avif">
+<source srcset="image.webp" type="image/webp">
+<img src="image.jpg" alt="AVIF example with WebP and JPEG fallback">
 </picture>`}
 </Syntax>
 
@@ -333,22 +333,20 @@ We use the attributes **srcset** and **sizes** as shown below. The w selector te
 
 Hereby, the browser always downloads the smallest possible image that provides the user with the best image quality. Or it selects a smaller image if the user has, for example, opted for some kind of data saving mode. Provide more source elements with srcsets for browsers that only support older image formats.
 
-<Syntax language="html">{`<picture>
+<Syntax language="html">
+  {`<picture>
 <source type="image/avif"
 srcset="/img/image-1440.avif 1440w, /img/image-720.avif 720w, /img/image-540.avif 540w, /img/image-360.avif 360w"
 sizes="(max-width: 720px) 100vw, 720px">
-
 <source type="image/webp"
 srcset="/img/image-1440.webp 1440w, /img/image-720.webp 720w, /img/image-540.webp 540w, /img/image-360.webp 360w"
 sizes="(max-width: 720px) 100vw, 720px">
-
 <source type="image/jpeg"
 srcset="/img/image-1440.jpg 1440w, /img/image-720.jpg 720w, /img/image-540.jpg 540w, /img/image-360.jpg 360w"
 sizes="(max-width: 720px) 100vw, 720px">
-
 <img loading="lazy" decoding="async" width="2880" height="1620" src="/img/image-1440.jpg" alt="example image">
-
-</picture>`}</Syntax>
+</picture>`}
+</Syntax>
 
 ### How do we automate the resize process?
 
@@ -371,14 +369,14 @@ With so many lines of code, manually performing this task can be a difficult pro
 
 This is a well-understood technique for using an image horizontally up to its maximum size while maintaining the aspect ratio. A new feature in 2020 is that **web browsers reserve the correct vertical space for the image before it is loaded** when the **width** and **height** attributes are provided for the img element.
 
-<Syntax language="html">{`<style>
+<Syntax language="html">
+  {`<style>
  img {
   max-width: 100%;
   height: auto;
   width: 100% /* if you like to resize the image to the width of the container */
  }
 </style>
-<!-- Providing width and height is more important than ever. -->
 <img height="853" width="1280" … />`}
 </Syntax>
 
@@ -505,23 +503,20 @@ If you use WordPress or a number of popular website builders, you will be able t
 - Serve images with an efficient cache policy, use a CDN if necessary.
 - Mind SEO and screen readers, use alt attributes.
 
-<Syntax language="html">{`<picture>
-
+<Syntax language="html">
+  {`<picture>
 <source type="image/avif"
 srcset="/img/image-1440.avif 1440w, /img/image-720.avif 720w, /img/image-540.avif 540w, /img/image-360.avif 360w"
 sizes="(max-width: 720px) 100vw, 720px">
-
 <source type="image/webp"
 srcset="/img/image-1440.webp 1440w, /img/image-720.webp 720w, /img/image-540.webp 540w, /img/image-360.webp 360w"
 sizes="(max-width: 720px) 100vw, 720px">
-
 <source type="image/jpeg"
 srcset="/img/image-1440.jpg 1440w, /img/image-720.jpg 720w, /img/image-540.jpg 540w, /img/image-360.jpg 360w"
 sizes="(max-width: 720px) 100vw, 720px">
-
 <img loading="lazy" decoding="async" width="2880" height="1620" src="/img/image-1440.jpg" alt="example image">
-
-</picture>`}</Syntax>
+</picture>`}
+</Syntax>
 
 ## More Tips
 
