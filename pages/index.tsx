@@ -115,7 +115,7 @@ const Index: NextPage<PostsPageProps> = ({
   const sliderButtons = sliderImages.map((item: any, index: any) => (
     <button
       key={index}
-      style={{ backgroundImage: `url(/comparison/${item[0]}.avif` }}
+      style={{ backgroundImage: `url(/comparison/${item[0]}.avif)` }}
       className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
         image == item[0] ? "border-4 border-pink-700" : "opacity-50"
       }`}
