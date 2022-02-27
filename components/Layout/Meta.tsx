@@ -76,7 +76,7 @@ export default function Meta(props: Props) {
         })}
       />
 
-      {blog && (
+      {datePublished && (
         <script
           {...jsonLdScriptProps<BlogPosting>({
             "@context": "https://schema.org",
@@ -107,10 +107,15 @@ export default function Meta(props: Props) {
                 "@type": "ImageObject",
                 "url": "https://avif.io/json-logo.png",
               },
+              "brand": "avif.io",
+              "url": "https://avif.io",
+              "knowsAbout": ["avif", "image performance"],
+              "email": "contact@avif.io",
             },
             "datePublished": publishedDate,
             "dateModified": modifiedDate,
             "isFamilyFriendly": true,
+            "isAccessibleForFree": true,
             "inLanguage": "en-US",
           })}
         />
