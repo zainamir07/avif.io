@@ -40,6 +40,7 @@ export const getStaticProps = async () => {
   const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
   const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
   const faq = generatePosts(`${BLOG_POSTS_PATH}/faq`);
+  const news = generatePosts(`${BLOG_POSTS_PATH}/news`);
 
   const listPostsByFolder = {
     articles,
@@ -47,6 +48,7 @@ export const getStaticProps = async () => {
     releases,
     tutorials,
     faq,
+    news,
   };
 
   const defaultFilteredPost = [
@@ -55,6 +57,7 @@ export const getStaticProps = async () => {
     ...releases,
     ...tutorials,
     ...faq,
+    ...news,
   ];
 
   const listSubCategories = [
@@ -73,6 +76,7 @@ export const getStaticProps = async () => {
       comparisons,
       releases,
       tutorials,
+      news,
       defaultFilteredPost,
       listSubCategories,
       listCategories,
@@ -95,6 +99,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
   comparisons,
   releases,
   tutorials,
+  news,
   /*listAllCategories,*/
   listSupport,
   listSubCategories,
@@ -255,6 +260,29 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               </h3>
               <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {tutorials.map((post: any) => (
+                  <Post
+                    key={post.slug}
+                    title={post.title}
+                    description={post.description}
+                    support={post.support}
+                    category={post.category}
+                    subcategory={post.subcategory}
+                    keyword={post.keyword}
+                    slug={post.slug}
+                  />
+                ))}
+              </div>
+              <aside className="px-2 mx-auto max-w-screen-md">
+                <Ad />
+              </aside>
+              <h3
+                className="mt-8 mb-3 text-xl font-bold capitalize"
+                id={"news"}
+              >
+                News
+              </h3>
+              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                {news.map((post: any) => (
                   <Post
                     key={post.slug}
                     title={post.title}

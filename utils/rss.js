@@ -8,6 +8,7 @@ const articles = path.resolve(__dirname, "../data", "blog", "articles");
 const comparisons = path.resolve(__dirname, "../data", "blog", "comparisons");
 const releases = path.resolve(__dirname, "../data", "blog", "releases");
 const tutorials = path.resolve(__dirname, "../data", "blog", "tutorials");
+const news = path.resolve(__dirname, "../data", "blog", "news");
 
 const feed = new RSS({
   title: `avif.io RSS Feed`,
@@ -98,6 +99,26 @@ fs.readdirSync(tutorials)
       title,
       description,
       url: `https://avif.io/blog/tutorials/${fileName.replace(".mdx", "")}/`,
+      date: datePublished,
+    });
+  });
+
+fs.readdirSync(news)
+  .map((fileName) => {
+    const fullPath = path.join(news, fileName);
+    const file = fs.readFileSync(fullPath, "utf8");
+    const { attributes } = frontMatter(file);
+    return { ...attributes, fileName };
+  })
+  .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+  .forEach(({ title, description, datePublished, fileName }) => {
+    datePublished = datePublished.split(".");
+    datePublished =
+      "20" + datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0];
+    feed.item({
+      title,
+      description,
+      url: `https://avif.io/blog/news/${fileName.replace(".mdx", "")}/`,
       date: datePublished,
     });
   });
