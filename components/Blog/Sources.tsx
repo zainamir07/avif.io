@@ -19,14 +19,14 @@ export default function Sources(props: SourcesProps) {
       </h5>
       <ol>
         {sources.map((source: any, index: any) => (
-          <li
+          <cite
             key={index}
-            className="inline-block px-1 mr-1 text-red-700 rounded-md text-tiny bg-red-1000"
+            className="not-italic inline-block py-0 px-1 mr-1 text-red-700 rounded-md text-tiny bg-red-1000"
           >
             <a target="_blank" rel="noreferrer" href={source.href}>
               {source.text}
             </a>
-          </li>
+          </cite>
         ))}
       </ol>
     </>

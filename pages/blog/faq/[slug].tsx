@@ -10,6 +10,9 @@ import remarkSlug from "remark-slug";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import MDXComponents from "@components/MDXComponents";
 import Ad from "@components/Blog/Ad";
+import Head from "next/head";
+import { jsonLdScriptProps } from "react-schemaorg";
+import { QAPage } from "schema-dts";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const filePath = path.join(
@@ -120,6 +123,25 @@ export default function BlogFaq(props: Props) {
     <>
       <Layout meta={postMeta}>
         <main>
+          <Head>
+            <script
+              {...jsonLdScriptProps<QAPage>({
+                "@context": "https://schema.org",
+                "@type": "QAPage",
+                "mainEntity": {
+                  "@type": "Question",
+                  "name": postMeta.title,
+                  "text": postMeta.title,
+                  "answerCount": "1",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": postMeta.answer,
+                    "url": "https://avif.io/" + postMeta.url,
+                  },
+                },
+              })}
+            />
+          </Head>
           <div className="relative px-2 pt-8 pb-8 md:p-8 md:py-8 md:px-4 lg:pt-8 lg:pb-8 bg-gradient">
             <h1 className="container mt-2 max-w-screen-md md:mt-6 md:text-4xl">
               {postMeta.title}
