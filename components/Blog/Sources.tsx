@@ -21,7 +21,7 @@ export default function Sources(props: SourcesProps) {
         {sources.map((source: any, index: any) => (
           <cite
             key={index}
-            className="not-italic inline-block py-0 px-1 mr-1 text-red-700 rounded-md text-tiny bg-red-1000"
+            className="inline-block py-0 px-1 mr-1 not-italic text-red-700 rounded-md text-tiny bg-red-1000"
           >
             <a target="_blank" rel="noreferrer" href={source.href}>
               {source.text}
