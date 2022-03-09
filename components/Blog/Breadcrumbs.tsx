@@ -12,18 +12,18 @@ export default function Breadcrumbs(props: any) {
           {...jsonLdScriptProps<BreadcrumbList>({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
+            itemListElement: [
               {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "blog",
-                "item": "https://avif.io/blog/",
+                position: 1,
+                name: "blog",
+                item: "https://avif.io/blog/",
               },
               urlSplit[2] && {
                 "@type": "ListItem",
-                "position": 2,
-                "name": urlSplit[1],
-                "item": "https://avif.io/blog/#" + urlSplit[1],
+                position: 2,
+                name: urlSplit[1],
+                item: "https://avif.io/blog/#" + urlSplit[1],
               },
             ],
           })}

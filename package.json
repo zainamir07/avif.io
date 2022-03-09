@@ -9,6 +9,7 @@
     "convert": "cd utils && node sharp && cd ../",
     "lint": "rustywind . --write && prettier --write . && next lint --fix --dir pages --dir components",
     "wasm": "cd conversion && npx cross-env NODE_ENV=production webpack",
+    "rss": "node rss",
     "release": "npm run build && next export && cd conversion && npx cross-env NODE_ENV=production webpack && cd ../ && next-sitemap --config next-sitemap.config.js && cd utils && node rss && firebase deploy"
   },
   "dependencies": {

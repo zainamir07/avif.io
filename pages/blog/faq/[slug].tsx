@@ -128,15 +128,15 @@ export default function BlogFaq(props: Props) {
               {...jsonLdScriptProps<QAPage>({
                 "@context": "https://schema.org",
                 "@type": "QAPage",
-                "mainEntity": {
+                mainEntity: {
                   "@type": "Question",
-                  "name": postMeta.title,
-                  "text": postMeta.title,
-                  "answerCount": "1",
-                  "acceptedAnswer": {
+                  name: postMeta.title,
+                  text: postMeta.title,
+                  answerCount: "1",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text": postMeta.answer,
-                    "url": "https://avif.io/" + postMeta.url,
+                    text: postMeta.answer,
+                    url: "https://avif.io/" + postMeta.url,
                   },
                 },
               })}

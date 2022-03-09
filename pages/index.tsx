@@ -156,8 +156,7 @@ const Index: NextPage<PostsPageProps> = ({
     description:
       "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
     url: "",
-    datePublished: "01.09.20",
-    dateModified: "30.05.21",
+    datePublished: "2020-09-01",
   };
 
   return (

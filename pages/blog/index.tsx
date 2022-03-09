@@ -13,8 +13,7 @@ const meta = {
     title: "AVIF Blog",
     description: "Get a support overview, find tutorials or ask a question",
     url: "blog/",
-    datePublished: "01.09.20",
-    dateModified: "10.01.21",
+    datePublished: "2020-09-01",
   },
 };
 
