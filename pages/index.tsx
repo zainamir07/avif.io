@@ -1,24 +1,29 @@
-import { ChangeEvent } from "react";
+import dynamic from "next/dynamic";
+
+//React
+import { ChangeEvent, useEffect, useState } from "react";
+
+//Converter
 import Conversion from "@components/Home/Conversion";
-import DownloadButton from "@components/Home/DownloadButton";
+const DownloadButton = dynamic(() => import("@components/Home/DownloadButton"));
 import Dropzone from "@components/Home/Dropzone";
-import Layout from "@components/Layout";
-import Tooltip from "@components/Home/Tooltip";
 import SettingsBox, { Settings } from "@components/Home/SettingsBox";
 import Converter from "@utils/converter";
 import { uniqueId } from "@utils/utils";
-import { useEffect, useState } from "react";
+import cog from "@assets/settings.svg";
+
+//Page Layout & Blog
+import { InferGetStaticPropsType, NextPage } from "next";
 import ReactCompareImage from "react-compare-image";
-import Advantages from "@components/Home/Advantages";
 import fs from "fs";
 import path from "path";
-import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
-import Post from "@components/Blog/Post";
-import Ad from "@components/Blog/Ad";
-
-import cog from "@assets/settings.svg";
+import Layout from "@components/Layout";
+const Tooltip = dynamic(() => import("@components/Home/Tooltip"));
+const Advantages = dynamic(() => import("@components/Home/Advantages"));
+const Post = dynamic(() => import("@components/Blog/Post"));
+const Ad = dynamic(() => import("@components/Blog/Ad"));
 
 interface FileWithId {
   file: File;
