@@ -279,16 +279,15 @@ just like you upload any other image. If you wish to add more support for all th
 new image formats, copy the code below.
 <Syntax language="php">
   {`function allow_modern_images( $mime_types ) {
-  $mime_types['webp'] = 'image/webp';
   $mime_types['heic'] = 'image/heic';
   $mime_types['heif'] = 'image/heif';
   $mime_types['heics'] = 'image/heic-sequence';
   $mime_types['heifs'] = 'image/heif-sequence';
   $mime_types['avif'] = 'image/avif';
-  $mime_types['avis'] = 'image/avif-sequence';
-  return $mime_types
+  $mime_types['avifs'] = 'image/avif-sequence';
+  return $mime_types;
 }
-add_filter( 'upload_mimes', 'allow_modern_images', 1, 1 );`}
+add_filter( 'upload_mimes', 'allow_modern_images');`}
 </Syntax>
 
 ### Solution 2: FTP Upload
@@ -305,6 +304,16 @@ There's a considerable disadvantage when modifying the functions.php. It's theme
 To quote: WordPress relies primarily on name-based validation when deciding whether or not to allow a particular file, leaving the door open for various kinds of attacks. Lord of the Files (previously known as "blob mimes") adds to this content-based validation and sanitizing, ensuring that files are what they say they are and safe for inclusion on your site.
 
 <Image src="mimetype-plugin" alt="screenshot of the mime type plugin website" />
+
+### Solution 4: Editing wp-config.php
+
+This solution is meant to be used with caution, since it completely disables the mime type check.
+
+Open _wp-config.php_ located in your WordPress root installation folder.
+
+Add the following code snippet right above the _That's all, stop editing! Happy blogging_ line.
+
+<Syntax language="php">define('ALLOW_UNFILTERED_UPLOADS', true);</Syntax>
 
 ### No automatic conversion
 
