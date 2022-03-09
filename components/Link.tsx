@@ -17,7 +17,7 @@ export default function Quote(props: Props) {
       <a
         title={text}
         href={isInternal ? href : `https://` + href}
-        rel={isInternal ? "prerender" : "noopener noreferrer"}
+        rel={isInternal ? "prefetch" : "noopener noreferrer"}
         target={isInternal ? "_self" : "_blank"}
         className={className}
       >
