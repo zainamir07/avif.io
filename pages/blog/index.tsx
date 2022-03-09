@@ -152,7 +152,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           <input
             type="text"
             placeholder="🔎︎ Search all posts"
-            className="relative mt-1 mb-3 rounded-md block py-3 px-3 pr-10 w-full text-white border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+            className="block relative py-3 px-3 pr-10 mt-1 mb-3 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
             onChange={handleFilterByKeyword}
           />
           {filterTypes.map((type: any, key: any) => (
