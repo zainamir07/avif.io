@@ -6,12 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "bundle": "ANALYZE=true npm run build",
     "convert": "cd utils && node sharp && cd ../",
     "lint": "rustywind . --write && prettier --write . && next lint --fix --dir pages --dir components",
-    "develop": "npm run build && next export && cd conversion && npx cross-env NODE_ENV=production webpack && cd ../ && npm run dev",
-    "release": "npm run build && next export && cd conversion && npx cross-env NODE_ENV=production webpack && cd ../ && next-sitemap --config next-sitemap.config.js && cd utils && node rss",
-    "prepare": "husky install"
+    "wasm": "cd conversion && npx cross-env NODE_ENV=production webpack",
+    "release": "npm run build && next export && cd conversion && npx cross-env NODE_ENV=production webpack && cd ../ && next-sitemap --config next-sitemap.config.js && cd utils && node rss && firebase deploy"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.0.0",

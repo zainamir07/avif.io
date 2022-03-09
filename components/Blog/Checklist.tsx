@@ -7,7 +7,7 @@ export default function Checklist(props: Props) {
 
   const listItems = items.map((item: any, index: any) => (
     <li className="flex items-baseline mb-2" key={index}>
-      <span className="flex justify-center items-center p-1 mr-3 w-4 h-4 bg-red-700 rounded-md min-w-4 min-h-4 text-tiny">
+      <span className="flex justify-center items-center p-1 mr-3 w-4 h-4 bg-red-700 rounded-md w-4 h-4 text-tiny">
         ✓
       </span>
       {item}
