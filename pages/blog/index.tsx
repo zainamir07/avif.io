@@ -80,12 +80,6 @@ export const getStaticProps = async () => {
       listSubCategories,
       listCategories,
       listSupport,
-      listAllCategories: [
-        ...listCategories,
-        ...listSubCategories,
-        ...listSupport,
-      ],
-
       posts: listPostsByFolder as any,
     },
   };
@@ -99,7 +93,6 @@ const BlogAvif: NextPage<PostsPageProps> = ({
   releases,
   tutorials,
   news,
-  /*listAllCategories,*/
   listSupport,
   listSubCategories,
   listCategories,
@@ -138,6 +131,16 @@ const BlogAvif: NextPage<PostsPageProps> = ({
     setFilteredPost(filtered as any);
   };
 
+  const articleTypes = [
+    ["Articles", articles],
+    ["News", news],
+    ["Comparisons", comparisons],
+    ["Tutorials", tutorials],
+    ["Changelog", releases],
+  ];
+
+  const filterTypes = [listCategories, listSubCategories, listSupport];
+
   return (
     <Layout meta={meta.blog}>
       <main className="p-2 md:p-4 archive blog">
@@ -146,71 +149,32 @@ const BlogAvif: NextPage<PostsPageProps> = ({
           <h2 className="mb-8 text-base">{meta.blog.description}</h2>
         </div>
         <div className="container px-2">
-          <div className="relative mt-1 mb-3 rounded-md">
-            <input
-              type="text"
-              placeholder="Search all posts"
-              className="block py-3 px-3 pr-10 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
-              onChange={handleFilterByKeyword}
-            />
-            <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none group">
-              🔎︎
+          <input
+            type="text"
+            placeholder="🔎︎ Search all posts"
+            className="relative mt-1 mb-3 rounded-md block py-3 px-3 pr-10 w-full text-white border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+            onChange={handleFilterByKeyword}
+          />
+          {filterTypes.map((type: any, key: any) => (
+            <div className="mb-2" key={key}>
+              {type.map((category: any) => (
+                <button
+                  key={category}
+                  onClick={() => handleSelectedPill(category)}
+                  className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                    selectedCategoryPill === category
+                      ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                      : "bg-bg-500 text-gray-300"
+                  }`}
+                >
+                  {selectedCategoryPill === category && (
+                    <span className="mr-1">✓</span>
+                  )}
+                  {category}
+                </button>
+              ))}
             </div>
-          </div>
-          <div className="mb-2">
-            {listCategories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
-          <div className="mb-2">
-            {listSubCategories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
-          <div className="mb-2">
-            {listSupport.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
+          ))}
           {filterKeyword.length > 0 || filteredPost.length ? (
             <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
               {filteredPost.map((post: any) => (
@@ -228,118 +192,33 @@ const BlogAvif: NextPage<PostsPageProps> = ({
             </div>
           ) : (
             <>
-              <h3
-                className="mt-8 mb-3 text-xl font-bold capitalize"
-                id={"articles"}
-              >
-                Articles
-              </h3>
-              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {articles.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    title={post.title}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </div>
-              <aside className="px-2 mx-auto max-w-screen-md">
-                <Ad />
-              </aside>
-              <h3
-                className="mt-8 mb-3 text-xl font-bold capitalize"
-                id={"tutorials"}
-              >
-                Tutorials
-              </h3>
-              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {tutorials.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    title={post.title}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </div>
-              <aside className="px-2 mx-auto max-w-screen-md">
-                <Ad />
-              </aside>
-              <h3
-                className="mt-8 mb-3 text-xl font-bold capitalize"
-                id={"news"}
-              >
-                News
-              </h3>
-              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {news.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    title={post.title}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </div>
-              <aside className="px-2 mx-auto max-w-screen-md">
-                <Ad />
-              </aside>
-              <h3
-                className="mt-8 mb-3 text-xl font-bold capitalize"
-                id={"comparisons"}
-              >
-                Comparisons
-              </h3>
-              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {comparisons.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    title={post.title}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </div>
-              <aside className="px-2 mx-auto max-w-screen-md">
-                <Ad />
-              </aside>
-              <h3
-                className="mt-8 mb-3 text-xl font-bold capitalize"
-                id={"releasenotes"}
-              >
-                Changelog
-              </h3>
-              <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {releases.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    title={post.title}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </div>
+              {articleTypes.map((article: any, key: any) => (
+                <section key={key}>
+                  <h3
+                    className="mt-8 mb-3 text-xl font-bold capitalize"
+                    id={`${article[0].toLowerCase}`}
+                  >
+                    {article[0]}
+                  </h3>
+                  <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                    {article[1].map((post: any) => (
+                      <Post
+                        key={post.slug}
+                        title={post.title}
+                        description={post.description}
+                        support={post.support}
+                        category={post.category}
+                        subcategory={post.subcategory}
+                        keyword={post.keyword}
+                        slug={post.slug}
+                      />
+                    ))}
+                  </div>
+                  <aside className="px-2 mx-auto max-w-screen-md">
+                    <Ad />
+                  </aside>
+                </section>
+              ))}
             </>
           )}
         </div>

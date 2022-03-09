@@ -17,7 +17,7 @@ export default function Meta(props: Props) {
     <Head>
       <link
         rel="canonical"
-        href={`${process.env.NEXT_PUBLIC_SITE_URL}/${url}`}
+        href={`${process.env.NEXT_PUBLIC_SITE_URL}${url}`}
       />
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +41,7 @@ export default function Meta(props: Props) {
       <meta property="og:type" content={dateModified ? "article" : "website"} />
       <meta
         property="og:url"
-        content={`${process.env.NEXT_PUBLIC_SITE_URL}/${url}`}
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}${url}`}
       />
       <meta
         property="og:title"
@@ -50,7 +50,7 @@ export default function Meta(props: Props) {
       <meta property="og:description" content={description} />
       <meta
         property="og:image"
-        content={`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`}
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}logo.png`}
       />
 
       <meta name="twitter:card" content="summary"></meta>
@@ -64,7 +64,7 @@ export default function Meta(props: Props) {
       <meta property="twitter:description" content={description} />
       <meta
         name="twitter:image"
-        content={`${process.env.NEXT_PUBLIC_SITE_URL}/twitter.png`}
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}twitter.png`}
       />
 
       <script
@@ -73,7 +73,7 @@ export default function Meta(props: Props) {
           "@type": "Organization",
           name: process.env.NEXT_PUBLIC_SITE_NAME,
           url: process.env.NEXT_PUBLIC_SITE_URL,
-          logo: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+          logo: `${process.env.NEXT_PUBLIC_SITE_URL}logo.png`,
           sameAs: [
             "https://github.com/justinschmitz97/avif.io/",
             "https://discord.com/invite/6w42YpF5hm",
@@ -89,11 +89,11 @@ export default function Meta(props: Props) {
             "@type": "BlogPosting",
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": process.env.NEXT_PUBLIC_SITE_URL + "/" + url,
+              "@id": process.env.NEXT_PUBLIC_SITE_URL + url,
             },
             headline: title,
             description: description,
-            image: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+            image: `${process.env.NEXT_PUBLIC_SITE_URL}logo.png`,
             author: {
               "@type": "Person",
               name: "Justin Schmitz",
@@ -111,7 +111,7 @@ export default function Meta(props: Props) {
               name: process.env.NEXT_PUBLIC_SITE_NAME,
               logo: {
                 "@type": "ImageObject",
-                url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+                url: `${process.env.NEXT_PUBLIC_SITE_URL}logo.png`,
               },
               brand: process.env.NEXT_PUBLIC_SITE_NAME,
               url: process.env.NEXT_PUBLIC_SITE_URL,

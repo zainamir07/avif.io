@@ -75,7 +75,7 @@ export default function Header() {
             }}
             href="https://discord.com/invite/6w42YpF5hm"
           />
-          <NextLink passHref href="/">
+          <Link href="/">
             <button className="inline-flex items-center py-1 px-2 mr-1 text-base rounded border-0 md:mt-0 focus:outline-none bg-bg-200 hover:bg-bg-300">
               Convert to AVIF
               <svg
@@ -90,7 +90,7 @@ export default function Header() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-          </NextLink>
+          </Link>
         </nav>
       </div>
     </header>

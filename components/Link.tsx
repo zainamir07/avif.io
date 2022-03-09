@@ -3,16 +3,17 @@ import NextLink from "next/link";
 
 interface Props {
   href: string;
-  text: string;
+  text?: string;
   className?: string;
+  children?: any;
 }
 
 export default function Quote(props: Props) {
-  const { href, text, className } = props;
+  const { href, text, className, children } = props;
   const isInternal = href && (href.startsWith("/") || href.startsWith("#"));
 
   return (
-    <NextLink href={`https://` + href}>
+    <NextLink passHref href={isInternal ? href : `https://` + href}>
       <a
         title={text}
         href={isInternal ? href : `https://` + href}
@@ -21,6 +22,7 @@ export default function Quote(props: Props) {
         className={className}
       >
         {text}
+        {children}
       </a>
     </NextLink>
   );

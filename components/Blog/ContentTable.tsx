@@ -1,3 +1,4 @@
+import Link from "@components/Link";
 export interface ContentTableEntry {
   text: string;
   href: string;
@@ -14,12 +15,11 @@ export default function ContentTable(props: ContentTableProps) {
       style={{ counterIncrement: "step-counter" }}
       key={index}
     >
-      <a
+      <Link
         className="text-red-700 no-underline md:text-base text-tiny"
         href={entry.href}
-      >
-        {entry.text}
-      </a>
+        text={entry.text}
+      />
     </li>
   ));
 

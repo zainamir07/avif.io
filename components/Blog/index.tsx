@@ -6,7 +6,6 @@ import Sources from "@components/Blog/Sources";
 import Tags from "@components/Blog/Tags";
 import Layout from "@components/Layout";
 import Link from "@components/Link";
-import { useEffect, useRef, useState } from "react";
 
 interface Props {
   postMeta: any;
@@ -16,16 +15,6 @@ interface Props {
 
 export default function Blog(props: Props) {
   const { postMeta, children, posts } = props;
-  const articleRef = useRef<HTMLElement>(null);
-  const [readingTime, setReadingTime] = useState(0);
-
-  useEffect(() => {
-    if (articleRef.current == null) return;
-    const text = articleRef.current.textContent ?? "";
-    const wordCount = text.split(/\s+/).length;
-    const averageWordsPerMinute = 150;
-    setReadingTime(Math.ceil(wordCount / averageWordsPerMinute));
-  }, [articleRef]);
 
   return (
     <Layout meta={postMeta}>
@@ -37,10 +26,7 @@ export default function Blog(props: Props) {
           </div>
         </div>
 
-        <article
-          ref={articleRef}
-          className="container p-2 mx-auto max-w-screen-md md:p-0"
-        >
+        <article className="container p-2 mx-auto max-w-screen-md md:p-0">
           {children}
         </article>
         <aside className="container p-2 mx-auto mt-4 max-w-screen-md lg:p-0">

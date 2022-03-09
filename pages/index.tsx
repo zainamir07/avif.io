@@ -159,6 +159,8 @@ const Index: NextPage<PostsPageProps> = ({
     datePublished: "2020-09-01",
   };
 
+  const filterTypes = [listSubCategories, listSupport];
+
   return (
     <Layout meta={meta}>
       <section className="px-2 mt-8 text-center md:px-3 md:mt-12">
@@ -285,53 +287,32 @@ const Index: NextPage<PostsPageProps> = ({
           </h4>
         </div>
         <div className="container px-2">
-          <div className="relative mt-1 mb-3 rounded-md">
-            <input
-              type="text"
-              placeholder="Search all posts"
-              className="block py-3 px-3 pr-10 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
-              onChange={handleFilterByKeyword}
-            />
-            <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none group">
-              🔎︎
+          <input
+            type="text"
+            placeholder="🔎︎ Search all posts"
+            className="relative mt-1 mb-3 rounded-md block py-3 px-3 pr-10 w-full text-white border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+            onChange={handleFilterByKeyword}
+          />
+          {filterTypes.map((type: any, key: any) => (
+            <div className="mb-2" key={key}>
+              {type.map((category: any) => (
+                <button
+                  key={category}
+                  onClick={() => handleSelectedPill(category)}
+                  className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                    selectedCategoryPill === category
+                      ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                      : "bg-bg-500 text-gray-300"
+                  }`}
+                >
+                  {selectedCategoryPill === category && (
+                    <span className="mr-1">✓</span>
+                  )}
+                  {category}
+                </button>
+              ))}
             </div>
-          </div>
-          <div className="mb-2">
-            {listSubCategories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
-          <div className="mb-2">
-            {listSupport.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
+          ))}
           <div className="grid grid-cols-1 gap-3 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {filterKeyword.length > 0 || filteredPost.length ? (
               <>
