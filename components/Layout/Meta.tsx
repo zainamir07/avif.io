@@ -115,7 +115,10 @@ export default function Meta(props: Props) {
               },
               brand: process.env.NEXT_PUBLIC_SITE_NAME,
               url: process.env.NEXT_PUBLIC_SITE_URL,
-              knowsAbout: [process.env.NEXT_PUBLIC_FORMAT, "image performance"],
+              knowsAbout: [
+                `${process.env.NEXT_PUBLIC_FORMAT}`,
+                "image performance",
+              ],
               email: process.env.NEXT_PUBLIC_SITE_MAIL,
             },
             datePublished: new Date(datePublished).toISOString(),
