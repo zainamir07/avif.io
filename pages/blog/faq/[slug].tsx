@@ -104,11 +104,11 @@ const sources = [
 
 export default function BlogFaq(props: Props) {
   const { frontMatter, source } = props;
-  const postMeta = { ...frontMatter };
+  const meta = { ...frontMatter };
 
   return (
     <>
-      <Layout meta={postMeta}>
+      <Layout meta={meta}>
         <main>
           <Head>
             <script
@@ -117,13 +117,13 @@ export default function BlogFaq(props: Props) {
                 "@type": "QAPage",
                 mainEntity: {
                   "@type": "Question",
-                  name: postMeta.title,
-                  text: postMeta.title,
+                  name: meta.title,
+                  text: meta.title,
                   answerCount: "1",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: postMeta.answer,
-                    url: process.env.NEXT_PUBLIC_SITE_URL + postMeta.url,
+                    text: meta.answer,
+                    url: process.env.NEXT_PUBLIC_SITE_URL + meta.url,
                   },
                 },
               })}
@@ -131,7 +131,7 @@ export default function BlogFaq(props: Props) {
           </Head>
           <div className="relative px-2 pt-8 pb-8 md:p-8 md:py-8 md:px-4 lg:pt-8 lg:pb-8 bg-gradient">
             <h1 className="container mt-2 max-w-screen-md md:mt-6 md:text-4xl">
-              {postMeta.title}
+              {meta.title}
             </h1>
           </div>
           <article className="container p-2 mx-auto mt-8 max-w-screen-md md:p-0">

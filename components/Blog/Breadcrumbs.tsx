@@ -4,7 +4,7 @@ import { jsonLdScriptProps } from "react-schemaorg";
 import { BreadcrumbList } from "schema-dts";
 import { useRouter } from "next/router";
 
-export default function Breadcrumbs(props: any) {
+export default function Breadcrumbs() {
   const { asPath } = useRouter();
   const url = asPath.split("/");
   const crumb1 = `${process.env.NEXT_PUBLIC_SITE_URL}${url[1]}/`;

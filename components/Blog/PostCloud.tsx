@@ -1,9 +1,5 @@
 import Link from "@components/Link";
 
-export interface QuestionsProps {
-  posts: string[];
-}
-
 const posts = [
   ["What is an AVIF file?", "what-is-avif"],
   ["What are the benefits of AVIF?", "avif-benefits"],

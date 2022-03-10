@@ -6,14 +6,14 @@ export interface TagsProps {
 }
 
 export default function Tags(props: TagsProps) {
-  let tags = props.tags.map((original) => {
-    original = original.replace(/\s+/g, "+").toLowerCase();
-    let short = original.replace(/\/$/, "");
-    original = `google.com/search?q=site%3Aavif.io+${original}`;
-    short = short.replace(/\+/g, " ");
-    return { original, short };
+  let tags = props.tags.map((text) => {
+    let href = `google.com/search?q=site%3Aavif.io+${text.replace(
+      /\s+/g,
+      "+"
+    )}`;
+    return { href, text };
   });
-  tags = sortBy(tags, (s) => s.short);
+  tags = sortBy(tags, (s) => s.text);
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Tags(props: TagsProps) {
             key={index}
             className="inline-block px-1 mr-1 text-red-700 rounded-md text-tiny bg-red-1000"
           >
-            <Link text={source.short} href={source.original} />
+            <Link text={source.text} href={source.href} />
           </li>
         ))}
       </ol>

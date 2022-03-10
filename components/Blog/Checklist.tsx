@@ -1,10 +1,4 @@
-interface Props {
-  items: string[];
-}
-
-export default function Checklist(props: Props) {
-  const { items } = props;
-
+export default function Checklist(items: any) {
   return (
     <ul className="my-3">
       {items.map((item: any, index: any) => (

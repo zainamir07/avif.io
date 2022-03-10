@@ -83,7 +83,7 @@ const PostDetail: NextPage<PostDetailPageProps> = ({
 }) => {
   return (
     <>
-      <Blog postMeta={{ ...frontMatter }} posts={relatedPosts}>
+      <Blog meta={{ ...frontMatter }} posts={relatedPosts}>
         <ContentTable contentTable={headings} />
         <MDXRemote {...source} components={MDXComponents} />
       </Blog>

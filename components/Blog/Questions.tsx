@@ -1,5 +1,4 @@
 import Link from "@components/Link";
-import sortBy from "lodash/sortBy";
 
 export interface QuestionsProps {
   questions: string[];
@@ -7,13 +6,11 @@ export interface QuestionsProps {
 
 export default function Questions(props: QuestionsProps) {
   let questions = props.questions.map((original) => {
-    original = original.replace(/\s+/g, "+").toLowerCase();
-    let short = original.replace(/\/$/, "");
-    original = `google.com/search?q=site%3Aavif.io+${original}`;
-    short = short.replace(/\+/g, " ");
-    return { original, short };
+    let url = `google.com/search?q=site%3Aavif.io+${original
+      .replace(/\s+/g, "+")
+      .toLowerCase()}`;
+    return { original, url };
   });
-  questions = sortBy(questions, (s) => s.short);
 
   return (
     <>
@@ -26,7 +23,7 @@ export default function Questions(props: QuestionsProps) {
             key={index}
             className="inline-block px-1 mr-1 text-red-700 rounded-md text-tiny bg-red-1000"
           >
-            <Link text={source.short} href={source.original} />
+            <Link text={source.original} href={source.url} />
           </li>
         ))}
       </ol>

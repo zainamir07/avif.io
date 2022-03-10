@@ -17,8 +17,7 @@ export default function Heading(props: Props) {
 
   useEffect(() => {
     callback?.({ text: text, href: `#${trimmedText}` });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [callback, text, trimmedText]);
 
   function copyToClipboard(e: any) {
     navigator.clipboard.writeText(

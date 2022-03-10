@@ -6,9 +6,8 @@ export interface SourcesProps {
 }
 
 export default function Sources(props: SourcesProps) {
-  let sources = props.sources.map((original) => {
-    let text = new URL(`https://${original}`).hostname.replace(/^www\./, "");
-    let href = `${original}`;
+  let sources = props.sources.map((href) => {
+    let text = new URL(`https://${href}`).hostname.replace(/^www\./, "");
     return { href, text };
   });
   sources = sortBy(sources, (s) => s.text);
