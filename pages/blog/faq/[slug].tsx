@@ -41,7 +41,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = postFilePaths(`${BLOG_POSTS_PATH}/faq`)
     .map((p) => p.replace(/\.mdx?$/, ""))
     .map((slug) => ({ params: { slug } }));
-
   return {
     paths,
     fallback: false,
@@ -56,87 +55,75 @@ interface Props {
 }
 
 const contentTable = [
-  ["What is an AVIF file?", "/blog/faq/what-is-avif/"],
-  ["What are the benefits of AVIF?", "/blog/faq/avif-benefits/"],
-  ["What is the downside of AVIF?", "/blog/faq/avif-downsides/"],
-  ["What is the goal of AVIF?", "/blog/faq/avif-goal/"],
-  ["Why AVIF?", "/blog/faq/why-avif/"],
-  ["What is AVIF used for?", "/blog/faq/avif-use/"],
-  ["Who created AVIF?", "/blog/faq/avif-creator/"],
-  ["How was AVIF created?", "/blog/faq/avif-creation/"],
-  ["What is the technology stack behind AVIF?", "/blog/faq/avif-technologies/"],
-  ["Is AVIF based on other formats?", "/blog/faq/avif-other-formats/"],
-  ["Is AVIF open source?", "/blog/faq/avif-opensource/"],
-  ["Does AVIF have patents?", "/blog/faq/avif-patents/"],
-  ["What features does AVIF support?", "/blog/faq/avif-features/"],
-  ["Is AVIF a lossless or lossy format?", "/blog/faq/avif-loss/"],
-  ["Is AVIF lossless?", "/blog/faq/avif-lossless/"],
-  ["Is AVIF lossy?", "/blog/faq/avif-lossy/"],
-  ["Does AVIF support transparency?", "/blog/faq/avif-transparency/"],
-  ["Does AVIF support animation?", "/blog/faq/avif-animation/"],
-  ["Does AVIF support SDR?", "/blog/faq/avif-sdr/"],
-  ["Does AVIF support HDR?", "/blog/faq/avif-hdr/"],
-  [
-    "What is the highest megapixel count for AVIF?",
-    "/blog/faq/avif-megapixel/",
-  ],
-  ["Does AVIF support Wide Color Gamut?", "/blog/faq/avif-wcg/"],
-  ["What color bit depth does AVIF support?", "/blog/faq/avif-bitdepth/"],
-  ["What color space does AVIF support?", "/blog/faq/avif-colorspace/"],
-  [
-    "What chroma subsampling does AVIF support?",
-    "/blog/faq/avif-chromasubsampling/",
-  ],
-  ["Does AVIF support film grain?", "/blog/faq/avif-filmgrain/"],
-  ["Does AVIF support tiling?", "/blog/faq/avif-tiling/"],
-  ["Does AVIF support layers?", "/blog/faq/avif-layers/"],
-  ["How good is AVIF encoding speed?", "/blog/faq/avif-encoding/"],
-  ["How good is AVIF decoding speed?", "/blog/faq/avif-decoding/"],
-  [
-    "Why is AVIF better than other compression codecs?",
-    "/blog/faq/avif-better-codec/",
-  ],
-  ["Why is AVIF worse than other codecs?", "/blog/faq/avif-worse-codec/"],
-  ["How do I convert AVIF to JPG?", "/blog/faq/avif-to-jpg/"],
-  ["How do I convert AVIF to PNG?", "/blog/faq/avif-to-png/"],
+  ["What is an AVIF file?", "what-is-avif"],
+  ["What are the benefits of AVIF?", "avif-benefits"],
+  ["What is the downside of AVIF?", "avif-downsides"],
+  ["What is the goal of AVIF?", "avif-goal"],
+  ["Why AVIF?", "why-avif"],
+  ["What is AVIF used for?", "avif-use"],
+  ["Who created AVIF?", "avif-creator"],
+  ["How was AVIF created?", "avif-creation"],
+  ["What is the technology stack behind AVIF?", "avif-technologies"],
+  ["Is AVIF based on other formats?", "avif-other-formats"],
+  ["Is AVIF open source?", "avif-opensource"],
+  ["Does AVIF have patents?", "avif-patents"],
+  ["What features does AVIF support?", "avif-features"],
+  ["Is AVIF a lossless or lossy format?", "avif-loss"],
+  ["Is AVIF lossless?", "avif-lossless"],
+  ["Is AVIF lossy?", "avif-lossy"],
+  ["Does AVIF support transparency?", "avif-transparency"],
+  ["Does AVIF support animation?", "avif-animation"],
+  ["Does AVIF support SDR?", "avif-sdr"],
+  ["Does AVIF support HDR?", "avif-hdr"],
+  ["What is the highest megapixel count for AVIF?", "avif-megapixel"],
+  ["Does AVIF support Wide Color Gamut?", "avif-wcg"],
+  ["What color bit depth does AVIF support?", "avif-bitdepth"],
+  ["What color space does AVIF support?", "avif-colorspace"],
+  ["What chroma subsampling does AVIF support?", "avif-chromasubsampling"],
+  ["Does AVIF support film grain?", "avif-filmgrain"],
+  ["Does AVIF support tiling?", "avif-tiling"],
+  ["Does AVIF support layers?", "avif-layers"],
+  ["How good is AVIF encoding speed?", "avif-encoding"],
+  ["How good is AVIF decoding speed?", "avif-decoding"],
+  ["Why is AVIF better than other compression codecs?", "avif-better-codec"],
+  ["Why is AVIF worse than other codecs?", "avif-worse-codec"],
+  ["How do I convert AVIF to JPG?", "avif-to-jpg"],
+  ["How do I convert AVIF to PNG?", "avif-to-png"],
 ];
 
-const contentItem = contentTable.map((entry, i) => (
-  <li
-    className="py-0 list-item"
-    style={{ counterIncrement: "step-counter" }}
-    key={entry[0] + i}
-  >
-    <Link
-      text={entry[0]}
-      className="text-red-700 no-underline md:text-base text-tiny"
-      href={`${entry[1]}`}
-    />
-  </li>
-));
+const sources = [
+  ["/blog/articles/avif-faq/", "1. AVIF - The Full Guide and FAQ"],
+  ["aomedia.org/", "2. AVIF AOMedia Specification"],
+  ["en.wikipedia.org/wiki/AVIF", "3. AVIF Wikipedia"],
+  ["jakearchibald.com/2020/avif-has-landed/", "4. Jake Archibald Article"],
+  [
+    "netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4",
+    "5. AVIF Netflix article",
+  ],
+];
 
 export default function BlogFaq(props: Props) {
   const { frontMatter, source } = props;
-  const postMeta = { ...frontMatter };
+  const meta = { ...frontMatter };
 
   return (
     <>
-      <Layout meta={postMeta}>
+      <Layout meta={meta}>
         <main>
           <Head>
             <script
               {...jsonLdScriptProps<QAPage>({
                 "@context": "https://schema.org",
                 "@type": "QAPage",
-                "mainEntity": {
+                mainEntity: {
                   "@type": "Question",
-                  "name": postMeta.title,
-                  "text": postMeta.title,
-                  "answerCount": "1",
-                  "acceptedAnswer": {
+                  name: meta.title,
+                  text: meta.title,
+                  answerCount: "1",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text": postMeta.answer,
-                    "url": "https://avif.io/" + postMeta.url,
+                    text: meta.answer,
+                    url: process.env.NEXT_PUBLIC_SITE_URL + meta.url,
                   },
                 },
               })}
@@ -144,37 +131,20 @@ export default function BlogFaq(props: Props) {
           </Head>
           <div className="relative px-2 pt-8 pb-8 md:p-8 md:py-8 md:px-4 lg:pt-8 lg:pb-8 bg-gradient">
             <h1 className="container mt-2 max-w-screen-md md:mt-6 md:text-4xl">
-              {postMeta.title}
+              {meta.title}
             </h1>
           </div>
           <article className="container p-2 mx-auto mt-8 max-w-screen-md md:p-0">
             <MDXRemote {...source} components={MDXComponents} />
             <div className="font-bold">Primary sources</div>
-            <Link
-              href="/blog/articles/avif-faq/"
-              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-              text="1. AVIF - The Full Guide and FAQ"
-            />
-            <Link
-              href="aomedia.org/"
-              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-              text="2. AVIF AOMedia Specification"
-            />
-            <Link
-              href="en.wikipedia.org/wiki/AVIF"
-              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-              text="3. AVIF Wikipedia"
-            />
-            <Link
-              href="jakearchibald.com/2020/avif-has-landed/"
-              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-              text="4. Jake Archibald Article"
-            />
-            <Link
-              href="netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4"
-              className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-              text="5. AVIF Netflix article"
-            />
+            {sources.map((source, i) => (
+              <Link
+                key={i}
+                href={source[0]}
+                className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
+                text={source[2]}
+              />
+            ))}
           </article>
           <aside>
             <Ad />
@@ -185,7 +155,21 @@ export default function BlogFaq(props: Props) {
               className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
             >
               <h4 className="mb-2 bold">More questions</h4>
-              <ol className="list-none">{contentItem}</ol>
+              <ol className="list-none">
+                {contentTable.map((entry, i) => (
+                  <li
+                    className="py-0 list-item"
+                    style={{ counterIncrement: "step-counter" }}
+                    key={entry[0] + i}
+                  >
+                    <Link
+                      text={entry[0]}
+                      className="text-red-700 no-underline md:text-base text-tiny"
+                      href={`/blog/faq/${entry[1]}/`}
+                    />
+                  </li>
+                ))}
+              </ol>
             </nav>
           </aside>
           <aside>

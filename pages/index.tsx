@@ -1,24 +1,29 @@
-import { ChangeEvent } from "react";
+import dynamic from "next/dynamic";
+
+//React
+import { ChangeEvent, useEffect, useState } from "react";
+
+//Converter
 import Conversion from "@components/Home/Conversion";
-import DownloadButton from "@components/Home/DownloadButton";
+const DownloadButton = dynamic(() => import("@components/Home/DownloadButton"));
 import Dropzone from "@components/Home/Dropzone";
-import Layout from "@components/Layout";
-import Tooltip from "@components/Home/Tooltip";
 import SettingsBox, { Settings } from "@components/Home/SettingsBox";
 import Converter from "@utils/converter";
 import { uniqueId } from "@utils/utils";
-import { useEffect, useState } from "react";
+import cog from "@assets/settings.svg";
+
+//Page Layout & Blog
+import { InferGetStaticPropsType, NextPage } from "next";
 import ReactCompareImage from "react-compare-image";
-import Advantages from "@components/Home/Advantages";
 import fs from "fs";
 import path from "path";
-import { InferGetStaticPropsType, NextPage } from "next";
 import matter from "gray-matter";
 import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
-import Post from "@components/Blog/Post";
-import Ad from "@components/Blog/Ad";
-
-import cog from "@assets/settings.svg";
+import Layout from "@components/Layout";
+const Tooltip = dynamic(() => import("@components/Home/Tooltip"));
+const Advantages = dynamic(() => import("@components/Home/Advantages"));
+const Post = dynamic(() => import("@components/Blog/Post"));
+const Ad = dynamic(() => import("@components/Blog/Ad"));
 
 interface FileWithId {
   file: File;
@@ -156,9 +161,10 @@ const Index: NextPage<PostsPageProps> = ({
     description:
       "Fastest converter online. Supports bulk. Privacy protected. Convert all image types to AVIF for free.🚀 Compress your images now!⏱",
     url: "",
-    datePublished: "01.09.20",
-    dateModified: "30.05.21",
+    datePublished: "2020-09-01",
   };
+
+  const filterTypes = [listSubCategories, listSupport];
 
   return (
     <Layout meta={meta}>
@@ -286,53 +292,32 @@ const Index: NextPage<PostsPageProps> = ({
           </h4>
         </div>
         <div className="container px-2">
-          <div className="relative mt-1 mb-3 rounded-md">
-            <input
-              type="text"
-              placeholder="Search all posts"
-              className="block py-3 px-3 pr-10 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
-              onChange={handleFilterByKeyword}
-            />
-            <div className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none group">
-              🔎︎
+          <input
+            type="text"
+            placeholder="🔎︎ Search all posts"
+            className="block relative py-3 px-3 pr-10 mt-1 mb-3 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+            onChange={handleFilterByKeyword}
+          />
+          {filterTypes.map((type: any, key: any) => (
+            <div className="mb-2" key={key}>
+              {type.map((category: any) => (
+                <button
+                  key={category}
+                  onClick={() => handleSelectedPill(category)}
+                  className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                    selectedCategoryPill === category
+                      ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                      : "bg-bg-500 text-gray-300"
+                  }`}
+                >
+                  {selectedCategoryPill === category && (
+                    <span className="mr-1">✓</span>
+                  )}
+                  {category}
+                </button>
+              ))}
             </div>
-          </div>
-          <div className="mb-2">
-            {listSubCategories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
-          <div className="mb-2">
-            {listSupport.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleSelectedPill(category)}
-                className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
-                  selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                }`}
-              >
-                {selectedCategoryPill === category && (
-                  <span className="mr-1">✓</span>
-                )}
-                {category}
-              </button>
-            ))}
-          </div>
+          ))}
           <div className="grid grid-cols-1 gap-3 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {filterKeyword.length > 0 || filteredPost.length ? (
               <>

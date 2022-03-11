@@ -1,3 +1,4 @@
+import Link from "@components/Link";
 import sortBy from "lodash/sortBy";
 
 export interface SourcesProps {
@@ -5,13 +6,11 @@ export interface SourcesProps {
 }
 
 export default function Sources(props: SourcesProps) {
-  let sources = props.sources.map((original) => {
-    let text = new URL(`https://${original}`).hostname.replace(/^www\./, "");
-    let href = `https://${original}`;
+  let sources = props.sources.map((href) => {
+    let text = new URL(`https://${href}`).hostname.replace(/^www\./, "");
     return { href, text };
   });
   sources = sortBy(sources, (s) => s.text);
-
   return (
     <>
       <h5 className="inline-block py-1 px-2 mt-4 mb-0 font-bold rounded-md">
@@ -23,9 +22,7 @@ export default function Sources(props: SourcesProps) {
             key={index}
             className="inline-block py-0 px-1 mr-1 not-italic text-red-700 rounded-md text-tiny bg-red-1000"
           >
-            <a target="_blank" rel="noreferrer" href={source.href}>
-              {source.text}
-            </a>
+            <Link text={source.text} href={source.href} />
           </cite>
         ))}
       </ol>

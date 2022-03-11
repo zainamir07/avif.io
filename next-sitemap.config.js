@@ -3,12 +3,12 @@ module.exports = {
   siteUrl: "https://avif.io",
   changefreq: null,
   priority: null,
-  transform: async (config, path) => {
+  transform: async (path) => {
     return {
       loc: path,
       changefreq: null,
       priority: null,
-      lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+      lastmod: new Date().toISOString(),
     };
   },
 };

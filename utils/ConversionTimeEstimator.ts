@@ -1,5 +1,7 @@
 import { minutesAndSeconds } from "@utils/utils";
-import _ from "lodash";
+import last from "lodash/last";
+import minBy from "lodash/minBy";
+import maxBy from "lodash/maxBy";
 
 export default class ConversionTimeEstimator {
   private samples: Sample[] = [];
@@ -24,7 +26,7 @@ export default class ConversionTimeEstimator {
 
     if (
       this.samples.length &&
-      now - _.last(this.samples)!.time < this.samplingTime
+      now - last(this.samples)!.time < this.samplingTime
     ) {
       return;
     }
@@ -57,11 +59,11 @@ export default class ConversionTimeEstimator {
   }
 
   private minSample() {
-    return _.minBy(this.samples, (sample) => sample.remainingTimeEstimate);
+    return minBy(this.samples, (sample) => sample.remainingTimeEstimate);
   }
 
   private maxSample() {
-    return _.maxBy(this.samples, (sample) => sample.remainingTimeEstimate);
+    return maxBy(this.samples, (sample) => sample.remainingTimeEstimate);
   }
 
   private dropOldSamples() {

@@ -1,4 +1,5 @@
-import _ from "lodash";
+import range from "lodash/range";
+import omitBy from "lodash/omitBy";
 import { fileExtension, splitNameAndExtension } from "./utils";
 import webpToRgba from "./webpToRgba";
 import { saveFile } from "@utils/utils";
@@ -16,8 +17,8 @@ interface ConversionMessageCallbacks {
 }
 
 export interface ConversionOptions extends ConversionMessageCallbacks {
-  effort: number; // Conversion effort as a 0-100 percentage
-  quality: number; // Quality as a 0-100 percentage
+  effort: number;
+  quality: number;
   useYuv444: boolean;
   keepTransparency: boolean;
   autoDownload: boolean;
@@ -48,7 +49,7 @@ export default class Converter {
       1,
       Math.floor(navigator.hardwareConcurrency / 2)
     );
-    this.workers = _.range(numWorkers).map(() => ({
+    this.workers = range(numWorkers).map(() => ({
       worker: new ConversionWorker(),
     }));
   }
@@ -175,7 +176,7 @@ class ConversionWorker {
   async sendConversionMessage(message: ConversionMessage): Promise<void> {
     const messageToSend = {
       ...message,
-      options: _.omitBy(message.options, (_, name) => name.startsWith("on")),
+      options: omitBy(message.options, (_, name) => name.startsWith("on")),
     };
     this.worker.postMessage(messageToSend, [messageToSend.input]);
   }
