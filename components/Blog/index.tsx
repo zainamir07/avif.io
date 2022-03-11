@@ -1,5 +1,5 @@
 import Breadcrumbs from "@components/Blog/Breadcrumbs";
-import Post from "@components/Blog/Post";
+import Posts from "@components/Blog/Posts";
 import Questions from "@components/Blog/Questions";
 import PostCloud from "@components/Blog/PostCloud";
 import Sources from "@components/Blog/Sources";
@@ -38,18 +38,8 @@ export default function Blog(props: Props) {
           <PostCloud />
         </aside>
       </main>
-      <aside className="container p-2 max-w-screen-lg lg:p-0 bg-bg-700  grid grid-cols-1 lg:grid-cols-3 gap-4 my-8">
-        {posts.map((post: any) => (
-          <Post
-            key={post.keyword}
-            description={post.description}
-            support={post.support}
-            category={post.category}
-            subcategory={post.subcategory}
-            keyword={post.keyword}
-            slug={post.url.split("/")[2]}
-          />
-        ))}
+      <aside className="container p-2 max-w-screen-lg lg:p-0 bg-bg-700">
+        <Posts posts={posts} />
       </aside>
       <Link
         className="fixed bottom-2 left-2 invisible z-50 py-1 px-2 w-auto rounded-sm md:visible bg-bg-300 text-tiny"
