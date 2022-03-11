@@ -38,7 +38,7 @@ export default function Blog(props: Props) {
           <PostCloud />
         </aside>
       </main>
-      <aside className="container p-2 mt-4 max-w-screen-lg lg:p-0 bg-bg-700">
+      <aside className="container p-2 max-w-screen-lg lg:p-0 bg-bg-700  grid grid-cols-1 lg:grid-cols-3 gap-4 my-8">
         {posts.map((post: any) => (
           <Post
             key={post.keyword}
