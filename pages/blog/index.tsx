@@ -196,7 +196,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                 <section key={key}>
                   <h3
                     className="mt-8 mb-3 text-xl font-bold capitalize"
-                    id={`${article[0].toLowerCase}`}
+                    id={article[0].toLowerCase()}
                   >
                     {article[0]}
                   </h3>
