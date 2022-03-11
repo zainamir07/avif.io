@@ -28,11 +28,12 @@ const advantages = [
 export default function Advantages() {
   return (
     <section
-      className="container relative p-2 mt-2 lg:p-0 grid grid-cols-1 gap-4 mb-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+      className="container grid relative grid-cols-1 gap-4 p-2 mt-2 mb-12 md:grid-cols-2 lg:grid-cols-3 lg:p-0 xl:grid-cols-4 2xl:grid-cols-5"
       id="avifadvantages"
     >
       {advantages.map((advantage) => (
         <Atropos
+          key={advantage[1]}
           activeOffset={20}
           shadowScale={1.01}
           rotateXMax={20}
