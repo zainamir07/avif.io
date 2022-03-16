@@ -54,9 +54,6 @@ const Post = ({
               ></span>
               {support}
             </div>
-            <div className="inline-flex relative py-1 px-2 mr-2 text-white rounded-md bg-bg-700 text-tiny">
-              {subcategory}
-            </div>
           </div>
           <div className="relative mb-0 font-bold text-white">
             {keyword || keyword || ""}
