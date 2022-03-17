@@ -18,9 +18,6 @@ const posts2 = [
 
 const posts3 = [
   ["JPEG XL Converter", "jpegxl.io"],
-  ["ProductHunt", "www.producthunt.com/posts/avif-io-avif-image-converter"],
-  ["Discord", "discord.com/invite/6w42YpF5hm"],
-  ["Github", "github.com/justinschmitz97/avif.io/issues"],
   ["Sitemap", "/sitemap.xml"],
   ["RSS Feed", "/rss.xml"],
   ["Legal and Privacy", "/privacy-policy/"],
@@ -54,11 +51,10 @@ export default function Footer() {
           href="/"
         />
         Convert image formats like PNG, JPG, GIF, WEBP to AVIF.
-        <Link text="@jschmitz97" href="twitter.com/jschmitz97" />
       </div>
       <Column posts={posts1} title="Categories" />
       <Column posts={posts2} title="Most viewed" />
-      <Column posts={posts3} title="Other pages" />
+      <Column posts={posts3} title="More" />
     </footer>
   );
 }
