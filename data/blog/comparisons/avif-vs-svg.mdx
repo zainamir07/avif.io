@@ -76,7 +76,7 @@ By design, vector graphics can't be compressed using lossy methods.
 
 ## Speed
 
-**When decoding SVG images, a computer does not have to process an entire pixel grid and only draws lines.** Therefore, it is swift to encode and decode SVG files, and many web admins use SVG graphics over PNG (and now AVIF) to improve page load times.  
+**When decoding SVG images, a computer does not have to process an entire pixel grid anddraws lines.** Therefore, it is swift to encode and decode SVG files, and many web admins use SVG graphics over PNG (and now AVIF) to improve page load times.  
 By comparison, AVIF is a slower format to use, thanks to its complexity. The format boasts mediocre single-core encode and decode speeds. AVIF does, however, support parallelization. This allows the image coder to take advantage of multi-threaded hardware and utilize more than one CPU core to decode and encode AVIF images. As computer hardware tends towards higher core and thread counts, we expect AVIF's slow speeds to improve over time.  
 It is clear, however, that for most images, SVG will always be faster than AVIF.
 

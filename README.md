@@ -63,7 +63,7 @@ to test out the Rust code in a non-WASM environment.
 
 ## WebP
 
-At the time of writing, the `image` library has very incomplete
+At the time of writing, the `image` library hasincomplete
 support for the WebP format. Instead, we use a special build of
 [libwebp](https://github.com/webmproject/libwebp/) called webp_js,
 which allows us to decode WebP files in the browser using the

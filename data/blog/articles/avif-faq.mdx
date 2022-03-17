@@ -202,7 +202,7 @@ Critics also claim that because the image format is an extraction of AV1, it doe
 
 AVIF images may also consume more CPU power than other codecs for display. However, smaller file sizes may compensate for it.
 
-Many programs do not yet support it (e.g., Adobe Photoshop), and only 70% of current user browsers can display AVIF images.
+Many programs do not yet support it (e.g., Adobe Photoshop), and70% of current user browsers can display AVIF images.
 
 ## What is the goal of AVIF
 
@@ -214,7 +214,7 @@ Compared to the existing image formats, AVIF was designed to provide royalty-fre
 
 Related question: <Link href="#whatisthegoalofavif" text="What is the goal of AVIF"/>
 
-JPEG was introduced in 1992 and is widely used. Multiple color subsamples are supported, including 420, 422, and 444. Before performing lossy compression, JPEG converts RGB data to a luma-chroma representation. On blocks of 8x8, the discrete cosine transform (DCT) is used as the decorrelating transform. Then entropy coding and quantization are applied. However, JPEG only supports 8-bit images and does not support alpha channels. In JPEG-XT, higher bit-depths, alpha channels, lossless compression, and other features are added in a backward-compatible way.
+JPEG was introduced in 1992 and is widely used. Multiple color subsamples are supported, including 420, 422, and 444. Before performing lossy compression, JPEG converts RGB data to a luma-chroma representation. On blocks of 8x8, the discrete cosine transform (DCT) is used as the decorrelating transform. Then entropy coding and quantization are applied. However, JPEGsupports 8-bit images and does not support alpha channels. In JPEG-XT, higher bit-depths, alpha channels, lossless compression, and other features are added in a backward-compatible way.
 
 As a successor to JPEG, JPEG 2000 was introduced as a format based on discrete wavelet transform (DWT). Additionally, it provided a whole host of features such as spatial scalability, region of interest coding, an extensive range of bit-depths, and flexible color planes. In 2004, the motion extension made it the video coding standard for digital cinema.
 
@@ -280,7 +280,7 @@ A Luxembourg-based company, Sisvel, has formed a patent pool and is selling a pa
 
 AVIF combines high-quality compression with a wide range of functions to meet the needs of a contemporary image format. Both lossless and lossy compression are supported. Similarly, transparent image areas are also stored in an alpha channel and other image and graphic formats. Transparency data can be used to make user interfaces, collages, or company logos.
 
-High dynamic range (HDR) images, supporting both Rec 2020 and Rec 709 color spaces; Lossless compression; Lossy compression; Monochrome (alpha/depth), or multi-component images with an alpha channel for transparency; Any color space including wide gamut, ISO/IEC CICP and ICC profiles like sRGB, Adobe RGB(1998), Pro Photo RGB, etc. Support of either monochromatic + alpha data or full chroma subsampling in any combination between Y'CbCr components on a per-pixel basis provides flexibility to encode color information where it's needed most while still achieving good compression ratios. The possibility to enable/disable features at the image block level, rather than just on a per-pixel basis. This allows some exciting use-cases like encoding low dynamic range (LDR) images with high dynamic range (HDR) data - e.g., remapping LDR values into HDR space or vice versa; Scalability support for resolutions below 16 pixels per channel in width and height by enabling tiling of encoded image blocks across multiple frames.
+High dynamic range (HDR) images, supporting both Rec 2020 and Rec 709 color spaces; Lossless compression; Lossy compression; Monochrome (alpha/depth), or multi-component images with an alpha channel for transparency; Any color space including wide gamut, ISO/IEC CICP and ICC profiles like sRGB, Adobe RGB(1998), Pro Photo RGB, etc. Support of either monochromatic + alpha data or full chroma subsampling in any combination between Y'CbCr components on a per-pixel basis provides flexibility to encode color information where it's needed most while still achieving good compression ratios. The possibility to enable/disable features at the image block level, rather thanon a per-pixel basis. This allows some exciting use-cases like encoding low dynamic range (LDR) images with high dynamic range (HDR) data - e.g., remapping LDR values into HDR space or vice versa; Scalability support for resolutions below 16 pixels per channel in width and height by enabling tiling of encoded image blocks across multiple frames.
 
 AVIF is better than other codecs because it can handle more than other formats.
 
@@ -341,7 +341,7 @@ As some decoders may not be able to handle larger images, no single-coded image 
 
 Related question: <Link href="#doesavifsupporthdr" text="Does AVIF support HDR"/>
 
-AVIF also supports extended color spaces (Wide Color Gamut, WCG). Metadata can be used to share not only HDR information but also color gamut information.
+AVIF also supports extended color spaces (Wide Color Gamut, WCG). Metadata can be used to share notHDR information but also color gamut information.
 
 ## What color bit depth does AVIF support
 
@@ -355,7 +355,7 @@ AVIF supports a wide range of standard and non-standard color spaces, such as Re
 
 AVIF supports chroma subsampling in 4:2:0, 4:2:2, and 4:4:4. It utilizes the lower understanding of the human visual system for color differences than for luminance differences by implementing less resolution for chroma information than for luma information when encoding images. Subsampling by 420 can be beneficial in cases where the loss due to 420 subsampling is not apparent to the human eye. In such cases, it can be advantageous.
 
-When 420 subsampling is chosen over the original 444 formats, it reduces the number of samples (counting across all three color planes) that must be encoded while depending on the fact that the human visual system is more sensitive to luminosity than chroma. 420 subsampling, however, can cause color bleeding and jaggies in locations with color transitions. A codec should support both subsampling formats. There are, however, a few codecs that only support 420 subsampling, including WebP.
+When 420 subsampling is chosen over the original 444 formats, it reduces the number of samples (counting across all three color planes) that must be encoded while depending on the fact that the human visual system is more sensitive to luminosity than chroma. 420 subsampling, however, can cause color bleeding and jaggies in locations with color transitions. A codec should support both subsampling formats. There are, however, a few codecs thatsupport 420 subsampling, including WebP.
 
 ## Does AVIF support film grain
 
@@ -369,7 +369,7 @@ Video can be streamed at a lower bit rate with the film grain tool while providi
 
 It takes more CPU power to decode AVIF images for display than other codecs; however, it should be fast enough in practice. The AVIF format supports tiling, which accelerates multi-core CPU encoding.
 
-The image is split into tiles after color transformation, rectangular areas transformed separately and encoded separately. Each tile can be any size, and the entire image can also be considered one tile. All tiles will be the same size (except for those on the left and bottom borders) depending on the size chosen. The advantage of dividing an image into tiles is that the decoder will require less memory to decode the image. It can decode only selected tiles to achieve partial decoding.
+The image is split into tiles after color transformation, rectangular areas transformed separately and encoded separately. Each tile can be any size, and the entire image can also be considered one tile. All tiles will be the same size (except for those on the left and bottom borders) depending on the size chosen. The advantage of dividing an image into tiles is that the decoder will require less memory to decode the image. It can decodeselected tiles to achieve partial decoding.
 
 ## Does AVIF support layers
 
@@ -379,7 +379,7 @@ A frame can be encoded using multiple spatial layers using AVIF. Based on one or
 
 Related question: <Link href="#howgoodisavifencodingspeed" text="AVIF decoding speed"/>
 
-In general, AVIF takes a long time to encode. The encoding process takes a few seconds at an effort of 2. 'Effort' 3 is significantly better, but it can take a few minutes. A single image encoded with 'Effort' 10 can take 10 minutes or more. A tiled image can be encoded and decoded separately with AVIF because it is sliced into smaller blocks. In terms of encoding, this is very useful because it allows blocks to be encoded in parallel, making full use of CPU cores.
+In general, AVIF takes a long time to encode. The encoding process takes a few seconds at an effort of 2. 'Effort' 3 is significantly better, but it can take a few minutes. A single image encoded with 'Effort' 10 can take 10 minutes or more. A tiled image can be encoded and decoded separately with AVIF because it is sliced into smaller blocks. In terms of encoding, this isuseful because it allows blocks to be encoded in parallel, making full use of CPU cores.
 
 ## How good is AVIF decoding speed
 
@@ -523,13 +523,13 @@ AVIF is an excellent choice for any web-related project involving images. The AV
 
 Related article: <Link href="/blog/tutorials/html/" text="AVIF in HTML"/>
 
-You can integrate AVIF images into your website today. Due to AVIF's relative newness and the fact that it is not yet fully supported by all browsers, it is best implemented using content negotiation, aka the HTML 5 &lt;picture&gt; and &lt;source&gt; tags. It requires only a little HTML code to integrate AVIF into websites to replace the standard JPEG. This is accomplished by using the HTML tag &lt;picture&gt;. In other words, it stores several image sources (&lt;sources&gt;) for a single image (&lt;img&gt;). As a fallback option for browsers that cannot display WebP or AVIF images, the lowest image element is readout. This allows you to specify a version of the image supported by all major browsers, a JPEG image.
+You can integrate AVIF images into your website today. Due to AVIF's relative newness and the fact that it is not yet fully supported by all browsers, it is best implemented using content negotiation, aka the HTML 5 &lt;picture&gt; and &lt;source&gt; tags. It requiresa little HTML code to integrate AVIF into websites to replace the standard JPEG. This is accomplished by using the HTML tag &lt;picture&gt;. In other words, it stores several image sources (&lt;sources&gt;) for a single image (&lt;img&gt;). As a fallback option for browsers that cannot display WebP or AVIF images, the lowest image element is readout. This allows you to specify a version of the image supported by all major browsers, a JPEG image.
 
 ## How do I view an AVIF file
 
 Related article: <Link href="/blog/" text="AVIF image viewer overview"/>
 
-AVIF files can be opened in several ways. About 70% of browsers can decode them. By simply dragging the image into your browser, you will be able to view the AVIF image. The Windows 10 Operating System supports AVIF images through an add-on. For more information, <Link href="/blog/tutorials/windows/" text="refer to our Windows 10 guide"/>. Our comprehensive list of all image and graphics editing programs that support AVIF can be viewed for other operating systems. The following image viewers and editors support AVIF in part or in full:
+AVIF files can be opened in several ways. About 70% of browsers can decode them. Bydragging the image into your browser, you will be able to view the AVIF image. The Windows 10 Operating System supports AVIF images through an add-on. For more information, <Link href="/blog/tutorials/windows/" text="refer to our Windows 10 guide"/>. Our comprehensive list of all image and graphics editing programs that support AVIF can be viewed for other operating systems. The following image viewers and editors support AVIF in part or in full:
 
 - <Link href="/blog/tutorials/gimp/" text="GIMP" />
 - <Link href="/blog/tutorials/gthumb/" text="gThumb" />
@@ -666,4 +666,4 @@ The Android 11 operating system does not support AVIF. Android 12's first previe
 
 Related article: <Link href="/blog/tutorials/wordpress/" text="Detailed Wordpress AVIF Guide"/>
 
-AVIF is not supported by WordPress. Since WebP has only recently been implemented, even though it is more than a decade old, we should not expect fast support from WP core. You should use an Image CDN to benefit from AVIF.
+AVIF is not supported by WordPress. Since WebP hasrecently been implemented, even though it is more than a decade old, we should not expect fast support from WP core. You should use an Image CDN to benefit from AVIF.

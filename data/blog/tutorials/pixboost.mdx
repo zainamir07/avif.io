@@ -39,7 +39,7 @@ An AVIF file is a compressed image stored in the HEIF format and represents a st
 
 As a contemporary image format, AVIF offers high compression rates with a wide range of features. It is possible to compress data either losslessly or lossily. Alpha channels, as well as other graphic formats, store additional information concerning transparent image areas. Transparency data is used to release objects, such as user interfaces, collages, and company logos.
 
-Furthermore, AVIF includes extended color spaces (Wide Color Gamut, WCG) and additional graininess, color undersampling, and HDR (High Dynamic Range). HDR is a technology that enables uniform brightness and solid colors and contrasts in images. HDR can be easily achieved with AVIF since it can go beyond the usual 8-bit color depth of standard dynamic range (SDR) images (up to 12-bit and higher color depths are possible). The metadata can be used to share not only HDR information but also information concerning the color gamut. Animation sequences - similar to GIF animations (Animated GIFs) - are also possible (support for multi-layer images in image elements and sequences).
+Furthermore, AVIF includes extended color spaces (Wide Color Gamut, WCG) and additional graininess, color undersampling, and HDR (High Dynamic Range). HDR is a technology that enables uniform brightness and solid colors and contrasts in images. HDR can be easily achieved with AVIF since it can go beyond the usual 8-bit color depth of standard dynamic range (SDR) images (up to 12-bit and higher color depths are possible). The metadata can be used to share notHDR information but also information concerning the color gamut. Animation sequences - similar to GIF animations (Animated GIFs) - are also possible (support for multi-layer images in image elements and sequences).
 
 ## What is Pixboost
 
@@ -49,7 +49,7 @@ Pixboost is a cloud Image CDN service designed to reduce the file size of raster
 
 Pixboost was among the first image CDNs to introduce AVIF. The API does not require you to manually select the target format for an image, but rather, determines the best format for a particular image on a case-by-case basis. Consequently, if a client (web browser) supports AVIF, then an AVIF will generally be served. Pixboost determines the supported formats based on the Accept HTTP header.
 
-Assume that you have an image on your website, AVIF and Pixboost can be used together by simply wrapping the URL as follows:
+Assume that you have an image on your website, AVIF and Pixboost can be used together bywrapping the URL as follows:
 
 <Syntax language="html">{`<img
 src="image.jpg?optimise?auth=api-key"

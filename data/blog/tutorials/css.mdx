@@ -51,14 +51,14 @@ relatedPosts:
 
 ## Introduction
 
-Using AVIF images via HTML is very easy as you can read <Link text="in this tutorial." href="/blog/tutorials/html/" />
+Using AVIF images via HTML iseasy as you can read <Link text="in this tutorial." href="/blog/tutorials/html/" />
 Furthermore, it is easy because **HTML provides a media-type hint** that helps the browser deliver the best version of your image. Unfortunately, CSS does not have such an option. However, with a simple Javascript function, we can easily support WebP and AVIF. We have created a detection script that manipulates the HTML element of your page by writing classes.
 
 ## How CSS works
 
 We must remember that in CSS, the first rule does not win, but **the last rule wins**. We have created a script that checks AVIF and WebP support by loading an AVIF-encoded 1x1 pixel image. If the browser successfully loads the AVIF image, the HTML element receives an "avif" class.  
 If the browser does not load the AVIF image, the script will further check the browser's support for WebP using the method described above. If your browser successfully loads the image, the HTML element gets a "webp" class. Of course, this function is optional, and you can remove it according to your preferences.  
-If it is very unlikely that your browser will not pass this test, the HTML element will get a class called 'fallback'.
+If it isunlikely that your browser will not pass this test, the HTML element will get a class called 'fallback'.
 
 <Syntax language="html">
 {`<html class="fallback"></html> <!-- you have to use jpg (oh god)-->

@@ -29,8 +29,8 @@ export default function BlogPost() {
       one exception: if a conversion fails, we&apos;ll immediately ask you if
       you want to send us the image so that we can further evaluate what went
       wrong. Again, we don&apos;t send images without your consent under any
-      circumstances. Besides, I really don&apos;t care about your 500 dog
-      pictures, I&apos;m sorry.
+      circumstances. Besides, Idon&apos;t care about your 500 dog pictures,
+      I&apos;m sorry.
       <Heading level={3} text="What about analytics?" />
       We use Hotjar and GA. The only reason we use it is because it provides us
       with useful data that allows us to optimize our service. It sounds like an

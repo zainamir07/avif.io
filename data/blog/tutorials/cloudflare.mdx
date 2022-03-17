@@ -87,7 +87,7 @@ Pro Plans start at $20 per month and have a lot more features. Automatic selecti
 
 ## Workers
 
-Browsers with AVIF support add an image/avif note to their Accept request header. To request the AVIF format from the Image Resizing module of Cloudflare, simply set the format option to avif. Using a **worker script**, you can easily automatically detect and enable AVIF support:
+Browsers with AVIF support add an image/avif note to their Accept request header. To request the AVIF format from the Image Resizing module of Cloudflare,set the format option to avif. Using a **worker script**, you can easily automatically detect and enable AVIF support:
 
 <Syntax language="javascript">
   {`addEventListener('fetch', event => {

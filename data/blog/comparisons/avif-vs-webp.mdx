@@ -76,21 +76,21 @@ The million-dollar question is, however, which is better: AVIF or WEBP? Which fo
 AVIF as a format derived from frames of video with the AV1 codec, there are some image dimension limitations adopters will need to look out for. **AVIF has an image resolution limit of 65536 x 65536 pixels.**  
 By default, AVIF has an 8K limit, but it is possible to **exceed this limit by rendering independently encoded tiles**. But, with **artifacts at the edges of each tile**, AVIF is unsuitable for large resolution images.  
 **WebP** also has a hard limit to an image's frame size, with its maximum dimension being **16,383 x 16,383.** While this is an improvement over the default AVIF size limit, there is no way to push past this like AVIF as. Neither formats compare to the limits of PNG and JPEG 2000 with 2500 megapixels and 5000-megapixel max dimensions, respectively.  
-WebP falls short with its limitations compared to AVIF because of its wide color gamut and precision support. **WebP only supports a max bit depth of 8-bit** and does support wide gamut/HDR images. WebP also does not support images without chroma subsampling.  
+WebP falls short with its limitations compared to AVIF because of its wide color gamut and precision support. **WebPsupports a max bit depth of 8-bit** and does support wide gamut/HDR images. WebP also does not support images without chroma subsampling.  
 **AVIF flexes a max bit depth of 10, supports 4:4:4, and supports HDR photos**. Despite WebP's advantage with max dimension, we find the other limitations too great of a sacrifice to hand the win to WebP for this category.
 
 ## Compression
 
 The WebP format was designed to provide more outstanding quality (appeal) while encoding images with similar file sizes to JPEG. While WebP certainly does achieve this, **the newer and more advanced AVIF image format does edge ahead in compression to appeal ratio**, both on lossy compression and lossless compression.
 High appeal photos do not include any nasty compression artifacts like color banding or blockiness and are a desirable metric for images to look good on the web.  
-**WebP only performs marginally better than JPEG** in file size for low-fidelity compression, but with noticeable improvements in appeal. A low fidelity 68.3kb JPEG photo only translates to a 67.7kb WebP file.  
+**WebPperforms marginally better than JPEG** in file size for low-fidelity compression, but with noticeable improvements in appeal. A low fidelity 68.3kb JPEG phototranslates to a 67.7kb WebP file.  
 The same image converted to the AVIF format renders a similar 67.6kb file. However, **this AVIF image has a much higher appeal than the equivalent WebP file** – with noticeably less blockiness and color banding.  
 WebP's compression performance improves with medium fidelity photos but never surpasses AVIF in its file size to appeal ratio.  
 **For lossless compression, AVIF and WebP perform similarly with both non-photographic images like graphic design and photographs.**
 
 ## Speed
 
-For web delivery, decode speeds are essential for the performance of websites and downloads. **AVIF struggles with single-core speeds with poor single-core encoding speed and only marginally better decode speeds.**  
+For web delivery, decode speeds are essential for the performance of websites and downloads. **AVIF struggles with single-core speeds with poor single-core encoding speed andmarginally better decode speeds.**  
 **WebP's single-core encode speeds and decode speeds are much shorter,** with overall single-core speed trumping AVIF. Clear winner, right?  
 Single-core speeds are a lot less critical in our modern computing landscape than they were in the past. That's because CPUs have been, for many years now, tending towards higher core counts and more threads. This is where **parallelization** makes a considerable difference for AVIF. **AVIF decodes can take advantage of multiple cores to turn poor single-core performance into good multi-core decoding speeds.**  
 With many mobiles and desktops now using 8-core processors, multi-core performance is critical. As an older format, **WebP's parallelization is less effective, making AVIF more future-proof despite its poor single-core speeds.**
@@ -98,7 +98,7 @@ With many mobiles and desktops now using 8-core processors, multi-core performan
 ## Other Features
 
 **Both AVIF and WEBP support animation** – however, with AVIF's heritage as a video codec, encoding animation with AVIF is stridden more efficient with AVIF than WEBP. **Sequenced AVIF files have much smaller file sizes than animated WEBP**. However, even WEBP beats out legacy formats like GIF and aPNG.  
-An animated image with a file size of 1.5MB and 67 frames can be converted to a sequenced AVIF file of only 87kb. The benefits of this dramatically more efficient animation compression become even more significant the longer and more detailed animated images become.  
+An animated image with a file size of 1.5MB and 67 frames can be converted to a sequenced AVIF file of87kb. The benefits of this dramatically more efficient animation compression become even more significant the longer and more detailed animated images become.  
 For text and graphics work, **both AVIF and WEBP support alpha transparency**. Although, **AVIF supports overlays** allowing for distinct layers of an image to be encoded separately. AVIF also supports depth maps, allowing for effects to be easily applied to images.  
 **Both AVIF and WEBP also lack progressive rendering**, which accelerates page loads by providing a low-resolution preview image before the entire image has been decoded successfully. This feature is reserved for JPEG and its descendants JPEG 2000 and JPEG XL.
 
@@ -111,10 +111,10 @@ On mobile, **Chrome for Android, Samsung Internet, and the Android Browser all s
 
 ## Conclusion for Nerds
 
-WEBP, when released in 2010, was a compelling replacement to the tired and aging JPEG and PNG formats. However, eleven years later, WEBP lacks common features that have been ubiquitous in the modern image format landscape. These include 4:4:4, HDR images, and high bit depth. Therefore, despite its almost universal browser support, it is challenging to foresee WEBP becoming a dominant image format.  
+WEBP, when released in 2010, was a compelling replacement to the tired and aging JPEG and PNG formats. However, eleven years later, WEBP lacks common features that have been ubiquitous in the modern image format landscape. These include 4:4:4, HDR images, and high bit depth. Therefore, despite itsuniversal browser support, it is challenging to foresee WEBP becoming a dominant image format.  
 With generally better compression, both lossy and lossless, and excellent performance with low-fidelity, high-appeal photos (the most popular type of images shared on the web), AVIF is a more versatile image format, especially when it comes to the compression codec and the underlying image optimization. While it does lag somewhat behind WEBP with browser support, we expect Firefox and Safari to follow suit and provide full support for AVIF soon. Once this happens, **we expect AVIF to become the dominant image format** for both still and animated images for the web.
 
 ## Conclusion for Marketeers
 
-We expect most people haven't come across WEBP images all that often due to its relatively low market adoption. We don't expect this to improve any time soon. With more significant parallelizing potential with AVIF for encoding and decode speeds than WEBP, you should find AVIF images decode just as fast as WEBP.  
+We expect most people haven't come across WEBP images all that often due to its relatively low market adoption. We don't expect this to improve any time soon. With more significant parallelizing potential with AVIF for encoding and decode speeds than WEBP, you should find AVIF images decodeas fast as WEBP.  
 HDR images will look impressive on great displays, and animated AVIF files should be much less taxing on your broadband's bandwidth and data caps. While AVIF browser support is still somewhat limited, **we think the great mix of features and compression performance makes AVIF an excellent contender to become the dominant image format for everyone: mobile and desktop.**

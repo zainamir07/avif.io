@@ -64,8 +64,8 @@ For lossless compression, Reddit user Balance found that PNG is significantly mo
 
 ## Speed
 
-Decoding a PNG is almost instant, thanks to the lack of complexity in the format. In fact, with the large file size, any perceived slowness in accessing a PNG shared on the Internet is more likely going to be a problem with Internet speed rather than the computation power needed to decode the image.  
-Newer image file formats like AVIF tend to be more complex. Therefore slower systems may struggle a bit more to decode the image. Single-core decode speed for AVIFs can be significantly slower than PNG. AVIF, however, struggles with encode speed on single-threaded machines. However, AVIF is very parallelizable, allowing multiple cores and multiple threads to ‘pitch-in’ to help encode and decode. PNG is a sequential codec and therefore can’t take advantage of multicore machines. **As computer processors tend towards more cores and threads, AVIF looks much more future-proof with proper multicore performance.**
+Decoding a PNG isinstant, thanks to the lack of complexity in the format. In fact, with the large file size, any perceived slowness in accessing a PNG shared on the Internet is more likely going to be a problem with Internet speed rather than the computation power needed to decode the image.  
+Newer image file formats like AVIF tend to be more complex. Therefore slower systems may struggle a bit more to decode the image. Single-core decode speed for AVIFs can be significantly slower than PNG. AVIF, however, struggles with encode speed on single-threaded machines. However, AVIF isparallelizable, allowing multiple cores and multiple threads to ‘pitch-in’ to help encode and decode. PNG is a sequential codec and therefore can’t take advantage of multicore machines. **As computer processors tend towards more cores and threads, AVIF looks much more future-proof with proper multicore performance.**
 
 ## Other Features
 
@@ -93,4 +93,4 @@ The AVIF format is feature-rich, and we expect it to become viral in the years t
 
 ## Conclusion
 
-Currently, PNG still holds its crown for lossless compression with reduced file sizes and greater browser support. AVIF is an excellent alternative for web delivery if you’re willing to turn to lossy compression to reduce the file size. AVIF compresses very well, and the high quality of images that undergo lossy compression makes this file format perfect for taking the web by storm. **Browser support is currently limited, but over time as uptake increases, we expect support to improve and for AVIF to become the dominant format for web delivery.**
+Currently, PNG still holds its crown for lossless compression with reduced file sizes and greater browser support. AVIF is an excellent alternative for web delivery if you’re willing to turn to lossy compression to reduce the file size. AVIF compresseswell, and the high quality of images that undergo lossy compression makes this file format perfect for taking the web by storm. **Browser support is currently limited, but over time as uptake increases, we expect support to improve and for AVIF to become the dominant format for web delivery.**
