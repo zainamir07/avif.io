@@ -6,7 +6,6 @@ const path = require("path");
 
 const output = "../public/img/";
 const input = "../images/";
-const jpgQuality = { mozjpeg: true, quality: 60, progressive: true };
 const webpQuality = { quality: 64, reductionEffort: 5 };
 const avifQuality = { quality: 51, speed: 1, chromaSubsampling: "4:2:0" };
 /* Thanks to Malte Ubl for the quality settings research */
@@ -18,10 +17,6 @@ fs.readdir(input, (err, files) => {
   files.forEach((file) => {
     let fileShort = path.parse(file).name;
     function convert(size) {
-      sharp(input + file)
-        .jpeg(jpgQuality)
-        .resize({ width: size })
-        .toFile(output + fileShort + "-" + size + ".jpg");
       sharp(input + file)
         .webp(webpQuality)
         .resize({ width: size })
