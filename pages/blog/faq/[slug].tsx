@@ -142,7 +142,7 @@ export default function BlogFaq(props: Props) {
                 key={i}
                 href={source[0]}
                 className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-                text={source[2]}
+                text={source[1]}
               />
             ))}
           </article>
