@@ -54,7 +54,7 @@ export default function BlogPosts(props: any) {
                 {support}
               </div>
             </div>
-            <div className="relative mb-0 font-bold text-white">
+            <div className="relative mb-0 font-bold text-white leading-snug">
               {keyword || keyword || ""}
             </div>
             <div className="relative text-white text-tiny">{description}</div>
