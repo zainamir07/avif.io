@@ -150,7 +150,7 @@ CLS is an important, user-centric metric for measuring visual stability because 
 
 Depending on how your website is structured, images make up the bulk of data that needs to be loaded. The smaller the file sizes of the images, the faster a website loads. But you don't want to end up with a grainy or blurry-looking website, especially in times of high-resolution screens.
 
-**Properly optimized images still have their visual quality intact** - and when you run an e-commerce site, that'simportant to win customers' trust. By improving your vitals, you can boost your site's ranking in comparison with your competitors.
+**Properly optimized images still have their visual quality intact** - and when you run an e-commerce site, that's important to win customers' trust. By improving your vitals, you can boost your site's ranking in comparison with your competitors.
 
 #### Main advantages
 
@@ -184,11 +184,11 @@ Although device and browser compatibility varies for each format, **it is worth 
 
 ### Browser compatibility
 
-If your target audience falls into one of the unsupported browser / device categories, you should ship optimized **fallback images in the original JPEG / PNG format **so that your users do not see a broken or poorly designed page. There are several types of files you can use that you can see below. There are several others, such as JPEG XR, JPEG2000 and HEIC. However, they areold and have no support for their age.
+If your target audience falls into one of the unsupported browser / device categories, you should ship optimized **fallback images in the original JPEG / PNG format **so that your users do not see a broken or poorly designed page. There are several types of files you can use that you can see below. There are several others, such as JPEG XR, JPEG2000 and HEIC. However, they are old and have no support for their age.
 
 - PNG: produces higher quality images, but also has a larger file size. Created as a lossless image format, although it can also be lossy
 - JPEG: uses lossy and lossless optimization. You can adjust the quality level for a good balance between quality and file size
-- GIF: uses256 colors, has been popular for small videos, but is becoming less popular due to the size
+- GIF: uses 256 colors, has been popular for small videos, but is becoming less popular due to the size
 - SVG: is a vector image format for two-dimensional graphics with support for interactivity and animation
 - WebP: is an image format developed by Google to create smaller or better looking images compared to the JPEG, PNG or GIF image formats
 - AVIF: is a fairly new image file format specification for storing images or image sequences compressed with AV1 in the HEIF file format
@@ -253,9 +253,9 @@ A modern image format optimized for web environments. <Link href="jpegxl.io/" te
 
 ### How to convert all these image formats correctly?
 
-Opt for JPG as a general fallback, followed by WebP, which is better and has broad support, followed by AVIF, which is the latest active fileformat withless support.
+Opt for JPG as a general fallback, followed by WebP, which is better and has broad support, followed by AVIF, which is the latest active fileformat with less support.
 
-To implement this progressive improvement for AVIF, **use the picture element**. The actual img element is nested in the picture. Until recently, it was relatively difficult toencode AVIF images on the server side, but with the latest version of libraries like sharp it is trivial.
+To implement this progressive improvement for AVIF, **use the picture element**. The actual img element is nested in the picture. Until recently, it was relatively difficult to encode AVIF images on the server side, but with the latest version of libraries like sharp it is trivial.
 
 <Syntax language="html">
   {`<picture>
@@ -281,7 +281,7 @@ To implement this progressive improvement for AVIF, **use the picture element**.
 
 When you look at your page requests, **images are likely to account for the majority of your total page size** compared to HTML, CSS, or JavaScript files. If these images are uncompressed, they waste bandwidth and increase page load times, as the browser has to spend more time downloading.
 
-Uncompressed images are likely to be served inhigh quality, resulting in a large file size. The larger the image, the more time the browser spends downloading, further increasing the waiting time for your visitors to the page. If this is done for multiple images on your page, file sizes can increase significantly and result in as low page. **Efficient image encoding reduces your image file and thus the page size and helps to speed up page loading. **
+Uncompressed images are likely to be served in high quality, resulting in a large file size. The larger the image, the more time the browser spends downloading, further increasing the waiting time for your visitors to the page. If this is done for multiple images on your page, file sizes can increase significantly and result in as low page. **Efficient image encoding reduces your image file and thus the page size and helps to speed up page loading. **
 
 ### Lossy vs. lossless compression
 
@@ -325,13 +325,13 @@ Therefore, **it is crucial to first determine the image dimensions to know how w
 
 Yes, there are many mobile devices with 412 / 414 pixels, but the additional conversion reduces the file size by less than a few kilobytes, which is fine because we don't want to flood our servers with billions of images.
 
-Of course, **the above exampleworks for images within a fixed width container**. If you want a full width image, consider creating your images with typical screen widths such as 2560px, 1920px or 1366px.
+Of course, **the above example works for images within a fixed width container**. If you want a full width image, consider creating your images with typical screen widths such as 2560px, 1920px or 1366px.
 
 ### How do we implement different sizes in our code?
 
 We use the attributes **srcset** and **sizes** as shown below. The w selector tells the browser which URL to use based on the physical pixels that would be used if the image was drawn to the user's device given the width calculated from the sizes attribute.
 
-Hereby, the browser downloads the smallest possible image that provides the user with the best image quality. Or it selects a smaller image if the user has, for example, opted for somedata saving mode. Provide more source elements with srcsets for browsers that support older image formats.
+Hereby, the browser downloads the smallest possible image that provides the user with the best image quality. Or it selects a smaller image if the user has, for example, opted for some data saving mode. Provide more source elements with srcsets for browsers that support older image formats.
 
 <Syntax language="html">
   {`<picture>
@@ -384,7 +384,7 @@ This is a well-understood technique for using an image horizontally up to its ma
 
 Always **include width and height size** attributes to your images and video elements. This approach ensures that the browser can allocate the right amount of space in the document while loading the image. Image and /or video elements that are not explicitly declared with height and width attributes arere-dimensioned using CSS.
 
-In this case, the browser candetermine the dimensions and allocate space to them after downloading the "non-large images" and / or videos.
+In this case, the browser can determine the dimensions and allocate space to them after downloading the "non-large images" and / or videos.
 
 You will find that when the browser retrieves these images, your page content is constantly pushed down or moved from its original position as the browser resizes the images and positions them on your page. Layout shifts can be frustrating for your visitors, as elements may shift, potentially causing your page to appear visually disruptive.
 
@@ -486,13 +486,13 @@ Storing images with any default filenames can be secondary - but this random str
 
 ### 2. Optimize title
 
-Similar to filenames, picture titles are another attribute we are talking about. You have the option to add an image title after you upload it, and it can be similar or even the same as the filename -keep it short and relevant to what the picturerepresents!
+Similar to filenames, picture titles are another attribute we are talking about. You have the option to add an image title after you upload it, and it can be similar or even the same as the filename -keep it short and relevant to what the picture represents!
 
 ### 3. Insert Alt-Text
 
 Alt text or alternative text is text that appears in the place of an image when the image is not loaded. Alt text is important not for screen readers, but also for SEO, because it helps crawlers understand the image file and the content of a page to provide more accurate search results.
 
-If you use WordPress or a number of popular website builders, you will be able to enter the title and alt text of an image once you upload it. In basic HTML, you canuse the alt attribute. Use your best judgement andlabel images when the information is useful to visitors.
+If you use WordPress or a number of popular website builders, you will be able to enter the title and alt text of an image once you upload it. In basic HTML, you canuse the alt attribute. Use your best judgement and label images when the information is useful to visitors.
 
 ## Summary Checklist and code example
 

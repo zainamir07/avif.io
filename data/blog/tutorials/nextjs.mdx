@@ -92,7 +92,7 @@ To use the Next.js image component, you add the image file to your project direc
 
 ## CSS Images
 
-Until this point, if you rely heavily on CSS images, you can use the third-party plugin with Next.js called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" />. It has many additional features, and it ** supports loading images with CSS**, which is useful. However, the plugin does not support AVIF andopts for WebP. Even though the author released news on a new version following a canary branch with promised AVIF support, the development has not been continued as of August 2020.
+Until this point, if you rely heavily on CSS images, you can use the third-party plugin with Next.js called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" />. It has many additional features, and it ** supports loading images with CSS**, which is useful. However, the plugin does not support AVIF and opts for WebP. Even though the author released news on a new version following a canary branch with promised AVIF support, the development has not been continued as of August 2020.
 
 ## How do we at avif.io deal with AVIF support?
 
@@ -108,7 +108,7 @@ To find out if you as a visitor have a browser with AVIF support, we have implem
 
 ### 2. Create image component with modern markup
 
-We have developed our own image component <Link href="github.com/justinschmitz97/avif.io/blob/master/components/Blog/Image.tsx" text="(visit Github for the latest version)"/>, which uses all the features that modern image markup should take into account, from the lazy load to the aspect ratio. Wehave to choose a path and an alt text. For more information on the perfect image markup visit <Link text="Guide to Image Performance." href="/blog/articles/optimize-images-for-web-performance/" />
+We have developed our own image component <Link href="github.com/justinschmitz97/avif.io/blob/master/components/Blog/Image.tsx" text="(visit Github for the latest version)"/>, which uses all the features that modern image markup should take into account, from the lazy load to the aspect ratio. We have to choose a path and an alt text. For more information on the perfect image markup visit <Link text="Guide to Image Performance." href="/blog/articles/optimize-images-for-web-performance/" />
 
 ### 3. Convert images with sharp on build time
 

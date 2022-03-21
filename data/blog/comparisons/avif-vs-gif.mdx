@@ -79,7 +79,7 @@ As an image format derived from a video codec, **AVIF has an image resolution li
 
 **GIF uses lossless compression**, and unlike the lossy compression we see in formats like JPEG, it doesn’t degrade the image as no data is lost through the compression process. While this is great for preserving image quality, **GIF suffers from large file sizes**. GIF uses the Lempel–Ziv–Welch algorithm for compression, first developed in 1985. Compression algorithms have improved significantly since the mid-80s, and AVIF’s compression capabilities prove this.
 
-**AVIF offers both lossy and lossless compression, with its low-fidelity lossy compression showing off the format’s greatest strengths**. For example, a 347kb animated GIF can be converted through avif.io to be a whopping 91% smaller at 32kbby encoding in AVIF. The traditional downside of lossy compression is low quality or “appeal”:how good the image looks. AVIF’s low-fidelity (and therefore small file size) images have high appeal and so don’t suffer from artifacts like color banding.
+**AVIF offers both lossy and lossless compression, with its low-fidelity lossy compression showing off the format’s greatest strengths**. For example, a 347kb animated GIF can be converted through avif.io to be a whopping 91% smaller at 32kb by encoding in AVIF. The traditional downside of lossy compression is low quality or “appeal”:how good the image looks. AVIF’s low-fidelity (and therefore small file size) images have high appeal and so don’t suffer from artifacts like color banding.
 
 GIF’s poor compression is one of the driving forces behind why GIF images tend to look so bad. For an animated GIF to be encoded at high quality, the file size would be enormous. For a file format that is so favored for web delivery, its users have to use low resolution, low fidelity images to try and keep the file size to a web-safe amount. AVIF’s excellent lossy compression makes this worry a thing of the past.
 
@@ -87,7 +87,7 @@ GIF’s poor compression is one of the driving forces behind why GIF images tend
 
 GIF as an animated image format is relatively slow to encode and decode. This is due to – in part - the inefficiency of its compression algorithm, LZW. This, compounded with the more significant data size inherent to GIF, **makes this image format slow**.
 
-AVIF supports parallelism. Instead of limiting the task of encoding or decode an image to one CPU core, parallelization allows multiple cores to work in parallel with each other to speed up encode and decode times. GIF is an entirely sequential codec and cantake advantage of one CPU core.
+AVIF supports parallelism. Instead of limiting the task of encoding or decode an image to one CPU core, parallelization allows multiple cores to work in parallel with each other to speed up encode and decode times. GIF is an entirely sequential codec and can take advantage of one CPU core.
 
 This wasn’t a problem in the 1990s, where most computers were single-threaded, but modern CPUs have multiple cores and multiple threads. With the computer market trending toward higher core counts, an image codec’s ability to take advantage of multi-core performance will become increasingly important.
 
@@ -115,7 +115,7 @@ AVIF changes that. This relatively new format’s significant low-fidelity compr
 
 ## Summary for Marketeers
 
-Animated GIFs have hada resurgence in recent years. We expect the demand for animated images to grow as the web becomes more interactive. However, the GIF format **is too limited to deliver high-quality animated images**, and that’s where AVIF steps in to solve this problem.
+Animated GIFs have had a resurgence in recent years. We expect the demand for animated images to grow as the web becomes more interactive. However, the GIF format **is too limited to deliver high-quality animated images**, and that’s where AVIF steps in to solve this problem.
 
 **Animated AVIF images have much smaller file sizes and can take advantage of multi-core processors**. The strong compression codec and encoding power combined make AVIF animations much faster to load. The reduced file size alleviates the stress of bandwidth limits and data caps. This is because AVIF images can be compressed much more efficiently while still retaining the image quality. This allows image makers to upload better quality and higher resolution animated images without worrying about data size limitations.
 
