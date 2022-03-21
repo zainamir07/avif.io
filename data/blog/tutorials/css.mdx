@@ -56,9 +56,9 @@ Furthermore, it is easy because **HTML provides a media-type hint** that helps t
 
 ## How CSS works
 
-We must remember that in CSS, the first rule does not win, but **the last rule wins**. We have created a script that checks AVIF and WebP support by loading an AVIF-encoded 1x1 pixel image. If the browser successfully loads the AVIF image, the HTML element receives an "avif" class.  
-If the browser does not load the AVIF image, the script will further check the browser's support for WebP using the method described above. If your browser successfully loads the image, the HTML element gets a "webp" class. Of course, this function is optional, and you can remove it according to your preferences.  
-If it isunlikely that your browser will not pass this test, the HTML element will get a class called 'fallback'.
+We must remember that in CSS, the first rule does not win, but **the last rule wins**. We have created a script that checks AVIF and WebP support by loading an AVIF-encoded 1x1 pixel image. If the browser successfully loads the AVIF image, the HTML element receives an "avif" class.
+If the browser does not load the AVIF image, the script will further check the browser's support for WebP using the method described above. If your browser successfully loads the image, the HTML element gets a "webp" class. Of course, this function is optional, and you can remove it according to your preferences.
+If it is unlikely that your browser will not pass this test, the HTML element will get a class called 'fallback'.
 
 <Syntax language="html">
 {`<html class="fallback"></html> <!-- you have to use jpg (oh god)-->
@@ -71,22 +71,22 @@ If it isunlikely that your browser will not pass this test, the HTML element wil
 To avoid visible image changes when adding the avif/webp class to your DOM, add the following content as an inline script in your header above any CSS content. The minified version of this script is a tiny 600-byte-piece and takes 5ms to load, which is perfectly fine for the benefit it provides.
 
 <Syntax language="javascript">
-  {`function addClass(className) {
-  document.documentElement.classList.add(className);
+ {`function addClass(className) {
+ document.documentElement.classList.add(className);
 }
 var avif = new Image();
 avif.src =
-  "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
+ "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
 avif.onload = function () {
-  addClass("avif");
+ addClass("avif");
 };
 avif.onerror = function () {
-  check_webp_feature(function (isSupported) {
-    if (isSupported) {
-      return addClass("webp");
-    }
-    return addClass("fallback");
-  });
+ check_webp_feature(function (isSupported) {
+  if (isSupported) {
+   return addClass("webp");
+  }
+  return addClass("fallback");
+ });
 };
 function check_webp_feature(callback) {
 var img = new Image();
@@ -121,12 +121,12 @@ Once implemented, we can use the following CSS due to the high-level classes and
 .avif .img { background-image: url('avif-in-css.avif') }
 /* Add Support for high Pixel Ratio Devices (Retina) */
 @media
-    screen and (min-resolution: 2dppx),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi) {
-    .fallback img { background-image: url('avif-in-css@2x.jpg') }
-    .webp .img { background-image: url('avif-in-css@2x.webp') }
-    .avif .img { background-image: url('avif-in-css@2x.avif') }
+  screen and (min-resolution: 2dppx),
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi) {
+  .fallback img { background-image: url('avif-in-css@2x.jpg') }
+  .webp .img { background-image: url('avif-in-css@2x.webp') }
+  .avif .img { background-image: url('avif-in-css@2x.avif') }
 }`}
 </Syntax>
 
@@ -141,39 +141,39 @@ Using this script leads to the following screenshots. Chrome currently supports 
 ## SCSS background mixin
 
 Earlier this week, <Link href="raoulkramer.de/avif-and-webp-images-as-css-background-images/" text="Raoul Kramer" />
-posted an amazing SCSS background mixin that can be used to support AVIF and WebP.
+posted an SCSS background mixin that can be used to support AVIF and WebP.
 
 <Syntax language="scss">
   {`@mixin bg-url($url, $url2x: false, $webp1x: false, $webp2x: false, $avif1x: false, $avif2x: false) {
-  background-image: url($url);
-  @if $webp1x { .webp & { background-image: url($webp1x) }}
-  @if $avif1x { .avif & { background-image: url($avif1x) }}
-  @if $url2x {
-    @media
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-      background-image: url($url2x);
-      @if $webp2x {.webp & {background-image: url($webp2x)}}
-      @if $avif2x {.avif & {background-image: url($avif2x)}}
-    }
+ background-image: url($url);
+ @if $webp1x { .webp & { background-image: url($webp1x) }}
+ @if $avif1x { .avif & { background-image: url($avif1x) }}
+ @if $url2x {
+  @media
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+   background-image: url($url2x);
+   @if $webp2x {.webp & {background-image: url($webp2x)}}
+   @if $avif2x {.avif & {background-image: url($avif2x)}}
   }
+ }
 }`}
 </Syntax>
 
 ## Future implementation
 
-The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property will enable us to specify different image formats. **The browser renders the first image format supported by the browser.**  
-The following example shows how type() can deliver multiple images in high-quality and older formats that are more widely used. Note that the AVIF is shown first, as both pictures have the same resolution. JPEG, which comes second, is automatically deleted in user agents that support AVIF images.  
+The World Wide Web Consortium (W3C) is developing the CSS Images Module Level 4, which allows us to define the image type. The image-set property will enable us to specify different image formats. **The browser renders the first image format supported by the browser.**
+The following example shows how type() can deliver multiple images in high-quality and older formats that are more widely used. Note that the AVIF is shown first, as both pictures have the same resolution. JPEG, which comes second, is automatically deleted in user agents that support AVIF images.
 However, older user agents ignore AVIF images because they know they do not support image / avif files and instead select JPEG images.
 
 <Syntax language="css">
   {`background-image:
-  image-set(
-    "zebra.avif" type("image/avif"),
-    "zebra.webp" type("image/webp"),
-    "zebra.png" type("image/png")
-  );`}
+ image-set(
+  "zebra.avif" type("image/avif"),
+  "zebra.webp" type("image/webp"),
+  "zebra.png" type("image/png")
+ );`}
 </Syntax>
 
 Currently, 90% of browsers support image-set but do not yet support type declaration. This is a brand-new feature for CSS4. Until browsers support this feature, we must use JavaScript to detect AVIF and WebP support.

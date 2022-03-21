@@ -54,20 +54,20 @@ With effect from 15 December 2020, ImageKit will begin rolling out support for a
 
 ### Forcing AVIF
 
-ImageKit offers a format parameter that allows you to force an image to be displayed in any format. In order to convert an image to AVIF format, you should add the transformation parameter f-avif to the URL of the image. Then, you can use the HTML picture tag, as shown in the example below, to load AVIF images on browsers that support that format, and fallback to other formats on devices that aren't supported.
+ImageKit offers a format parameter that allows you to force an image to be displayed in any format. To convert an image to AVIF format, you should add the transformation parameter f-avif to the URL of the image. Then, you can use the HTML picture tag, as shown in the example below, to load AVIF images on browsers that support that format, and fallback to other formats on devices that aren't supported.
 
 <Syntax language="html">
   {`<img
-  src="img.jpg/q_auto,f_auto,w_680/file.jpg"
-  srcset="img.jpg?tr=f-avif"
-  sizes="(max-width: 768px) 100vw, 768px"
-  alt="imagekit example" width="1920" height="1080" loading="lazy" decoding="async"
-  >`}
+ src="img.jpg/q_auto,f_auto,w_680/file.jpg"
+ srcset="img.jpg?tr=f-avif"
+ sizes="(max-width: 768px) 100vw, 768px"
+ alt="imagekit example" width="1920" height="1080" loading="lazy" decoding="async"
+ >`}
 </Syntax>
 
 ### Automatic optimization to AVIF format
 
-As well as identifying the image formats supported by the requesting device, ImageKit can analyze the input image for content to determine the best output format. A technique such as this always ensures the smallest possible output size for an image without compromising the image's quality. The following URL, for example, delivers the optimized image in AVIF format on Chrome 85+, WebP format on Firefox, and JPG format on Safari. You will not have to change the URL of the image or make any changes to our HTML in order to support the AVIF format using ImageKit. You willneed to attach your existing image server or storage such as AWS S3, Google Cloud Storage, Azure, etc. or upload your images to ImageKit's media library to begin using ImageKit to deliver images on your website.
+As well as identifying the image formats supported by the requesting device, ImageKit can analyze the input image for content to determine the best output format. A technique such as this ensures the smallest possible output size for an image without compromising the image's quality. The following URL, for example, delivers the optimized image in AVIF format on Chrome 85+, WebP format on Firefox, and JPG format on Safari. You will not have to change the URL of the image or make any changes to our HTML to support the AVIF format using ImageKit. You willneed to attach your existing image server or storage such as AWS S3, Google Cloud Storage, Azure, etc. or upload your images to ImageKit's media library to begin using ImageKit to deliver images on your website.
 
 <Syntax language="html">
   {`<img src="imagekit.jpg?tr=w-300,h-300" alt="automatic-example"/>`}

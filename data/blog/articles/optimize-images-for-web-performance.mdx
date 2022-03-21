@@ -128,7 +128,7 @@ It consists of three main components that optimize the page experience.
 
 #### 1. Largest Contentful Paint (LCP)
 
-LCP is the period during which the most significant content element in the viewport is made visible as soon as the user requests the URL. It is an important, user-centric metric for **measuring the perceived load speed**. It marks the point in the timeline where the page's main content is likely to have been loaded. This is important because it tells the reader that the URL isloading and the page is helpful.
+LCP is the period during which the most significant content element in the viewport is made visible as soon as the user requests the URL. It is an important, user-centric metric for **measuring the perceived load speed**. It marks the point in the timeline where the page's main content is likely to have been loaded. This is important because it tells the reader that the URL is loading and the page is helpful.
 
 **Images are one of the most important types of elements that are considered for the LCP**. LCP is primarily influenced by slow servers, load times of resources and client-side rendering. Optimizing your LCP will demonstrate that your page is usable and that content is displayed quickly. We will do so by reducing bytes, caching and lazy loading.
 
@@ -136,9 +136,9 @@ LCP is the period during which the most significant content element in the viewp
 
 The FID metric helps measure your user's first impression of the interactivity and responsiveness of your website. FID is a crucial, user-centered measure of load responsiveness. It quantifies the experience users feel when trying to interact with non-responsive pages - it ensures that the site is usable.
 
-The first impression users have of how quickly your website is can be measured with First Contentful Paint (FCP). But how fast your website can paint pixels on the screen ispart of the story. Equally important is **how responsive your website reacts** when users try to interact with these pixels. If you have ever tried clicking within an input box and nothing happens, then you are familiar with the frustration that can be caused by large input delays.
+The first impression users have of how quickly your website is can be measured with First Contentful Paint (FCP). But how fast your website can paint pixels on the screen is part of the story. Equally important is **how responsive your website reacts** when users try to interact with these pixels. If you have ever tried clicking within an input box and nothing happens, then you are familiar with the frustration that can be caused by large input delays.
 
-FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser isable to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques, **we will reduce FID through reduced (main-thread) CPU usage. **
+FID measures the time from the first time a user interacts with a page, i.e., when they click a link or tap on a button, to the time when the browser is able to process event handlers in response to that interaction. This measurement is taken from whatever interactive element that the user clicks on first. By using our techniques, **we will reduce FID through reduced (main-thread) CPU usage. **
 
 #### 3. Cumulative Layout Shift (CLS)
 
@@ -198,7 +198,7 @@ If your target audience falls into one of the unsupported browser / device categ
 
 #### (Not) Using GIF
 
-Most platforms that host short videos do not use GIFs because **animated GIFs can belarge**. Twitter, for instance, converts animated GIFs to video file formats such as MP4 to significantly reduce the total file size. Even GIPHY, an online directory and search engine that provides users with access to short loop videos without audio, uses
+Most platforms that host short videos do not use GIFs because **animated GIFs can be large**. Twitter, for instance, converts animated GIFs to video file formats such as MP4 to significantly reduce the total file size. Even GIPHY, an online directory and search engine that provides users with access to short loop videos without audio, uses
 MP4 video files.
 
 Fortunately, this is one of the areas where you can achieve significant results with relatively little effort. By converting large GIFs to videos, you can reduce your bandwidth requirements. Animated GIFs have three main features that a video must replicate:
@@ -215,15 +215,15 @@ Luckily, you can recreate these behaviors using the video element.
 
 #### Using PNG
 
-The Portable Network Graphics PNGs format was best used when saving graphics with limited colors. **Logos and icons are good examples of images that would use the .png image file format.** Simple graphics with few colors can be saved as .png files to create high-quality images with low file sizes that are perfect for use on a website. This format is higher-quality than JPG images, so it is usually used for graphical images with more complicated designs.
+The Portable Network Graphics PNGs format was best used when saving graphics with limited colors. **Logos and icons are good examples of images that would use the .png image file format.** Simple graphics with few colors can be saved as .png files to create high-quality images with low file sizes that are perfect for use on a website. This format is higher-quality than JPG images, so it is used for graphical images with more complicated designs.
 
-PNG's main advantage was that it also provides transparent image backgrounds that can be overlaid on colored backgrounds. The compromise is that PNG images are larger than JPG images, so **their use will have a much worse impact on loading time**. However, since newer file formats support transparency and a good compression rate, you should never use PNG.
+PNG's main advantage was that it also provides transparent image backgrounds that can be overlaid on colored backgrounds. The compromise is that PNG images are larger than JPG images, so **their use will have a much worse impact on loading time**. However, since newer file formats support transparency and a good compression rate, you should not use PNG.
 
 #### Using JPG
 
 JPG has done an excellent job in keeping file sizes small over the last 20 years. It uses lossy compression, which allows **dynamic compromise between quality and file size**. It is by far the most widely used image format in the world, as it is supported byevery digital device and software.
 
-Although there are several other file formats that already surpass JPG in every aspect, the fact that it is supported everywhere makes it a durable format. **It can be assumed that JPG is dying outslowly and will be replaced by AVIF or JPEGXL in the future**.
+Although there are several other file formats that already surpass JPG in every aspect, the fact that it is supported everywhere makes it a durable format. **It can be assumed that JPG is dying out slowly and will be replaced by AVIF or JPEGXL in the future**.
 
 Until then, it is best to use JPGs on your site for fallback support if your visitors browsers do not support the latest image formats. Fortunately, Mozilla Research has developed mozjpeg for the file size of your images, a production-quality JPEG encoder that is compressiong images while maintaining compatibility with the vast majority of decoders used. Utilizing it will **save around 15% of the high file size **that jpg has in comparison to newer formats.
 
@@ -241,7 +241,7 @@ WebP is a modern image format developed by Google to provide superior lossless a
 
 In addition to better compression, the format also **supports transparency **and is therefore a good substitute for PNG.
 
-Browser support for WebP isuniversal at 95%. You will need to provide a PNG or JPEG image for other browser support. Instructions on how to do this can be found at the end of this chapter.
+Browser support for WebP is universal at 95%. You will need to provide a PNG or JPEG image for other browser support. Instructions on how to do this can be found at the end of this chapter.
 
 #### Using AVIF
 
@@ -255,7 +255,7 @@ A modern image format optimized for web environments. <Link href="jpegxl.io/" te
 
 Opt for JPG as a general fallback, followed by WebP, which is better and has broad support, followed by AVIF, which is the latest active fileformat withless support.
 
-To implement this progressive improvement for AVIF, **use the picture element**. The actual img element is nested in the picture. Until recently, it was relatively difficult toencode AVIF images on the server side, but with the latest version of libraries like sharp it is now trivial.
+To implement this progressive improvement for AVIF, **use the picture element**. The actual img element is nested in the picture. Until recently, it was relatively difficult toencode AVIF images on the server side, but with the latest version of libraries like sharp it is trivial.
 
 <Syntax language="html">
   {`<picture>
@@ -277,11 +277,11 @@ To implement this progressive improvement for AVIF, **use the picture element**.
 
 ## 2) Efficiently encode images
 
-##### Summary: Always compress images. Find a good compromise between the quality settings and compression of images. Use lossless compression for photography, lossy for everything else. Images shouldn’t look blurry or pixelated.
+##### Summary: Compress images. Find a good compromise between the quality settings and compression of images. Use lossless compression for photography, lossy for everything else. Images shouldn’t look blurry or pixelated.
 
 When you look at your page requests, **images are likely to account for the majority of your total page size** compared to HTML, CSS, or JavaScript files. If these images are uncompressed, they waste bandwidth and increase page load times, as the browser has to spend more time downloading.
 
-Uncompressed images are likely to be served inhigh quality, resulting in a large file size. The larger the image, the more time the browser spends downloading, further increasing the waiting time for your visitors to the page. If this is done for multiple images on your page, file sizes can increase significantly and result in aslow page. **Efficient image encoding reduces your image file and thus the page size and helps to speed up page loading. **
+Uncompressed images are likely to be served inhigh quality, resulting in a large file size. The larger the image, the more time the browser spends downloading, further increasing the waiting time for your visitors to the page. If this is done for multiple images on your page, file sizes can increase significantly and result in as low page. **Efficient image encoding reduces your image file and thus the page size and helps to speed up page loading. **
 
 ### Lossy vs. lossless compression
 
@@ -312,7 +312,7 @@ One of the most worthwhile optimizations you can make in the interest of web per
 
 Ideally, your site should **never provide images larger than the version rendered on the user's screen**. For optimum website performance, images should be as large as they are needed to fill their "containers," based on your page layout.
 
-Slide show images, for example, are usually wider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger willresult in wasted bytes and slow the page's loading time. **
+Slide show images, for example, arewider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger willresult in wasted bytes and slow the page's loading time. **
 
 The main strategy for providing correspondingly large images is called "responsive images." With responsive images, you generate multiple versions of each image and then specify which version to use in which scenario.
 
@@ -323,7 +323,7 @@ Therefore, **it is crucial to first determine the image dimensions to know how w
 - 540px for other mobile devices, as an additional step
 - 360px for the most common mobile devices
 
-Yes, there are a lot of mobile devices with 412 / 414 pixels, but the additional conversion reduces the file size by less than a few kilobytes, which is fine because we don't want to flood our servers with billions of images.
+Yes, there are many mobile devices with 412 / 414 pixels, but the additional conversion reduces the file size by less than a few kilobytes, which is fine because we don't want to flood our servers with billions of images.
 
 Of course, **the above exampleworks for images within a fixed width container**. If you want a full width image, consider creating your images with typical screen widths such as 2560px, 1920px or 1366px.
 
@@ -331,7 +331,7 @@ Of course, **the above exampleworks for images within a fixed width container**.
 
 We use the attributes **srcset** and **sizes** as shown below. The w selector tells the browser which URL to use based on the physical pixels that would be used if the image was drawn to the user's device given the width calculated from the sizes attribute.
 
-Hereby, the browser always downloads the smallest possible image that provides the user with the best image quality. Or it selects a smaller image if the user has, for example, opted for somedata saving mode. Provide more source elements with srcsets for browsers thatsupport older image formats.
+Hereby, the browser downloads the smallest possible image that provides the user with the best image quality. Or it selects a smaller image if the user has, for example, opted for somedata saving mode. Provide more source elements with srcsets for browsers that support older image formats.
 
 <Syntax language="html">
   {`<picture>
@@ -372,9 +372,9 @@ This is a well-understood technique for using an image horizontally up to its ma
 <Syntax language="html">
   {`<style>
  img {
-  max-width: 100%;
-  height: auto;
-  width: 100% /* if you like to resize the image to the width of the container */
+ max-width: 100%;
+ height: auto;
+ width: 100% /* if you like to resize the image to the width of the container */
  }
 </style>
 <img height="853" width="1280" … />`}
@@ -382,7 +382,7 @@ This is a well-understood technique for using an image horizontally up to its ma
 
 ### b) Use explicit width and height on image elements
 
-Always **include width and height size** attributes to your images and video elements. This approach ensures that the browser can allocate the right amount of space in the document while loading the image. Image and /or video elements that are not explicitly declared with height and width attributes are usually re-dimensioned using CSS.
+Always **include width and height size** attributes to your images and video elements. This approach ensures that the browser can allocate the right amount of space in the document while loading the image. Image and /or video elements that are not explicitly declared with height and width attributes arere-dimensioned using CSS.
 
 In this case, the browser candetermine the dimensions and allocate space to them after downloading the "non-large images" and / or videos.
 
@@ -420,7 +420,7 @@ It also allows for faster interactions with the content on the screen. Pretty ne
 
 <Syntax language="html">{`<style>
  img {
-  content-visibility: auto;
+ content-visibility: auto;
  }
 </style>`}</Syntax>
 
@@ -534,7 +534,7 @@ Thanks for reading the article! Have fun implementing all the features mentioned
 
 ## All Image optimization tools
 
-There are a lot of tools and programs out there, both premium and free, that you can use to optimize your images. Some give you the tools to perform your own optimizations and others do the work for you.
+There are many tools and programs out there, both premium and free, that you can use to optimize your images. Some give you the tools to perform your own optimizations and others do the work for you.
 
 #### Image editors
 

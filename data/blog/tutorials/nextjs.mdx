@@ -56,9 +56,9 @@ You must make sure that `next.config.js` includes the following:
 
 <Syntax language="javascript">
   {`module.exports = {
-  images: {
-    formats: ['image/avif', 'image/webp']
-  }
+ images: {
+  formats: ['image/avif', 'image/webp']
+ }
 }`}
 </Syntax>
 
@@ -81,18 +81,18 @@ To use the Next.js image component, you add the image file to your project direc
 <Syntax language="javascript">
   {`import Image from 'next/image'
 (..)
-  <Image
-    src="/yourmum.jpg"
-    alt="Picture of your mum"
-    width={9001}
-    height={500}
-  />
+ <Image
+  src="/yourmum.jpg"
+  alt="Picture of your mum"
+  width={9001}
+  height={500}
+ />
 (..)`}
 </Syntax>
 
 ## CSS Images
 
-Until this point, if you rely heavily on CSS images, you can use the third-party plugin with Next.js called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" />. It has many additional features, and it ** supports loading images with CSS**, which isuseful. However, the plugin does not support AVIF andopts for WebP. Even though the author released news on a new version following a canary branch with promised AVIF support, the development has not been continued as of August 2020.
+Until this point, if you rely heavily on CSS images, you can use the third-party plugin with Next.js called <Link text="next-optimized-images" href="github.com/cyrilwanner/next-optimized-images" />. It has many additional features, and it ** supports loading images with CSS**, which is useful. However, the plugin does not support AVIF andopts for WebP. Even though the author released news on a new version following a canary branch with promised AVIF support, the development has not been continued as of August 2020.
 
 ## How do we at avif.io deal with AVIF support?
 
@@ -125,31 +125,31 @@ const webpQuality = { quality: 50, reductionEffort: 6 };
 const avifQuality = { quality: 45, speed: 1 };
 const sizes = [1440, 720, 360];
 fs.readdir(input, (err, files) => {
-  console.log("Found " + files.length + " files. Converting now, please be patient..");
-  files.forEach((file) => {
-    function convert(size) {
-      let fileShort = path.parse(file).name;
-      sharp(input + file)
-        .jpeg(jpgQuality)
-        .resize({ width: size })
-        .toFile(output + fileShort + "-" + size + ".jpg");
-      sharp(input + file)
-        .webp(webpQuality)
-        .resize({ width: size })
-        .toFile(output + fileShort + "-" + size + ".webp");
-      sharp(input + file)
-        .avif(avifQuality)
-        .resize({ width: size })
-        .toFile(output + fileShort + "-" + size + ".avif");
-    }
-    if (file.endsWith(".png") || file.endsWith(".jpg") || file.endsWith(".jpeg")) {
-      for (let i = 0; i < sizes.length; i++) {
-        convert(sizes[i]);
-      }
-    }
-  });
+ console.log("Found " + files.length + " files. Converting now, please be patient..");
+ files.forEach((file) => {
+  function convert(size) {
+   let fileShort = path.parse(file).name;
+   sharp(input + file)
+    .jpeg(jpgQuality)
+    .resize({ width: size })
+    .toFile(output + fileShort + "-" + size + ".jpg");
+   sharp(input + file)
+    .webp(webpQuality)
+    .resize({ width: size })
+    .toFile(output + fileShort + "-" + size + ".webp");
+   sharp(input + file)
+    .avif(avifQuality)
+    .resize({ width: size })
+    .toFile(output + fileShort + "-" + size + ".avif");
+  }
+  if (file.endsWith(".png") || file.endsWith(".jpg") || file.endsWith(".jpeg")) {
+   for (let i = 0; i < sizes.length; i++) {
+    convert(sizes[i]);
+   }
+  }
+ });
 });
 `}
 </Syntax>
 
-Keep in mind that this issuitable for website without many images, as it significantly increases build time. A way to bypass that could be creating an own sharp API and using <Link text="Incremental Static Regeneration." href="www.youtube.com/watch?v=nrfuN_Hyd3Y" />
+Keep in mind that this is suitable for website without many images, as it significantly increases build time. A way to bypass that could be creating an own sharp API and using <Link text="Incremental Static Regeneration." href="www.youtube.com/watch?v=nrfuN_Hyd3Y" />

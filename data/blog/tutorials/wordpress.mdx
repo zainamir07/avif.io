@@ -66,13 +66,13 @@ relatedPosts:
 
 ## No official support
 
-There is no official AVIF support. **WordPress recently started to support WebP files with the 5.8 update called Tatum**, released to the public on July 20, 2021. This update is a good indication that WordPresskeeps other file formats in mind. However, since it took more than a decade to support WebP, we don't expect support for AVIF to be implemented soon.
+There is no official AVIF support. **WordPress recently started to support WebP files with the 5.8 update called Tatum**, released to the public on July 20, 2021. This update is a good indication that WordPress keeps other file formats in mind. However, since it took more than a decade to support WebP, we don't expect support for AVIF to be implemented soon.
 
 **WordPress needs AVIF support for two reasons:**
 
 1. Technicians and end-users often have to deal with page load speed problems with this CMS. Thus, AVIF can contribute to faster loading without causing any quality loss due to its minimal file size.
 
-2. WordPress is the world's most dominant CMS, with over 455 million websites in 2020. This means that WordPress powers about 35% of the web. Further statistics of WordPress show that in November 2020, over 409 million people view more than 20 billion pages every month.
+2. WordPress is the world's most dominant CMS, with over 455 million websites in 2020. This means WordPress powers about 35% of the web. Further statistics of WordPress show that in November 2020, over 409 million people viewed more than 20 billion pages every month.
 
 <Image src="wordpress-usage" alt="graph showcasing how popular WordPress is" />
 
@@ -80,13 +80,14 @@ There is no official AVIF support. **WordPress recently started to support WebP 
 
 "Sorry, this file type is not permitted for security reasons."
 
-Since version 4.7, the WordPress core has implemented a security check for uploading files. WordPress checks the file extension of your uploaded files and rejects files that do not match their pattern. You experience the same behavior when trying to upload SVGs.
+Since version 4.7, the WordPress core has implemented a security check for uploading files. WordPress checks the file extension of your uploaded files and rejects files which do not match their pattern. You experience the same behavior when trying to upload SVGs.
 
 The same applies to modern image formats. **To date, WordPress does not support viewing or uploading AVIF images or other modern formats natively.**
 
-We could argue that AVIF is a new extension. Considering that WebP is more than ten years old and wasrecently adopted, the question arises whether WordPress will ever add support for modern image formats. Fortunately, there are several ways around this security check.
+We could argue AVIF is a new extension. Considering WebP is more than ten years old and was recently adopted, the question arises whether WordPress will ever add support for modern image formats. Fortunately, there are several ways around this security check.
 
 Nowadays, many plugin solutions exist from **image CDN providers to automatically convert your uploaded images to modern formats** on the fly.
+
 We can also disable the security check for uploading AVIF files if you want to do the manual work.
 
 ## Using an image CDN Plugin
@@ -154,7 +155,7 @@ ImageEngine offers a free 30 day trial with no credit card required. You can del
 
 ### Shortpixel
 
-Shortpixel offers many plans, from a free plan for 150 image conversions per month to a plan that scales up to an unlimited amount. They automatically scale down large images and are compatible with other WordPress plugins like WooCommerce. They also come with a Cloudflare integration and automated backup solutions.
+Shortpixel offers many plans, from a free plan for 150 image conversions per month to a plan scaling up to an unlimited amount. They automatically scale down large images and are compatible with other WordPress plugins like WooCommerce. They also come with a Cloudflare integration and automated backup solutions.
 
 <Link href="shortpixel.com/" text="Homepage" />
 {" · "}
@@ -236,7 +237,7 @@ Gumlet auto-resizes and compresses images. They offer multiple plans, including 
 
 By automating the delivery process, Cloudimage makes your images look high-quality and load rapidly regardless of bandwidth by delivering them in the best possible format (WebP, AVIF, optimized JPEG), resolution, and quality. Plans start at a free price and scale as demand goes higher.
 
-Update: The plugin hasn't been testet with the latest 3 major releases of WordPress. It may have compatibility issues.
+Update: The plugin hasn't been tested with the latest 3 major releases of WordPress. It may have compatibility issues.
 
 <Link href="www.cloudimage.io/en/home" text="Homepage" />
 {" · "}
@@ -261,7 +262,7 @@ Adam Silverstein, a Developer Relations Engineer at Google who regularly contrib
 
 ## Manually uploading
 
-WordPress restricts files that do not match its list of Internet media types, also known as content types or mime-types. The MIME type is a two-part identifier for file formats and format content transferred on the Internet. It is pretty simple to explain: A media file consists of a type and a subtype that defines content and file extension. An HTML file has the mime-type text/html, and a jpg has the mime-type image/jpeg.
+WordPress restricts files that do not match its list of Internet media types, also known as content types or mime-types. The MIME type is a two-part identifier for file formats and format content transferred on the Internet. It is simple to explain: A media file consists of a type and a subtype that defines content and file extension. An HTML file has the mime-type text/html, and a jpg has the mime-type image/jpeg.
 
 <Image src="mimetype" alt="example showing mime types" />
 WordPress uses these mime types. They have a list of files they allow and a list
@@ -270,7 +271,7 @@ mime types.
 
 ### Solution 1: Funtions.php
 
-Functions.php is a file that appears on every theme in WordPress and contains basic functionalities. You can open it by going to Appearance and choosing the Theme Editor. If a warning appears, confirm you know what you are doing. Select your active theme in the right sidebar, and below you will find all theme files listed, including functions.php.
+Functions.php is a file appearing on every theme in WordPress and contains basic functionalities. You can open it by going to Appearance and choosing the Theme Editor. If a warning appears, confirm you know what you are doing. Select your active theme in the right sidebar, and below you will find all theme files listed, including functions.php.
 
 <Image src="functionsphp" alt="place where the functions.php is located" />
 Click to open the file and scroll down to the bottom. Create a new line after the
@@ -279,13 +280,13 @@ like you upload any other image. If you wish to add more support for all the new
 image formats, copy the code below.
 <Syntax language="php">
   {`function allow_modern_images( $mime_types ) {
-  $mime_types['heic'] = 'image/heic';
-  $mime_types['heif'] = 'image/heif';
-  $mime_types['heics'] = 'image/heic-sequence';
-  $mime_types['heifs'] = 'image/heif-sequence';
-  $mime_types['avif'] = 'image/avif';
-  $mime_types['avifs'] = 'image/avif-sequence';
-  return $mime_types;
+ $mime_types['heic'] = 'image/heic';
+ $mime_types['heif'] = 'image/heif';
+ $mime_types['heics'] = 'image/heic-sequence';
+ $mime_types['heifs'] = 'image/heif-sequence';
+ $mime_types['avif'] = 'image/avif';
+ $mime_types['avifs'] = 'image/avif-sequence';
+ return $mime_types;
 }
 add_filter( 'upload_mimes', 'allow_modern_images');`}
 </Syntax>
@@ -307,7 +308,7 @@ To quote: WordPress relies primarily on name-based validation when deciding whet
 
 ### Solution 4: Editing wp-config.php
 
-This solution is meant to be used with caution, since it completely disables the mime type check.
+This solution is meant to be used with caution since it disables the mime type check.
 
 Open _wp-config.php_ located in your WordPress root installation folder.
 

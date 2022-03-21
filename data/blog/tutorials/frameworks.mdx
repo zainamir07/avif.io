@@ -69,10 +69,10 @@ This is the code we used to display the image below in React and Next.js:
 
 <Syntax language="html">
   {`<picture>
-    <source srcSet="/images/cloudflare-stats.avif" type="image/avif" />
-    <source srcSet="/images/cloudflare-stats.webp" type="image/webp" />
-    <img src="/images/cloudflare-stats.jpg" alt="avif in frameworks" />
-  </picture>`}
+  <source srcSet="/images/cloudflare-stats.avif" type="image/avif" />
+  <source srcSet="/images/cloudflare-stats.webp" type="image/webp" />
+  <img src="/images/cloudflare-stats.jpg" alt="avif in frameworks" />
+ </picture>`}
 </Syntax>
 <Image src="react-avif" alt="using avif in react" />
 <Image src="angular-avif" alt="using avif in angular" />
@@ -83,9 +83,9 @@ In some cases, especially with older versions, and when using webpack, you may e
 
 <Syntax language="html">
   {`
-  Module parse failed: Unexpected character ' ' (1:0) You may need an
-  appropriate loader to handle this file type, currently no loaders are
-  configured to process this fail. See https://webpack.js.org/concepts#loaders
+ Module parse failed: Unexpected character ' ' (1:0) You may need an
+ appropriate loader to handle this file type, currently no loaders are
+ configured to process this fail. See https://webpack.js.org/concepts#loaders
 `}
 </Syntax>
 
@@ -93,12 +93,12 @@ Simply add the detection for AVIF files to the fileloader in your webpack.config
 
 <Syntax language="javascript">
   {`module.exports = {
-  module: {
-    rules: [{
-        test: /\.(png|jpe?g|gif|webp|avif)$/i,
-        use: [{loader: 'file-loader'}]
-      }]
-  }
+ module: {
+  rules: [{
+    test: /\.(png|jpe?g|gif|webp|avif)$/i,
+    use: [{loader: 'file-loader'}]
+   }]
+ }
 }`}
 </Syntax>
 

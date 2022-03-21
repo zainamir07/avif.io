@@ -65,13 +65,13 @@ One of these contenders is AVIF. Unlike its predecessors, this image format seem
 
 ## Quality and Limits
 
-As an aging file format, quality is where GIF falls incredibly short in today’s modern web landscape. With a **color depth of 8 bits, GIF candisplay 256 shades of color**, severely limiting the quality of images encoded in the format. If you’ve ever wondered why there’s lots of color banding when you see animated GIFs, this is a big reason why.
+As an aging file format, quality is where GIF falls incredibly short in today’s modern web landscape. With a **color depth of 8 bits, GIF can display 256 shades of color**, severely limiting the quality of images encoded in the format. If you’ve ever wondered why there’s lots of color banding when you see animated GIFs, this is a big reason why.
 
 When you convert to GIF, the image encoder does its best to approximate the color. Still, with such a limited range of available shades, it isn’t easy to create a GIF and preserve the color reproduction.
 
 **AVIF has a max color depth of 12 bit, providing a palette of 4096 colors.** AVIF supports a high dynamic range (HDR) and includes support for wide color gamuts.
 
-As an image format derived from a video codec, **AVIF has an image resolution limit of of 65536 x 65536 pixels.** It is however possible to push past this limit through independently encoded tiles. But, the edges of each tile (at max 8K resolution for each) suffer from nasty artifacts, making AVIF unsuitable for large resolution images.
+As an image format derived from a video codec, **AVIF has an image resolution limit of 65536 x 65536 pixels.** It is however possible to push past this limit through independently encoded tiles. But, the edges of each tile (at max 8K resolution for each) suffer from nasty artifacts, making AVIF unsuitable for large resolution images.
 
 **GIF images can reach a theoretical max resolution of 2,147,483,647 x 2,147,483,647** pixels or 2500 megapixels. However, as we will make clear in the next section, most users will find it hard to work with ‘HD’ images, let alone ones surpassing the 8K limit AVIF has.
 
@@ -85,7 +85,7 @@ GIF’s poor compression is one of the driving forces behind why GIF images tend
 
 ## Speed
 
-GIF as an animated image format is relatively slow to encode and decode. This is due to – in part - the inefficiency of its compression algorithm, LZW. This, compounded with the more significant data size inherent to GIF, **makes this image formatslow**.
+GIF as an animated image format is relatively slow to encode and decode. This is due to – in part - the inefficiency of its compression algorithm, LZW. This, compounded with the more significant data size inherent to GIF, **makes this image format slow**.
 
 AVIF supports parallelism. Instead of limiting the task of encoding or decode an image to one CPU core, parallelization allows multiple cores to work in parallel with each other to speed up encode and decode times. GIF is an entirely sequential codec and cantake advantage of one CPU core.
 
@@ -97,13 +97,13 @@ As it can utilize multi-core processors, **AVIF is significantly faster to encod
 
 AVIF uses **sequencing to provide animation.** Based on a video codec, this image format works great to encode motion pictures.
 
-While GIF was the first image format to support animation, it is left in the dust by AVIF in some key areas. **AVIF uses interframe compression** wherethe differences between frames are encoded – a feature inherent in video codecs to avoid astronomical data sizes. **GIF uses intraframe compression** for its animated images. Each frame is encoded in total, **leading to much larger file size.**
+While GIF was the first image format to support animation, it is left in the dust by AVIF in some key areas. **AVIF uses interframe compression** where the differences between frames are encoded – a feature inherent in video codecs to avoid astronomical data sizes. **GIF uses intraframe compression** for its animated images. Each frame is encoded in total, **leading to much larger file size.**
 
 **AVIF supports transparency, whereas GIF does not**. The overlay feature of AVIF allows images to have multiple layers. This is fantastic for animated images as a separate layer can be animated (for example text or a graphic), preserving crispness and improving file sizes.
 
 ## Support
 
-Browser support is where AVIF falls a little short compared to GIF. With GIF’s age anduniversal use for animated images, **all browsers include support for GIF images** (and even many instant messaging apps have native support for GIF with the advent of GIF keyboards).
+Browser support is where AVIF falls short compared to GIF. With GIF’s age and universal use for animated images, **all browsers include support for GIF images** (and even many instant messaging apps have native support for GIF with the advent of GIF keyboards).
 
 AVIF is a new format and therefore hasn’t been adopted fully. Google Chrome has supported AVIF since Chrome 85. At the same time, Opera and Samsung Internet have also implemented full support for still and sequenced images. Firefox doesn’t officially support AVIF, but still image support can be enabled in about:config. This, however, doesn’t include animated image support.
 
@@ -115,7 +115,7 @@ AVIF changes that. This relatively new format’s significant low-fidelity compr
 
 ## Summary for Marketeers
 
-Animated GIFs have hada resurgence in recent years. We expect the demand for animated imagesto grow as the web becomes more interactive. However, the GIF format **is too limited to deliver high-quality animated images**, and that’s where AVIF steps in to solve this problem.
+Animated GIFs have hada resurgence in recent years. We expect the demand for animated images to grow as the web becomes more interactive. However, the GIF format **is too limited to deliver high-quality animated images**, and that’s where AVIF steps in to solve this problem.
 
 **Animated AVIF images have much smaller file sizes and can take advantage of multi-core processors**. The strong compression codec and encoding power combined make AVIF animations much faster to load. The reduced file size alleviates the stress of bandwidth limits and data caps. This is because AVIF images can be compressed much more efficiently while still retaining the image quality. This allows image makers to upload better quality and higher resolution animated images without worrying about data size limitations.
 
@@ -123,7 +123,7 @@ The biggest downside currently to AVIF is its lack of support from some key web 
 
 ## Video formats still win
 
-Since animated image files can belarge, most platforms that host short videos do not use GIFs or other animated image files. For example, Twitter converts animated GIF files to video file formats such as MP4 in order to reduce the overall file size. In fact, even GIPHY, an online video search engine and directory specializing in short loops without audio, uses MP4 video files.
+Since animated image files can be large, most platforms that host short videos do not use GIFs or other animated image files. For example, Twitter converts animated GIF files to video file formats such as MP4 to reduce the overall file size. In fact, even GIPHY, an online video search engine and directory specializing in short loops without audio, uses MP4 video files.
 
 The good news is that this is another area where significant results can be achieved with relatively little effort. You can reduce your bandwidth requirements by converting large GIFs to videos. A video must be able to reproduce the following three characteristics of animated GIFs:
 
@@ -139,4 +139,4 @@ Fortunately, these behaviors are easily replicated using the video element.
 
 ## Conclusion
 
-It’s been35 years for GIF, but it’s now high time to replace the aging image format. AVIF has all the qualities to be a strong contender for its replacement for animated image delivery. Still, the web will most likely keep favoring real video formats due to their compression to quality ratio. Thanks to the latest av1 codec that AVIF has derived from, we can expect different formats such as webm to fall behind and av1 take over the dominant place in web video delivery.
+It’s been 35 years for GIF, but it’s high time to replace the aging image format. AVIF has all the qualities to be a strong contender for its replacement for animated image delivery. Still, the web will most likely keep favoring real video formats due to their compression to quality ratio. Thanks to the latest av1 codec that AVIF has derived from, we can expect different formats such as webm to fall behind and av1 take over the dominant place in web video delivery.
