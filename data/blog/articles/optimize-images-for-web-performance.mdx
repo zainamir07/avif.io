@@ -221,11 +221,11 @@ PNG's main advantage was that it also provides transparent image backgrounds tha
 
 #### Using JPG
 
-JPG has done an excellent job in keeping file sizes small over the last 20 years. It uses lossy compression, which allows **dynamic compromise between quality and file size**. It is by far the most widely used image format in the world, as it is supported byevery digital device and software.
+JPG has done an excellent job in keeping file sizes small over the last 20 years. It uses lossy compression, which allows **dynamic compromise between quality and file size**. It is by far the most widely used image format in the world, as it is supported by every digital device and software.
 
 Although there are several other file formats that already surpass JPG in every aspect, the fact that it is supported everywhere makes it a durable format. **It can be assumed that JPG is dying out slowly and will be replaced by AVIF or JPEGXL in the future**.
 
-Until then, it is best to use JPGs on your site for fallback support if your visitors browsers do not support the latest image formats. Fortunately, Mozilla Research has developed mozjpeg for the file size of your images, a production-quality JPEG encoder that is compressiong images while maintaining compatibility with the vast majority of decoders used. Utilizing it will **save around 15% of the high file size **that jpg has in comparison to newer formats.
+Until then, it is best to use JPGs on your site for fallback support if your visitors browsers do not support the latest image formats. Fortunately, Mozilla Research has developed mozjpeg for the file size of your images, a production-quality JPEG encoder that is compressing images while maintaining compatibility with the vast majority of decoders used. Utilizing it will **save around 15% of the high file size **that jpg has in comparison to newer formats.
 
 #### Using SVG
 
@@ -233,7 +233,7 @@ Vector images are images that do not use pixel data, but **use mathematical code
 
 A vector-format logo can be printed on a business card, and the same file can be used to print the logo on a billboard. The quality of the image will be perfect without data loss of any size. SVGs are often used for logos or backgrounds that do not use many different colors.
 
-**SVG images are responsive across devices**, meaning that symbols and graphs are displayed correctly regardless of how they are viewed. They are typicallysmall file sizes and help to increase loading speed. Use them for every image that has precise geometric shapes and doesn't rely too much on color.
+**SVG images are responsive across devices**, meaning that symbols and graphs are displayed correctly regardless of how they are viewed. They are typically small file sizes and help to increase loading speed. Use them for every image that has precise geometric shapes and doesn't rely too much on color.
 
 #### Using WebP
 
@@ -312,7 +312,7 @@ One of the most worthwhile optimizations you can make in the interest of web per
 
 Ideally, your site should **never provide images larger than the version rendered on the user's screen**. For optimum website performance, images should be as large as they are needed to fill their "containers," based on your page layout.
 
-Slide show images, for example, arewider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger willresult in wasted bytes and slow the page's loading time. **
+Slide show images, for example, arewider; blog images are medium in size at a width equal to the page width minus the sidebar; thumbnails are smaller. For each image on the page, we compare the size of the rendered image with the size of the actual image. **Anything larger will result in wasted bytes and slow the page's loading time. **
 
 The main strategy for providing correspondingly large images is called "responsive images." With responsive images, you generate multiple versions of each image and then specify which version to use in which scenario.
 
@@ -398,11 +398,11 @@ More importantly, **the width and height attributes are used to calculate the as
 
 Deferring offscreen images or lazy loading is the practice of **delaying the loading of images that are not in your visitors viewport** until they are needed. Generally, when the browser loads a page, it downloads all the requested images, even those that are not immediately visible to your visitors.
 
-Effectively, the browser spends time loading images that are not needed when you first load the page, which can affect your visitors" experience. Lazy-loading offscreen images is considered an industry best-practice, as it ensures that the browserdownloads the images that areneeded to display them in the viewport.
+Effectively, the browser spends time loading images that are not needed when you first load the page, which can affect your visitors" experience. Lazy-loading offscreen images is considered an industry best-practice, as it ensures that the browser downloads the images that are needed to display them in the viewport.
 
 This helps to **save the essential bandwidth**, especially on mobile devices, resulting in a fast-perceived page. Key metrics such as Time to Interactive TTI and Speed Index SI can be improved by implementing a lazy-loading strategy.
 
-Browsers such as Chrome and Firefox support native lazy-loading for images embedded in your HTML. Adding **loading="lazy"** to the img instructs the browser not to fetch the image until it moves closer to the screen and is likely tobe rendered.
+Browsers such as Chrome and Firefox support native lazy-loading for images embedded in your HTML. Adding **loading="lazy"** to the img instructs the browser not to fetch the image until it moves closer to the screen and is likely to be rendered.
 
 <Syntax language="html">{`<img src="image.jpg" loading="lazy">`}</Syntax>
 
@@ -438,7 +438,7 @@ Browser caching instructs the visitor’s browser to **save certain files on the
 
 However, after each subsequent visit, such a visitor would download the logo file from the local cache of the website, prov ided that browser caching is enabled. Browser caching can be used for images and many other file types such as statistical resources and object data.
 
-You want your cache headers to look like this cache control: public, max-age = 31536000. max-age = 31536000 is the **fallback to the cache for one year**. Public is important to allow your CDN to cache the image and deliver it from the edge. Butuse that if it is appropriate from a privacy perspective.
+You want your cache headers to look like this cache control: public, max-age = 31536000. max-age = 31536000 is the **fallback to the cache for one year**. Public is important to allow your CDN to cache the image and deliver it from the edge. But use that if it is appropriate from a privacy perspective.
 
 ### Use an image CDN
 
@@ -482,7 +482,7 @@ So how can you use **SEO image optimization for better visibility **? There are 
 
 ### 1. Optimize image file names
 
-Storing images with any default filenames can be secondary - but this random string of letters and numbers can hurt you in the long run. Before uploading an image to your website, it is important to **make sure the filename is relevant**, because search engines notsearch the text on your pages - they also search image filenames and other attributes.
+Storing images with any default filenames can be secondary - but this random string of letters and numbers can hurt you in the long run. Before uploading an image to your website, it is important to **make sure the filename is relevant**, because search engines not search the text on your pages - they also search image filenames and other attributes.
 
 ### 2. Optimize title
 
@@ -490,7 +490,7 @@ Similar to filenames, picture titles are another attribute we are talking about.
 
 ### 3. Insert Alt-Text
 
-Alt text or alternative text is text that appears in the place of an image when the image is not loaded. Alt text is important notfor screen readers, but also for SEO, because it helps crawlers understand the image file and the content of a page to provide more accurate search results.
+Alt text or alternative text is text that appears in the place of an image when the image is not loaded. Alt text is important not for screen readers, but also for SEO, because it helps crawlers understand the image file and the content of a page to provide more accurate search results.
 
 If you use WordPress or a number of popular website builders, you will be able to enter the title and alt text of an image once you upload it. In basic HTML, you canuse the alt attribute. Use your best judgement andlabel images when the information is useful to visitors.
 
