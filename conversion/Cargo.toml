@@ -19,7 +19,7 @@ default = ["console_error_panic_hook", "build-wasm"]
 
 [dependencies]
 avif-serialize = "0.7.5"
-image = {version = "0.24.0", default-features = false, features = ["gif", "jpeg", "ico", "png", "pnm", "tga", "tiff", "bmp", "hdr", "dxt", "dds", "farbfeld"]}
+image = {version = "0.24.1", default-features = false, features = ["gif", "jpeg", "ico", "png", "pnm", "tga", "tiff", "bmp", "hdr", "dxt", "dds", "farbfeld"]}
 js-sys = "0.3.56"
 rav1e = {git = "https://github.com/justinschmitz97/rav1e", branch = "master", default-features = false}
 wasm-bindgen = {version = "0.2.79"}

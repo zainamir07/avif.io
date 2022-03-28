@@ -55,7 +55,7 @@ const Post = ({
               {support}
             </div>
           </div>
-          <div className="relative mb-0 font-bold text-white leading-snug">
+          <div className="relative mb-0 font-bold leading-snug text-white">
             {keyword || keyword || ""}
           </div>
           <div className="relative text-white text-tiny">{description}</div>
