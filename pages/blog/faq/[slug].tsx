@@ -94,12 +94,6 @@ const contentTable = [
 const sources = [
   ["/blog/articles/avif-faq/", "1. AVIF - The Full Guide and FAQ"],
   ["aomedia.org/", "2. AVIF AOMedia Specification"],
-  ["en.wikipedia.org/wiki/AVIF", "3. AVIF Wikipedia"],
-  ["jakearchibald.com/2020/avif-has-landed/", "4. Jake Archibald Article"],
-  [
-    "netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4",
-    "5. AVIF Netflix article",
-  ],
 ];
 
 export default function BlogFaq(props: Props) {
@@ -154,7 +148,7 @@ export default function BlogFaq(props: Props) {
               aria-label="chapters"
               className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
             >
-              <h4 className="mb-2 bold">More questions</h4>
+              <h4 className="mb-2 bold">More questions about AVIF</h4>
               <ol className="list-none">
                 {contentTable.map((entry, i) => (
                   <li
