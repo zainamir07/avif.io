@@ -12,7 +12,6 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import readingTime from "reading-time";
 import remarkSlug from "remark-slug";
-import Link from "@components/Link";
 
 import { postFilePaths, BLOG_POSTS_PATH, getHeadings } from "@utils/mdx";
 
