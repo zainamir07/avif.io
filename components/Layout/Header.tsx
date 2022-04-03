@@ -49,7 +49,7 @@ export default function Header() {
           ? "Your browser supports AVIF.🥳"
           : "Your browser does not support AVIF.😞"}
       </div>
-      <div className="flex flex-wrap justify-between items-center py-2 px-1 md:flex-row md:px-1">
+      <div className="flex flex-wrap justify-between items-center py-1 px-1 md:flex-row md:px-1">
         <nav className="flex flex-wrap justify-center items-center text-base md:mr-auto">
           <Link className="p-1 md:p-3" text="Blog & Tutorials" href="/blog/" />
         </nav>

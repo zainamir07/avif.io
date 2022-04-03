@@ -120,7 +120,7 @@ const Index: NextPage<PostsPageProps> = ({
   const sliderButtons = sliderImages.map((item: any, index: any) => (
     <button
       key={index}
-      style={{ backgroundImage: `url(/comparison/${item[0]}.avif)` }}
+      style={{ backgroundImage: `url(/images/${item[0]}.avif)` }}
       className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
         image == item[0] ? "border-4 border-pink-700" : "opacity-50"
       }`}
@@ -207,7 +207,7 @@ const Index: NextPage<PostsPageProps> = ({
           ></button>
           <div
             className={
-              "absolute top-0 left-full ml-4 w-24 h-auto p-4 bg-bg-400 rounded-md ease-out transform transition-all duration-500 origin-left" +
+              "absolute top-0 left-full ml-4 w-24 h-auto p-3 bg-bg-400 rounded-md ease-out transform transition-all duration-500 origin-left" +
               (settingsBoxOpen
                 ? " opacity-100 translate-x-0 scale-100"
                 : " opacity-0 -translate-x-12 scale-0 ")
@@ -244,8 +244,8 @@ const Index: NextPage<PostsPageProps> = ({
           <div className="flex mt-2 mb-2">{sliderButtons}</div>
           <div className="relative">
             <ReactCompareImage
-              leftImage={`/comparison/${image}.avif`}
-              rightImage={`/comparison/${image}.jpg`}
+              leftImage={`/images/${image}.avif`}
+              rightImage={`/images/${image}.jpg`}
               leftImageAlt="jpg image"
               rightImageAlt="avif image"
               sliderLineWidth={4}

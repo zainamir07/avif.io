@@ -26,7 +26,7 @@ const posts3 = [
 const Column = (props: any) => {
   return (
     <div className="px-2 w-full md:w-1/2 lg:w-1/4">
-      <h6 className="mt-6 mb-3 font-bold text-white">{props.title}</h6>
+      <h6 className="mt-6 mb-1 font-bold text-white">{props.title}</h6>
       <nav className="list-none">
         {props.posts.map((item: any, index: any) => (
           <Link

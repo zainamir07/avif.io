@@ -43,6 +43,13 @@ export default function PostCloud() {
       <h5 className="inline-block py-1 px-2 mt-4 mb-0 font-bold rounded-md">
         FAQ
       </h5>
+      <div>
+        <Link
+          className="inline-block mt-2 px-2 py-1 font-bold text-red-600 rounded-md text-tiny bg-red-1000"
+          text="AVIF - The full FAQ"
+          href="/blog/articles/avif-faq/"
+        />
+      </div>
       <ol>
         {posts.map((source: any, index: any) => (
           <li

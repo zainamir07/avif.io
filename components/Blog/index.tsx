@@ -21,7 +21,7 @@ export default function Blog(props: Props) {
   return (
     <Layout meta={meta}>
       <main>
-        <div className="relative px-2 pt-8 pb-6 md:py-6 md:px-4 lg:pt-12 lg:pb-8 bg-gradient">
+        <div className="relative px-2 pt-8 pb-6 md:py-6 md:px-4 lg:pt-12 lg:pb-6 bg-gradient">
           <div className="mt-4 md:mt-0">
             <h1 className="mt-2 md:mt-4 md:text-4xl">{meta.title}</h1>
             <Breadcrumbs />
