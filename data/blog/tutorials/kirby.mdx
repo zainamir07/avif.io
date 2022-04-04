@@ -7,7 +7,7 @@ subcategory: cms
 support: full support
 url: blog/tutorials/kirby/
 datePublished: "2021-09-21"
-dateModified: "2021-10-08"
+dateModified: "2022-04-04"
 sources:
   - vi.wikipedia.org/wiki/%C4%90%E1%BB%8Bnh_d%E1%BA%A1ng_t%E1%BA%ADp_tin_h%C3%ACnh_%E1%BA%A3nh
   - getkirby.com/releases/3.6
@@ -17,6 +17,7 @@ sources:
   - twitter.com/getkirby?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
   - github.com/getkirby
   - oliverbrux.de/blog/kirby-cms-das-cms-meiner-wahl
+  - github.com/johannschopplich/kirby-blurry-placeholder
 tags:
   - image format
   - kirby
@@ -57,3 +58,11 @@ Release 3.6 of Kirby focuses largely on performance enhancements. By reducing th
 As browser support for WebP and AVIF improves, optimizing images becomes much more straightforward. Their image processor will handle both formats. You can convert an existing JPEG, GIF, or PNG file into a WebP or AVIF file using the thumb method.
 
 More information is available <Link href="getkirby.com/releases/3.6/" text="here"/>.
+
+## Placeholder Support
+
+Progressive image loading is implemented in this plugin, which improves user experience. Small thumbnails that inherit the aspect ratio of their source image are blurred for a better placeholder than solid colors without sacrificing payload.
+
+The src attribute of an image element contains an inline, URI-encoded SVG. The blurred image is wrapped in an SVG to avoid rasterizing the filter. Large photos are only requested when they are within the viewport.
+
+You can find more instructions in the <Link text="Github repository" href="github.com/johannschopplich/kirby-blurry-placeholder"/>.

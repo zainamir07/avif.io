@@ -7,7 +7,7 @@ export default function BlogPosts(props: any) {
     if (support === "full support") {
       return "bg-green-700";
     } else if (support === "partial support") {
-      return "bg-yellow-400";
+      return "bg-yellow-700";
     } else if (support === "no support") {
       return "bg-red-400";
     }
