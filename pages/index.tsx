@@ -14,7 +14,7 @@ import cog from "@assets/settings.svg";
 
 //Page Layout & Blog
 import { InferGetStaticPropsType, NextPage } from "next";
-import ReactCompareImage from "react-compare-image";
+const ReactCompareImage = dynamic(() => import("react-compare-image"));
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -166,6 +166,8 @@ const Index: NextPage<PostsPageProps> = ({
 
   const filterTypes = [listSubCategories, listSupport];
 
+  const [support, setSupport] = useState(false);
+
   return (
     <Layout meta={meta}>
       <section className="px-2 mt-8 text-center md:px-3 md:mt-12">
@@ -239,43 +241,45 @@ const Index: NextPage<PostsPageProps> = ({
         ></div>
       </section>
       <Advantages />
-      <section className="container px-2">
-        <div className="relative">
-          <div className="flex mt-2 mb-2">{sliderButtons}</div>
+      {support && (
+        <section className="container px-2">
           <div className="relative">
-            <ReactCompareImage
-              leftImage={`/images/${image}.avif`}
-              rightImage={`/images/${image}.jpg`}
-              leftImageAlt="jpg image"
-              rightImageAlt="avif image"
-              sliderLineWidth={4}
-              handle={
-                <div
-                  role="button"
-                  className="py-4 px-2 bg-pink-700 rounded-xl"
-                  tabIndex={0}
-                  id="handle"
-                />
-              }
-              sliderLineColor="rgba(255,255,255,0.2)"
-              sliderPositionPercentage={0.5}
-            />
+            <div className="flex mt-2 mb-2">{sliderButtons}</div>
+            <div className="relative">
+              <ReactCompareImage
+                leftImage={`/images/${image}.avif`}
+                rightImage={`/images/${image}.jpg`}
+                leftImageAlt="jpg image"
+                rightImageAlt="avif image"
+                sliderLineWidth={4}
+                handle={
+                  <div
+                    role="button"
+                    className="py-4 px-2 bg-pink-700 rounded-xl"
+                    tabIndex={0}
+                    id="handle"
+                  />
+                }
+                sliderLineColor="rgba(255,255,255,0.2)"
+                sliderPositionPercentage={0.5}
+              />
 
-            <p
-              className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
-              id="avif"
-            >
-              {"avif · " + imageSize + "kb"}
-            </p>
-            <p
-              className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
-              id="jpg"
-            >
-              {"jpg · " + imageSize + "kb"}
-            </p>
+              <p
+                className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
+                id="avif"
+              >
+                {"avif · " + imageSize + "kb"}
+              </p>
+              <p
+                className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
+                id="jpg"
+              >
+                {"jpg · " + imageSize + "kb"}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       <aside className="px-2 mx-auto max-w-screen-md">
         <Ad />
       </aside>
