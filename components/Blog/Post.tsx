@@ -1,14 +1,6 @@
 import Link from "next/link";
 
-const Post = ({
-  slug,
-  category,
-  subcategory,
-  url,
-  keyword,
-  description,
-  support,
-}: any) => {
+const Post = ({ slug, category, url, keyword, description, support }: any) => {
   function getDot(support: any) {
     if (support === "full support") {
       return "bg-green-700";

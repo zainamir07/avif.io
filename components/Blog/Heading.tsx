@@ -39,7 +39,7 @@ export default function Heading(props: Props) {
       <CustomTag
         id={level === 2 || level === 3 ? trimmedText : undefined}
         className={`${
-          level === 2 ? "mt-6  mb-3 md:text-3xl md:mt-12 md:mb-2 " : ""
+          level === 2 ? "mt-6 mb-3 md:text-3xl md:mt-12 md:mb-2 " : ""
         } ${level === 3 ? "mt-6 " : ""} ${
           level === 4 ? "mt-6 mb-3 " : ""
         } group items-center flex relative rounded-sm`}

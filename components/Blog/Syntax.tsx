@@ -38,8 +38,7 @@ export default function Syntax(props: Props) {
       </SyntaxHighlighter>
       <div className="flex flex-col justify-center items-center">
         <button
-          className="flex absolute top-0 left-full z-50 justify-center items-center py-1 px-2 text-white bg-pink-700 rounded-l-none rounded-r-md cursor-pointer hover:bg-pink-800 copycode group"
-          style={{ wordBreak: "keep-all" }}
+          className="flex absolute top-0 left-full z-50 justify-center items-center py-1 px-2 text-white bg-pink-700 rounded-l-none rounded-r-md cursor-pointer hover:bg-pink-800 [word-break:keep-all] copycode group"
           onClick={copyToClipboard}
         >
           Copy
