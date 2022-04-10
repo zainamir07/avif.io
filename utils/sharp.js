@@ -8,12 +8,9 @@ const output = "../public/img/";
 const input = "../images/";
 const webpQuality = { quality: 64, reductionEffort: 5 };
 const avifQuality = { quality: 51, speed: 1, chromaSubsampling: "4:2:0" };
-/* Thanks to Malte Ubl for the quality settings research */
 const sizes = [768, 576, 384];
 fs.readdir(input, (err, files) => {
-  console.log(
-    "Found " + files.length + " files. Converting now, please be patient.."
-  );
+  console.log("Found " + files.length + " files. Converting now..");
   files.forEach((file) => {
     let fileShort = path.parse(file).name;
     function convert(size) {

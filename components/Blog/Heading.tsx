@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import useRouter from "next/router";
 import { useEffect } from "react";
 import { ContentTableEntry } from "./ContentTable";
 import Ad from "@components/Blog/Ad";
