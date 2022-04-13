@@ -165,6 +165,14 @@ const Index: NextPage<PostsPageProps> = ({
 
   const filterTypes = [listSubCategories, listSupport];
 
+  new Promise(() => {
+    const image = new Image();
+    image.onerror = () => setSupport(false);
+    image.onload = () => setSupport(true);
+    image.src =
+      "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
+  }).catch(() => false);
+
   const [support, setSupport] = useState(false);
 
   return (
@@ -240,7 +248,7 @@ const Index: NextPage<PostsPageProps> = ({
         ></div>
       </section>
       <Advantages />
-      {support && (
+      {support == true && (
         <section className="container px-2">
           <div className="relative">
             <div className="flex mt-2 mb-2">{sliderButtons}</div>
