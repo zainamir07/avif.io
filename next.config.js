@@ -15,10 +15,6 @@ module.exports = withBundleAnalyzer(
   withMDX({
     swcMinify: true,
     reactStrictMode: true,
-    i18n: {
-      locales: ["en"],
-      defaultLocale: "en",
-    },
     webpack: (config, { dev, isServer }) => {
       // Replace React with Preact only in client production build
       if (!dev && !isServer) {

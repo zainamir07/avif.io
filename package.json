@@ -10,7 +10,7 @@
     "analyze": "npx cross-env ANALYZE=true next build",
     "lint": "rustywind . --write && prettier --write . && next lint --fix --dir pages --dir components",
     "wasm": "cd conversion && npx cross-env NODE_ENV=production webpack",
-    "release": "next export && firebase deploy"
+    "release": "npm run build && next export && firebase deploy"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.1.1",

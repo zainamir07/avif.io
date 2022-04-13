@@ -7,7 +7,7 @@ class Layout extends Document<Layout> {
   }
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head />
         <body className="w-full text-base text-white bg-bg-700">
           <Main />
