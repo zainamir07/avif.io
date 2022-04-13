@@ -7,8 +7,6 @@ import prettyBytes from "pretty-bytes";
 import { ReactElement, useEffect, useState } from "react";
 import Tooltip from "@components/Home/Tooltip";
 
-import arrow from "@assets/arrow.svg";
-
 export interface ConversionProps {
   file: File;
   converter: Converter;
@@ -187,7 +185,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
             <span
               className="absolute inset-0 z-50 text-white bg-center bg-no-repeat transition-all duration-300 ease-in transform rotate-180 hover:scale-110 hover:translate-y-1"
               style={{
-                backgroundImage: `url(${arrow})`,
+                backgroundImage: `url(/assets/arrow.svg)`,
                 backgroundSize: "16px",
               }}
             ></span>

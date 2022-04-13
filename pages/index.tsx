@@ -10,7 +10,6 @@ import Dropzone from "@components/Home/Dropzone";
 import SettingsBox, { Settings } from "@components/Home/SettingsBox";
 import Converter from "@utils/converter";
 import { uniqueId } from "@utils/utils";
-import cog from "@assets/settings.svg";
 
 //Page Layout & Blog
 import { InferGetStaticPropsType, NextPage } from "next";
@@ -197,7 +196,7 @@ const Index: NextPage<PostsPageProps> = ({
               settingsBoxOpen ? " rotate-180" : "rotate-0"
             }`}
             style={{
-              backgroundImage: `url(${cog})`,
+              backgroundImage: `url(/assets/settings.svg)`,
               backgroundSize: 24,
               filter: `${
                 settingsBoxOpen

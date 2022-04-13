@@ -1,28 +1,17 @@
 import "atropos/css";
 import Atropos from "atropos/react";
 
-import visualizer1 from "@assets/visualizer-1.svg";
-import visualizer3 from "@assets/visualizer-3.svg";
-import visualizer4 from "@assets/visualizer-4.svg";
-import visualizer6 from "@assets/visualizer-6.svg";
-import visualizer7 from "@assets/visualizer-7.svg";
-import visualizer8 from "@assets/visualizer-8.svg";
-import visualizer9 from "@assets/visualizer-9.svg";
-import visualizer10 from "@assets/visualizer-10.svg";
-import visualizer11 from "@assets/visualizer-11.svg";
-import visualizer12 from "@assets/visualizer-12.svg";
-
 const advantages = [
-  [visualizer1, "reduces file size of images by 20-90%"],
-  [visualizer3, "developed by tech giants like Google"],
-  [visualizer4, "open to use and royalty-free"],
-  [visualizer6, "already at 70% browser support"],
-  [visualizer7, "supports transparency to replace PNG"],
-  [visualizer8, "supports animations to replace GIFs"],
-  [visualizer9, "embraces HDR and 12-bit color depth"],
-  [visualizer10, "future-proof VP-10 codec technology"],
-  [visualizer11, "latest GPUs support hardware decoding"],
-  [visualizer12, "full of features for smartphones"],
+  ["visualizer-1", "reduces file size of images by 20-90%"],
+  ["visualizer-3", "developed by tech giants like Google"],
+  ["visualizer-4", "open to use and royalty-free"],
+  ["visualizer-6", "already at 70% browser support"],
+  ["visualizer-7", "supports transparency to replace PNG"],
+  ["visualizer-8", "supports animations to replace GIFs"],
+  ["visualizer-9", "embraces HDR and 12-bit color depth"],
+  ["visualizer-10", "future-proof VP-10 codec technology"],
+  ["visualizer-11", "latest GPUs support hardware decoding"],
+  ["visualizer-12", "full of features for smartphones"],
 ];
 
 export default function Advantages() {
@@ -52,7 +41,7 @@ export default function Advantages() {
               className="z-0 mb-4 h-6 bg-center bg-no-repeat bg-contain rounded-lg transition-all duration-500 ease-out origin-center background-no-repeat group-hover:scale-200"
               data-atropos-offset="10"
               style={{
-                backgroundImage: `url(${advantage[0]})`,
+                backgroundImage: `url(/assets/${advantage[0]}.svg)`,
               }}
             ></div>
             <div
@@ -64,7 +53,7 @@ export default function Advantages() {
             <div
               className="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover md:bg-no-repeat"
               style={{
-                backgroundImage: `url(${advantage[0]})`,
+                backgroundImage: `url(/assets/${advantage[0]}.svg)`,
                 opacity: "0.025",
                 filter: "blur(4px)",
               }}

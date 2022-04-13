@@ -1,9 +1,5 @@
 import Link from "@components/Link";
-import NextLink from "next/link";
 import { useEffect, useState } from "react";
-
-import github from "@assets/github.svg";
-import discord from "@assets/discord.svg";
 
 export default function Header() {
   const [isFixed, setIsFixed] = useState(true);
@@ -59,7 +55,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             style={{
-              backgroundImage: `url(${github})`,
+              backgroundImage: `url(/assets/github.svg)`,
               backgroundSize: 24,
             }}
             href="https://github.com/justinschmitz97/avif.io/"
@@ -70,7 +66,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             style={{
-              backgroundImage: `url(${discord})`,
+              backgroundImage: `url(/assets/discord.svg)`,
               backgroundSize: 24,
             }}
             href="https://discord.com/invite/6w42YpF5hm"

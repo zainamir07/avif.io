@@ -13,6 +13,7 @@ const posts2 = [
   ["AVIF in Safari", "/blog/tutorials/safari/"],
   ["AVIF in JS Frameworks", "/blog/tutorials/frameworks/"],
   ["AVIF FAQ", "/blog/articles/avif-faq/"],
+  ["AVIF Browser Support", "/blog/articles/avif-browser-support/"],
   ["Image Web Perf", "/blog/articles/optimize-images-for-web-performance/"],
 ];
 

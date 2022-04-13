@@ -1,5 +1,4 @@
 import { useDropzone } from "react-dropzone";
-import arrow from "@assets/arrow.svg";
 
 export interface DropzoneProps {
   onDrop(files: File[]): void;
@@ -68,7 +67,7 @@ export default function Dropzone(props: DropzoneProps) {
           <div
             className="relative z-50 w-full h-full bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url(${arrow})`,
+              backgroundImage: `url(/assets/arrow.svg)`,
             }}
           ></div>
           <div
