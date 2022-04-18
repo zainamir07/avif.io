@@ -12,7 +12,7 @@ import MDXComponents from "@components/MDXComponents";
 import Ad from "@components/Blog/Ad";
 import Head from "next/head";
 import { jsonLdScriptProps } from "react-schemaorg";
-import { QAPage } from "schema-dts";
+import { FAQPage } from "schema-dts";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const filePath = path.join(
@@ -106,14 +106,12 @@ export default function BlogFaq(props: Props) {
         <main>
           <Head>
             <script
-              {...jsonLdScriptProps<QAPage>({
+              {...jsonLdScriptProps<FAQPage>({
                 "@context": "https://schema.org",
-                "@type": "QAPage",
+                "@type": "FAQPage",
                 mainEntity: {
                   "@type": "Question",
                   name: meta.title,
-                  text: meta.title,
-                  answerCount: "1",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: meta.answer,
