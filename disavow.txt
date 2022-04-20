@@ -1,6 +1,5 @@
 domain:3gp.co.in
 domain:3gpvideos.pw
-domain:46.29.163.256
 domain:9vq.net
 domain:aadarsh.in
 domain:aahana.pw
