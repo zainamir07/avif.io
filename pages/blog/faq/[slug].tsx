@@ -13,39 +13,41 @@ import Ad from "@components/Blog/Ad";
 import Head from "next/head";
 import { jsonLdScriptProps } from "react-schemaorg";
 import { FAQPage } from "schema-dts";
+import { allFAQs } from "contentlayer/generated";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const filePath = path.join(
-    `${BLOG_POSTS_PATH}/faq`,
-    `${ctx.params?.slug}.mdx`
-  );
-  const source = fs.readFileSync(filePath);
-  const { data, content } = matter(source);
+  let contentLayersFaqObject = allFAQs.find((faq) => {
+    if (faq.slug.split("/")[1] == ctx.params?.slug) return true
+  })
+
+  const faqBody = contentLayersFaqObject ? contentLayersFaqObject.body.raw : ""
+
+  const { data, content } = matter(faqBody)
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkSlug, require("remark-code-titles")],
     },
     scope: data,
-  });
+  })
+
+  const {body, ...metadata} = contentLayersFaqObject? contentLayersFaqObject : {body: ""}
+
   return {
     props: {
       frontMatter: {
-        ...data,
+        ...metadata,
       },
-      source: mdxSource,
+      source: mdxSource
     },
-  };
-};
+  }
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = postFilePaths(`${BLOG_POSTS_PATH}/faq`)
-    .map((p) => p.replace(/\.mdx?$/, ""))
-    .map((slug) => ({ params: { slug } }));
   return {
-    paths,
+    paths: allFAQs.map((faq) => ({ params: { slug: faq.slug.split("/")[1] } })),
     fallback: false,
-  };
-};
+  }
+}
 
 interface Props {
   children: any;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Post = ({ slug, category, url, keyword, description, support }: any) => {
+const Post = ({ slug, category, keyword, description, support }: any) => {
   function getDot(support: any) {
     if (support === "full support") {
       return "bg-green-700";
@@ -21,9 +21,9 @@ const Post = ({ slug, category, url, keyword, description, support }: any) => {
   }
 
   return (
-    <Link href={slug ? `/blog/${category}/${slug}/` : `/` + url}>
+    <Link href={`/blog/${slug}`}>
       <a
-        href={slug ? `/blog/${category}/${slug}/` : `/` + url}
+        href={`/blog/${slug}`}
         tabIndex={0}
         className={`p-0 mt-1 md:mt-0 cursor-pointer group ${support}`}
       >

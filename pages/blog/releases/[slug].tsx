@@ -3,75 +3,63 @@ import {
   GetStaticProps,
   InferGetStaticPropsType,
   NextPage,
-} from "next";
-import path from "path";
-import glob from "glob";
-import fs from "fs";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import readingTime from "reading-time";
-import remarkSlug from "remark-slug";
+} from "next"
+import matter from "gray-matter"
+import { serialize } from "next-mdx-remote/serialize"
+import { MDXRemote } from "next-mdx-remote"
+import readingTime from "reading-time"
+import remarkSlug from "remark-slug"
 
-import { postFilePaths, BLOG_POSTS_PATH, getHeadings } from "@utils/mdx";
+import { getHeadings } from "@utils/mdx"
+import { getPost } from "@utils/allPosts"
 
-import MDXComponents from "@components/MDXComponents";
-import Blog from "@components/Blog";
-import ContentTable from "@components/Blog/ContentTable";
+import MDXComponents from "@components/MDXComponents"
+import Blog from "@components/Blog"
+import ContentTable from "@components/Blog/ContentTable"
+
+import { allReleases } from "contentlayer/generated"
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const filePath = path.join(
-    `${BLOG_POSTS_PATH}/releases`,
-    `${ctx.params?.slug}.mdx`
-  );
+  let contentLayersReleaseObject = allReleases.find((release) => {
+    if (release.slug.split("/")[1] == ctx.params?.slug) return true
+  })
 
-  const source = fs.readFileSync(filePath);
+  const releaseBody = contentLayersReleaseObject ? contentLayersReleaseObject.body.raw : ""
 
-  const { data, content } = matter(source);
-  const headings = await getHeadings(content);
+  const { data, content } = matter(releaseBody)
+  const headings = await getHeadings(releaseBody)
 
-  const mdxFiles = glob.sync("data/**/*.mdx");
-  const selectedPosts = data.relatedPosts.map((post: string) =>
-    mdxFiles.find((file) => file.indexOf(post) >= 0)
-  );
-
-  const relatedPosts = selectedPosts.map((post: string) => {
-    const file = path.join(process.cwd(), post);
-    const sourceFile = fs.readFileSync(file);
-    const { data } = matter(sourceFile);
-    return { ...data };
-  });
+  const selectedPosts = contentLayersReleaseObject?.relatedPosts
+  const relatedPosts = selectedPosts.map((postName: string) => (getPost(postName)))
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkSlug, require("remark-code-titles")],
     },
     scope: data,
-  });
+  })
+
+  const {body, ...metadata} = contentLayersReleaseObject? contentLayersReleaseObject : {body: ""}
 
   return {
     props: {
       frontMatter: {
         readingTime: readingTime(content),
-        ...data,
+        ...metadata,
       },
       source: mdxSource,
       headings,
       relatedPosts,
     },
-  };
-};
+  }
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = postFilePaths(`${BLOG_POSTS_PATH}/releases`)
-    .map((p) => p.replace(/\.mdx?$/, ""))
-    .map((slug) => ({ params: { slug } }));
-
   return {
-    paths,
+    paths: allReleases.map((release) => ({ params: { slug: release.slug.split("/")[1] } })),
     fallback: false,
-  };
-};
+  }
+}
 
 type PostDetailPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const PostDetail: NextPage<PostDetailPageProps> = ({

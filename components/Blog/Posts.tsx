@@ -24,12 +24,12 @@ export default function BlogPosts(props: any) {
 
   const listItems = posts.map(
     (
-      { slug, keyword, description, url, subcategory, category, support }: any,
+      { slug, keyword, description, url, subcategory, category, support }: any, // [WARNING] Possible dead code
       index: any
     ) => (
-      <Link href={slug ? `/${category}/${slug}/` : `/` + url} key={index}>
+      <Link href={`/${category}/${slug}`} key={index}>
         <a
-          href={slug ? `/${category}/${slug}/` : `/` + url}
+          href={`/${category}/${slug}`}
           tabIndex={0}
           className={`p-0 cursor-pointer group ${support}`}
         >
