@@ -1,9 +1,5 @@
-import fs from "fs";
-import path from "path";
 import { useState } from "react";
 import { InferGetStaticPropsType, NextPage } from "next";
-import matter from "gray-matter";
-import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Post from "@components/Blog/Post";
 import Layout from "@components/Layout";
 import Ad from "@components/Blog/Ad";

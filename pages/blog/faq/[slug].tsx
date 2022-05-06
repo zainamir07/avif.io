@@ -1,13 +1,10 @@
 import Layout from "@components/Layout";
 import Link from "@components/Link";
 import { GetStaticPaths, GetStaticProps } from "next";
-import path from "path";
-import fs from "fs";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import remarkSlug from "remark-slug";
-import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import MDXComponents from "@components/MDXComponents";
 import Ad from "@components/Blog/Ad";
 import Head from "next/head";
