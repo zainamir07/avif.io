@@ -11,8 +11,8 @@ import {
   allNews,
   allReleases,
   allTutorials,
-  AllTypes
-} from 'contentlayer/generated'
+  AllTypes,
+} from "contentlayer/generated";
 
 const meta = {
   blog: {
@@ -24,28 +24,30 @@ const meta = {
 };
 const getPosts = () => {
   const parsePosts = (serialisedDoc: any | AllTypes) => {
-    const { _id, body, ...data} = serialisedDoc // [OPTIMISATION] Omitting the body property to save on space
+    const { _id, body, ...data } = serialisedDoc;
     return {
-      ...data,
+      url: data.url ? data.url : "",
       support: data.support ? data.support : "",
       subcategory: data.subcategory ? data.subcategory : "",
-      keyword: data.keyword ? data.keyword : data.title
-    }
-  }
+      category: data.category ? data.category : "",
+      keyword: data.keyword ? data.keyword : "",
+      title: data.title ? data.title : "",
+      description: data.description ? data.description : "",
+    };
+  };
 
   return {
-    articles: allArticles.map((doc)=>parsePosts(doc)),
-    faqs: allFAQs.map((doc)=>parsePosts(doc)),
-    news: allNews.map((doc)=>parsePosts(doc)),
-    comparisons: allComparisons.map((doc)=>parsePosts(doc)),
-    tutorials: allTutorials.map((doc)=>parsePosts(doc)),
-    releases: allReleases.map((doc)=>parsePosts(doc)),
-  }
-
-}
+    articles: allArticles.map((doc) => parsePosts(doc)),
+    faqs: allFAQs.map((doc) => parsePosts(doc)),
+    news: allNews.map((doc) => parsePosts(doc)),
+    comparisons: allComparisons.map((doc) => parsePosts(doc)),
+    tutorials: allTutorials.map((doc) => parsePosts(doc)),
+    releases: allReleases.map((doc) => parsePosts(doc)),
+  };
+};
 
 export const getStaticProps = async () => {
-  const posts = getPosts()
+  const posts = getPosts();
 
   const articles = posts.articles;
   const comparisons = posts.comparisons;
@@ -83,7 +85,7 @@ export const getStaticProps = async () => {
       defaultFilteredPost,
       listSubCategories,
       listCategories,
-      listSupport
+      listSupport,
     },
   };
 };
@@ -100,7 +102,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
   listCategories,
   listSupport,
 }) => {
-  getPosts()
+  getPosts();
   const [filteredPost, setFilteredPost] = useState([]);
   const [filterKeyword, setFilterKeyword] = useState("");
   const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
@@ -165,10 +167,11 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                 <button
                   key={category}
                   onClick={() => handleSelectedPill(category)}
-                  className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${selectedCategoryPill === category
-                    ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
-                    : "bg-bg-500 text-gray-300"
-                    }`}
+                  className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                    selectedCategoryPill === category
+                      ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
+                      : "bg-bg-500 text-gray-300"
+                  }`}
                 >
                   {selectedCategoryPill === category && (
                     <span className="mr-1">✓</span>
@@ -182,14 +185,14 @@ const BlogAvif: NextPage<PostsPageProps> = ({
             <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
               {filteredPost.map((post: any) => (
                 <Post
-                  key={post.slug}
+                  key={post.keyword}
                   title={post.title}
                   description={post.description}
                   support={post.support}
                   category={post.category}
                   subcategory={post.subcategory}
                   keyword={post.keyword}
-                  slug={post.slug}
+                  url={post.url}
                 />
               ))}
             </div>
@@ -206,14 +209,14 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                     {post[1].map((post: any) => (
                       <Post
-                        key={post.slug}
+                        key={post.keyword}
                         title={post.title}
                         description={post.description}
                         support={post.support}
                         category={post.category}
                         subcategory={post.subcategory}
                         keyword={post.keyword}
-                        slug={post.slug}
+                        url={post.url}
                       />
                     ))}
                   </div>
@@ -222,12 +225,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   </aside>
                 </section>
               ))}
-            </>)}
+            </>
+          )}
         </div>
       </main>
     </Layout>
   );
 };
 
-
-export default BlogAvif
+export default BlogAvif;

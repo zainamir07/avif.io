@@ -1,5 +1,5 @@
 import Breadcrumbs from "@components/Blog/Breadcrumbs";
-import Posts from "@components/Blog/Posts";
+import Post from "@components/Blog/Post";
 import Questions from "@components/Blog/Questions";
 import PostCloud from "@components/Blog/PostCloud";
 import Sources from "@components/Blog/Sources";
@@ -9,12 +9,11 @@ import Layout from "@components/Layout";
 interface Props {
   meta: any;
   children: any;
-  posts: any;
+  posts?: any;
 }
 
 export default function Blog(props: Props) {
   const { meta, children, posts } = props;
-
   return (
     <Layout meta={meta}>
       <main>
@@ -24,15 +23,24 @@ export default function Blog(props: Props) {
         </header>
         <article className="container max-w-screen-md">{children}</article>
         <aside className="container max-w-screen-md">
-          <Sources sources={meta.sources} />
-          <Tags tags={meta.tags} />
-          <Questions questions={meta.questions} />
+          {meta.sources && <Sources sources={meta.sources} />}
+          {meta.tags && <Tags tags={meta.tags} />}
+          {meta.questions && <Questions questions={meta.questions} />}
           <PostCloud />
         </aside>
       </main>
-      <aside className="container max-w-screen-lg bg-bg-700">
-        <Posts posts={posts} />
-      </aside>
+      {posts && (
+        <aside className="container my-8 bg-bg-700">
+          <h3 className="mt-8 mb-2 text-xl font-bold capitalize">
+            Related articles
+          </h3>
+          <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post: any) => (
+              <Post {...post} key={post.slug} />
+            ))}
+          </div>
+        </aside>
+      )}
     </Layout>
   );
 }

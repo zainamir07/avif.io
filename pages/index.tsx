@@ -1,55 +1,75 @@
-import dynamic from "next/dynamic";
-
 //React
 import { ChangeEvent, useEffect, useState } from "react";
+import { InferGetStaticPropsType, NextPage } from "next";
 
 // Contentlayers
-import { allTutorials } from "contentlayer/generated"
+import { allTutorials } from "contentlayer/generated";
 
 //Converter
 import Conversion from "@components/Home/Conversion";
-const DownloadButton = dynamic(() => import("@components/Home/DownloadButton"));
+import DownloadButton from "@components/Home/DownloadButton";
 import Dropzone from "@components/Home/Dropzone";
 import SettingsBox, { Settings } from "@components/Home/SettingsBox";
 import Converter from "@utils/converter";
 import { uniqueId } from "@utils/utils";
 
 //Page Layout & Blog
-import { InferGetStaticPropsType, NextPage } from "next";
-const ReactCompareImage = dynamic(() => import("react-compare-image"));
-
 import Layout from "@components/Layout";
-const Tooltip = dynamic(() => import("@components/Home/Tooltip"));
-const Advantages = dynamic(() => import("@components/Home/Advantages"));
-const Post = dynamic(() => import("@components/Blog/Post"));
-const Ad = dynamic(() => import("@components/Blog/Ad"));
-
+import Tooltip from "@components/Home/Tooltip";
+import Advantages from "@components/Home/Advantages";
+import Post from "@components/Blog/Post";
+import Ad from "@components/Blog/Ad";
+import ImageComparison from "@components/Home/ImageComparison";
 
 interface FileWithId {
   file: File;
   id: number;
 }
 
+const getPosts = () => {
+  const parsePosts = (serialisedDoc: any) => {
+    const { _id, body, ...data } = serialisedDoc;
+    return {
+      url: data.url ? data.url : "",
+      support: data.support ? data.support : "",
+      subcategory: data.subcategory ? data.subcategory : "",
+      category: data.category ? data.category : "",
+      keyword: data.keyword ? data.keyword : "",
+      title: data.title ? data.title : "",
+      description: data.description ? data.description : "",
+    };
+  };
+
+  return {
+    tutorials: allTutorials.map((doc) => parsePosts(doc)),
+  };
+};
+
 export const getStaticProps = async () => {
-  const tutorials = allTutorials
+  const posts = getPosts();
+  const tutorials = posts.tutorials;
+  const defaultFilteredPost = [...tutorials];
 
   const listSubCategories = [
-    ...new Set([...tutorials].map((post) => post.subcategory)),
+    ...new Set(defaultFilteredPost.map((post) => post.subcategory)),
   ].filter(Boolean);
-
+  const listCategories = [
+    ...new Set(defaultFilteredPost.map((post) => post.category)),
+  ].filter(Boolean);
   const listSupport = [
-    ...new Set([...tutorials].map((post) => post.support)),
+    ...new Set(defaultFilteredPost.map((post) => post.support)),
   ].filter(Boolean);
 
   return {
     props: {
       tutorials,
+      defaultFilteredPost,
       listSubCategories,
+      listCategories,
       listSupport,
     },
   };
 };
-
 type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const Index: NextPage<PostsPageProps> = ({
   tutorials,
@@ -59,8 +79,7 @@ const Index: NextPage<PostsPageProps> = ({
   const [filteredPost, setFilteredPost] = useState([]);
   const [filterKeyword, setFilterKeyword] = useState("");
   const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
-  const [image, setImage] = useState("butterfly");
-  const [imageSize, setImageSize] = useState("18");
+
   const [converter, setConverter] = useState<Converter>();
   const [files, setFiles] = useState<FileWithId[]>([]);
   const [convertedFiles, setConvertedFiles] = useState<File[]>([]);
@@ -91,30 +110,6 @@ const Index: NextPage<PostsPageProps> = ({
     convertedFiles.push(file);
     setConvertedFiles([...convertedFiles]);
   }
-
-  const sliderImages = [
-    ["butterfly", "18"],
-    ["doggo", "44"],
-    ["partyhand", "18"],
-    ["party", "60"],
-    ["explosion", "23"],
-    ["vector", "35"],
-  ];
-
-  const sliderButtons = sliderImages.map((item: any, index: any) => (
-    <button
-      key={index}
-      style={{ backgroundImage: `url(/images/${item[0]}.avif)` }}
-      className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-        image == item[0] ? "border-4 border-pink-700" : "opacity-50"
-      }`}
-      onClick={() => {
-        setImage(`${item[0]}`);
-        setImageSize(`${item[1]}`);
-      }}
-      name={`avif vs jpg comparison image ${index + 1}: ${item[0]}`}
-    />
-  ));
 
   const handleSelectedPill = (category: string) => {
     if (category === selectedCategoryPill) {
@@ -148,36 +143,23 @@ const Index: NextPage<PostsPageProps> = ({
     datePublished: "2020-09-01",
   };
 
-  const filterTypes = [listSubCategories, listSupport];
-
-  new Promise(() => {
-    const image = new Image();
-    image.onerror = () => setSupport(false);
-    image.onload = () => setSupport(true);
-    image.src =
-      "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
-  }).catch(() => false);
-
-  const [support, setSupport] = useState(false);
-
   return (
     <Layout meta={meta}>
-      <section className="px-2 mt-8 text-center md:px-3 md:mt-12">
+      <section className="container mt-12 text-center">
         <h1>Convert images to AVIF for free, fast.</h1>
-        <div className="block justify-center mb-6 md:flex">
-          <h2 className="mt-0 mb-0 text-base font-normal">
+        <div className="justify-center mb-6 md:flex">
+          <h2 className="my-0 text-base font-normal">
             No data is sent. The magic happens in your browser.
           </h2>
           <Tooltip text="How?">
-            We use Rav1e, Rust, and WASM to convert your images clientside.
+            Rav1e, Rust, and WASM convert your images locally.
           </Tooltip>
         </div>
 
         <div
-          style={{ width: 720 }}
           data-transition-style="bouncingIn"
           className={
-            "relative mx-auto flex flex-col items-center justify-center max-w-full rounded-xl p-0 md:p-4 bg-white bg-opacity-5" +
+            "w-[720px] relative mx-auto flex flex-col items-center justify-center max-w-full rounded-xl p-0 md:p-4 bg-white bg-opacity-5" +
             (settingsBoxOpen ? " open" : "")
           }
         >
@@ -228,125 +210,79 @@ const Index: NextPage<PostsPageProps> = ({
       </section>
       <section className="hidden overflow-hidden px-3 mt-12 mb-4 max-w-screen-lg md:block">
         <div
-          className="absolute top-0 right-0 bottom-0 left-0 mx-auto w-3/5 rounded-full ease-in-out -z-1 bg-gradient blur-100"
+          className="absolute inset-0 mx-auto w-3/5 rounded-full ease-in-out -z-1 bg-gradient blur-100"
           data-transition-style="glow"
-        ></div>
+        />
       </section>
       <Advantages />
-      {support == true && (
-        <section className="container px-2">
-          <div className="relative">
-            <div className="flex mt-2 mb-2">{sliderButtons}</div>
-            <div className="relative">
-              <ReactCompareImage
-                leftImage={`/images/${image}.avif`}
-                rightImage={`/images/${image}.jpg`}
-                leftImageAlt="jpg image"
-                rightImageAlt="avif image"
-                sliderLineWidth={4}
-                handle={
-                  <div
-                    role="button"
-                    className="py-4 px-2 bg-pink-700 rounded-xl"
-                    tabIndex={0}
-                    id="handle"
-                  />
-                }
-                sliderLineColor="rgba(255,255,255,0.2)"
-                sliderPositionPercentage={0.5}
-              />
-
-              <p
-                className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
-                id="avif"
-              >
-                {"avif · " + imageSize + "kb"}
-              </p>
-              <p
-                className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
-                id="jpg"
-              >
-                {"jpg · " + imageSize + "kb"}
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-      <aside className="px-2 mx-auto max-w-screen-md">
+      <ImageComparison />
+      <aside className="mx-auto max-w-screen-md">
         <Ad />
       </aside>
-      <main className="p-2 md:p-4 archive blog">
-        <div className="mt-12 text-center">
+      <div className="container mt-12 text-center">
+        <div className="mx-auto text-base font-normal max-w-[768px]">
           <h3>How to use AVIF</h3>
-          <h4 className="m-auto mb-8 max-w-screen-md text-base font-normal">
-            Support is constantly rising across software and hardware. Thanks to
-            being royalty-free, companies can include the format without having
-            to deal with patents. We created articles for you on getting started
-            on all different types of browsers, operating systems, and software.
-            We didn&apos;t cover your software? Feel free to tell us on
-            support@avif.io, and we will write an article about it.
-          </h4>
-        </div>
-        <div className="container px-2">
+          Support is constantly rising across software and hardware. Thanks to
+          being royalty-free, companies can include the format without having to
+          deal with patents. Get started on all different types of browsers,
+          operating systems, and software.
           <input
             type="text"
             placeholder="🔎︎ Search all posts"
-            className="block relative py-3 px-3 pr-10 mt-1 mb-3 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+            className="block relative py-3 px-3 pr-10 my-4 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
             onChange={handleFilterByKeyword}
           />
-          {filterTypes.map((type: any, key: any) => (
-            <div className="mb-2" key={key}>
+          {[listSubCategories, listSupport].map((type: any, key: any) => (
+            <div className="flex gap-2 mb-2" key={key}>
               {type.map((category: any) => (
                 <button
                   key={category}
                   onClick={() => handleSelectedPill(category)}
-                  className={`inline-flex items-center px-2 py-0 mt-2 mr-2 py-0.5 rounded-sm font-normal cursor-pointer ${
+                  className={`px-2 py-0 rounded-sm font-normal ${
                     selectedCategoryPill === category
                       ? "bg-red-1000 border-transparent text-pink-700 hover:bg-indigo-700"
                       : "bg-bg-500 text-gray-300"
                   }`}
                 >
-                  {selectedCategoryPill === category && (
-                    <span className="mr-1">✓</span>
-                  )}
+                  {selectedCategoryPill === category && <span>✓</span>}
                   {category}
                 </button>
               ))}
             </div>
           ))}
-          <div className="grid grid-cols-1 gap-3 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-            {filterKeyword.length > 0 || filteredPost.length ? (
-              <>
-                {filteredPost.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </>
-            ) : (
-              <>
-                {tutorials.map((post: any) => (
-                  <Post
-                    key={post.slug}
-                    description={post.description}
-                    support={post.support}
-                    category={post.category}
-                    subcategory={post.subcategory}
-                    keyword={post.keyword}
-                    slug={post.slug}
-                  />
-                ))}
-              </>
-            )}
-          </div>
         </div>
-      </main>
+        <div className="grid grid-cols-1 gap-3 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          {filterKeyword.length > 0 || filteredPost.length ? (
+            <>
+              {filteredPost.map((post: any) => (
+                <Post
+                  key={post.keyword}
+                  description={post.description}
+                  support={post.support}
+                  category={post.category}
+                  subcategory={post.subcategory}
+                  keyword={post.keyword}
+                  url={post.url}
+                />
+              ))}
+            </>
+          ) : (
+            <>
+              {tutorials.map((post: any) => (
+                <Post
+                  key={post.keyword}
+                  description={post.description}
+                  support={post.support}
+                  category={post.category}
+                  subcategory={post.subcategory}
+                  keyword={post.keyword}
+                  url={post.url}
+                />
+              ))}
+            </>
+          )}
+        </div>
+      </div>
       <aside className="px-2 mx-auto max-w-screen-md">
         <Ad />
       </aside>
