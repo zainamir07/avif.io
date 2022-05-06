@@ -27,8 +27,8 @@ const getPosts = () => {
     const { _id, body, ...data} = serialisedDoc // [OPTIMISATION] Omitting the body property to save on space
     return {
       ...data,
-      support: data.support ? data.support : "", // [WARNING] Possible dead code
-      subcategory: data.subcategory ? data.subcategory : "", // [WARNING] Possible dead code
+      support: data.support ? data.support : "",
+      subcategory: data.subcategory ? data.subcategory : "",
       keyword: data.keyword ? data.keyword : data.title
     }
   }
@@ -83,8 +83,7 @@ export const getStaticProps = async () => {
       defaultFilteredPost,
       listSubCategories,
       listCategories,
-      listSupport,
-      // posts: listPostsByFolder as any, // [WARNING] Possible dead code
+      listSupport
     },
   };
 };
@@ -187,7 +186,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   title={post.title}
                   description={post.description}
                   support={post.support}
-                  // category={post.category}
+                  category={post.category}
                   subcategory={post.subcategory}
                   keyword={post.keyword}
                   slug={post.slug}
