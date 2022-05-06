@@ -17,7 +17,6 @@ export async function getStaticProps({ params }: { params: any }) {
   const post = allArticles.find((post) => post.slug === params.slug);
   const headings = await getHeadings(post!.body.raw);
   const relatedPosts = post!.relatedPosts.map((slug: string) => getPost(slug));
-  console.log(post);
   return { props: { post, headings, relatedPosts } };
 }
 
