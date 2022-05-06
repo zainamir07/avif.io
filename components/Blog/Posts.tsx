@@ -27,9 +27,9 @@ export default function BlogPosts(props: any) {
       { slug, keyword, description, url, subcategory, category, support }: any, // [WARNING] Possible dead code
       index: any
     ) => (
-      <Link href={`/${category}/${slug}`} key={index}>
+      <Link href={`/blog/${slug}`} key={index}>
         <a
-          href={`/${category}/${slug}`}
+          href={`/blog/${slug}`}
           tabIndex={0}
           className={`p-0 cursor-pointer group ${support}`}
         >
