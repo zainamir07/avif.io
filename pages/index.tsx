@@ -3,6 +3,9 @@ import dynamic from "next/dynamic";
 //React
 import { ChangeEvent, useEffect, useState } from "react";
 
+// Contentlayers
+import { allTutorials } from "contentlayer/generated"
+
 //Converter
 import Conversion from "@components/Home/Conversion";
 const DownloadButton = dynamic(() => import("@components/Home/DownloadButton"));
@@ -14,39 +17,21 @@ import { uniqueId } from "@utils/utils";
 //Page Layout & Blog
 import { InferGetStaticPropsType, NextPage } from "next";
 const ReactCompareImage = dynamic(() => import("react-compare-image"));
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
+
 import Layout from "@components/Layout";
 const Tooltip = dynamic(() => import("@components/Home/Tooltip"));
 const Advantages = dynamic(() => import("@components/Home/Advantages"));
 const Post = dynamic(() => import("@components/Blog/Post"));
 const Ad = dynamic(() => import("@components/Blog/Ad"));
 
+
 interface FileWithId {
   file: File;
   id: number;
 }
 
-const generatePosts = (folderPath: string) =>
-  postFilePaths(folderPath).map((filePath: string, index: any) => {
-    const source = fs.readFileSync(path.join(folderPath, filePath));
-    const { data } = matter(source);
-
-    return {
-      index: index,
-      description: data.description,
-      support: data.support ? data.support : "",
-      category: data.category,
-      subcategory: data.subcategory ? data.subcategory : "",
-      keyword: data.keyword,
-      slug: filePath.replace(".mdx", ""),
-    };
-  });
-
 export const getStaticProps = async () => {
-  const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
+  const tutorials = allTutorials
 
   const listSubCategories = [
     ...new Set([...tutorials].map((post) => post.subcategory)),
@@ -149,7 +134,7 @@ const Index: NextPage<PostsPageProps> = ({
   const handleFilterByKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     const keyword = event.target.value;
     const filtered = tutorials.filter((post) =>
-      post.keyword.toLowerCase().includes(keyword.toLowerCase())
+      post.keyword?.toLowerCase().includes(keyword.toLowerCase())
     );
     setFilterKeyword(keyword);
     setFilteredPost(filtered as any);
