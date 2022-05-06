@@ -1,12 +1,18 @@
-import fs from "fs";
-import path from "path";
 import { useState } from "react";
 import { InferGetStaticPropsType, NextPage } from "next";
-import matter from "gray-matter";
-import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
 import Post from "@components/Blog/Post";
 import Layout from "@components/Layout";
 import Ad from "@components/Blog/Ad";
+
+import {
+  allArticles,
+  allComparisons,
+  allFAQs,
+  allNews,
+  allReleases,
+  allTutorials,
+  AllTypes,
+} from "contentlayer/generated";
 
 const meta = {
   blog: {
@@ -16,46 +22,46 @@ const meta = {
     datePublished: "2020-09-01",
   },
 };
-
-const generatePosts = (folderPath: string) =>
-  postFilePaths(folderPath).map((filePath: string) => {
-    const source = fs.readFileSync(path.join(folderPath, filePath));
-    const { data } = matter(source);
-
+const getPosts = () => {
+  const parsePosts = (serialisedDoc: any | AllTypes) => {
+    const { _id, body, ...data } = serialisedDoc;
     return {
-      description: data.description,
-      title: data.title,
+      url: data.url ? data.url : "",
       support: data.support ? data.support : "",
-      category: data.category,
       subcategory: data.subcategory ? data.subcategory : "",
-      keyword: data.keyword ? data.keyword : data.title,
-      slug: filePath.replace(".mdx", ""),
+      category: data.category ? data.category : "",
+      keyword: data.keyword ? data.keyword : "",
+      title: data.title ? data.title : "",
+      description: data.description ? data.description : "",
     };
-  });
+  };
+
+  return {
+    articles: allArticles.map((doc) => parsePosts(doc)),
+    faqs: allFAQs.map((doc) => parsePosts(doc)),
+    news: allNews.map((doc) => parsePosts(doc)),
+    comparisons: allComparisons.map((doc) => parsePosts(doc)),
+    tutorials: allTutorials.map((doc) => parsePosts(doc)),
+    releases: allReleases.map((doc) => parsePosts(doc)),
+  };
+};
 
 export const getStaticProps = async () => {
-  const articles = generatePosts(`${BLOG_POSTS_PATH}/articles`);
-  const comparisons = generatePosts(`${BLOG_POSTS_PATH}/comparisons`);
-  const releases = generatePosts(`${BLOG_POSTS_PATH}/releases`);
-  const tutorials = generatePosts(`${BLOG_POSTS_PATH}/tutorials`);
-  const faq = generatePosts(`${BLOG_POSTS_PATH}/faq`);
-  const news = generatePosts(`${BLOG_POSTS_PATH}/news`);
+  const posts = getPosts();
 
-  const listPostsByFolder = {
-    articles,
-    comparisons,
-    releases,
-    tutorials,
-    faq,
-    news,
-  };
+  const articles = posts.articles;
+  const comparisons = posts.comparisons;
+  const releases = posts.releases;
+  const tutorials = posts.tutorials;
+  const faqs = posts.faqs;
+  const news = posts.news;
 
   const defaultFilteredPost = [
     ...articles,
     ...comparisons,
     ...releases,
     ...tutorials,
-    ...faq,
+    ...faqs,
     ...news,
   ];
 
@@ -80,23 +86,23 @@ export const getStaticProps = async () => {
       listSubCategories,
       listCategories,
       listSupport,
-      posts: listPostsByFolder as any,
     },
   };
 };
 
 type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const BlogAvif: NextPage<PostsPageProps> = ({
-  defaultFilteredPost,
   articles,
   comparisons,
   releases,
   tutorials,
   news,
-  listSupport,
+  defaultFilteredPost,
   listSubCategories,
   listCategories,
+  listSupport,
 }) => {
+  getPosts();
   const [filteredPost, setFilteredPost] = useState([]);
   const [filterKeyword, setFilterKeyword] = useState("");
   const [selectedCategoryPill, setSelectedCategoryPill] = useState("");
@@ -131,12 +137,12 @@ const BlogAvif: NextPage<PostsPageProps> = ({
     setFilteredPost(filtered as any);
   };
 
-  const articleTypes = [
+  const postTypes = [
     ["Articles", articles],
     ["News", news],
     ["Comparisons", comparisons],
     ["Tutorials", tutorials],
-    ["Changelog", releases],
+    ["Releases", releases],
   ];
 
   const filterTypes = [listCategories, listSubCategories, listSupport];
@@ -179,38 +185,38 @@ const BlogAvif: NextPage<PostsPageProps> = ({
             <div className="grid grid-cols-1 gap-2 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
               {filteredPost.map((post: any) => (
                 <Post
-                  key={post.slug}
+                  key={post.keyword}
                   title={post.title}
                   description={post.description}
                   support={post.support}
                   category={post.category}
                   subcategory={post.subcategory}
                   keyword={post.keyword}
-                  slug={post.slug}
+                  url={post.url}
                 />
               ))}
             </div>
           ) : (
             <>
-              {articleTypes.map((article: any, key: any) => (
+              {postTypes.map((post: any, key: any) => (
                 <section key={key}>
                   <h3
                     className="mt-8 mb-3 text-xl font-bold capitalize"
-                    id={article[0].toLowerCase()}
+                    id={post[0].toLowerCase()}
                   >
-                    {article[0]}
+                    {post[0]}
                   </h3>
                   <div className="grid grid-cols-1 gap-3 mt-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                    {article[1].map((post: any) => (
+                    {post[1].map((post: any) => (
                       <Post
-                        key={post.slug}
+                        key={post.keyword}
                         title={post.title}
                         description={post.description}
                         support={post.support}
                         category={post.category}
                         subcategory={post.subcategory}
                         keyword={post.keyword}
-                        slug={post.slug}
+                        url={post.url}
                       />
                     ))}
                   </div>

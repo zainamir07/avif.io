@@ -1,58 +1,81 @@
-import Layout from "@components/Layout";
-import Link from "@components/Link";
-import { GetStaticPaths, GetStaticProps } from "next";
-import path from "path";
-import fs from "fs";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import remarkSlug from "remark-slug";
-import { postFilePaths, BLOG_POSTS_PATH } from "@utils/mdx";
+import Blog from "@components/Blog";
+import { allFAQs, FAQs } from "contentlayer/generated";
+import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "@components/MDXComponents";
-import Ad from "@components/Blog/Ad";
 import Head from "next/head";
 import { jsonLdScriptProps } from "react-schemaorg";
 import { FAQPage } from "schema-dts";
+import Ad from "@components/Blog/Ad";
+import Link from "@components/Link";
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const filePath = path.join(
-    `${BLOG_POSTS_PATH}/faq`,
-    `${ctx.params?.slug}.mdx`
-  );
-  const source = fs.readFileSync(filePath);
-  const { data, content } = matter(source);
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [remarkSlug, require("remark-code-titles")],
-    },
-    scope: data,
-  });
+export async function getStaticPaths() {
   return {
-    props: {
-      frontMatter: {
-        ...data,
-      },
-      source: mdxSource,
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = postFilePaths(`${BLOG_POSTS_PATH}/faq`)
-    .map((p) => p.replace(/\.mdx?$/, ""))
-    .map((slug) => ({ params: { slug } }));
-  return {
-    paths,
+    paths: allFAQs.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   };
-};
-
-interface Props {
-  children: any;
-  posts: any;
-  frontMatter: any;
-  source: any;
 }
+
+export async function getStaticProps({ params }: { params: any }) {
+  const post = allFAQs.find((post) => post.slug === params.slug);
+  return { props: { post } };
+}
+
+const PostLayout = ({ post }: { post: FAQs; headings: any }) => {
+  const MDXContent = useMDXComponent(post.body.code);
+  return (
+    <>
+      <Blog meta={post}>
+        <Head>
+          <script
+            {...jsonLdScriptProps<FAQPage>({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: {
+                "@type": "Question",
+                name: post.title,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: post.answer,
+                  url: process.env.NEXT_PUBLIC_SITE_URL + post.url,
+                },
+              },
+            })}
+          />
+        </Head>
+        <MDXContent components={MDXComponents} />
+        <aside>
+          <Ad />
+        </aside>
+        <aside className="container mt-8 max-w-3xl">
+          <nav
+            aria-label="chapters"
+            className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
+          >
+            <h4 className="mb-2 bold">More questions about AVIF</h4>
+            <ol className="list-none">
+              {contentTable.map((entry, i) => (
+                <li
+                  className="py-0 list-item"
+                  style={{ counterIncrement: "step-counter" }}
+                  key={entry[0] + i}
+                >
+                  <Link
+                    text={entry[0]}
+                    className="text-red-700 no-underline md:text-base text-tiny"
+                    href={`/blog/faq/${entry[1]}/`}
+                  />
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </aside>
+        <aside>
+          <Ad />
+        </aside>
+      </Blog>
+    </>
+  );
+};
 
 const contentTable = [
   ["What is an AVIF file?", "what-is-avif"],
@@ -91,84 +114,4 @@ const contentTable = [
   ["How do I convert AVIF to PNG?", "avif-to-png"],
 ];
 
-const sources = [
-  ["/blog/articles/avif-faq/", "1. AVIF - The Full Guide and FAQ"],
-  ["aomedia.org/", "2. AVIF AOMedia Specification"],
-];
-
-export default function BlogFaq(props: Props) {
-  const { frontMatter, source } = props;
-  const meta = { ...frontMatter };
-
-  return (
-    <>
-      <Layout meta={meta}>
-        <main>
-          <Head>
-            <script
-              {...jsonLdScriptProps<FAQPage>({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: {
-                  "@type": "Question",
-                  name: meta.title,
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: meta.answer,
-                    url: process.env.NEXT_PUBLIC_SITE_URL + meta.url,
-                  },
-                },
-              })}
-            />
-          </Head>
-          <div className="relative px-2 pt-8 pb-8 md:p-8 md:py-8 md:px-4 lg:pt-8 lg:pb-8 bg-gradient">
-            <h1 className="container mt-2 max-w-screen-md md:mt-6 md:text-4xl">
-              {meta.title}
-            </h1>
-          </div>
-          <article className="container p-2 mx-auto mt-8 max-w-screen-md md:p-0">
-            <MDXRemote {...source} components={MDXComponents} />
-            <div className="font-bold">Primary sources</div>
-            {sources.map((source, i) => (
-              <Link
-                key={i}
-                href={source[0]}
-                className="inline-block px-2 mt-2 mr-2 text-red-700 no-underline rounded-md bg-red-1000"
-                text={source[1]}
-              />
-            ))}
-          </article>
-          <aside>
-            <Ad />
-          </aside>
-          <aside className="container mt-8 max-w-3xl">
-            <nav
-              aria-label="chapters"
-              className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
-            >
-              <h4 className="mb-2 bold">More questions about AVIF</h4>
-              <ol className="list-none">
-                {contentTable.map((entry, i) => (
-                  <li
-                    className="py-0 list-item"
-                    style={{ counterIncrement: "step-counter" }}
-                    key={entry[0] + i}
-                  >
-                    <Link
-                      text={entry[0]}
-                      className="text-red-700 no-underline md:text-base text-tiny"
-                      href={`/blog/faq/${entry[1]}/`}
-                    />
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          </aside>
-          <aside>
-            <Ad />
-          </aside>
-        </main>
-      </Layout>
-    </>
-  );
-}
+export default PostLayout;
