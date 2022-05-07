@@ -1,8 +1,8 @@
 const Ad = () => {
   return (
-    <div className="block my-6 w-full ad min-w-[250px]">
+    <div className="block my-6 w-full ad">
       <ins
-        className="block w-full text-center rounded-md border-2 border-bg-400 adsbygoogle min-w-[250px]"
+        className="block w-full text-center rounded-md border-2 border-bg-400 adsbygoogle"
         style={{ backgroundColor: "#110817" }}
         data-ad-layout="in-article"
         data-ad-format="fluid"

@@ -10,7 +10,6 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],
-      "@assets/*": ["./assets/*"],
       "@images/*": ["./public/images/*"],
       "@utils/*": ["utils/*"],
       "@styles/*": ["styles/*"],
