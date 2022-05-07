@@ -17,20 +17,24 @@ export default function Blog(props: Props) {
   return (
     <Layout meta={meta}>
       <main>
-        <header className="relative py-8 px-2 bg-gradient">
-          <h1 className="lg:text-4xl">{meta.title}</h1>
-          <Breadcrumbs />
+        <header className="relative py-8 bg-gradient">
+          <div className="container">
+            <h1 className="lg:text-4xl">{meta.title}</h1>
+            <Breadcrumbs />
+          </div>
         </header>
-        <article className="container max-w-screen-md">{children}</article>
-        <aside className="container max-w-screen-md">
-          {meta.sources && <Sources sources={meta.sources} />}
-          {meta.tags && <Tags tags={meta.tags} />}
-          {meta.questions && <Questions questions={meta.questions} />}
-          <PostCloud />
-        </aside>
+        <div className="container max-w-screen-md">
+          <article>{children}</article>
+          <aside>
+            {meta.sources && <Sources sources={meta.sources} />}
+            {meta.tags && <Tags tags={meta.tags} />}
+            {meta.questions && <Questions questions={meta.questions} />}
+            <PostCloud />
+          </aside>
+        </div>
       </main>
       {posts && (
-        <aside className="container my-8 bg-bg-700">
+        <aside className="container my-8 max-w-screen-lg bg-bg-700">
           <h3 className="mt-8 mb-2 text-xl font-bold capitalize">
             Related articles
           </h3>

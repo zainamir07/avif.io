@@ -6,8 +6,8 @@ export interface Props {
   title: string;
   description: string;
   url: string;
-  datePublished: string;
-  dateModified?: string;
+  datePublished: Date;
+  dateModified?: Date;
 }
 
 export default function Meta(props: Props) {
@@ -52,7 +52,6 @@ export default function Meta(props: Props) {
         property="og:image"
         content={`${process.env.NEXT_PUBLIC_SITE_URL}logo.png`}
       />
-
       <meta name="twitter:card" content="summary"></meta>
       <meta property="twitter:creator" content="@jschmitz97" />
       <meta property="twitter:site" content="@jschmitz97" />
@@ -89,7 +88,7 @@ export default function Meta(props: Props) {
             "@type": "BlogPosting",
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": process.env.NEXT_PUBLIC_SITE_URL + url,
+              "@id": process.env.NEXT_PUBLIC_SITE_URL + url + "/",
             },
             headline: title,
             description: description,
@@ -118,6 +117,7 @@ export default function Meta(props: Props) {
               knowsAbout: [
                 `${process.env.NEXT_PUBLIC_FORMAT}`,
                 "image performance",
+                "avif",
               ],
               email: process.env.NEXT_PUBLIC_SITE_MAIL,
             },

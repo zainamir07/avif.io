@@ -13,11 +13,10 @@ export const abstractDocumentFrontMatter: FieldDefs = {
     type: "string",
   },
   datePublished: {
-    type: "string",
+    type: "date",
   },
   dateModified: {
-    type: "string",
-    required: true,
+    type: "date",
   },
   sources: {
     type: "json",
