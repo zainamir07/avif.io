@@ -163,7 +163,11 @@ const BlogAvif: NextPage<PostsPageProps> = ({
                   {selectedCategoryPill === category && (
                     <span className="mr-1">✓</span>
                   )}
-                  {category}
+                  {category == "full" ||
+                  category == "partial" ||
+                  category == "no"
+                    ? category + " support"
+                    : category}
                 </button>
               ))}
             </div>

@@ -210,7 +210,7 @@ const Index: NextPage<PostsPageProps> = ({
       </section>
       <section className="hidden overflow-hidden px-3 mt-12 mb-4 max-w-screen-lg md:block">
         <div
-          className="absolute inset-0 mx-auto w-3/5 rounded-full ease-in-out -z-1 bg-gradient blur-100"
+          className="absolute inset-0 mx-auto w-3/5 rounded-full ease-in-out -z-10 bg-gradient blur-[100px]"
           data-transition-style="glow"
         />
       </section>
@@ -245,7 +245,11 @@ const Index: NextPage<PostsPageProps> = ({
                   }`}
                 >
                   {selectedCategoryPill === category && <span>✓</span>}
-                  {category}
+                  {category == "full" ||
+                  category == "partial" ||
+                  category == "no"
+                    ? category + " support"
+                    : category}
                 </button>
               ))}
             </div>

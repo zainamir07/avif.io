@@ -38,7 +38,7 @@ export default function Advantages() {
             data-atropos-offset="0"
           >
             <div
-              className="z-0 mb-4 h-6 bg-center bg-no-repeat bg-contain rounded-lg transition-all duration-500 ease-out origin-center background-no-repeat group-hover:scale-200"
+              className="z-0 mb-4 h-6 bg-center bg-no-repeat bg-contain rounded-lg transition-all duration-500 ease-out origin-center background-no-repeat group-hover:scale-[200]"
               data-atropos-offset="10"
               style={{
                 backgroundImage: `url(/assets/${advantage[0]}.svg)`,
