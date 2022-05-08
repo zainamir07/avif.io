@@ -50,12 +50,9 @@ export default function PostCloud() {
           href="/blog/articles/avif-faq/"
         />
       </div>
-      <ol>
+      <ol className="flex flex-wrap gap-1 text-red-700 text-tiny">
         {posts.map((source: any, index: any) => (
-          <li
-            key={index}
-            className="inline-block px-1 mr-1 text-red-700 rounded-md text-tiny bg-red-1000"
-          >
+          <li key={index} className="py-0 px-1 rounded-md bg-red-1000">
             <Link text={source[0]} href={`/blog/faq/${source[1]}/`} />
           </li>
         ))}
