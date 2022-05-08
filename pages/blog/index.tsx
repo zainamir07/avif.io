@@ -8,8 +8,6 @@ import {
   allArticles,
   allComparisons,
   allFAQs,
-  allNews,
-  allReleases,
   allTutorials,
   AllTypes,
 } from "contentlayer/generated";
@@ -22,6 +20,7 @@ const meta = {
     datePublished: "2020-09-01",
   },
 };
+
 const getPosts = () => {
   const parsePosts = (serialisedDoc: any | AllTypes) => {
     const { _id, body, ...data } = serialisedDoc;
@@ -39,10 +38,8 @@ const getPosts = () => {
   return {
     articles: allArticles.map((doc) => parsePosts(doc)),
     faqs: allFAQs.map((doc) => parsePosts(doc)),
-    news: allNews.map((doc) => parsePosts(doc)),
     comparisons: allComparisons.map((doc) => parsePosts(doc)),
     tutorials: allTutorials.map((doc) => parsePosts(doc)),
-    releases: allReleases.map((doc) => parsePosts(doc)),
   };
 };
 
@@ -51,18 +48,14 @@ export const getStaticProps = async () => {
 
   const articles = posts.articles;
   const comparisons = posts.comparisons;
-  const releases = posts.releases;
   const tutorials = posts.tutorials;
   const faqs = posts.faqs;
-  const news = posts.news;
 
   const defaultFilteredPost = [
     ...articles,
     ...comparisons,
-    ...releases,
     ...tutorials,
     ...faqs,
-    ...news,
   ];
 
   const listSubCategories = [
@@ -79,9 +72,7 @@ export const getStaticProps = async () => {
     props: {
       articles,
       comparisons,
-      releases,
       tutorials,
-      news,
       defaultFilteredPost,
       listSubCategories,
       listCategories,
@@ -94,9 +85,7 @@ type PostsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const BlogAvif: NextPage<PostsPageProps> = ({
   articles,
   comparisons,
-  releases,
   tutorials,
-  news,
   defaultFilteredPost,
   listSubCategories,
   listCategories,
@@ -139,10 +128,8 @@ const BlogAvif: NextPage<PostsPageProps> = ({
 
   const postTypes = [
     ["Articles", articles],
-    ["News", news],
     ["Comparisons", comparisons],
     ["Tutorials", tutorials],
-    ["Releases", releases],
   ];
 
   const filterTypes = [listCategories, listSubCategories, listSupport];

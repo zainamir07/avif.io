@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Post = ({ category, keyword, description, support, url }: any) => {
+const Post = ({ category, keyword, description, support, url, title }: any) => {
   function getBackground(support: any) {
     if (support === "full support") {
       return "bg-green-1000";
@@ -21,14 +21,14 @@ const Post = ({ category, keyword, description, support, url }: any) => {
         <div className="overflow-hidden relative py-2 px-1 h-full text-left rounded-md md:p-2 bg-bg-500">
           <div className="absolute right-0 bottom-0 z-0 w-4 h-3 transition-all transform scale-0 translate-x-4 translate-y-2 bg-gradient rotate-300 group-hover:scale-1500"></div>
           <div
-            className={`px-2 inline-flex py-1 rounded-md text-tiny mb-2 text-white ${
+            className={`px-2 inline-flex rounded-md py-[2px] text-tiny mb-2 text-white ${
               category !== "tutorials" && "hidden"
             } ${getBackground(support)}`}
           >
             {support}
           </div>
           <div className="relative mb-0 font-bold leading-snug text-white">
-            {keyword || keyword || ""}
+            {keyword || title || ""}
           </div>
           <div className="relative text-white text-tiny">{description}</div>
         </div>

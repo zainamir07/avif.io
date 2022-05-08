@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const frontMatter = require("front-matter");
 
-const blogTypes = ["articles", "comparisons", "releases", "tutorials", "news"];
+const blogTypes = ["articles", "comparisons", "tutorials"];
 
 const feed = new RSS({
   title: `avif.io RSS Feed`,

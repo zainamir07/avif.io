@@ -2,8 +2,6 @@ import {
   allArticles,
   allComparisons,
   allFAQs,
-  allNews,
-  allReleases,
   allTutorials,
 } from "contentlayer/generated";
 
@@ -45,26 +43,6 @@ function searchForPost(
     });
   if (!result)
     result = allFAQs.find((post) => {
-      if (
-        post._raw.sourceFileName.split(".")[0] == postName ||
-        post.slug == slug ||
-        post._id == id ||
-        post._raw == raw
-      )
-        return true;
-    });
-  if (!result)
-    result = allNews.find((post) => {
-      if (
-        post._raw.sourceFileName.split(".")[0] == postName ||
-        post.slug == slug ||
-        post._id == id ||
-        post._raw == raw
-      )
-        return true;
-    });
-  if (!result)
-    result = allReleases.find((post) => {
       if (
         post._raw.sourceFileName.split(".")[0] == postName ||
         post.slug == slug ||

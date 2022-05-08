@@ -5,7 +5,6 @@ const posts1 = [
   ["Tutorials", "/blog/#tutorials"],
   ["Articles", "/blog/#articles"],
   ["Comparisons", "/blog/#comparisons"],
-  ["Release Notes", "/blog/#releasenotes"],
 ];
 
 const posts2 = [
