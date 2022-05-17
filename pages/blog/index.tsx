@@ -7,7 +7,6 @@ import Ad from "@components/Blog/Ad";
 import {
   allArticles,
   allComparisons,
-  allFAQs,
   allTutorials,
   AllTypes,
 } from "contentlayer/generated";
@@ -37,7 +36,6 @@ const getPosts = () => {
 
   return {
     articles: allArticles.map((doc) => parsePosts(doc)),
-    faqs: allFAQs.map((doc) => parsePosts(doc)),
     comparisons: allComparisons.map((doc) => parsePosts(doc)),
     tutorials: allTutorials.map((doc) => parsePosts(doc)),
   };
@@ -49,14 +47,8 @@ export const getStaticProps = async () => {
   const articles = posts.articles;
   const comparisons = posts.comparisons;
   const tutorials = posts.tutorials;
-  const faqs = posts.faqs;
 
-  const defaultFilteredPost = [
-    ...articles,
-    ...comparisons,
-    ...tutorials,
-    ...faqs,
-  ];
+  const defaultFilteredPost = [...articles, ...comparisons, ...tutorials];
 
   const listSubCategories = [
     ...new Set(defaultFilteredPost.map((post) => post.subcategory)),
