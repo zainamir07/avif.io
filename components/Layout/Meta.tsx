@@ -17,7 +17,7 @@ export default function Meta(props: Props) {
     <Head>
       <link
         rel="canonical"
-        href={`${process.env.NEXT_PUBLIC_SITE_URL}${url}`}
+        href={`${process.env.NEXT_PUBLIC_SITE_URL}${url}/`}
       />
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
