@@ -11,8 +11,8 @@ if (!fs.existsSync(output)) {
   fs.mkdirSync(output);
 }
 
-const webpQuality = { quality: 64, reductionEffort: 3 };
-const avifQuality = { quality: 51, speed: 3, chromaSubsampling: "4:2:0" };
+const webpQuality = { quality: 64, reductionEffort: 0 };
+const avifQuality = { quality: 51, effort: 0, chromaSubsampling: "4:2:0" };
 const sizes = [768, 384];
 fs.readdir(input, (err, files) => {
   console.log("✅ Found " + files.length + " image. Converting now..");
