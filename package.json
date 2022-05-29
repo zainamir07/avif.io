@@ -5,12 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap --config scripts/sitemap.js && node --experimental-json-modules ./scripts/rss.mjs",
     "start": "next start",
-    "analyze": "npx cross-env ANALYZE=true next build",
-    "lint": "rustywind . --write && prettier --write . && next lint --fix --dir pages --dir components --dir lib",
-    "wasm": "cd conversion && npx cross-env NODE_ENV=production webpack",
-    "release": "npm run build && next export && firebase deploy"
+    "postbuild": "cd conversion && npx cross-env NODE_ENV=production webpack && cd ../ && next-sitemap --config scripts/sitemap.js && cd scripts && node --experimental-json-modules rss.mjs && node images",
+    "lint": "rustywind . --write && prettier --write . && next lint --fix --dir pages --dir components --dir lib"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.1.6",
