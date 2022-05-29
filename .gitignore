@@ -141,16 +141,12 @@ yarn-error.log*
 # vercel
 .vercel
 
-#firebase
-firebase/
-.firebase/
-
 #custom
 public/img/*
 public/sitemap.xml
 public/sitemap-0.xml
 public/rss.xml
+.contentlayer/
 
 #github
 .github/
-.contentlayer/

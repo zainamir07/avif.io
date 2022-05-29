@@ -233,7 +233,7 @@ const Index: NextPage<PostsPageProps> = ({
             onChange={handleFilterByKeyword}
           />
           {[listSubCategories, listSupport].map((type: any, key: any) => (
-            <div className="flex gap-2 mb-2 flex-wrap" key={key}>
+            <div className="flex flex-wrap gap-2 mb-2" key={key}>
               {type.map((category: any) => (
                 <button
                   key={category}
