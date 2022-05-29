@@ -6,6 +6,11 @@ const path = require("path");
 
 const output = "../public/img/";
 const input = "../images/";
+
+if (!fs.existsSync(output)) {
+  fs.mkdirSync(output);
+}
+
 const webpQuality = { quality: 64, reductionEffort: 3 };
 const avifQuality = { quality: 51, speed: 3, chromaSubsampling: "4:2:0" };
 const sizes = [768, 384];
