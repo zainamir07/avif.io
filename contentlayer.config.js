@@ -38,7 +38,7 @@ export const Articles = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
     },
     slug: {
       type: "string",
@@ -99,7 +99,7 @@ export const FAQs = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
     },
     slug: {
       type: "string",
@@ -131,7 +131,7 @@ export const Tutorials = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
     },
     slug: {
       type: "string",

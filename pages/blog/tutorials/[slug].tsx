@@ -21,6 +21,9 @@ export async function getStaticProps({ params }: { params: any }) {
       return b.subcategory == post!.subcategory;
     })
     .map((item: any) => {
+      {
+        console.log(item.url, item.slug);
+      }
       return {
         url: item.url,
         keyword: item.keyword,
