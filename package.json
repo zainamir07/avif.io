@@ -10,7 +10,6 @@
     "lint": "rustywind . --write && prettier --write . && next lint --fix --dir pages --dir components --dir lib"
   },
   "dependencies": {
-    "adblock-detect-react": "^1.0.5",
     "atropos": "^1.0.2",
     "contentlayer": "^0.2.5",
     "jszip": "^3.10.0",
