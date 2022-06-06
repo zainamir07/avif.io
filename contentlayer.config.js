@@ -59,7 +59,7 @@ export const Comparisons = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
     },
     slug: {
       type: "string",
