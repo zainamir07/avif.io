@@ -5,7 +5,7 @@ keyword: iOS
 subcategory: os
 support: no
 datePublished: 2021-09-18
-dateModified: 2021-09-18
+dateModified: 2022-06-17
 sources:
   - pl.wikipedia.org/wiki/Formaty_plik%C3%B3w_graficznych
   - caniuse.com/avif
@@ -18,6 +18,8 @@ sources:
   - support.apple.com/guide/iphone/welcome/ios
   - www.macworld.com/article/234534/ios-14-tips-guides-tricks-and-everything-you-need-to-know-about-apples-new-iphone-os.html
   - www.netzwelt.de/anleitung/471672-ios-guide-bedienung-iphone.html
+  - www.reddit.com/r/AV1/comments/v7lpjz/ios_16_supports_avif/
+  - twitter.com/lafaiel/status/1534447687537692672
 tags:
   - video extension
   - av1 video extension
@@ -28,15 +30,23 @@ tags:
   - ios avif
   - ios 14
   - ios 15
+  - ios 16
   - av1 codec
   - chroma subsampling
   - avif format
+  - av1 image file format
 questions:
   - Does iOS support AVIF?
   - How do I play AVIF files on iOS?
   - What is AVIF?
   - Should I use AVIF?
 ---
+
+## UPDATE June 22
+
+The Files & Photos app on iOS 16 supports AVIF images. The information page indicates that AVIF is supported. However, when the image is imported into the photos library, the format is changed to HEIF. While trying to open an image in Safari, it does not display and instead asks to be downloaded.
+
+WebKit already supports AVIF. However, Safari relies on the underlying operating system for decoding and therefore had to wait for iOS to support AVIF. Safari will likely add support for AVIF within the subsequent two releases, now that iOS is no longer blocking AVIF.
 
 ## AVIF
 

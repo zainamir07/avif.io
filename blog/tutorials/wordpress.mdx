@@ -60,11 +60,11 @@ questions:
 
 ## No official support
 
-There is no official AVIF support. **WordPress recently started to support WebP files with the 5.8 update called Tatum**, released to the public on July 20, 2021. This update is a good indication that WordPress keeps other file formats in mind. However, since it took more than a decade to support WebP, we don't expect support for AVIF to be implemented soon.
+There is no official AVIF support. **WordPress recently started to support WebP files with the 5.8 update called Tatum**, released to the public on July 20, 2021. This update indicates that WordPress keeps other file formats in mind. However, since it took over a decade to support WebP, we don't expect support for AVIF to be implemented soon.
 
 **WordPress needs AVIF support for two reasons:**
 
-1. Technicians and end-users often have to deal with page load speed problems with this CMS. Thus, AVIF can contribute to faster loading without causing any quality loss due to its minimal file size.
+1. Technicians and end-users often deal with page load speed problems with this CMS. Thus, AVIF can contribute to faster loading without causing any quality loss due to its minimal file size.
 
 2. WordPress is the world's most dominant CMS, with over 455 million websites in 2020. This means WordPress powers about 35% of the web. Further statistics of WordPress show that in November 2020, over 409 million people viewed more than 20 billion pages every month.
 
@@ -74,11 +74,11 @@ There is no official AVIF support. **WordPress recently started to support WebP 
 
 "Sorry, this file type is not permitted for security reasons."
 
-Since version 4.7, the WordPress core has implemented a security check for uploading files. WordPress checks the file extension of your uploaded files and rejects files which do not match their pattern. You experience the same behavior when trying to upload SVGs.
+Since version 4.7, the WordPress core has implemented a security check for uploading files. WordPress checks the file extension of your uploaded files and rejects files that do not match their pattern. You experience the same behavior when trying to upload SVGs.
 
-The same applies to modern image formats. **To date, WordPress does not support viewing or uploading AVIF images or other modern formats natively.**
+The same applies to modern image formats. **To date, WordPress does not natively support viewing or uploading AVIF images or other modern formats.**
 
-We could argue AVIF is a new extension. Considering WebP is more than ten years old and was recently adopted, the question arises whether WordPress will ever add support for modern image formats. Fortunately, there are several ways around this security check.
+We could argue that AVIF is a new extension. Considering WebP is more than ten years old and was recently adopted, whether WordPress will ever add support for modern image formats arises. Fortunately, there are several ways around this security check.
 
 Nowadays, many plugin solutions exist from **image CDN providers to automatically convert your uploaded images to modern formats** on the fly.
 
@@ -110,7 +110,7 @@ Imagekit offers a forever-free plan with unlimited requests and transformations.
 
 ### Cloudinary
 
-Cloudinary offers a free forever plan with no credit card required. They use credits to track your usage, with a free plan offering 25 credits. You can either spend them on 25k transformations, 25GB of managed storage, or 25GB of net viewing bandwidth. They also provide video transformation and access to an API, remote fetch, auto-backups, and revision tracking. More advanced pricing plans allow for more conversions, backups to your S3 bucket, auto-tagging based search, access to a whole palette of add-ons (e.g., background removing).
+Cloudinary offers a free forever plan with no credit card required. They use credits to track your usage, with a free plan offering 25 credits. You can either spend them on 25k transformations, 25GB of managed storage, or 25GB of net viewing bandwidth. They also provide video transformation, access to an API, remote fetch, auto-backups, and revision tracking. More advanced pricing plans allow for more conversions, backups to your S3 bucket, auto-tagging-based search, and access to a whole palette of add-ons (e.g., background removal).
 
 <Link href="cloudinary.com/" text="Homepage" />
 {" · "}
@@ -134,7 +134,7 @@ Cloudinary offers a free forever plan with no credit card required. They use cre
 
 ### ImageEngine
 
-ImageEngine offers a free 30 day trial with no credit card required. You can deliver up to 100GB of data through their global CDN. They claim to have a more effective optimization when it comes to mobile devices. They call it 'device-aware optimization'. More advanced plans offer more conversions, in-app optimization, and dedicated edge servers.
+ImageEngine offers a free 30-day trial with no credit card required. You can deliver up to 100GB of data through their global CDN. They claim to have a more effective optimization for mobile devices and call it 'device-aware optimization'. More advanced plans offer more conversions, in-app optimization, and dedicated edge servers.
 
 <Link href="imageengine.io" text="Homepage" />
 {" · "}
@@ -213,7 +213,7 @@ TwicPics comes with a lightweight, unobtrusive JavaScript helper. This script an
 
 ### Gumlet
 
-Gumlet auto-resizes and compresses images. They offer multiple plans, including unlimited master images and image optimizations, no limit on cache storage, and detailed usage analytics. Their free plan provides usage of one website, 1GB of bandwidth per month with $1 per extra GB. More advanced plans offer unlimited websites, priority support, custom domains, complete reports and alerts, and fallback mechanisms.
+Gumlet auto-resizes and compresses images. They offer multiple plans, including unlimited master images and image optimizations, no limit on cache storage, and detailed usage analytics. Their free plan provides usage of one website and 1GB of bandwidth per month for $1 per extra GB. More advanced plans offer unlimited websites, priority support, custom domains, complete reports and alerts, and fallback mechanisms.
 
 <Link href="www.gumlet.com" text="Homepage" />
 {" · "}
@@ -231,7 +231,7 @@ Gumlet auto-resizes and compresses images. They offer multiple plans, including 
 
 By automating the delivery process, Cloudimage makes your images look high-quality and load rapidly regardless of bandwidth by delivering them in the best possible format (WebP, AVIF, optimized JPEG), resolution, and quality. Plans start at a free price and scale as demand goes higher.
 
-Update: The plugin hasn't been tested with the latest 3 major releases of WordPress. It may have compatibility issues.
+Update: The plugin hasn't been tested with the latest three major releases of WordPress, and it may have compatibility issues.
 
 <Link href="www.cloudimage.io/en/home" text="Homepage" />
 {" · "}
@@ -265,7 +265,7 @@ mime types.
 
 ### Solution 1: Funtions.php
 
-Functions.php is a file appearing on every theme in WordPress and contains basic functionalities. You can open it by going to Appearance and choosing the Theme Editor. If a warning appears, confirm you know what you are doing. Select your active theme in the right sidebar, and below you will find all theme files listed, including functions.php.
+Functions.php is a file appearing on every theme in WordPress and contains basic functionalities. You can open it by going to Appearance and choosing Theme Editor. If a warning appears, confirm you know what you are doing. Select your active theme in the right sidebar, and below you will find all theme files listed, including functions.php.
 
 <Image src="functionsphp" alt="place where the functions.php is located" />
 Click to open the file and scroll down to the bottom. Create a new line after the
@@ -287,22 +287,22 @@ add_filter( 'upload_mimes', 'allow_modern_images');`}
 
 ### Solution 2: FTP Upload
 
-Another way to bypass the restriction is to upload your files via FTP. Connect to your server and drop your images in the upload folder, where most of your current photos should be saved. If you don't know how to access your files directly, please ask your web host. Most providers offer great tutorials.
+Another way to bypass the restriction is to upload your files via FTP. Connect to your server and drop your images in the upload folder, where most of your current photos should be saved. Please ask your web host if you don't know how to access your files directly. Most providers offer great tutorials.
 
 ### Solution 3: Mime-Type Plugins
 
-There's a considerable disadvantage when modifying the functions.php. It's theme-related. Whenever you switch a theme or update your current one, the shortcode snippet will be gone. Multiple plugin solutions exist for this issue:
+There's a considerable disadvantage when modifying the functions.php. It's theme-related, and the shortcode snippet will disappear whenever you switch a theme or update your current one. Multiple plugin solutions exist for this issue:
 
 - WP Add Mime Types
 - Lord of the Files
 
-To quote: WordPress relies primarily on name-based validation when deciding whether or not to allow a particular file, leaving the door open for various kinds of attacks. Lord of the Files (previously known as "blob mimes") adds to this content-based validation and sanitizing, ensuring that files are what they say they are and safe for inclusion on your site.
+To quote: WordPress relies primarily on name-based validation when deciding whether or not to allow a particular file, leaving the door open for various attacks. Lord of the Files (previously known as "blob mimes") adds to this content-based validation and sanitizing, ensuring that files are what they say they are and safe for inclusion on your site.
 
 <Image src="mimetype-plugin" alt="screenshot of the mime type plugin website" />
 
 ### Solution 4: Editing wp-config.php
 
-This solution is meant to be used with caution since it disables the mime type check.
+This solution is meant to be used cautiously since it disables the mime type check.
 
 Open _wp-config.php_ located in your WordPress root installation folder.
 
@@ -312,7 +312,7 @@ Add the following code snippet right above the _That's all, stop editing! Happy 
 
 ### No automatic conversion
 
-Uploading images is an excellent thing, but a colossal problem remains. For every image you want to serve to your users, you need to convert it manually. Bulk converters like avif.io offer a solution to convert multiple files. However, using the HTML picture tag remains. A more straightforward idea would be an image plugin that automatically converts images to modern formats and offers the best solution based on your user's browser.
+Uploading images is an excellent thing, but a colossal problem remains. For every photo you want to serve to your users, you need to convert it manually. Bulk converters like avif.io offer a solution to convert multiple files. However, using the HTML picture tag remains. A more straightforward idea would be an image plugin that automatically converts images to modern formats and offers the best solution based on your user's browser.
 
 ## Summary
 
