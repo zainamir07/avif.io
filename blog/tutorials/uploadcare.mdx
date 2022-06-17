@@ -1,0 +1,49 @@
+---
+title: Uploadcare AVIF support
+description: Image CDNs help you serve the best image to users. Find out how you can use AVIF images in Uploadcare.
+keyword: Uploadcare
+subcategory: cdn
+support: full
+
+sources:
+  - wikipedia.org/wiki/AVIF
+  - uploadcare.com/
+  - https://uploadcare.com/docs/transformations/image/#formats
+  - https://stackshare.io/uploadcare
+tags:
+  - avif
+  - image processing format
+  - cdn
+  - content delivery network
+  - uploadcare
+questions:
+  - Does Uploadcare support AVIF?
+  - Which CDN supports AVIF?
+---
+
+## What is AVIF
+
+File compression is necessary to free up network infrastructure resources. AVIF aims to improve data traffic efficiency and replace the widely used JPEG format in the long term. Compared to JPEG, AVIF offers better quality and compression. There is interest in introducing a new image format among data that can be compressed both losslessly and lossy. In addition, AVIF supports extended color spaces (wide color gamut, WCG) and features such as graininess, chroma subsampling, and HDR (high dynamic range).
+
+Chrome, Opera, Firefox, and some others support AVIF.
+
+## What is Uploadcare
+
+Uploadcare is a technology company that brings the best user experience to its customers and their end-users through its innovative content delivery services and breakthrough algorithms. Businesses of every size, from new startups to public companies, use our software to manage and serve visual content to billions of consumers online.
+
+Uploadcare is a complete file handling platform for online business. Receive files from you users via File Uploader or File Upload API, implement image optimization and transformations with Image CDN API, and get HIPAA-compliant storage. Uploadcare is a tool in the File Uploads category of a tech stack.
+
+## Uploadcare supports AVIF
+
+Uploadcare Image processing pipeline now supports AVIF images as a source. AVIF images can be uploaded when `imagesOnly` option is enabled.
+
+By using AVIF, you are increasing your processing usage since AVIF is intensive to encode. Consequently, it takes longer for the processing to take place. The problem is noticeable with delays of a few seconds. With the API, eager processing can be used to transform data on upload.
+
+
+### Example code
+
+const imagesOnlyAcceptTypes = [ 'image/avif',
+                                'image/avif-sequence',
+                                '.avif',
+                                '.avifs',
+                               ].join(',')
