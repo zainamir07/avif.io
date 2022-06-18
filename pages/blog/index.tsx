@@ -10,6 +10,7 @@ import {
   allTutorials,
   AllTypes,
 } from "contentlayer/generated";
+import PostCloud from "@components/Blog/PostCloud";
 
 const meta = {
   blog: {
@@ -210,6 +211,7 @@ const BlogAvif: NextPage<PostsPageProps> = ({
               ))}
             </>
           )}
+          <PostCloud />
         </div>
       </main>
     </Layout>

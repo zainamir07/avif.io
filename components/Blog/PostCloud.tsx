@@ -39,17 +39,12 @@ const posts = [
 
 export default function PostCloud() {
   return (
-    <>
-      <h5 className="inline-block py-1 px-2 mt-4 mb-0 font-bold rounded-md">
-        FAQ
-      </h5>
-      <ol className="flex flex-wrap gap-1 text-red-700 text-tiny">
-        {posts.map((source: any, index: any) => (
-          <li key={index} className="py-0 px-1 rounded-md bg-red-1000">
-            <Link text={source[0]} href={`/blog/faq/${source[1]}/`} />
-          </li>
-        ))}
-      </ol>
-    </>
+    <ol className="flex flex-wrap gap-1 text-red-700 text-tiny justify-center mt-8">
+      {posts.map((source: any, index: any) => (
+        <li key={index} className="py-0 px-1 rounded-md bg-red-1000">
+          <Link text={source[0]} href={`/blog/faq/${source[1]}/`} />
+        </li>
+      ))}
+    </ol>
   );
 }

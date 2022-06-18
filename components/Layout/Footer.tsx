@@ -14,6 +14,7 @@ const posts2 = [
   ["AVIF FAQ", "/blog/articles/avif-faq/"],
   ["AVIF Browser Support", "/blog/articles/avif-browser-support/"],
   ["Image Web Perf", "/blog/articles/optimize-images-for-web-performance/"],
+  ["AVIF to JPG", "/blog/articles/avif-to-jpg/"],
 ];
 
 const posts3 = [

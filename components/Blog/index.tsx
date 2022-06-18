@@ -1,7 +1,6 @@
 import Breadcrumbs from "@components/Blog/Breadcrumbs";
 import Post from "@components/Blog/Post";
 import Questions from "@components/Blog/Questions";
-import PostCloud from "@components/Blog/PostCloud";
 import Sources from "@components/Blog/Sources";
 import Tags from "@components/Blog/Tags";
 import Layout from "@components/Layout";
@@ -29,7 +28,6 @@ export default function Blog(props: Props) {
             {meta.sources && <Sources sources={meta.sources} />}
             {meta.tags && <Tags tags={meta.tags} />}
             {meta.questions && <Questions questions={meta.questions} />}
-            <PostCloud />
           </aside>
         </div>
       </main>

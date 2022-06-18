@@ -20,6 +20,7 @@ import Advantages from "@components/Home/Advantages";
 import Post from "@components/Blog/Post";
 import Ad from "@components/Blog/Ad";
 import ImageComparison from "@components/Home/ImageComparison";
+import PostCloud from "@components/Blog/PostCloud";
 
 interface FileWithId {
   file: File;
@@ -326,6 +327,7 @@ const Index: NextPage<PostsPageProps> = ({
         Enjoy the free AVIF converter online, convert your images to AVIF today
         and enjoy the amazing compression it provides.
       </div>
+      <PostCloud />
     </Layout>
   );
 };
