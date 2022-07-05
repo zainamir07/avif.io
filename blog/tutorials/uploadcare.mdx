@@ -41,8 +41,12 @@ By using AVIF, you are increasing your processing usage since AVIF is intensive 
 
 ### Example code
 
-const imagesOnlyAcceptTypes = [ 'image/avif',
-                                'image/avif-sequence',
-                                '.avif',
-                                '.avifs',
-                               ].join(',')
+<Syntax language="html">
+  {`<img srcset="https://ucarecdn.com/f70b3810-1f72-4ad3-97c9-fd1c9c24db6f/-/format/auto/-/resize/240x/ 240w,
+             https://ucarecdn.com/f70b3810-1f72-4ad3-97c9-fd1c9c24db6f/-/format/auto/-/resize/400x/ 400w,
+             https://ucarecdn.com/f70b3810-1f72-4ad3-97c9-fd1c9c24db6f/-/format/auto/-/resize/480x/-/quality/lightest/ 480w,
+             https://ucarecdn.com/f70b3810-1f72-4ad3-97c9-fd1c9c24db6f/-/format/auto/-/resize/800x/-/quality/lightest/ 800w"
+    sizes="(max-width: 820px) 240px, 400px"
+    src="https://ucarecdn.com/f70b3810-1f72-4ad3-97c9-fd1c9c24db6f/-/resize/400x/"
+    alt="Mountain lake">`}
+</Syntax>
