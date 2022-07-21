@@ -54,8 +54,7 @@ You may be asking yourself, "**How do I use AVIF images in frameworks?** Since A
 
 ## Example code
 
-To use AVIF in your code, rely on the HTML implementation.
-The following code can be used to display AVIF images across all the listed frameworks.
+To use AVIF in your code, rely on the HTML implementation. You can use the following code to display AVIF images across all the frameworks.
 
 <Syntax language="html">
   {`<picture>
@@ -73,7 +72,7 @@ Note that in many frameworks, you can also import the image and then add it as a
 
 ## Webpack File Loader
 
-In some cases, especially with older versions of frameworks and when using webpack, you may encounter the problem that no appropiate loader is set up:
+In some cases, especially with older versions of frameworks and when using webpack, you may encounter the problem that no appropriate loader is set up:
 
 <Syntax language="html">{`Module parse failed: Unexpected character ' ' (1:0) You may need an
  appropriate loader to handle this file type, currently no loaders are
@@ -95,4 +94,14 @@ In this case, add the detection for AVIF files to the fileloader in your webpack
 ## Automatic conversion
 
 To this date, no framework plugin reliably converts the image to other sizes and formats, such as AVIF, to match the client's device. Node.JS library Sharp implemented AVIF support, which might be a good choice for you.
-Next.JS offers an <Link href="nextjs.org/docs/basic-features/image-optimization" text="automatic image optimization"/>.
+Next.JS offers <Link href="nextjs.org/docs/basic-features/image-optimization" text="automatic image optimization"/>.
+
+## What is AVIF?
+
+As a new image format, AVIF is poised to take over the web soon. AVIF is an acronym for AV1 Image File Format. In this case, the AV1 part refers to the encoder, initially designed for video transmission. In addition to JPG, PNG, and GIF, AVIF can also replace WebP.
+
+The AVIF format supports alpha transparency, HDR (high dynamic range), WCG (wide color gamut), monochrome, animated image sequences, and multi-layer images. Since it is a royalty-free format, it is not subject to licensing restrictions.
+
+This format has a significantly better compression rate than WebP and a much better compression rate than JPEG. For the same visual image quality, AVIF files have consistently and substantially reduced in size compared with WebP images, regardless of the settings used.
+
+There are still some differences between AVIF's compatibility and WebP's (around 70% compatibility in web browsers versus approximately 95% for WebP). Still, AVIF has many advantages that will aid in its popularity and adoption.
