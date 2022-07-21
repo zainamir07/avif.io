@@ -1,5 +1,5 @@
 ---
-title: Use AVIF in Frameworks like Vue, React, and Angular
+title: Use AVIF in Frameworks like Vue, React, Angular and Svelte
 description: Serving AVIF images via JavaScript frameworks is easy - find out more here.
 keyword: Frameworks
 subcategory: coding
@@ -38,7 +38,7 @@ questions:
 
 ## Framework List
 
-Now that you've learned how fantastic AVIF is, you may be asking yourself, "**How do I use AVIF images in frameworks?** Since AVIF is relatively new, the implementation must be super complicated and time-consuming!" The answer is simple: **Most Javascript front-end frameworks support AVIF natively** and rely on HTML and CSS implementation. To make sure we are not talking nonsense, we tested it with the following frameworks:
+You may be asking yourself, "**How do I use AVIF images in frameworks?** Since AVIF is relatively new, the implementation must be super complicated and time-consuming!" The answer is simple: **Most Javascript front-end frameworks support AVIF natively** and rely on HTML and CSS implementation. We tested the following frameworks for you:
 
 - facebook/react
 - vuejs/vue
@@ -47,11 +47,6 @@ Now that you've learned how fantastic AVIF is, you may be asking yourself, "**Ho
 - svelte/svelte
 - nuxt/nuxt.js
 - gatsbyjs/gatsby
-
-## Other frameworks
-
-In principle, other frameworks might work differently. We found out from our research that Meteor and Ember support AVIF files without additional configuration. Still, since we did not experiment with the latest version live, we listed it here as "maybe works" until we were in the science lab.
-
 - meteor/meteor
 - jashkenas/backbone
 - polymer/polymer
@@ -59,31 +54,32 @@ In principle, other frameworks might work differently. We found out from our res
 
 ## Example code
 
-This is the code we used to display the image below in React and Next.js:
+To use AVIF in your code, rely on the HTML implementation.
+The following code can be used to display AVIF images across all the listed frameworks.
 
 <Syntax language="html">
   {`<picture>
-  <source srcSet="/images/cloudflare-stats.avif" type="image/avif" />
-  <source srcSet="/images/cloudflare-stats.webp" type="image/webp" />
-  <img src="/images/cloudflare-stats.jpg" alt="avif in frameworks" />
+  <source srcSet="/images/react-avif.avif" type="image/avif" />
+  <source srcSet="/images/react-avif.webp" type="image/webp" />
+  <img src="/images/react-avif.jpg" alt="avif in frameworks" />
  </picture>`}
 </Syntax>
-<Image src="react-avif" alt="using avif in react" />
+
 <Image src="angular-avif" alt="using avif in angular" />
+
+Note that in many frameworks, you can also import the image and then add it as a source.
+
+<Image src="react-avif" alt="using avif in react" />
 
 ## Webpack File Loader
 
-In some cases, especially with older versions, and when using webpack, you may encounter some problems. Especially:
+In some cases, especially with older versions of frameworks and when using webpack, you may encounter the problem that no appropiate loader is set up:
 
-<Syntax language="html">
-  {`
- Module parse failed: Unexpected character ' ' (1:0) You may need an
+<Syntax language="html">{`Module parse failed: Unexpected character ' ' (1:0) You may need an
  appropriate loader to handle this file type, currently no loaders are
- configured to process this fail. See https://webpack.js.org/concepts#loaders
-`}
-</Syntax>
+ configured to process this fail. See https://webpack.js.org/concepts#loaders`}</Syntax>
 
-Simply add the detection for AVIF files to the fileloader in your webpack.config.js:
+In this case, add the detection for AVIF files to the fileloader in your webpack.config.js:
 
 <Syntax language="javascript">
   {`module.exports = {
@@ -98,4 +94,5 @@ Simply add the detection for AVIF files to the fileloader in your webpack.config
 
 ## Automatic conversion
 
-We could not find a plugin that converts the image to other sizes and formats, such as AVIF, to match the client's device. Node.JS library Sharp implemented AVIF support, which might be a good choice for you. Have you ever encountered such a plugin? Have you had any good or bad experiences with it? Please let us know so we can complete this article.
+To this date, no framework plugin reliably converts the image to other sizes and formats, such as AVIF, to match the client's device. Node.JS library Sharp implemented AVIF support, which might be a good choice for you.
+Next.JS offers an <Link href="nextjs.org/docs/basic-features/image-optimization" text="automatic image optimization"/>.
