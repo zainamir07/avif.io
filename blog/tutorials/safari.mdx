@@ -5,9 +5,9 @@ description:
   about the current state in Webkit and Safari.
 keyword: Safari
 subcategory: browser
-support: no
+support: yes
 datePublished: 2021-04-19
-dateModified: 2021-04-19
+dateModified: 2022-08-12
 sources:
   - www.apple.com/safari/
   - en.wikipedia.org/wiki/AVIF
@@ -55,16 +55,16 @@ questions:
 
 ## Introduction
 
-AVIF is a new image format meant to replace JPEG and WebP images. It is an image codec offering lossy and lossless compression while maintaining a small image size due to its efficient compression algorithm. AVIF has derived from the av1 codec, a video codec designed to transmit videos over the internet. AIVF support is under development in web browsers. Google released a Chrome version in mid-August 2020, including full AVIF support. Opera also supports the image format, and Mozilla is working on it for Firefox 92. Google Chrome 89 for Android adds AVIF support. After a long development period, Firefox 92 has AVIF support enabled by default.
+AVIF is a new image format meant to replace JPEG and WebP images. It is an image codec offering lossy and lossless compression while maintaining a small image size due to its efficient compression algorithm. AVIF has derived from the av1 codec, a video codec designed to transmit videos over the internet. AIVF support is under development in web browsers. Google released a Chrome version in mid-August 2020, including full AVIF support. Opera supports the image format, and Mozilla is working on it for Firefox 92. Google Chrome 89 for Android adds AVIF support. After a long development period, Firefox 92 has AVIF support enabled by default.
 So far, **we have heard little from Apple about their plans to support AVIF on their platforms, notably Safari**. Incompatible browsers are one major factor for an unsupported format.
 
-It took Apple more than ten years to implement WebP. For an extended period, the browser supported GIF, SVG, PNG images, the jpeg format, and their own HEIF codec. Since they are among the Alliance for Open Media companies actively developing AVIF, **we can expect them to release support faster than they did with WebP**. However, support for AV1, the video coding format AVIF has derived from, is still pending as well.
+It took Apple more than ten years to implement WebP. For an extended period, their browser supported GIF, SVG, PNG images, the jpeg format, and their own HEIF codec. Since they are among the Alliance for Open Media companies actively developing AVIF, **we can expect them to release support faster than they did with WebP**. However, support for AV1, the video coding format AVIF has derived from, is also pending.
 
 ## Safari AVIF support soon
 
 But there's excellent news in the bug tracker for Webkit, which is the core of Safari. **It's the engine mainly used in Apple's Safari web browser and all iOS web browsers**. The BlackBerry browser, PlayStation consoles, the browser part of Amazon's Kindle e-book reader, and the Tizen mobile OS also uses WebKit.
 
-The tracked bug mentions implemented AVIF support on March 5th, 2021, with initial support of the <Link href="avif.io/blog/articles/avif-faq/" text="AVIF image format"/> to the gtk port. As if this wasn't good news, developers integrated **animated AVIF support** a short time later. They updated the decoder dav1d and the libavif dependencies, fixed parsing issues. They started to turn on AVIF support by default on April 14th, 2021.
+The tracked bug mentions implemented AVIF support on March 5th, 2021, with the initial support of the <Link href="avif.io/blog/articles/avif-faq/" text="AVIF image format"/> to the gtk port. As if this wasn't good news, developers integrated **animated AVIF support** a short time later. They updated the decoder dav1d and the libavif dependencies, fixed parsing issues. They started to turn on AVIF support by default on April 14th, 2021.
 
 WebKit has general AVIF file format support with basic decoding of still images and animated sequences, **it is Apple's turn to implement the format**.
 
@@ -74,10 +74,16 @@ Unfortunately, there is no indication from Apple yet who has to issue the flip o
 
 **Safari does not support AVIF because Apple has not added AVIF support to iOS, iPadOS, and macOS.**
 
-Apple took a decade to add support for WebP. As Safari is one of the most popular browsers, its refusal to add support has delayed the format's adoption as a whole. Developers could not use this format on their own without sacrificing usability for Apple users.
+Apple took a decade to add support for WebP. As Safari is one of the most popular browsers, its refusal to add support has delayed the format's adoption. Developers could not use this format on their own without sacrificing usability for Apple users.
 
 As the WebKit contributors quickly adopted AVIF, one may wonder why it would take Apple so long to implement it. **The reason is that Apple implements a new format in its operating system, not in its browsers. ** While AVIF support is available in the WebKitGTK and WPE ports, it is unavailable in the Apple Safari ports. Apple allows Safari to interface with the operating system to determine which file formats it will support. **The browser does not decode images. The operating system does it.**
 
-Sam Sneddon, a software engineer at Apple, currently working for WebKit, confirmed this with his statement in the WebKit bug tracker: "The Apple ports use the system-provided image decoding capabilities; we're unlikely to deviate from here, so any support for AVIF depends on underlying OS support. I can't comment on whether any future OS releases will support AVIF."
+Sam Sneddon, a software engineer at Apple, currently working for WebKit, confirmed this with his statement in the WebKit bug tracker: "The Apple ports use the system-provided image decoding capabilities; we're unlikely to deviate from here, so any support for AVIF depends on underlying OS support. I can't comment whether any future OS releases will support AVIF."
 
 Jon Henshaw writes in his blog post on coywolf.news that Apple releases OS and Safari updates twice a year. Current beta operating systems do not support AVIF. Whether it is macOS Monterey (12) iPadOS 15, tvOS 15, watchOS 8 or iOS 15. **We will most likely have to wait at least six months before Safari supports AVIF, if not much longer.**
+
+## Update July 2022: Support
+
+Now available on macOS 13 Ventura or later, starting with version 16, Safari supports still AVIF images.
+
+Starting with version 16, Safari on iOS also supports AVIF images. Image sequences are not supported, and Safari will not display images with noise synthesis.
