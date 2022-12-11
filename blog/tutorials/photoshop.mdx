@@ -5,12 +5,13 @@ keyword: Photoshop
 subcategory: graphics
 support: no
 datePublished: 2021-09-03
-dateModified: 2021-09-03
+dateModified: 2022-12-10
 sources:
   - ru.wikipedia.org/wiki/AV1
   - community.adobe.com/t5/photoshop-ecosystem-ideas/photoshop-please-add-avif-file-support/idi-p/12248530
   - www.reddit.com/r/AV1/comments/k0uq8j/avif_support_for_photoshop_possibility_to_vote/
   - helpx.adobe.com/photoshop/using/file-formats.html
+  - github.com/0xC0000054/avif-format/blob/main/README.md
 tags:
   - image viewer
   - photoshop
@@ -42,6 +43,6 @@ This is a surprise as Adobe is an active member of the Alliance for Open Media, 
 
 ## Photoshop AVIF plugin
 
-A plugin for Adobe® Photoshop® allows users to load and save AV1 Image (AVIF) images. Users can load individual photos and save them in 8, 10, or 12 bits per channel. Although lossless RGB compression is supported when saving 8-bits-per-channel images, the plugin treats all conversions as lossy. The latest version of the plugin uses libheif with the AOM decoder and encoder. This plugin uses Photoshop's 16-bit editing capabilities. 16-bit data must be remapped to 10 or 12-bit when saving, and converting 8-bit to 10 or 12-bit will cause a loss of precision.
+A plugin for Adobe® Photoshop® allows users to load and save AV1 Image (AVIF) images. Users can load individual photos and save them in 8, 10, or 12 bits per channel. The latest version of the plugin uses libheif with the AOM decoder and encoder. This plugin uses Photoshop's 16-bit and 32-bit editing capabilities. 16-bit data must be remapped to 10 or 12-bit when saving. RGB images that use 32-bits-per-channel can be saved as AVIF HDR.
 
 <Link href="github.com/0xC0000054/avif-format" text="Download it here." />
