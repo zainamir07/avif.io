@@ -3,7 +3,9 @@ title: Does AVIF support film grain?
 answer: "Film grain is supported by auto-regressive noise synthesis in AVIF. Decoding is possible in AV1 due to the use of film grain in the coding domain. A correlation between the color components of grain must be considered when estimating film grain. A model based on the autoregressive (AR) algorithm is applied to AV1. While AVIF is more flexible when it comes to middle band noise, it is more complicated when it comes to block boundaries."
 description: "Film grain is supported by auto-regressive noise synthesis in AVIF. Decoding is possible in AV1 due to the use of film grain in the coding domain. A correlation between the color components of grain must be considered when estimating film grain. A model based on the autoregressive (AR) algorithm is applied to AV1. While AVIF is more flexible when it comes to middle band noise, it is more complicated when it comes to block boundaries."
 datePublished: 2021-11-18
-dateModified: 2021-11-18
+dateModified: 2023-01-03
 ---
 
 Film grain is supported by auto-regressive noise synthesis in AVIF. Decoding is possible in AV1 due to the use of film grain in the coding domain. A correlation between the color components of grain must be considered when estimating film grain. A model based on the autoregressive (AR) algorithm is applied to AV1. While AVIF is more flexible when it comes to middle band noise, it is more complicated when it comes to block boundaries.
+
+To improve the efficiency of film grain encoding and decoding in AVIF, the AV1 codec uses an autoregressive (AR) model to represent the noise in the image. This allows for a more efficient representation of the film grain, while still preserving the visual characteristics of the grain. However, encoding and decoding film grain with AVIF can be more complex at block boundaries, as the AR model may not accurately represent the noise in these areas. Despite this, AVIF's support for film grain makes it a powerful choice for users looking to encode and decode images with realistic film grain effects.

@@ -3,7 +3,15 @@ title: Does AVIF support layers?
 answer: "With AVIF, multiple spatial layers can be encoded in one frame. A spatial layer may increase the quality or resolution of the decoded image based on one or more previous layers. A layer may also provide the decoded image independently. Moreover, not every layer produces images intended for rendering. Sometimes, decoded images are used as intermediate images."
 description: "With AVIF, multiple spatial layers can be encoded in one frame. A spatial layer may increase the quality or resolution of the decoded image based on one or more previous layers. A layer may also provide the decoded image independently. Moreover, not every layer produces images intended for rendering. Sometimes, decoded images are used as intermediate images."
 datePublished: 2021-11-18
-dateModified: 2021-11-18
+dateModified: 2023-01-03
 ---
 
-With AVIF, multiple spatial layers can be encoded in one frame. A spatial layer may increase the quality or resolution of the decoded image based on one or more previous layers. A layer may also provide the decoded image independently. Moreover, not every layer produces images intended for rendering. Sometimes, decoded images are used as intermediate images.
+One of the key features of AVIF (AV1 Image File Format) is its support for multiple spatial layers. This means that multiple layers of image data can be encoded within a single AVIF frame, each of which can contribute to the overall quality or resolution of the final decoded image.
+
+In general, a spatial layer may be used to increase the quality or resolution of a decoded image based on one or more previous layers. This can be particularly useful in situations where the image quality needs to be improved, or where a higher resolution image is required.
+
+Additionally, AVIF spatial layers can be used to provide the decoded image independently of other layers. This can be useful in situations where only a specific layer is needed for a particular purpose, rather than the entire image.
+
+It's worth noting that not every spatial layer in an AVIF image is intended for rendering. Some layers may be used as intermediate images, which are used in the process of creating the final decoded image, but are not intended to be displayed on their own.
+
+Overall, AVIF's support for multiple spatial layers is a powerful feature that can be used to improve the quality and resolution of decoded images, as well as to provide independent layers for specific purposes.
