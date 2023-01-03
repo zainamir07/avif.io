@@ -39,7 +39,7 @@ const posts = [
 
 export default function PostCloud() {
   return (
-    <ol className="flex flex-wrap gap-1 text-red-700 text-tiny justify-center mt-8">
+    <ol className="flex flex-wrap gap-1 justify-center mt-8 text-red-700 text-tiny">
       {posts.map((source: any, index: any) => (
         <li key={index} className="py-0 px-1 rounded-md bg-red-1000">
           <Link text={source[0]} href={`/blog/faq/${source[1]}/`} />

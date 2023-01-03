@@ -10,11 +10,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],
-      "@images/*": ["./public/images/*"],
       "@utils/*": ["utils/*"],
-      "@pages/*": ["pages/*"],
-      "@public/*": ["public/*"],
-      "@lib/*": ["lib/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "allowSyntheticDefaultImports": true,

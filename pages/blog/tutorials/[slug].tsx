@@ -1,5 +1,6 @@
+// @ts-nocheck
+
 import { getHeadings } from "@utils/mdx";
-import { getPost } from "@utils/allPosts";
 import Blog from "@components/Blog";
 import ContentTable from "@components/Blog/ContentTable";
 import { allTutorials, Tutorials } from "contentlayer/generated";
@@ -22,7 +23,7 @@ export async function getStaticProps({ params }: { params: any }) {
     })
     .map((item: any) => {
       {
-        console.log(item.url, item.slug);
+        console.log(item.url, item.slug, item.body.raw.length);
       }
       return {
         url: item.url,

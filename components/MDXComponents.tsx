@@ -17,6 +17,7 @@ const MDXComponents = {
   Video,
   code: Syntax,
   Quote,
+  Heading,
   h1: ({ children }: ChildrenProps) => (
     <Heading level={1} text={children as string} />
   ),

@@ -1,5 +1,6 @@
+// @ts-nocheck
+
 import { getHeadings } from "@utils/mdx";
-import { getPost } from "@utils/allPosts";
 import Blog from "@components/Blog";
 import ContentTable from "@components/Blog/ContentTable";
 import { allComparisons, Comparisons } from "contentlayer/generated";

@@ -146,9 +146,9 @@ const Index: NextPage<PostsPageProps> = ({
 
   return (
     <Layout meta={meta}>
-      <section className="container mt-6 lg:mt-12 text-center">
+      <section className="container mt-6 text-center lg:mt-12">
         <h1>Convert images to AVIF for free, fast.</h1>
-        <div className="justify-center mb-4 lg:mb-6 md:flex">
+        <div className="justify-center mb-4 md:flex lg:mb-6">
           <h2 className="my-0 text-base font-normal">
             No data is sent. The magic happens in your browser.
           </h2>

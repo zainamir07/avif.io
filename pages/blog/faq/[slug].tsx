@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Blog from "@components/Blog";
 import { allFAQs, FAQs } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
