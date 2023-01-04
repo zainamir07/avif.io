@@ -2,17 +2,19 @@ import { useState } from "react";
 import ReactCompareImage from "react-compare-image";
 
 export default function ImageComparison() {
-  const [image, setImage] = useState("butterfly");
+  const [selectedImage, setSelectedImage] = useState("butterfly");
   const [imageSize, setImageSize] = useState("18");
   const [support, setSupport] = useState(false);
 
-  new Promise(() => {
+  async function checkImageSupport() {
     const image = new Image();
     image.onerror = () => setSupport(false);
     image.onload = () => setSupport(true);
     image.src =
       "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
-  }).catch(() => false);
+  }
+
+  checkImageSupport();
 
   const sliderImages = [
     ["butterfly", "18"],
@@ -23,15 +25,15 @@ export default function ImageComparison() {
     ["vector", "35"],
   ];
 
-  const sliderButtons = sliderImages.map((item: any, index: any) => (
+  const sliderButtons = sliderImages.map((item, index) => (
     <button
       key={index}
       style={{ backgroundImage: `url(/images/${item[0]}.avif)` }}
       className={`mr-2 w-8 h-8 bg-center bg-cover bg-no-repeat ${
-        image == item[0] ? "border-4 border-pink-700" : "opacity-50"
+        selectedImage == item[0] ? "border-4 border-pink-700" : "opacity-50"
       }`}
       onClick={() => {
-        setImage(`${item[0]}`);
+        setSelectedImage(`${item[0]}`);
         setImageSize(`${item[1]}`);
       }}
       name={`avif vs jpg comparison image ${index + 1}: ${item[0]}`}
@@ -40,14 +42,14 @@ export default function ImageComparison() {
 
   return (
     <div>
-      {support == true && (
+      {support === true && (
         <section className="container px-2">
           <div className="relative">
             <div className="flex mt-2 mb-2">{sliderButtons}</div>
             <div className="relative">
               <ReactCompareImage
-                leftImage={`/images/${image}.avif`}
-                rightImage={`/images/${image}.jpg`}
+                leftImage={`/images/${selectedImage}.avif`}
+                rightImage={`/images/${selectedImage}.jpg`}
                 leftImageAlt="jpg image"
                 rightImageAlt="avif image"
                 sliderLineWidth={4}

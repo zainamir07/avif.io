@@ -1,14 +1,17 @@
 export function setCookieJson(key: string, value: any) {
-  document.cookie = `${key}=${JSON.stringify(value)}`;
+  document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(
+    JSON.stringify(value)
+  )}`;
 }
 
 export function getCookieJson(key: string): any {
-  const str = document.cookie
-    .split("; ")
-    .map((s) => s.split("="))
-    .find(([k]) => k === key)?.[1];
-  if (str === undefined) {
+  const keyValuePairs = document.cookie
+    .split(";")
+    .map((pair) => pair.split("="));
+  const foundPair = keyValuePairs.find(([k]) => k.trim() === key);
+  if (!foundPair) {
     return undefined;
   }
-  return JSON.parse(str);
+  const [, value] = foundPair;
+  return JSON.parse(decodeURIComponent(value));
 }

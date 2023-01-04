@@ -1,23 +1,29 @@
 import Link from "@components/Link";
 import sortBy from "lodash/sortBy";
+import { FC } from "react";
 
-export interface SourcesProps {
+interface Source {
+  href: string;
+  text: string;
+}
+
+interface SourcesProps {
   sources: string[];
 }
 
-export default function Sources(props: SourcesProps) {
-  let sources = props.sources.map((href) => {
+const Sources: FC<SourcesProps> = ({ sources }) => {
+  let sourceObjects: Source[] = sources.map((href) => {
     let text = new URL(`https://${href}`).hostname.replace(/^www\./, "");
     return { href, text };
   });
-  sources = sortBy(sources, (s) => s.text);
+  sourceObjects = sortBy(sourceObjects, (s) => s.text);
   return (
     <>
       <h5 className="inline-block mt-4 font-bold rounded-md">Sources</h5>
       <ol className="flex flex-wrap gap-1 text-red-700 text-tiny">
-        {sources.map((source: any, index: any) => (
+        {sourceObjects.map((source: Source) => (
           <cite
-            key={index}
+            key={source.text}
             className="py-0 px-1 not-italic rounded-md bg-red-1000"
           >
             <Link text={source.text} href={source.href} />
@@ -26,4 +32,6 @@ export default function Sources(props: SourcesProps) {
       </ol>
     </>
   );
-}
+};
+
+export default Sources;

@@ -8,6 +8,7 @@ const generate = async () => {
     feed_url: "https://avif.io/rss.xml",
     site_url: "https://avif.io",
     language: "en",
+    favicon_url: "https://avif.io/favicon.ico",
   });
 
   allDocuments.forEach((post) => {
@@ -16,6 +17,7 @@ const generate = async () => {
       url: `https://avif.io/${post.url}/`,
       date: post.datePublished,
       description: post.description,
+      categories: post.tags,
     });
   });
 

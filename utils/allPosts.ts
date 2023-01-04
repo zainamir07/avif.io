@@ -13,7 +13,7 @@ type Raw = {
   flattenedPath: string;
 };
 
-const getPostByArray = (
+const searchPostArray = (
   arr: any[],
   postName: string,
   slug?: string,
@@ -22,12 +22,14 @@ const getPostByArray = (
 ) => {
   return arr.find((post) => {
     if (
-      post._raw.sourceFileName.split(".")[0] == postName ||
-      post.slug == slug ||
-      post._id == id ||
-      post._raw == raw
-    )
+      post._raw.sourceFileName.split(".")[0] === postName ||
+      post.slug === slug ||
+      post._id === id ||
+      post._raw === raw
+    ) {
       return true;
+    }
+    return false;
   });
 };
 
@@ -37,18 +39,21 @@ export function getPost(
   id?: string,
   raw?: Raw
 ): any | undefined {
-  let result;
-  result = getPostByArray(allArticles, postName, slug, id, raw);
-  if (!result) result = getPostByArray(allComparisons, postName, slug, id, raw);
-  if (!result) result = getPostByArray(allFAQs, postName, slug, id, raw);
-  if (!result) result = getPostByArray(allTutorials, postName, slug, id, raw);
-
-  let post;
-  if (result) {
-    const { body, ...data } = result;
-    post = data;
-    return post;
+  let result = searchPostArray(allArticles, postName, slug, id, raw);
+  if (!result) {
+    result = searchPostArray(allComparisons, postName, slug, id, raw);
+  }
+  if (!result) {
+    result = searchPostArray(allFAQs, postName, slug, id, raw);
+  }
+  if (!result) {
+    result = searchPostArray(allTutorials, postName, slug, id, raw);
   }
 
-  return post;
+  if (result) {
+    const { body, ...data } = result;
+    return data;
+  }
+
+  return undefined;
 }

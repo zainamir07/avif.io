@@ -1,11 +1,9 @@
 export async function getHeadings(source: string) {
-  const headingLines = source.split("\n").filter((line: string) => {
-    return line.match(/^##\s/);
-  });
+  const headingLines = source.split("\n").filter((line) => line.match(/^##\s/));
 
-  return headingLines.map((raw: string) => {
+  return headingLines.map((raw) => {
     const text = raw.replace(/^###*\s/, "");
-
-    return { text, href: `#${text.replace(/\s/gi, "").toLowerCase()}` };
+    const href = text.replace(/\s/gi, "").toLowerCase();
+    return { text, href: `#${href}` };
   });
 }

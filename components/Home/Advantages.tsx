@@ -1,7 +1,7 @@
 import "atropos/css";
 import Atropos from "atropos/react";
 
-const advantages = [
+const advantagesData = [
   ["visualizer-1", "reduces file size of images by 20-90%"],
   ["visualizer-3", "developed by tech giants like Google"],
   ["visualizer-4", "open to use and royalty-free"],
@@ -20,7 +20,7 @@ export default function Advantages() {
       className="container grid relative grid-cols-1 gap-4 p-2 mt-2 mb-12 md:grid-cols-2 lg:grid-cols-3 lg:p-0 xl:grid-cols-4 2xl:grid-cols-5"
       id="avifadvantages"
     >
-      {advantages.map((advantage) => (
+      {advantagesData.map((advantage) => (
         <Atropos
           key={advantage[1]}
           activeOffset={20}
