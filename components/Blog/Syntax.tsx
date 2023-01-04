@@ -13,12 +13,14 @@ interface Props {
 }
 
 export default function Syntax(props: Props) {
-  SyntaxHighlighter.registerLanguage("javascript", js);
-  SyntaxHighlighter.registerLanguage("html", html);
-  SyntaxHighlighter.registerLanguage("css", css);
-  SyntaxHighlighter.registerLanguage("scss", scss);
-  SyntaxHighlighter.registerLanguage("xml", xml);
-  SyntaxHighlighter.registerLanguage("php", php);
+  [
+    ["javascript", js],
+    ["html", html],
+    ["css", css],
+    ["scss", scss],
+    ["xml", xml],
+    ["php", php],
+  ].forEach((x) => SyntaxHighlighter.registerLanguage(x[0], x[1]));
 
   const { language, children } = props;
 

@@ -32,7 +32,6 @@ export default function Breadcrumbs() {
             ],
           })}
         />
-        )
       </Head>
       <div>
         <Link href={`/${url[1]}/`} text={`#${url[1]}`} />
