@@ -1,16 +1,15 @@
-/* eslint-disable @next/next/no-img-element */
-export default function Image(props: { alt: string; src: string }) {
-  const sizes = [768, 384];
-  const formats = [
-    ["image/avif", "avif"],
-    ["image/webp", "webp"],
-  ];
+const sizes = [768, 384];
+const formats = [
+  ["image/avif", "avif"],
+  ["image/webp", "webp"],
+];
 
-  const sources = formats.map((format: any) => (
+const Image = ({ alt, src }: { alt: string; src: string }) => {
+  const sources = formats.map((format) => (
     <source
       key={format[1]}
       sizes="(max-width: 768px) 100vw, 768px"
-      srcSet={`/img/${props.src}-${sizes[0]}.${format[1]} ${sizes[0]}w, /img/${props.src}-${sizes[1]}.${format[1]} ${sizes[1]}w`}
+      srcSet={`/img/${src}-${sizes[0]}.${format[1]} ${sizes[0]}w, /img/${src}-${sizes[1]}.${format[1]} ${sizes[1]}w`}
       type={`${format[0]}`}
     />
   ));
@@ -23,10 +22,12 @@ export default function Image(props: { alt: string; src: string }) {
         decoding="async"
         width={2880}
         height={1620}
-        src={`/img/${props.src}-768.webp`}
-        alt={props.alt}
-        title={props.alt}
+        src={`/img/${src}-768.webp`}
+        alt={alt}
+        title={alt}
       />
     </picture>
   );
-}
+};
+
+export default Image;

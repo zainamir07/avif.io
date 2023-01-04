@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-target-blank */
 import NextLink from "next/link";
 
 interface Props {
@@ -14,7 +13,7 @@ export default function Link(props: Props) {
 
   return (
     <NextLink
-      href={isInternal ? href : `https://` + href}
+      href={isInternal ? href : `https://${href}`}
       title={text}
       rel={isInternal ? "prefetch" : "noopener noreferrer"}
       target={isInternal ? "_self" : "_blank"}

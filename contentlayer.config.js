@@ -1,7 +1,6 @@
-import { makeSource } from "contentlayer/source-files";
-import { defineDocumentType } from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
-export const abstractDocumentFrontMatter = {
+const abstractDocumentFrontMatter = {
   title: {
     type: "string",
     required: true,
@@ -30,25 +29,27 @@ export const abstractDocumentFrontMatter = {
   },
 };
 
+const commonComputedFields = {
+  url: {
+    type: "string",
+    resolve: (doc) => "blog/" + doc._raw.flattenedPath,
+  },
+  slug: {
+    type: "string",
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
+  },
+  category: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.split("/").shift(),
+  },
+};
+
 export const Articles = defineDocumentType(() => ({
   name: "Articles",
   filePathPattern: `articles/*.mdx`,
   contentType: "mdx",
   fields: { ...abstractDocumentFrontMatter },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
-    },
-    slug: {
-      type: "string",
-      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-    category: {
-      type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").shift(),
-    },
-  },
+  computedFields: { ...commonComputedFields },
 }));
 
 export const Comparisons = defineDocumentType(() => ({
@@ -56,20 +57,7 @@ export const Comparisons = defineDocumentType(() => ({
   filePathPattern: `comparisons/*.mdx`,
   contentType: "mdx",
   fields: { ...abstractDocumentFrontMatter },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
-    },
-    slug: {
-      type: "string",
-      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-    category: {
-      type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").shift(),
-    },
-  },
+  computedFields: { ...commonComputedFields },
 }));
 
 export const FAQs = defineDocumentType(() => ({
@@ -96,20 +84,7 @@ export const FAQs = defineDocumentType(() => ({
       type: "date",
     },
   },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
-    },
-    slug: {
-      type: "string",
-      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-    category: {
-      type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").shift(),
-    },
-  },
+  computedFields: { ...commonComputedFields },
 }));
 
 export const Tutorials = defineDocumentType(() => ({
@@ -128,20 +103,7 @@ export const Tutorials = defineDocumentType(() => ({
       required: true,
     },
   },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (doc) => "blog/" + doc._raw.flattenedPath,
-    },
-    slug: {
-      type: "string",
-      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-    category: {
-      type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").shift(),
-    },
-  },
+  computedFields: { ...commonComputedFields },
 }));
 
 export default makeSource({

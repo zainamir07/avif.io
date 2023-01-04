@@ -3,6 +3,11 @@ import last from "lodash/last";
 import minBy from "lodash/minBy";
 import maxBy from "lodash/maxBy";
 
+interface Sample {
+  time: number;
+  remainingTimeEstimate: number;
+}
+
 export default class ConversionTimeEstimator {
   private samples: Sample[] = [];
   private startTime = 0;
@@ -76,52 +81,46 @@ export default class ConversionTimeEstimator {
   private updateRemainingTimeEstimate() {
     console.assert(this.samples.length > 0);
 
-    const minSample = this.minSample()!;
-    const maxSample = this.maxSample()!;
+    const minSample = this.minSample();
+    const maxSample = this.maxSample();
+
+    if (!minSample || !maxSample) return;
+
+    const { remainingTimeEstimate: minEstimate } = minSample;
+    const { remainingTimeEstimate: maxEstimate } = maxSample;
 
     if (
       this.estimate === undefined ||
-      this.estimate < minSample.remainingTimeEstimate ||
-      this.estimate > maxSample.remainingTimeEstimate
+      this.estimate < minEstimate ||
+      this.estimate > maxEstimate
     ) {
-      this.estimate =
-        (minSample.remainingTimeEstimate + maxSample.remainingTimeEstimate) / 2;
+      this.estimate = (minEstimate + maxEstimate) / 2;
       this.coarserEstimate();
     }
   }
 
   private coarserEstimate() {
-    // eslint-disable-next-line prefer-const
-    let [minutes, seconds] = minutesAndSeconds(this.estimate);
+    const [minutes, seconds] = minutesAndSeconds(this.estimate);
 
     if (minutes >= 10) {
       this.coarseMinutesEstimate = Math.round(minutes / 10);
       this.coarseSecondsEstimate = undefined;
     } else if (minutes >= 3) {
-      if (seconds > 30) {
-        minutes++;
-      }
-      this.coarseMinutesEstimate = minutes;
+      this.coarseMinutesEstimate = minutes + (seconds > 30 ? 1 : 0);
       this.coarseSecondsEstimate = undefined;
     } else if (minutes >= 1) {
       this.coarseMinutesEstimate = minutes;
       this.coarseSecondsEstimate = Math.round(seconds / 30) * 30;
     } else if (seconds >= 15) {
-      this.coarseMinutesEstimate = minutes;
+      this.coarseMinutesEstimate = 0;
       this.coarseSecondsEstimate = Math.round(seconds / 10) * 10;
     } else {
       this.coarseMinutesEstimate = 0;
       this.coarseSecondsEstimate = 0;
     }
-
     if (this.coarseSecondsEstimate === 60) {
       this.coarseMinutesEstimate++;
       this.coarseSecondsEstimate = 0;
     }
   }
-}
-
-interface Sample {
-  time: number;
-  remainingTimeEstimate: number;
 }

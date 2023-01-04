@@ -7,34 +7,13 @@ import { allComparisons, Comparisons } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "@components/MDXComponents";
 
-export async function getStaticPaths() {
-  return {
-    paths: allComparisons.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }: { params: any }) {
-  const relatedPosts = allComparisons.map((item: any) => ({
-    url: item.url,
-    keyword: item.keyword,
-    description: item.description,
-    support: item.support ? item.support : "",
-  }));
-  const post = allComparisons.find((post) => post.slug === params.slug);
-  const headings = await getHeadings(post!.body.raw);
-  return { props: { post, headings, relatedPosts } };
-}
-
-const PostLayout = ({
-  post,
-  headings,
-  relatedPosts,
-}: {
+type Props = {
   post: Comparisons;
   headings: any;
   relatedPosts: any;
-}) => {
+};
+
+const PostLayout = ({ post, headings, relatedPosts }: Props) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
     <>
@@ -44,6 +23,25 @@ const PostLayout = ({
       </Blog>
     </>
   );
+};
+
+export const getStaticPaths = () => {
+  return {
+    paths: allComparisons.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }: { params: any }) => {
+  const relatedPosts = allComparisons.map((item: any) => ({
+    url: item.url,
+    keyword: item.keyword,
+    description: item.description,
+    support: item.support ? item.support : "",
+  }));
+  const post = allComparisons.find((post) => post.slug === params.slug);
+  const headings = await getHeadings(post!.body.raw);
+  return { props: { post, headings, relatedPosts } };
 };
 
 export default PostLayout;

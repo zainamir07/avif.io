@@ -6,8 +6,14 @@ import Syntax from "@components/Blog/Syntax";
 import Video from "@components/Blog/Video";
 import Quote from "@components/Blog/Quote";
 
-interface ChildrenProps {
-  children: ReactNode;
+type ChildrenProps = { children: ReactNode };
+
+function getHeading(level: number) {
+  function HeadingWrapper({ children }: ChildrenProps) {
+    return <Heading level={level} text={children as string} />;
+  }
+  HeadingWrapper.displayName = `Heading${level}`;
+  return HeadingWrapper;
 }
 
 const MDXComponents = {
@@ -18,24 +24,12 @@ const MDXComponents = {
   code: Syntax,
   Quote,
   Heading,
-  h1: ({ children }: ChildrenProps) => (
-    <Heading level={1} text={children as string} />
-  ),
-  h2: ({ children }: ChildrenProps) => (
-    <Heading level={2} text={children as string} />
-  ),
-  h3: ({ children }: ChildrenProps) => (
-    <Heading level={3} text={children as string} />
-  ),
-  h4: ({ children }: ChildrenProps) => (
-    <Heading level={4} text={children as string} />
-  ),
-  h5: ({ children }: ChildrenProps) => (
-    <Heading level={5} text={children as string} />
-  ),
-  h6: ({ children }: ChildrenProps) => (
-    <Heading level={6} text={children as string} />
-  ),
+  h1: getHeading(1),
+  h2: getHeading(2),
+  h3: getHeading(3),
+  h4: getHeading(4),
+  h5: getHeading(5),
+  h6: getHeading(6),
 };
 
 export default MDXComponents;

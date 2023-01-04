@@ -13,57 +13,23 @@ type Raw = {
   flattenedPath: string;
 };
 
-function searchForPost(
+const getPostByArray = (
+  arr: any[],
   postName: string,
   slug?: string,
   id?: string,
   raw?: Raw
-) {
-  let result;
-
-  if (!result)
-    result = allArticles.find((post) => {
-      if (
-        post._raw.sourceFileName.split(".")[0] == postName ||
-        post.slug == slug ||
-        post._id == id ||
-        post._raw == raw
-      )
-        return true;
-    });
-  if (!result)
-    result = allComparisons.find((post) => {
-      if (
-        post._raw.sourceFileName.split(".")[0] == postName ||
-        post.slug == slug ||
-        post._id == id ||
-        post._raw == raw
-      )
-        return true;
-    });
-  if (!result)
-    result = allFAQs.find((post) => {
-      if (
-        post._raw.sourceFileName.split(".")[0] == postName ||
-        post.slug == slug ||
-        post._id == id ||
-        post._raw == raw
-      )
-        return true;
-    });
-  if (!result)
-    result = allTutorials.find((post) => {
-      if (
-        post._raw.sourceFileName.split(".")[0] == postName ||
-        post.slug == slug ||
-        post._id == id ||
-        post._raw == raw
-      )
-        return true;
-    });
-
-  return result;
-}
+) => {
+  return arr.find((post) => {
+    if (
+      post._raw.sourceFileName.split(".")[0] == postName ||
+      post.slug == slug ||
+      post._id == id ||
+      post._raw == raw
+    )
+      return true;
+  });
+};
 
 export function getPost(
   postName: string,
@@ -71,9 +37,13 @@ export function getPost(
   id?: string,
   raw?: Raw
 ): any | undefined {
-  const result = searchForPost(postName, slug, id, raw);
-  let post;
+  let result;
+  result = getPostByArray(allArticles, postName, slug, id, raw);
+  if (!result) result = getPostByArray(allComparisons, postName, slug, id, raw);
+  if (!result) result = getPostByArray(allFAQs, postName, slug, id, raw);
+  if (!result) result = getPostByArray(allTutorials, postName, slug, id, raw);
 
+  let post;
   if (result) {
     const { body, ...data } = result;
     post = data;

@@ -10,73 +10,71 @@ import { FAQPage } from "schema-dts";
 import Ad from "@components/Blog/Ad";
 import Link from "@components/Link";
 
-export async function getStaticPaths() {
+const PostLayout = ({ post }: { post: FAQs; headings: any }) => {
+  const MDXContent = useMDXComponent(post.body.code);
+  return (
+    <Blog meta={post}>
+      <Head>
+        <script
+          {...jsonLdScriptProps<FAQPage>({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: {
+              "@type": "Question",
+              name: post.title,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: post.answer,
+                url: process.env.NEXT_PUBLIC_SITE_URL + post.url,
+              },
+            },
+          })}
+        />
+      </Head>
+      <MDXContent components={MDXComponents} />
+      <aside>
+        <Ad />
+      </aside>
+      <aside className="container mt-8 max-w-3xl">
+        <nav
+          aria-label="chapters"
+          className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
+        >
+          <h4 className="mb-2 bold">More questions about AVIF</h4>
+          <ol className="list-none">
+            {contentTable.map((entry, i) => (
+              <li
+                className="py-0 list-item"
+                style={{ counterIncrement: "step-counter" }}
+                key={entry[0] + i}
+              >
+                <Link
+                  text={entry[0]}
+                  className="text-red-700 no-underline md:text-base text-tiny"
+                  href={`/blog/faq/${entry[1]}/`}
+                />
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+      <aside>
+        <Ad />
+      </aside>
+    </Blog>
+  );
+};
+
+export const getStaticPaths = () => {
   return {
     paths: allFAQs.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }: { params: any }) {
+export const getStaticProps = async ({ params }: { params: any }) => {
   const post = allFAQs.find((post) => post.slug === params.slug);
   return { props: { post } };
-}
-
-const PostLayout = ({ post }: { post: FAQs; headings: any }) => {
-  const MDXContent = useMDXComponent(post.body.code);
-  return (
-    <>
-      <Blog meta={post}>
-        <Head>
-          <script
-            {...jsonLdScriptProps<FAQPage>({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: {
-                "@type": "Question",
-                name: post.title,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: post.answer,
-                  url: process.env.NEXT_PUBLIC_SITE_URL + post.url,
-                },
-              },
-            })}
-          />
-        </Head>
-        <MDXContent components={MDXComponents} />
-        <aside>
-          <Ad />
-        </aside>
-        <aside className="container mt-8 max-w-3xl">
-          <nav
-            aria-label="chapters"
-            className="p-4 my-4 rounded-lg md:py-2 bg-bg-400"
-          >
-            <h4 className="mb-2 bold">More questions about AVIF</h4>
-            <ol className="list-none">
-              {contentTable.map((entry, i) => (
-                <li
-                  className="py-0 list-item"
-                  style={{ counterIncrement: "step-counter" }}
-                  key={entry[0] + i}
-                >
-                  <Link
-                    text={entry[0]}
-                    className="text-red-700 no-underline md:text-base text-tiny"
-                    href={`/blog/faq/${entry[1]}/`}
-                  />
-                </li>
-              ))}
-            </ol>
-          </nav>
-        </aside>
-        <aside>
-          <Ad />
-        </aside>
-      </Blog>
-    </>
-  );
 };
 
 const contentTable = [

@@ -9,7 +9,7 @@ import MDXComponents from "@components/MDXComponents";
 
 export async function getStaticPaths() {
   return {
-    paths: allTutorials.map((p) => ({ params: { slug: p.slug } })),
+    paths: allTutorials.map((post) => ({ params: { slug: post.slug } })),
     fallback: false,
   };
 }
@@ -18,21 +18,14 @@ export async function getStaticProps({ params }: { params: any }) {
   const post = allTutorials.find((post) => post.slug === params.slug);
   const headings = await getHeadings(post!.body.raw);
   const relatedPosts = allTutorials
-    .filter((b) => {
-      return b.subcategory == post!.subcategory;
-    })
-    .map((item: any) => {
-      {
-        console.log(item.url, item.slug, item.body.raw.length);
-      }
-      return {
-        url: item.url,
-        keyword: item.keyword,
-        description: item.description,
-        support: item.support ? item.support : "",
-        subcategory: item.subcategory ? item.subcategory : "",
-      };
-    });
+    .filter((b) => b.subcategory === post!.subcategory)
+    .map((item) => ({
+      url: item.url,
+      keyword: item.keyword,
+      description: item.description,
+      support: item.support || "",
+      subcategory: item.subcategory || "",
+    }));
   return { props: { post, headings, relatedPosts } };
 }
 
@@ -47,12 +40,10 @@ const PostLayout = ({
 }) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
-    <>
-      <Blog meta={post} posts={relatedPosts}>
-        <ContentTable contentTable={headings} />
-        <MDXContent components={MDXComponents} />
-      </Blog>
-    </>
+    <Blog meta={post} posts={relatedPosts}>
+      <ContentTable contentTable={headings} />
+      <MDXContent components={MDXComponents} />
+    </Blog>
   );
 };
 
