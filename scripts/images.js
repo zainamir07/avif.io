@@ -7,32 +7,25 @@ const path = require("path");
 const output = "../public/img/";
 const input = "../images/";
 
-const createDirectoryIfNotExists = (dir) => {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
-  }
-};
+!fs.existsSync(output) && fs.mkdirSync(output);
 
 const webpQuality = { quality: 64, reductionEffort: 0 };
 const avifQuality = { quality: 51, effort: 0, chromaSubsampling: "4:2:0" };
 const sizes = [768, 384];
 
-createDirectoryIfNotExists(output);
-
 fs.readdir(input, (err, files) => {
   console.log(`✅ Found ${files.length} image. Converting now..`);
   files.forEach((file) => {
     const fileShort = path.parse(file).name;
-    const convert = (size) => {
+    const convert = (format, quality, size) => {
       sharp(input + file)
-        .webp(webpQuality)
+        .toFormat(format, quality)
         .resize({ width: size })
-        .toFile(`${output}${fileShort}-${size}.webp`);
-      sharp(input + file)
-        .avif(avifQuality)
-        .resize({ width: size })
-        .toFile(`${output}${fileShort}-${size}.avif`);
+        .toFile(`${output}${fileShort}-${size}.${format}`);
     };
-    sizes.forEach(convert);
+    sizes.forEach((size) => {
+      convert("webp", webpQuality, size);
+      convert("avif", avifQuality, size);
+    });
   });
 });

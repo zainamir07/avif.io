@@ -10,9 +10,7 @@ export interface ConversionResult {
 
 interface ConversionMessageCallbacks {
   onProgress(progress: number): void;
-
   onFinished(result: ConversionResult): void;
-
   onError(error: string): void;
 }
 
