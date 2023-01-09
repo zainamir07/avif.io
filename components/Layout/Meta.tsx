@@ -27,9 +27,7 @@ export default function Meta(props: Props) {
         href="/apple-touch-icon.png"
       />
 
-      <title>
-        {title} | {process.env.NEXT_PUBLIC_SITE_NAME} ✨
-      </title>
+      <title>{`${title} | ${process.env.NEXT_PUBLIC_SITE_NAME} ✨`}</title>
 
       <meta name="description" content={description} />
       <meta name="author" content="Justin Schmitz" />
@@ -53,9 +51,6 @@ export default function Meta(props: Props) {
         content={`${process.env.NEXT_PUBLIC_SITE_URL}logo.png`}
       />
       <meta name="twitter:card" content="summary"></meta>
-      <meta property="twitter:creator" content="@jschmitz97" />
-      <meta property="twitter:site" content="@jschmitz97" />
-      <meta property="twitter:url" content="https://twitter.com/jschmitz97" />
       <meta
         property="twitter:title"
         content={title + " | " + process.env.NEXT_PUBLIC_SITE_NAME + "✨"}

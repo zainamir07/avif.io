@@ -1,6 +1,29 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
+export function __wbg_conversionoptions_free(a: number): void;
+export function __wbg_get_conversionoptions_effort(a: number): number;
+export function __wbg_set_conversionoptions_effort(a: number, b: number): void;
+export function __wbg_get_conversionoptions_quality(a: number): number;
+export function __wbg_set_conversionoptions_quality(a: number, b: number): void;
+export function __wbg_get_conversionoptions_subsampling(a: number): number;
+export function __wbg_set_conversionoptions_subsampling(
+  a: number,
+  b: number
+): void;
+export function __wbg_get_conversionoptions_keep_transparency(
+  a: number
+): number;
+export function __wbg_set_conversionoptions_keep_transparency(
+  a: number,
+  b: number
+): void;
+export function conversionoptions_new(
+  a: number,
+  b: number,
+  c: number,
+  d: number
+): number;
 export function __wbg_conversionresult_free(a: number): void;
 export function __wbg_get_conversionresult_data(a: number): number;
 export function __wbg_set_conversionresult_data(a: number, b: number): void;
@@ -26,29 +49,6 @@ export function rgba_to_avif(
   d: number,
   e: number,
   f: number
-): number;
-export function __wbg_conversionoptions_free(a: number): void;
-export function __wbg_get_conversionoptions_effort(a: number): number;
-export function __wbg_set_conversionoptions_effort(a: number, b: number): void;
-export function __wbg_get_conversionoptions_quality(a: number): number;
-export function __wbg_set_conversionoptions_quality(a: number, b: number): void;
-export function __wbg_get_conversionoptions_subsampling(a: number): number;
-export function __wbg_set_conversionoptions_subsampling(
-  a: number,
-  b: number
-): void;
-export function __wbg_get_conversionoptions_keep_transparency(
-  a: number
-): number;
-export function __wbg_set_conversionoptions_keep_transparency(
-  a: number,
-  b: number
-): void;
-export function conversionoptions_new(
-  a: number,
-  b: number,
-  c: number,
-  d: number
 ): number;
 export function __wbindgen_malloc(a: number): number;
 export function __wbindgen_realloc(a: number, b: number, c: number): number;

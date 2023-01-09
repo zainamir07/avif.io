@@ -14,12 +14,11 @@ export default function Heading(props: Props) {
   const CustomTag = `h${level}` as keyof JSX.IntrinsicElements;
   const trimmedText = text.replace(/\s/g, "").toLowerCase();
   const router = useRouter();
-  const fullPath = router.asPath.includes("#")
-    ? process.env.NEXT_PUBLIC_SITE_URL + router.asPath.substring(1)
-    : process.env.NEXT_PUBLIC_SITE_URL +
-      router.asPath.substring(1) +
-      "#" +
-      trimmedText;
+  const fullPath =
+    process.env.NEXT_PUBLIC_SITE_URL +
+    (router.asPath.includes("#")
+      ? router.asPath.substring(1)
+      : router.asPath.substring(1) + "#" + trimmedText);
 
   useEffect(() => {
     callback?.({ text: text, href: `#${trimmedText}` });
