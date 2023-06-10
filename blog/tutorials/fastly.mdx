@@ -5,7 +5,7 @@ keyword: Fastly
 subcategory: cdn
 support: full
 datePublished: 2021-09-10
-dateModified: 2021-09-10
+dateModified: 2023-06-10
 sources:
   - pt.wikipedia.org/wiki/High_Efficiency_Image_File_Format
   - www.fastly.com/products/web-and-mobile-performance/image-optimization#transform-serve-images-faster
@@ -25,14 +25,31 @@ questions:
   - Which CDN supports AVIF?
 ---
 
-## What is AVIF
+## Introducing AVIF: A New Contender in Image Formats
 
-The AVIF image format has several features and high compression rates. The continued expansion of the AVIF format is attributed to its support from big players in the digital economy. In addition to its high image quality, the AVIF format has many capabilities vital to modern image formats. The AVIF format currently reduces image sizes by about 50% compared to JPEG. As a result of its high efficiency, AVIF compression minimizes the loading time of websites. The AVIF standard has all the prerequisites necessary to establish itself online and replace JPEG as the new image standard of choice. Once technical obstacles (e.g., slow coding processes) have been overcome, the multifunctional image format will provide high-quality images.
+In the realm of image formats, there's a newcomer known as AVIF, or AV1 Image File Format. This open and royalty-free specification is poised to compete with the likes of HEIC (High Efficiency Image Format). But what makes AVIF stand out? Its compression algorithm comes from AV1, while HEIC relies on HEVC. AVIF is based on the HEIF container format, built upon the ISOBMFF foundation. With version 1.0.0 finalized in February 2019, AVIF has been making waves with its impressive compression efficiency and image quality.
 
-## What is Fastly
+Imagine a world where you can have images with richer details, fewer artifacts, and minimal color bleeding. That's what AVIF brings to the table, surpassing JPEG in terms of compression. It also offers a versatile range of features, such as:
 
-Compared to antiquated image delivery workflows, Fastly Image Optimizer provides a vastly more efficient alternative. The Image Optimizer operates at the edge of their network to reduce the latency associated with transforming and delivering images closer to your end-users. Store one version of each image. Their solution will be able to convert, serve, and cache an optimized version on-demand, eliminating the need for your infrastructure. Fastly Image Optimizer simplifies image delivery workflows, reduces infrastructure costs, and enhances the end-user experience. Fastly Image Optimizer optimizes your images on demand. It is capable of converting, resizing, cropping/trimming, sharpening, blurring, changing orientation and background colors, adjusting quality, and much more. Fastly customers pay a subscription fee based on the number of files served by Fastly that the Image Optimizer has processed at any given time.
+- Support for multiple color spaces, including HDR (PQ or HLG), SDR (sRGB, BT.709, BT.601, wide color gamut)
+- Color space signaling via CICP or ICC profiles
+- Lossless and lossy compression options
+- Multiple color depths for better image quality (8-, 10-, and 12-bit)
+- Monochrome or multi-component images
+- Various chroma subsampling options, from 4:2:0 to 4:4:4, and RGB
+- Film grain synthesis
+- Image sequences and animations
 
-## Fastly AVIF support
+To ensure compatibility with different hardware capabilities, AVIF offers multiple profiles such as AVIF Baseline and AVIF Advanced, built on AV1 Main and High Profiles, respectively.
 
-Unfortunately to this date, Fastly does not support AVIF. It support WebP. It is uncertain whether this will change in future.
+## Simplifying Image Delivery with Fastly Image Optimizer
+
+Fastly Image Optimizer provides a modern and efficient solution for image delivery workflows, operating at the edge of their network to minimize latency. By storing a single version of each image, the optimizer can convert, serve, and cache optimized versions on-demand—eliminating the need for additional infrastructure. Thanks to its capabilities, like resizing, sharpening, and adjusting the quality of images, Fastly simplifies these workflows, reduces costs, and improves the end-user experience.
+
+## AVIF and Fastly: Where Do They Stand?
+
+Although AVIF shows great promise with its superior compression and features, Fastly does not currently support this format, favoring WebP instead. The reasons for this decision remain uncertain, and it is unclear if Fastly will add AVIF support in the future.
+
+For those keen on adopting AVIF while waiting for broader support, exploring alternatives or workarounds may be necessary. Consider researching other image optimization and delivery solutions that can accommodate AVIF.
+
+In conclusion, with its advanced capabilities, AVIF offers tantalizing potential for revolutionizing image formats. As web developers and designers explore the possibilities of better compression, improved image quality, and diverse features, it is only a matter of time before AVIF becomes more widely adopted. Keep an eye on this up-and-coming format and its potential impact on the future of web design.

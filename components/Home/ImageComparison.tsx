@@ -1,20 +1,15 @@
 import { useState } from "react";
 import ReactCompareImage from "react-compare-image";
+import { checkAvifSupport } from "../../utils/avifSupportCheck";
 
 export default function ImageComparison() {
   const [selectedImage, setSelectedImage] = useState("butterfly");
   const [imageSize, setImageSize] = useState("18");
   const [support, setSupport] = useState(false);
 
-  async function checkImageSupport() {
-    const image = new Image();
-    image.onerror = () => setSupport(false);
-    image.onload = () => setSupport(true);
-    image.src =
-      "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
-  }
-
-  checkImageSupport();
+  checkAvifSupport()
+    .then((supported) => setSupport(true))
+    .catch(() => setSupport(false));
 
   const sliderImages = [
     ["butterfly", "18"],

@@ -1,5 +1,6 @@
 import Link from "@components/Link";
 import { useEffect, useState } from "react";
+import { checkAvifSupport } from "../../utils/avifSupportCheck";
 
 export default function Header() {
   const [isFixed, setIsFixed] = useState(true);
@@ -13,13 +14,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  new Promise(() => {
-    const image = new Image();
-    image.onerror = () => setSupport(false);
-    image.onload = () => setSupport(true);
-    image.src =
-      "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
-  }).catch(() => false);
+  checkAvifSupport()
+    .then((supported) => setSupport(true))
+    .catch(() => setSupport(false));
 
   return (
     <header

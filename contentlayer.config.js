@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import rehypePresetMinify from "rehype-preset-minify";
 
 const abstractDocumentFrontMatter = {
   title: {
@@ -109,4 +110,7 @@ export const Tutorials = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "blog",
   documentTypes: [Articles, Comparisons, FAQs, Tutorials],
+  mdx: {
+    rehypePlugins: [rehypePresetMinify],
+  },
 });
