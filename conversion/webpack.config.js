@@ -7,14 +7,7 @@ module.exports = {
   target: "webworker",
   experiments: {
     syncWebAssembly: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.wasm$/,
-        type: "webassembly/sync",
-      },
-    ],
+    asyncWebAssembly: true,
   },
   output: {
     library: "conversion",
