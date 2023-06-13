@@ -10,6 +10,12 @@ onmessage = async function (msg) {
     memory,
   } = await conversion.lib();
 
+  console.log("const memory:", memory);
+  console.log("const subsampling:", Subsampling);
+  console.log("const conversionOptions:", ConversionOptions);
+  console.log("const convertToAvif:", convertToAvif);
+  console.log("const rgbatoavif:", rgbaToAvif);
+
   const result = convertInput();
   postResult(result);
 
@@ -36,6 +42,7 @@ onmessage = async function (msg) {
   }
 
   function postProgress(progress) {
+    console.log("memory in postProgress", progress);
     postMessage(
       {
         type: "progress",
@@ -46,6 +53,7 @@ onmessage = async function (msg) {
   }
 
   function postResult(result) {
+    console.log("memory in postResult", result);
     if (result.error_size !== 0) {
       const errorData = new Uint8Array(
         memory.buffer,
