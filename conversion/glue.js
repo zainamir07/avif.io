@@ -1,5 +1,6 @@
 export async function lib() {
-  const pkg = await import("./pkg");
-  pkg.memory = (await import("./pkg/conversion_bg")).memory;
+  const { memory, ...pkg } = await import("./pkg");
+  const wasmModule = await import("./pkg/conversion_bg.wasm");
+  pkg.memory = wasmModule.memory;
   return pkg;
 }
