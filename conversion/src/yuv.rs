@@ -1,5 +1,5 @@
-use image::{GenericImageView, ImageBuffer, imageops, Pixel, Rgb, RgbaImage};
 use image::imageops::FilterType;
+use image::{imageops, GenericImageView, ImageBuffer, Pixel, Rgb, RgbaImage};
 use wasm_bindgen::prelude::*;
 
 pub struct YUV {
@@ -26,10 +26,7 @@ pub fn from_alpha(alpha: &[u8]) -> YUV {
     }
 }
 
-pub fn from_image(
-    image: &RgbaImage,
-    subsampling: Subsampling,
-) -> YUV {
+pub fn from_image(image: &RgbaImage, subsampling: Subsampling) -> YUV {
     let mut yuv = YUV {
         y: Vec::new(),
         u: Vec::new(),
@@ -62,11 +59,12 @@ pub fn from_image(
 }
 
 fn subsampled<I: GenericImageView>(
-    image: &I
+    image: &I,
 ) -> ImageBuffer<I::Pixel, Vec<<I::Pixel as Pixel>::Subpixel>>
-    where
-        I::Pixel: 'static,
-        <I::Pixel as Pixel>::Subpixel: 'static {
+where
+    I::Pixel: 'static,
+    <I::Pixel as Pixel>::Subpixel: 'static,
+{
     let (w, h) = image.dimensions();
     imageops::resize(image, w / 2, h / 2, FilterType::Triangle)
 }
