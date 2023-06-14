@@ -61,7 +61,6 @@ onmessage = async function (msg) {
         []
       );
     }
-
     const data = new Uint8Array(
       memory.buffer.slice(result.data, result.data + result.size)
     );
