@@ -5,6 +5,7 @@ use rav1e::color::ChromaSampling;
 use rav1e::prelude::EncoderConfig;
 use rav1e::Frame;
 use wasm_bindgen::prelude::*;
+use std::convert::TryInto;
 
 use crate::yuv::{self, Subsampling, YUV};
 
@@ -105,7 +106,7 @@ fn create_encoder_config(
     assert!(options.quality <= 100);
 
     let speed = (10 - (options.effort / 20)) as usize;
-    let mut encoder_config = EncoderConfig::with_speed_preset(speed);
+    let mut encoder_config = EncoderConfig::with_speed_preset(speed.try_into().unwrap());
     encoder_config.quantizer = 255 - (options.quality as usize) * 255 / 100;
     encoder_config.min_quantizer = encoder_config.quantizer as u8;
     encoder_config.chroma_sampling = to_av1_chroma_sampling(options.subsampling);

@@ -3,20 +3,18 @@
 /**
 * @param {Uint8Array} input_data
 * @param {ConversionOptions} options
-* @param {Function} on_progress
 * @returns {ConversionResult}
 */
-export function convert_to_avif(input_data: Uint8Array, options: ConversionOptions, on_progress: Function): ConversionResult;
+export function convert_to_avif(input_data: Uint8Array, options: ConversionOptions): ConversionResult;
 /**
 * A special function for WebP.
 * @param {Uint8Array} input_data
 * @param {ConversionOptions} options
 * @param {number} width
 * @param {number} height
-* @param {Function} on_progress
 * @returns {ConversionResult}
 */
-export function rgba_to_avif(input_data: Uint8Array, options: ConversionOptions, width: number, height: number, on_progress: Function): ConversionResult;
+export function rgba_to_avif(input_data: Uint8Array, options: ConversionOptions, width: number, height: number): ConversionResult;
 /**
 */
 export enum Subsampling {

@@ -1,4 +1,3 @@
-import ProgressBar from "@components/Home/ProgressBar";
 import { Settings } from "@components/Home/SettingsBox";
 import ConversionTimeEstimator from "@utils/ConversionTimeEstimator";
 import Converter, { ConversionId, ConversionResult } from "@utils/converter";
@@ -192,7 +191,6 @@ export default function Conversion(props: ConversionProps): ReactElement {
           </button>
         </a>
       )}
-      {status === "inProgress" && <ProgressBar progress={progress} />}
     </div>
   );
 }
