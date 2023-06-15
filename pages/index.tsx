@@ -90,6 +90,8 @@ const Index: NextPage<PostsPageProps> = ({
     quality: 75,
     useYuv444: false,
     keepTransparency: true,
+    adaptive: true,
+    keepExif: true,
     autoDownload: false,
   });
 
