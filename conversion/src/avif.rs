@@ -4,8 +4,8 @@ use image::{self, error::ImageResult, RgbaImage};
 use rav1e::color::ChromaSampling;
 use rav1e::prelude::EncoderConfig;
 use rav1e::Frame;
-use wasm_bindgen::prelude::*;
 use std::convert::TryInto;
+use wasm_bindgen::prelude::*;
 
 use crate::yuv::{self, Subsampling, YUV};
 
