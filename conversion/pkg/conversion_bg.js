@@ -53,7 +53,6 @@ export function convert_to_avif(input_data, options) {
 }
 
 /**
-* A special function for WebP.
 * @param {Uint8Array} input_data
 * @param {ConversionOptions} options
 * @param {number} width
@@ -95,7 +94,6 @@ export class ConversionOptions {
         wasm.__wbg_conversionoptions_free(ptr);
     }
     /**
-    * Effort of conversion as a percentage from 0 to 100.
     * @returns {number}
     */
     get effort() {
@@ -103,14 +101,12 @@ export class ConversionOptions {
         return ret;
     }
     /**
-    * Effort of conversion as a percentage from 0 to 100.
     * @param {number} arg0
     */
     set effort(arg0) {
         wasm.__wbg_set_conversionoptions_effort(this.__wbg_ptr, arg0);
     }
     /**
-    * Quality of conversion as a percentage from 0 to 100.
     * @returns {number}
     */
     get quality() {
@@ -118,7 +114,6 @@ export class ConversionOptions {
         return ret;
     }
     /**
-    * Quality of conversion as a percentage from 0 to 100.
     * @param {number} arg0
     */
     set quality(arg0) {
@@ -151,13 +146,27 @@ export class ConversionOptions {
         wasm.__wbg_set_conversionoptions_keep_transparency(this.__wbg_ptr, arg0);
     }
     /**
+    * @returns {boolean}
+    */
+    get adaptive() {
+        const ret = wasm.__wbg_get_conversionoptions_adaptive(this.__wbg_ptr);
+        return ret !== 0;
+    }
+    /**
+    * @param {boolean} arg0
+    */
+    set adaptive(arg0) {
+        wasm.__wbg_set_conversionoptions_adaptive(this.__wbg_ptr, arg0);
+    }
+    /**
     * @param {number} effort
     * @param {number} quality
     * @param {number} subsampling
     * @param {boolean} keep_transparency
+    * @param {boolean} adaptive
     */
-    constructor(effort, quality, subsampling, keep_transparency) {
-        const ret = wasm.conversionoptions_new(effort, quality, subsampling, keep_transparency);
+    constructor(effort, quality, subsampling, keep_transparency, adaptive) {
+        const ret = wasm.conversionoptions_new(effort, quality, subsampling, keep_transparency, adaptive);
         return ConversionOptions.__wrap(ret);
     }
 }

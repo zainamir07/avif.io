@@ -7,7 +7,6 @@
 */
 export function convert_to_avif(input_data: Uint8Array, options: ConversionOptions): ConversionResult;
 /**
-* A special function for WebP.
 * @param {Uint8Array} input_data
 * @param {ConversionOptions} options
 * @param {number} width
@@ -31,17 +30,19 @@ export class ConversionOptions {
 * @param {number} quality
 * @param {number} subsampling
 * @param {boolean} keep_transparency
+* @param {boolean} adaptive
 */
-  constructor(effort: number, quality: number, subsampling: number, keep_transparency: boolean);
+  constructor(effort: number, quality: number, subsampling: number, keep_transparency: boolean, adaptive: boolean);
 /**
-* Effort of conversion as a percentage from 0 to 100.
+*/
+  adaptive: boolean;
+/**
 */
   effort: number;
 /**
 */
   keep_transparency: boolean;
 /**
-* Quality of conversion as a percentage from 0 to 100.
 */
   quality: number;
 /**

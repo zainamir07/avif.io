@@ -19,7 +19,9 @@ export interface ConversionOptions extends ConversionMessageCallbacks {
   quality: number;
   useYuv444: boolean;
   keepTransparency: boolean;
+  keepExif: boolean;
   autoDownload: boolean;
+  adaptive: boolean;
 }
 
 interface PendingConversion {

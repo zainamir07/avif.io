@@ -1,12 +1,15 @@
 import PercentageSlider from "@components/Home/PercentageSlider";
 import { getCookieJson, setCookieJson } from "@utils/cookies";
 import React, { ChangeEvent, useEffect, useState } from "react";
+import Tooltip from "./Tooltip";
 
 export interface Settings {
   effort: number;
   quality: number;
   useYuv444: boolean;
   keepTransparency: boolean;
+  keepExif: boolean;
+  adaptive: boolean;
   autoDownload: boolean;
 }
 
@@ -16,7 +19,6 @@ interface StoredSettings extends Settings {
 
 export interface SettingsBoxProps {
   open: boolean;
-
   onSettingsUpdate(settings: Settings): void;
 }
 
@@ -27,6 +29,8 @@ export default function SettingsBox(props: SettingsBoxProps) {
   const [quality, setQuality] = useState(65);
   const [useYuv444, setUseYuv444] = useState(true);
   const [keepTransparency, setKeepTransparency] = useState(true);
+  const [keepExif, setKeepExif] = useState(true);
+  const [adaptive, setAdaptive] = useState(true);
   const [lossless, setLossless] = useState(false);
   const [autoDownload, setAutoDownload] = useState(false);
 
@@ -36,6 +40,8 @@ export default function SettingsBox(props: SettingsBoxProps) {
       quality,
       useYuv444,
       keepTransparency,
+      adaptive,
+      keepExif,
       lossless,
       autoDownload,
     });
@@ -52,6 +58,8 @@ export default function SettingsBox(props: SettingsBoxProps) {
       setQuality(loadedSettings.quality);
       setUseYuv444(loadedSettings.useYuv444);
       setKeepTransparency(loadedSettings.keepTransparency);
+      setAdaptive(loadedSettings.adaptive);
+      setKeepExif(loadedSettings.keepExif);
       setLossless(loadedSettings.lossless);
       setAutoDownload(loadedSettings.autoDownload);
     }
@@ -64,10 +72,12 @@ export default function SettingsBox(props: SettingsBoxProps) {
       quality,
       useYuv444,
       keepTransparency,
+      adaptive,
+      keepExif,
       autoDownload,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [effort, quality, useYuv444, keepTransparency, autoDownload]);
+  }, [effort, quality, useYuv444, keepTransparency, autoDownload, adaptive]);
 
   useEffect(() => {
     saveSettings();
@@ -77,6 +87,8 @@ export default function SettingsBox(props: SettingsBoxProps) {
         quality: 100,
         effort,
         keepTransparency,
+        adaptive,
+        keepExif,
         autoDownload,
       });
     } else {
@@ -85,6 +97,8 @@ export default function SettingsBox(props: SettingsBoxProps) {
         quality,
         effort,
         keepTransparency,
+        adaptive,
+        keepExif,
         autoDownload,
       });
     }
@@ -97,6 +111,14 @@ export default function SettingsBox(props: SettingsBoxProps) {
 
   function onKeepTransparencyChanged(event: ChangeEvent<HTMLInputElement>) {
     setKeepTransparency(event.target.checked);
+  }
+
+  function onKeepExifChanged(event: ChangeEvent<HTMLInputElement>) {
+    setKeepExif(event.target.checked);
+  }
+
+  function onAdaptiveChanged(event: ChangeEvent<HTMLInputElement>) {
+    setAdaptive(event.target.checked);
   }
 
   function onAutoDownloadChanged(event: ChangeEvent<HTMLInputElement>) {
@@ -117,6 +139,7 @@ export default function SettingsBox(props: SettingsBoxProps) {
           label="effort"
           id="effort"
           explanation="Set the processing power. More effort equals longer time of conversion, but better compression."
+          disabled={adaptive}
         />
 
         <PercentageSlider
@@ -126,10 +149,22 @@ export default function SettingsBox(props: SettingsBoxProps) {
           label="quality"
           id="quality"
           explanation="Set the output quality. 100% almost equals lossless conversion."
-          disabled={lossless ? true : false}
+          disabled={lossless || adaptive}
         />
       </div>
       <div>
+        <label>
+          <input
+            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
+            type={"checkbox"}
+            checked={adaptive}
+            onChange={onAdaptiveChanged}
+          />
+          Smart Conversion
+          <Tooltip text="?">
+            Auto-adjust Quality and Effort for optimal results.
+          </Tooltip>
+        </label>
         <label>
           <input
             id="lossless"
@@ -139,7 +174,9 @@ export default function SettingsBox(props: SettingsBoxProps) {
             className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
           />
           Lossless
+          <Tooltip text="?">Perfect quality, larger size, longer time.</Tooltip>
         </label>
+
         <label>
           <input
             className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
@@ -147,8 +184,19 @@ export default function SettingsBox(props: SettingsBoxProps) {
             checked={keepTransparency}
             onChange={onKeepTransparencyChanged}
           />
-          Keep transparency
+          Keep Transparency
+          <Tooltip text="?">Retain input image&apos;s transparency.</Tooltip>
         </label>
+
+        {/*         <label>
+          <input
+            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
+            type={"checkbox"}
+            checked={keepExif}
+            onChange={onKeepExifChanged}
+          />
+          Keep Exif Data
+        </label> */}
         <label>
           <input
             className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
@@ -156,7 +204,8 @@ export default function SettingsBox(props: SettingsBoxProps) {
             checked={autoDownload}
             onChange={onAutoDownloadChanged}
           />
-          Automatically download
+          Automatic Download
+          <Tooltip text="?">Download AVIF image after conversion.</Tooltip>
         </label>
       </div>
     </div>
