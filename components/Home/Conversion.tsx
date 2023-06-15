@@ -1,5 +1,4 @@
 import { Settings } from "@components/Home/SettingsBox";
-import ConversionTimeEstimator from "@utils/ConversionTimeEstimator";
 import Converter, { ConversionId, ConversionResult } from "@utils/converter";
 import { splitNameAndExtension } from "@utils/utils";
 import prettyBytes from "pretty-bytes";
@@ -11,23 +10,6 @@ export interface ConversionProps {
   converter: Converter;
   settings: Settings;
   onFinished(outputFile: File): void;
-}
-
-function formatRemainingTimeEstimate(estimator: ConversionTimeEstimator) {
-  if (estimator.minutes === undefined) return "";
-  if (estimator.seconds === undefined) return "";
-  if (estimator.minutes === 0 && estimator.seconds === 0) return "almost ready";
-  let result = "";
-  if (estimator.minutes !== 0) {
-    result += `${estimator.minutes} minute`;
-    if (estimator.minutes > 1) {
-      result += "s";
-    }
-  } else {
-    result += `${estimator.seconds} seconds`;
-  }
-  result += " left";
-  return result;
 }
 
 type ConversionStatus = "inProgress" | "cancelled" | "finished";
@@ -42,16 +24,12 @@ export default function Conversion(props: ConversionProps): ReactElement {
   const [outputObjectURL, setOutputObjectURL] = useState("");
   const [remainingTime, setRemainingTime] = useState("");
   const [conversionId, setConversionId] = useState<ConversionId>();
-  const [conversionTimeEstimator] = useState(
-    new ConversionTimeEstimator(50, 300)
-  );
 
   useEffect(() => {
     (async () => {
       const [fileName, format] = splitNameAndExtension(props.file.name);
       setFileName(fileName);
       setOriginalFormat(format);
-      conversionTimeEstimator.start();
 
       function onFinished(result: ConversionResult) {
         setStatus("finished");
@@ -63,8 +41,6 @@ export default function Conversion(props: ConversionProps): ReactElement {
 
       function onProgress(progress: number) {
         setProgress(progress);
-        conversionTimeEstimator.update(progress);
-        setRemainingTime(formatRemainingTimeEstimate(conversionTimeEstimator));
       }
 
       setConversionId(
