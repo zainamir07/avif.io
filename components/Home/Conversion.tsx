@@ -110,10 +110,7 @@ export default function Conversion(props: ConversionProps): ReactElement {
         </div>
       </div>
       <p className={`hidden md:flex z-50 text-tiny rounded-sm  px-2 py-1`}>
-        {!finished &&
-          (remainingTime !== "" ? remainingTime + " · " : "") +
-            (progress * 100).toFixed() +
-            "%"}
+        {!finished && "In Progress.."}
         {percentageSaved === 0 && (
           <Tooltip text="Why 0%?">
             Adjust your conversion settings to achieve higher compression.
