@@ -48,7 +48,7 @@ export default function Header() {
         </nav>
         <nav className="flex flex-wrap justify-between items-center">
           <a
-            className="hidden w-4 h-4 bg-center bg-no-repeat md:block md:py-1 md:px-4"
+            className="hidden w-4 h-4 bg-center bg-no-repeat md:block md:py-1 md:px-4  opacity-75 hover:opacity-100"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -59,7 +59,7 @@ export default function Header() {
           />
 
           <a
-            className="hidden w-4 h-4 bg-center bg-no-repeat md:block md:py-1 md:px-4 md:mr-4"
+            className="hidden w-4 h-4 bg-center bg-no-repeat md:block md:py-1 md:px-4 md:mr-4 opacity-75 hover:opacity-100"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -69,7 +69,7 @@ export default function Header() {
             href="https://discord.com/invite/6w42YpF5hm"
           />
           <Link href="/">
-            <button className="inline-flex items-center py-1 px-2 mr-1 text-base rounded border-0 md:mt-0 focus:outline-none bg-bg-200 hover:bg-bg-300">
+            <button className="inline-flex items-center py-1 px-2 mr-1 text-base rounded border-0 md:mt-0 focus:outline-none bg-white/5 hover:bg-white/20">
               Convert to AVIF
               <svg
                 fill="none"

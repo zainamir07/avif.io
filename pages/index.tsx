@@ -232,7 +232,7 @@ const Index: NextPage<PostsPageProps> = ({
           <input
             type="text"
             placeholder="🔎︎ Search all posts"
-            className="block relative py-3 px-3 pr-10 my-4 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-bg-400 border-bg-500"
+            className="block relative py-3 px-3 pr-10 my-4 w-full text-white rounded-md border-2 outline-none focus:border-pink-700 bg-white/10 border-white/10"
             onChange={handleFilterByKeyword}
           />
           {[listSubCategories, listSupport].map((type: any, key: any) => (

@@ -34,7 +34,7 @@ export default function Advantages() {
         >
           <div
             tabIndex={0}
-            className="grid overflow-hidden relative z-50 p-4 h-full text-center rounded-lg transition-all duration-200 ease-out transform-gpu hover:scale-105 group bg-bg-600"
+            className="grid overflow-hidden relative z-50 p-4 h-full text-center rounded-lg transition-all duration-200 ease-out transform-gpu hover:scale-105 group bg-white/5"
             data-atropos-offset="0"
           >
             <div

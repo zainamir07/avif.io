@@ -61,13 +61,13 @@ export default function ImageComparison() {
               />
 
               <p
-                className="absolute top-4 left-4 py-2 px-3 rounded-md bg-bg-400"
+                className="absolute top-4 left-4 py-2 px-3 rounded-md bg-white/10"
                 id="avif"
               >
                 {"avif · " + imageSize + "kb"}
               </p>
               <p
-                className="absolute top-4 right-4 py-2 px-3 rounded-md bg-bg-400"
+                className="absolute top-4 right-4 py-2 px-3 rounded-md bg-white/10"
                 id="jpg"
               >
                 {"jpg · " + imageSize + "kb"}

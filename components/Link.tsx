@@ -9,14 +9,18 @@ interface Props {
 
 export default function Link(props: Props) {
   const { href, text, className, children } = props;
-  const isInternal = href && (href.startsWith("/") || href.startsWith("#"));
+  const isInternalOrPrefix =
+    href &&
+    (href.startsWith("/") ||
+      href.startsWith("#") ||
+      href.startsWith("https://"));
 
   return (
     <NextLink
-      href={isInternal ? href : `https://${href}`}
+      href={isInternalOrPrefix ? href : `https://${href}`}
       title={text}
-      rel={isInternal ? "prefetch" : "noopener noreferrer"}
-      target={isInternal ? "_self" : "_blank"}
+      rel={isInternalOrPrefix ? "prefetch" : "noopener noreferrer"}
+      target={isInternalOrPrefix ? "_self" : "_blank"}
       className={className}
       tabIndex={0}
     >

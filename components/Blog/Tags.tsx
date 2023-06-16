@@ -1,38 +1,37 @@
 import Link from "@components/Link";
-import sortBy from "lodash/sortBy";
-import { FC } from "react";
+import { useMemo } from "react";
 
-interface Tag {
-  href: string;
-  text: string;
-}
-
-interface TagsProps {
+export interface TagsProps {
   tags: string[];
 }
 
-const Tags: FC<TagsProps> = ({ tags }) => {
-  let tagObjects: Tag[] = tags.map((text) => {
+export default function Tags(props: TagsProps) {
+  const sortedTags = useMemo(() => {
+    return props.tags.sort((a, b) => a.localeCompare(b));
+  }, [props.tags]);
+
+  const tags = sortedTags.map((text) => {
     let href = `google.com/search?q=site%3Aavif.io+${text.replace(
       /\s+/g,
       "+"
     )}`;
     return { href, text };
   });
-  tagObjects = sortBy(tagObjects, (s) => s.text);
 
   return (
-    <>
-      <h5 className="inline-block mt-4 font-bold rounded-md">Tags</h5>
-      <ol className="flex flex-wrap gap-1 text-red-700 text-tiny">
-        {tagObjects.map((tag: Tag) => (
-          <li key={tag.text} className="py-0 px-1 rounded-md bg-red-1000">
-            <Link text={tag.text} href={tag.href} />
+    <div>
+      <h3 className="m-0 mt-8">Tags</h3>
+      <ol className="flex flex-wrap gap-1 gap-y-1 mt-6">
+        {tags.map((source: any, index: any) => (
+          <li key={index} className="inline-block">
+            <Link
+              className="inline-block py-1 px-2 bg-white bg-opacity-5 rounded-md hover:bg-opacity-10 text-default transition-all duration-300 ease-in-out"
+              text={source.text}
+              href={source.href}
+            />
           </li>
         ))}
       </ol>
-    </>
+    </div>
   );
-};
-
-export default Tags;
+}

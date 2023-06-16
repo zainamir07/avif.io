@@ -164,6 +164,15 @@ module.exports = {
       transitionTimingFunction: {
         cog: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
       },
+      keyframes: {
+        fancypulse: {
+          "50%": { opacity: 0.5, transform: "scale(1.2) rotate(180deg)" },
+        },
+      },
+      animation: {
+        translate: "translate 60s linear infinite",
+        fancypulse: "fancypulse 10s linear infinite",
+      },
     },
   },
   variants: {
