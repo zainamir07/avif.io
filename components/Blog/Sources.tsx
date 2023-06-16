@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "@components/Link";
-import Image from "@components/Blog/Image";
 import { useState, useEffect, useMemo } from "react";
 
 interface LinkPreviewData {
@@ -65,44 +64,46 @@ function FancySource(props: FancySourceProps) {
       return null;
     }
 
-    return (
-      <>
-        {imageError ? (
-          <div className="w-5 h-5 bg-white bg-opacity-5 rounded-md" />
-        ) : (
-          <img
-            loading="lazy"
-            decoding="async"
-            className="w-5 h-5 transition-all duration-100 ease-out"
-            src={linkPreviewData.favicons[0]}
-            alt={linkPreviewData.title}
-            onError={() => setImageError(true)}
-          />
-        )}
-        <div className="flex relative z-10 flex-col gap-1 w-full">
-          <div className="font-bold font-gilroy capitalize">
-            {linkPreviewData.title.toLowerCase()}
+    if (error == false && linkPreviewData) {
+      return (
+        <>
+          {imageError ? (
+            <div className="w-5 h-5 bg-white bg-opacity-5 rounded-md" />
+          ) : (
+            <img
+              loading="lazy"
+              decoding="async"
+              className="w-5 h-5 transition-all duration-100 ease-out"
+              src={linkPreviewData.favicons[0]}
+              alt={linkPreviewData.title}
+              onError={() => setImageError(true)}
+            />
+          )}
+          <div className="flex relative z-10 flex-col gap-1 w-full">
+            <div className="font-bold font-gilroy capitalize">
+              {linkPreviewData.title.toLowerCase()}
+            </div>
+            <div className="leading-snug text-tiny">
+              {new URL(linkPreviewData.url).hostname.replace("www.", "")}
+            </div>
           </div>
-          <div className="leading-snug text-tiny">
-            {new URL(linkPreviewData.url).hostname.replace("www.", "")}
-          </div>
-        </div>
-        <img
-          className="relative z-50 self-center p-4 w-4 h-4 rounded-md invert bg-black/5 group-hover:rotate-45"
-          src="/assets/arrow-up-right-from-square-solid.svg"
-          alt="Arrow"
-        />
-        <div className="opacity-0 group-hover:opacity-20">
           <img
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 z-0 w-full shadow-md opacity-0 transition-all duration-500 -translate-x-24 -translate-y-24 group-hover:opacity-40 group-hover:scale-150 group-hover:translate-x-12 group-hover:translate-y-24 animate-fancypulse blur-3xl shadow-black"
-            src={linkPreviewData.favicons[0]}
-            alt={linkPreviewData.title}
+            className="relative z-50 self-center p-4 w-4 h-4 rounded-md invert bg-black/5 group-hover:rotate-45"
+            src="/assets/arrow-up-right-from-square-solid.svg"
+            alt="Arrow"
           />
-        </div>
-      </>
-    );
+          <div className="opacity-0 group-hover:opacity-20">
+            <img
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 z-0 w-full shadow-md opacity-0 transition-all duration-500 -translate-x-24 -translate-y-24 group-hover:opacity-40 group-hover:scale-150 group-hover:translate-x-12 group-hover:translate-y-24 animate-fancypulse blur-3xl shadow-black"
+              src={linkPreviewData.favicons[0]}
+              alt={linkPreviewData.title}
+            />
+          </div>
+        </>
+      );
+    }
   }, [loading, error, linkPreviewData, imageError]);
 
   return (
