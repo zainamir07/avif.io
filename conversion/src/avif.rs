@@ -41,10 +41,11 @@ impl ConversionOptions {
     }
 }
 
-fn analyze_image(image: &RgbaImage) -> (f32, f32) {
+fn analyze_image(image: &RgbaImage) -> (f32, f32, f32) {
     let (width, height) = image.dimensions();
     let mut total_color_diff = 0.0;
     let mut edge_count = 0;
+    let mut colorfulness = 0.0;
 
     for y in 0..height - 1 {
         for x in 0..width - 1 {
@@ -54,6 +55,9 @@ fn analyze_image(image: &RgbaImage) -> (f32, f32) {
 
             let color_diff_right = pixel.to_rgb().map2(&right_pixel.to_rgb(), |a, b| (a as i32 - b as i32).abs() as u8);
             let color_diff_bottom = pixel.to_rgb().map2(&bottom_pixel.to_rgb(), |a, b| (a as i32 - b as i32).abs() as u8);
+
+            colorfulness += color_diff_right.channels().iter().map(|&x| f32::from(x)).sum::<f32>() / 3.0;
+            colorfulness += color_diff_bottom.channels().iter().map(|&x| f32::from(x)).sum::<f32>() / 3.0;
 
             let edge_threshold = 30;
             if color_diff_right.to_luma().0[0] > edge_threshold {
@@ -68,33 +72,34 @@ fn analyze_image(image: &RgbaImage) -> (f32, f32) {
         }
     }
 
+    let colorfulness = (colorfulness / ((width * height) as f32 * 2.0)).log10();
     let num_pixels = (width * height) as f32;
     let avg_color_diff = total_color_diff / (num_pixels * 2.0);
     let edge_density = edge_count as f32 / num_pixels;
 
-    (avg_color_diff, edge_density)
+    (avg_color_diff, edge_density, colorfulness)
 }
 
-fn adapt_options(options: &ConversionOptions, image_data: (f32, f32)) -> ConversionOptions {
-    let (avg_color_diff, edge_density) = image_data;
+fn adapt_options(options: &ConversionOptions, image_data: (f32, f32, f32)) -> ConversionOptions {
+    let (avg_color_diff, edge_density, colorfulness) = image_data;
     let mut new_options = options.clone();
 
-    // Adjust the quality setting based on the average color difference
-    if avg_color_diff < 10.0 {
+    // Adjust the quality setting based on the average color difference and colorfulness
+    if avg_color_diff < 10.0 && colorfulness < 0.5 {
         new_options.quality = (new_options.quality as f32 * 0.8).clamp(0.0, 100.0) as u8;
-    } else if avg_color_diff > 30.0 {
+    } else if avg_color_diff > 30.0 || colorfulness > 1.5 {
         new_options.quality = (new_options.quality as f32 * 1.2).clamp(0.0, 100.0) as u8;
     }
 
-    // Adjust the subsampling mode based on edge density
-    if edge_density > 0.1 {
+    // Adjust the subsampling mode based on edge density and colorfulness
+    if edge_density > 0.1 || colorfulness > 1.5 {
         new_options.subsampling = Subsampling::YUV444;
     } else {
         new_options.subsampling = Subsampling::YUV420;
     }
 
-    // Adjust the effort setting based on the image complexity (higher edge density indicates more complexity)
-    if edge_density > 0.2 {
+    // Adjust the effort setting based on the image complexity (higher edge density or colorfulness indicates more complexity)
+    if edge_density > 0.2 || colorfulness > 1.5 {
         new_options.effort = (new_options.effort as f32 * 1.1).clamp(0.0, 100.0) as u8;
     } else {
         new_options.effort = (new_options.effort as f32 * 0.9).clamp(0.0, 100.0) as u8;
