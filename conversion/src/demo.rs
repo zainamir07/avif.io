@@ -1,3 +1,5 @@
+//demo.rs
+
 // Import necessary modules and libraries
 use std::env;
 use std::fs;
@@ -43,6 +45,12 @@ fn main() {
             quality: args[2].parse().unwrap(),
             subsampling: conversion::Subsampling::YUV420,
             keep_transparency,
+            adaptive: true,
+            enable_resize: false,
+            resize_width: None,
+            resize_height: None,
+            resize_algorithm: FilterType::Triangle,
+            maintain_aspect_ratio:true
         },
     )
     .unwrap();

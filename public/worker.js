@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+//worker.js
+
 onmessage = async function (msg) {
   importScripts("/dist/conversion.js");
 
@@ -19,10 +20,13 @@ onmessage = async function (msg) {
       msg.data.options.effort,
       msg.data.options.quality,
       msg.data.options.useYuv444 ? Subsampling.YUV444 : Subsampling.YUV420,
-      msg.data.options.keepTransparency,
-      /*msg.data.options.keepExif,*/
+      msg.data.options.keep_transparency,
       msg.data.options.adaptive,
-      msg.data.options.autoDownload
+      msg.data.options.enable_resize,
+      msg.data.options.resize_width,
+      msg.data.options.resize_height,
+      msg.data.options.resize_algorithm,
+      msg.data.options.maintain_aspect_ratio
     );
     if (msg.data.isRawRgba) {
       return rgbaToAvif(
@@ -33,7 +37,21 @@ onmessage = async function (msg) {
         postProgress
       );
     } else {
-      return convertToAvif(input, options, postProgress);
+      return convertToAvif(
+        input,
+        options,
+        postProgress,
+        console.log("convertToAvif log:"),
+        console.log("effort: " + options.effort),
+        console.log("quality: " + options.quality),
+        console.log("keep_transparency: " + options.keep_transparency),
+        console.log("adaptive: " + options.adaptive),
+        console.log("enable_resize: " + options.enable_resize),
+        console.log("resize_width: " + options.resize_width),
+        console.log("resize_height: " + options.resize_height),
+        console.log("resize_algorithm: " + options.resize_algorithm),
+        console.log("maintain_aspect_ratio: " + options.maintain_aspect_ratio)
+      );
     }
   }
 

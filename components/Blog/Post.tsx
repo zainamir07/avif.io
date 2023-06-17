@@ -1,6 +1,6 @@
 import Link from "@components/Link";
 
-const Post = ({ keyword, description, support, url, title, key }: any) => {
+const Post = ({ keyword, description, support, url, title }: any) => {
   const supportBackground =
     support === "full"
       ? "bg-green-1000"
@@ -9,7 +9,6 @@ const Post = ({ keyword, description, support, url, title, key }: any) => {
       : "bg-red-1000";
   return (
     <Link
-      key={key}
       href={`/${url}/`}
       className="flex relative h-full text-left text-white rounded-md group bg-bg-500"
     >

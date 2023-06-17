@@ -1,3 +1,5 @@
+//converter.ts
+
 import range from "lodash/range";
 import omitBy from "lodash/omitBy";
 import { fileExtension, splitNameAndExtension } from "./utils";
@@ -18,10 +20,14 @@ export interface ConversionOptions extends ConversionMessageCallbacks {
   effort: number;
   quality: number;
   useYuv444: boolean;
-  keepTransparency: boolean;
-  keepExif: boolean;
-  autoDownload: boolean;
+  keep_transparency: boolean;
+  auto_download: boolean;
   adaptive: boolean;
+  enable_resize: boolean;
+  resize_width: number | null;
+  resize_height: number | null;
+  resize_algorithm: number;
+  maintain_aspect_ratio: boolean;
 }
 
 interface PendingConversion {
@@ -65,6 +71,7 @@ export default class Converter {
       options,
       id: conversionId,
     });
+    console.log(options);
     await this.tryConvertingFiles();
     return conversionId;
   }
@@ -92,7 +99,7 @@ export default class Converter {
       onProgress: options.onProgress,
       onFinished: (result: ConversionResult) => {
         options.onFinished(result);
-        if (options.autoDownload) {
+        if (options.auto_download) {
           saveFile(
             new File(
               [result.data],

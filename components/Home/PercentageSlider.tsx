@@ -1,17 +1,19 @@
 import Tooltip from "@components/Home/Tooltip";
 
 export interface PercentageSliderProps {
-  className?: string;
   value: number;
   name: string;
-  disabled?: boolean;
-  label?: string;
-  id?: string;
-  explanation: string;
   onChange(value: number): void;
+  label: string;
+  id: string;
+  explanation: string;
+  disabled?: boolean;
 }
 
 export default function PercentageSlider(props: PercentageSliderProps) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    props.onChange(parseInt(event.target.value));
+  }
   return (
     <div className="mb-3" id={props.id}>
       <div className="flex align-center">
@@ -25,14 +27,14 @@ export default function PercentageSlider(props: PercentageSliderProps) {
             className="w-8 bg-white"
             type={"range"}
             value={props.value}
-            onChange={(e) => props.onChange(Number(e.target.value))}
+            onChange={handleChange}
             min={0}
-            max={90}
+            max={100}
             disabled={props.disabled}
             step={5}
           />
         </label>
-        <b style={{ marginLeft: 10 }}>{props.value + 10}%</b>
+        <b style={{ marginLeft: 10 }}>{props.value}%</b>
       </div>
     </div>
   );

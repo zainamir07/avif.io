@@ -1,3 +1,5 @@
+//wasm.rs
+
 // Enable the build-wasm feature
 #![cfg(feature = "build-wasm")]
 

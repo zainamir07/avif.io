@@ -1,3 +1,5 @@
+//lib.rs
+
 // Publicly expose the avif crate's `ConversionOptions` and `convert_to_avif` functions
 pub use avif::{convert_to_avif, ConversionOptions};
 

@@ -1,20 +1,21 @@
+//SettingsBox.tsx
+
 import PercentageSlider from "@components/Home/PercentageSlider";
-import { getCookieJson, setCookieJson } from "@utils/cookies";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Tooltip from "./Tooltip";
 
 export interface Settings {
   effort: number;
   quality: number;
   useYuv444: boolean;
-  keepTransparency: boolean;
-  keepExif: boolean;
+  keep_transparency: boolean;
   adaptive: boolean;
-  autoDownload: boolean;
-}
-
-interface StoredSettings extends Settings {
-  lossless: boolean;
+  auto_download: boolean;
+  enable_resize: boolean;
+  resize_width: number;
+  resize_height: number;
+  resize_algorithm: number;
+  maintain_aspect_ratio: boolean;
 }
 
 export interface SettingsBoxProps {
@@ -22,187 +23,177 @@ export interface SettingsBoxProps {
   onSettingsUpdate(settings: Settings): void;
 }
 
-const settingsCookieKey = "settings";
+const initialState: Settings = {
+  effort: 40,
+  quality: 65,
+  useYuv444: true,
+  keep_transparency: true,
+  adaptive: true,
+  auto_download: false,
+  enable_resize: false,
+  resize_width: 1280,
+  resize_height: 7200,
+  resize_algorithm: 0,
+  maintain_aspect_ratio: true,
+};
 
-export default function SettingsBox(props: SettingsBoxProps) {
-  const [effort, setEffort] = useState(40);
-  const [quality, setQuality] = useState(65);
-  const [useYuv444, setUseYuv444] = useState(true);
-  const [keepTransparency, setKeepTransparency] = useState(true);
-  const [keepExif, setKeepExif] = useState(true);
-  const [adaptive, setAdaptive] = useState(true);
-  const [lossless, setLossless] = useState(false);
-  const [autoDownload, setAutoDownload] = useState(false);
+const SettingsBox: React.FC<SettingsBoxProps> = ({
+  open,
+  onSettingsUpdate,
+}) => {
+  const [settings, setSettings] = useState<Settings>(initialState);
 
-  function saveSettings() {
-    setCookieJson(settingsCookieKey, {
-      effort,
-      quality,
-      useYuv444,
-      keepTransparency,
-      adaptive,
-      keepExif,
-      lossless,
-      autoDownload,
-    });
-  }
+  const updateSettings = (key: keyof Settings, value: any) => {
+    const updatedSettings = { ...settings, [key]: value };
+    setSettings(updatedSettings);
+    onSettingsUpdate(updatedSettings);
+    console.log(updatedSettings);
+  };
 
-  function loadSettings(): StoredSettings | undefined {
-    return getCookieJson(settingsCookieKey);
-  }
-
-  useEffect(() => {
-    const loadedSettings = loadSettings();
-    if (loadedSettings !== undefined) {
-      setEffort(loadedSettings.effort);
-      setQuality(loadedSettings.quality);
-      setUseYuv444(loadedSettings.useYuv444);
-      setKeepTransparency(loadedSettings.keepTransparency);
-      setAdaptive(loadedSettings.adaptive);
-      setKeepExif(loadedSettings.keepExif);
-      setLossless(loadedSettings.lossless);
-      setAutoDownload(loadedSettings.autoDownload);
-    }
-  }, []);
-
-  useEffect(() => {
-    saveSettings();
-    props.onSettingsUpdate({
-      effort,
-      quality,
-      useYuv444,
-      keepTransparency,
-      adaptive,
-      keepExif,
-      autoDownload,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [effort, quality, useYuv444, keepTransparency, autoDownload, adaptive]);
-
-  useEffect(() => {
-    saveSettings();
-    if (lossless) {
-      props.onSettingsUpdate({
-        useYuv444,
-        quality: 100,
-        effort,
-        keepTransparency,
-        adaptive,
-        keepExif,
-        autoDownload,
-      });
-    } else {
-      props.onSettingsUpdate({
-        useYuv444,
-        quality,
-        effort,
-        keepTransparency,
-        adaptive,
-        keepExif,
-        autoDownload,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lossless]);
-
-  function onLosslessChanged(event: ChangeEvent<HTMLInputElement>) {
-    setLossless(event.target.checked);
-  }
-
-  function onKeepTransparencyChanged(event: ChangeEvent<HTMLInputElement>) {
-    setKeepTransparency(event.target.checked);
-  }
-
-  function onKeepExifChanged(event: ChangeEvent<HTMLInputElement>) {
-    setKeepExif(event.target.checked);
-  }
-
-  function onAdaptiveChanged(event: ChangeEvent<HTMLInputElement>) {
-    setAdaptive(event.target.checked);
-  }
-
-  function onAutoDownloadChanged(event: ChangeEvent<HTMLInputElement>) {
-    setAutoDownload(event.target.checked);
-  }
+  const SettingCheckbox = ({
+    label,
+    settingKey,
+    tooltip = null,
+    ...props
+  }: {
+    label: string;
+    settingKey: keyof Settings;
+    tooltip?: string | null;
+  }) => {
+    return (
+      <label>
+        <input
+          {...props}
+          className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
+          type="checkbox"
+          checked={settings[settingKey] as boolean}
+          onChange={(e) => updateSettings(settingKey, e.target.checked)}
+        />
+        {label}
+        {tooltip && <Tooltip text="?">{tooltip}</Tooltip>}
+      </label>
+    );
+  };
 
   return (
-    <div className={"text-left" + (props.open ? " open" : " closed")}>
+    <div className={"text-left" + (open ? " open" : " closed")}>
       <h3 className="my-0">Conversion settings</h3>
       <div className="mb-3 text-tiny">
         Settings don&apos;t change a running conversion.
       </div>
       <div className="my-3">
         <PercentageSlider
-          value={effort}
+          value={settings.effort}
           name={"Effort"}
-          onChange={setEffort}
+          onChange={(value) => updateSettings("effort", value)}
           label="effort"
           id="effort"
           explanation="Set the processing power. More effort equals longer time of conversion, but better compression."
-          disabled={adaptive}
+          disabled={settings.adaptive}
         />
 
         <PercentageSlider
-          value={quality}
+          value={settings.quality}
           name={"Quality"}
-          onChange={setQuality}
+          onChange={(value) => updateSettings("quality", value)}
           label="quality"
           id="quality"
           explanation="Set the output quality. 100% almost equals lossless conversion."
-          disabled={lossless || adaptive}
         />
       </div>
       <div>
-        <label>
-          <input
-            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
-            type={"checkbox"}
-            checked={adaptive}
-            onChange={onAdaptiveChanged}
+        <SettingCheckbox
+          label="Smart Conversion"
+          settingKey="adaptive"
+          tooltip="Auto-adjust Quality and Effort for optimal results."
+        />
+        <SettingCheckbox
+          label="Keep Transparency"
+          settingKey="keep_transparency"
+          tooltip="Retain input image's transparency."
+        />
+        <div>
+          <SettingCheckbox
+            label="Enable Resizing"
+            settingKey="enable_resize"
+            tooltip="Resize the image."
           />
-          Smart Conversion
-          <Tooltip text="?">
-            Auto-adjust Quality and Effort for optimal results.
-          </Tooltip>
-        </label>
-        <label>
-          <input
-            id="lossless"
-            type={"checkbox"}
-            checked={lossless}
-            onChange={onLosslessChanged}
-            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
-          />
-          Lossless
-          <Tooltip text="?">Perfect quality, larger size, longer time.</Tooltip>
-        </label>
+          <div
+            className={`resize-options ${
+              settings.enable_resize ? "" : " hidden"
+            }`}
+          >
+            <SettingCheckbox
+              label="Maintain Aspect Ratio"
+              settingKey="maintain_aspect_ratio"
+              tooltip="Retain input image's aspect ratio."
+            />
 
-        <label>
-          <input
-            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
-            type={"checkbox"}
-            checked={keepTransparency}
-            onChange={onKeepTransparencyChanged}
-          />
-          Keep Transparency
-          <Tooltip text="?">Retain input image&apos;s transparency.</Tooltip>
-        </label>
+            <div className="flex gap-2">
+              <label className="flex justify-between gap-1">
+                Width:
+                <input
+                  className="block relative py-1 px-2 mb-1 w-[80px] text-white rounded-md border-2 outline-none focus:border-pink-700 bg-white/10 border-white/10"
+                  type="number"
+                  value={settings.resize_width}
+                  onChange={(e) =>
+                    updateSettings("resize_width", parseInt(e.target.value))
+                  }
+                  min="32"
+                />
+              </label>
 
-        {/*         <label>
-          <input
-            className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
-            type={"checkbox"}
-            checked={keepExif}
-            onChange={onKeepExifChanged}
-          />
-          Keep Exif Data
-        </label> */}
+              <label
+                className={`flex justify-between gap-1 ${
+                  settings.maintain_aspect_ratio ? "hidden" : ""
+                }`}
+              >
+                Height:
+                <input
+                  className="block relative py-1 px-2 mb-1 w-[80px] text-white rounded-md border-2 outline-none focus:border-pink-700 bg-white/10 border-white/10"
+                  type="number"
+                  value={settings.resize_height}
+                  onChange={(e) =>
+                    updateSettings("resize_height", parseInt(e.target.value))
+                  }
+                  min="32"
+                />
+              </label>
+            </div>
+            <label className="flex gap-2">
+              <div>Algorithm:</div>
+              <select
+                className="flex-1 block relative py-1 px-2 mb-1 w-full text-white rounded-md border-2 outline-none focus:outline-none focus:border-pink-700 bg-white/10 border-white/10"
+                value={settings.resize_algorithm}
+                onChange={(e) =>
+                  updateSettings("resize_algorithm", e.target.selectedIndex)
+                }
+              >
+                <option className=" bg-purple-900  text-white" value={0}>
+                  Nearest
+                </option>
+                <option className=" bg-purple-900  text-white" value={1}>
+                  Triangle
+                </option>
+                <option className=" bg-purple-900  text-white" value={2}>
+                  CatmullRom
+                </option>
+                <option className=" bg-purple-900  text-white" value={3}>
+                  Gaussian
+                </option>
+                <option className=" bg-purple-900  text-white" value={4}>
+                  Lanczos3
+                </option>
+              </select>
+            </label>
+          </div>
+        </div>
         <label>
           <input
             className="mr-1 w-3 h-3 border-purple-700 accent-purple-700"
             type={"checkbox"}
-            checked={autoDownload}
-            onChange={onAutoDownloadChanged}
+            checked={settings.auto_download}
+            onChange={(e) => updateSettings("auto_download", e.target.checked)}
           />
           Automatic Download
           <Tooltip text="?">Download AVIF image after conversion.</Tooltip>
@@ -210,4 +201,6 @@ export default function SettingsBox(props: SettingsBoxProps) {
       </div>
     </div>
   );
-}
+};
+
+export default SettingsBox;

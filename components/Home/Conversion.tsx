@@ -22,7 +22,6 @@ export default function Conversion(props: ConversionProps): ReactElement {
   const [progress, setProgress] = useState(0);
   const [outputSize, setOutputSize] = useState(0);
   const [outputObjectURL, setOutputObjectURL] = useState("");
-  const [remainingTime, setRemainingTime] = useState("");
   const [conversionId, setConversionId] = useState<ConversionId>();
 
   useEffect(() => {
@@ -111,11 +110,6 @@ export default function Conversion(props: ConversionProps): ReactElement {
       </div>
       <p className={`hidden md:flex z-50 text-tiny rounded-sm  px-2 py-1`}>
         {!finished && "In Progress.."}
-        {percentageSaved === 0 && (
-          <Tooltip text="Why 0%?">
-            Adjust your conversion settings to achieve higher compression.
-          </Tooltip>
-        )}
         {status === "inProgress" && (
           <a
             role="button"

@@ -89,10 +89,14 @@ const Index: NextPage<PostsPageProps> = ({
     effort: 25,
     quality: 75,
     useYuv444: false,
-    keepTransparency: true,
+    keep_transparency: true,
     adaptive: true,
-    keepExif: true,
-    autoDownload: false,
+    auto_download: false,
+    enable_resize: false,
+    resize_width: 0,
+    resize_height: 0,
+    resize_algorithm: 0,
+    maintain_aspect_ratio: true,
   });
 
   useEffect(() => setConverter(new Converter()), []);
