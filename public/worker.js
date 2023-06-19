@@ -22,6 +22,7 @@ onmessage = async function (msg) {
       msg.data.options.useYuv444 ? Subsampling.YUV444 : Subsampling.YUV420,
       msg.data.options.keep_transparency,
       msg.data.options.adaptive,
+      msg.data.options.lossless,
       msg.data.options.enable_resize,
       msg.data.options.resize_width,
       msg.data.options.resize_height,
