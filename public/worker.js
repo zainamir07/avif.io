@@ -37,21 +37,7 @@ onmessage = async function (msg) {
         postProgress
       );
     } else {
-      return convertToAvif(
-        input,
-        options,
-        postProgress,
-        console.log("convertToAvif log:"),
-        console.log("effort: " + options.effort),
-        console.log("quality: " + options.quality),
-        console.log("keep_transparency: " + options.keep_transparency),
-        console.log("adaptive: " + options.adaptive),
-        console.log("enable_resize: " + options.enable_resize),
-        console.log("resize_width: " + options.resize_width),
-        console.log("resize_height: " + options.resize_height),
-        console.log("resize_algorithm: " + options.resize_algorithm),
-        console.log("maintain_aspect_ratio: " + options.maintain_aspect_ratio)
-      );
+      return convertToAvif(input, options, postProgress);
     }
   }
 

@@ -82,10 +82,10 @@ export function rgba_to_avif(input_data, options, width, height) {
 
 /**
 */
-export const ResizeAlgorithm = Object.freeze({ Nearest:0,"0":"Nearest",Triangle:1,"1":"Triangle",CatmullRom:2,"2":"CatmullRom",Gaussian:3,"3":"Gaussian",Lanczos3:4,"4":"Lanczos3", });
+export const Subsampling = Object.freeze({ YUV420:0,"0":"YUV420",YUV444:1,"1":"YUV444",YUV400:2,"2":"YUV400", });
 /**
 */
-export const Subsampling = Object.freeze({ YUV420:0,"0":"YUV420",YUV444:1,"1":"YUV444",YUV400:2,"2":"YUV400", });
+export const ResizeAlgorithm = Object.freeze({ Nearest:0,"0":"Nearest",Triangle:1,"1":"Triangle",CatmullRom:2,"2":"CatmullRom",Gaussian:3,"3":"Gaussian",Lanczos3:4,"4":"Lanczos3", });
 /**
 */
 export class ConversionOptions {
@@ -160,6 +160,19 @@ export class ConversionOptions {
     */
     set keep_transparency(arg0) {
         wasm.__wbg_set_conversionoptions_keep_transparency(this.__wbg_ptr, arg0);
+    }
+    /**
+    * @returns {boolean}
+    */
+    get lossless() {
+        const ret = wasm.__wbg_get_conversionoptions_lossless(this.__wbg_ptr);
+        return ret !== 0;
+    }
+    /**
+    * @param {boolean} arg0
+    */
+    set lossless(arg0) {
+        wasm.__wbg_set_conversionoptions_lossless(this.__wbg_ptr, arg0);
     }
     /**
     * @returns {boolean}
@@ -258,6 +271,7 @@ export class ConversionOptions {
     * @param {number} quality
     * @param {number} subsampling
     * @param {boolean} keep_transparency
+    * @param {boolean} lossless
     * @param {boolean} adaptive
     * @param {boolean} enable_resize
     * @param {number | undefined} resize_width
@@ -265,8 +279,8 @@ export class ConversionOptions {
     * @param {number} resize_algorithm
     * @param {boolean} maintain_aspect_ratio
     */
-    constructor(effort, quality, subsampling, keep_transparency, adaptive, enable_resize, resize_width, resize_height, resize_algorithm, maintain_aspect_ratio) {
-        const ret = wasm.conversionoptions_new(effort, quality, subsampling, keep_transparency, adaptive, enable_resize, !isLikeNone(resize_width), isLikeNone(resize_width) ? 0 : resize_width, !isLikeNone(resize_height), isLikeNone(resize_height) ? 0 : resize_height, resize_algorithm, maintain_aspect_ratio);
+    constructor(effort, quality, subsampling, keep_transparency, lossless, adaptive, enable_resize, resize_width, resize_height, resize_algorithm, maintain_aspect_ratio) {
+        const ret = wasm.conversionoptions_new(effort, quality, subsampling, keep_transparency, lossless, adaptive, enable_resize, !isLikeNone(resize_width), isLikeNone(resize_width) ? 0 : resize_width, !isLikeNone(resize_height), isLikeNone(resize_height) ? 0 : resize_height, resize_algorithm, maintain_aspect_ratio);
         return ConversionOptions.__wrap(ret);
     }
 }

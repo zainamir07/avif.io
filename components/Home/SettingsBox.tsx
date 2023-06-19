@@ -9,6 +9,7 @@ export interface Settings {
   quality: number;
   useYuv444: boolean;
   keep_transparency: boolean;
+  lossless: boolean;
   adaptive: boolean;
   auto_download: boolean;
   enable_resize: boolean;
@@ -28,6 +29,7 @@ const initialState: Settings = {
   quality: 65,
   useYuv444: true,
   keep_transparency: true,
+  lossless: false,
   adaptive: true,
   auto_download: false,
   enable_resize: false,
@@ -47,7 +49,6 @@ const SettingsBox: React.FC<SettingsBoxProps> = ({
     const updatedSettings = { ...settings, [key]: value };
     setSettings(updatedSettings);
     onSettingsUpdate(updatedSettings);
-    console.log(updatedSettings);
   };
 
   const SettingCheckbox = ({
@@ -102,6 +103,11 @@ const SettingsBox: React.FC<SettingsBoxProps> = ({
         />
       </div>
       <div>
+        <SettingCheckbox
+          label="Lossless"
+          settingKey="lossless"
+          tooltip="Retain input image's quality completely."
+        />
         <SettingCheckbox
           label="Smart Conversion"
           settingKey="adaptive"

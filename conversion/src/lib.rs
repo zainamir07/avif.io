@@ -14,6 +14,12 @@ pub use yuv::Subsampling;
 mod avif;
 mod wasm;
 mod yuv;
+mod options;
+mod option_resize;
+mod option_alpha;
+mod option_adapt;
+mod analyze_image;
+
 
 // When both "build-wasm" and "wee_alloc" features are enabled,
 // use `wee_alloc` as the global allocator.

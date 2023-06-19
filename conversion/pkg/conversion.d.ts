@@ -16,19 +16,19 @@ export function convert_to_avif(input_data: Uint8Array, options: ConversionOptio
 export function rgba_to_avif(input_data: Uint8Array, options: ConversionOptions, width: number, height: number): ConversionResult;
 /**
 */
+export enum Subsampling {
+  YUV420 = 0,
+  YUV444 = 1,
+  YUV400 = 2,
+}
+/**
+*/
 export enum ResizeAlgorithm {
   Nearest = 0,
   Triangle = 1,
   CatmullRom = 2,
   Gaussian = 3,
   Lanczos3 = 4,
-}
-/**
-*/
-export enum Subsampling {
-  YUV420 = 0,
-  YUV444 = 1,
-  YUV400 = 2,
 }
 /**
 */
@@ -39,6 +39,7 @@ export class ConversionOptions {
 * @param {number} quality
 * @param {number} subsampling
 * @param {boolean} keep_transparency
+* @param {boolean} lossless
 * @param {boolean} adaptive
 * @param {boolean} enable_resize
 * @param {number | undefined} resize_width
@@ -46,7 +47,7 @@ export class ConversionOptions {
 * @param {number} resize_algorithm
 * @param {boolean} maintain_aspect_ratio
 */
-  constructor(effort: number, quality: number, subsampling: number, keep_transparency: boolean, adaptive: boolean, enable_resize: boolean, resize_width: number | undefined, resize_height: number | undefined, resize_algorithm: number, maintain_aspect_ratio: boolean);
+  constructor(effort: number, quality: number, subsampling: number, keep_transparency: boolean, lossless: boolean, adaptive: boolean, enable_resize: boolean, resize_width: number | undefined, resize_height: number | undefined, resize_algorithm: number, maintain_aspect_ratio: boolean);
 /**
 */
   adaptive: boolean;
@@ -59,6 +60,9 @@ export class ConversionOptions {
 /**
 */
   keep_transparency: boolean;
+/**
+*/
+  lossless: boolean;
 /**
 */
   maintain_aspect_ratio: boolean;

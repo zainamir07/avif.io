@@ -21,6 +21,7 @@ export interface ConversionOptions extends ConversionMessageCallbacks {
   quality: number;
   useYuv444: boolean;
   keep_transparency: boolean;
+  lossless: boolean;
   auto_download: boolean;
   adaptive: boolean;
   enable_resize: boolean;
@@ -71,7 +72,6 @@ export default class Converter {
       options,
       id: conversionId,
     });
-    console.log(options);
     await this.tryConvertingFiles();
     return conversionId;
   }
