@@ -10,6 +10,8 @@ export interface Settings {
   useYuv444: boolean;
   keep_transparency: boolean;
   lossless: boolean;
+  enable_palette_reduction: boolean;
+  palette_size: number;
   adaptive: boolean;
   auto_download: boolean;
   enable_resize: boolean;
@@ -30,6 +32,8 @@ const initialState: Settings = {
   useYuv444: true,
   keep_transparency: true,
   lossless: false,
+  enable_palette_reduction: false,
+  palette_size: 256,
   adaptive: true,
   auto_download: false,
   enable_resize: false,
@@ -104,15 +108,39 @@ const SettingsBox: React.FC<SettingsBoxProps> = ({
       </div>
       <div>
         <SettingCheckbox
+          label="Smart Conversion"
+          settingKey="adaptive"
+          tooltip="Auto-adjust Quality and Effort for optimal results."
+        />
+        <SettingCheckbox
           label="Lossless"
           settingKey="lossless"
           tooltip="Retain input image's quality completely."
         />
         <SettingCheckbox
-          label="Smart Conversion"
-          settingKey="adaptive"
-          tooltip="Auto-adjust Quality and Effort for optimal results."
+          label="Palette Reduction"
+          settingKey="enable_palette_reduction"
+          tooltip="Reduce the number of colors in the image."
         />
+
+        <div
+          className={`${settings.enable_palette_reduction ? "" : " hidden"}`}
+        >
+          <label className="flex justify-between gap-1">
+            Palette Size:
+            <input
+              className="block relative py-1 px-2 mb-1 w-[80px] text-white rounded-md border-2 outline-none focus:border-pink-700 bg-white/10 border-white/10"
+              type="number"
+              value={settings.palette_size}
+              onChange={(e) =>
+                updateSettings("palette_size", parseInt(e.target.value))
+              }
+              min="1"
+              max="256"
+            />
+          </label>
+        </div>
+
         <SettingCheckbox
           label="Keep Transparency"
           settingKey="keep_transparency"

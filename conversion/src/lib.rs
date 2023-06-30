@@ -18,6 +18,7 @@ mod options;
 mod option_resize;
 mod option_alpha;
 mod option_adapt;
+mod option_palette_reduction;
 mod analyze_image;
 
 

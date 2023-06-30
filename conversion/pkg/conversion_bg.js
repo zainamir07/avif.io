@@ -24,19 +24,6 @@ function getStringFromWasm0(ptr, len) {
     return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
 
-let cachedInt32Memory0 = null;
-
-function getInt32Memory0() {
-    if (cachedInt32Memory0 === null || cachedInt32Memory0.byteLength === 0) {
-        cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
-    }
-    return cachedInt32Memory0;
-}
-
-function isLikeNone(x) {
-    return x === undefined || x === null;
-}
-
 let WASM_VECTOR_LEN = 0;
 
 function passArray8ToWasm0(arg, malloc) {
@@ -80,6 +67,18 @@ export function rgba_to_avif(input_data, options, width, height) {
     return ConversionResult.__wrap(ret);
 }
 
+let cachedInt32Memory0 = null;
+
+function getInt32Memory0() {
+    if (cachedInt32Memory0 === null || cachedInt32Memory0.byteLength === 0) {
+        cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
+    }
+    return cachedInt32Memory0;
+}
+
+function isLikeNone(x) {
+    return x === undefined || x === null;
+}
 /**
 */
 export const Subsampling = Object.freeze({ YUV420:0,"0":"YUV420",YUV444:1,"1":"YUV444",YUV400:2,"2":"YUV400", });
@@ -190,6 +189,39 @@ export class ConversionOptions {
     /**
     * @returns {boolean}
     */
+    get enable_palette_reduction() {
+        const ret = wasm.__wbg_get_conversionoptions_enable_palette_reduction(this.__wbg_ptr);
+        return ret !== 0;
+    }
+    /**
+    * @param {boolean} arg0
+    */
+    set enable_palette_reduction(arg0) {
+        wasm.__wbg_set_conversionoptions_enable_palette_reduction(this.__wbg_ptr, arg0);
+    }
+    /**
+    * @returns {number | undefined}
+    */
+    get palette_size() {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.__wbg_get_conversionoptions_palette_size(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            return r0 === 0 ? undefined : r1 >>> 0;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * @param {number | undefined} arg0
+    */
+    set palette_size(arg0) {
+        wasm.__wbg_set_conversionoptions_palette_size(this.__wbg_ptr, !isLikeNone(arg0), isLikeNone(arg0) ? 0 : arg0);
+    }
+    /**
+    * @returns {boolean}
+    */
     get enable_resize() {
         const ret = wasm.__wbg_get_conversionoptions_enable_resize(this.__wbg_ptr);
         return ret !== 0;
@@ -273,14 +305,16 @@ export class ConversionOptions {
     * @param {boolean} keep_transparency
     * @param {boolean} lossless
     * @param {boolean} adaptive
+    * @param {boolean} enable_palette_reduction
+    * @param {number | undefined} palette_size
     * @param {boolean} enable_resize
     * @param {number | undefined} resize_width
     * @param {number | undefined} resize_height
     * @param {number} resize_algorithm
     * @param {boolean} maintain_aspect_ratio
     */
-    constructor(effort, quality, subsampling, keep_transparency, lossless, adaptive, enable_resize, resize_width, resize_height, resize_algorithm, maintain_aspect_ratio) {
-        const ret = wasm.conversionoptions_new(effort, quality, subsampling, keep_transparency, lossless, adaptive, enable_resize, !isLikeNone(resize_width), isLikeNone(resize_width) ? 0 : resize_width, !isLikeNone(resize_height), isLikeNone(resize_height) ? 0 : resize_height, resize_algorithm, maintain_aspect_ratio);
+    constructor(effort, quality, subsampling, keep_transparency, lossless, adaptive, enable_palette_reduction, palette_size, enable_resize, resize_width, resize_height, resize_algorithm, maintain_aspect_ratio) {
+        const ret = wasm.conversionoptions_new(effort, quality, subsampling, keep_transparency, lossless, adaptive, enable_palette_reduction, !isLikeNone(palette_size), isLikeNone(palette_size) ? 0 : palette_size, enable_resize, !isLikeNone(resize_width), isLikeNone(resize_width) ? 0 : resize_width, !isLikeNone(resize_height), isLikeNone(resize_height) ? 0 : resize_height, resize_algorithm, maintain_aspect_ratio);
         return ConversionOptions.__wrap(ret);
     }
 }

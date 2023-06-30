@@ -1,3 +1,14 @@
+// AVIF File Converter
+// In-browser AVIF File Converter
+// Built using Rust with WebAssembly (WASM) for a powerful, efficient conversion library
+// No server communication required, enabling a streamlined user experience
+// Utilizes web workers to run Rust code efficiently and responsively
+// Leverages Rust's image library and a WebP library for decoding, and the rav1e encoder for high-quality conversions
+// User-friendly interface for seamless navigation and use
+// Supports unlimited bulk conversions, making large projects a breeze
+// Offers a range of AVIF output options, including effort, quality, lossless conversion, and automatic intelligent settings based on input image
+// Provides versatile image manipulation options, such as resizing and alpha channel retention
+
 //avif.rs
 
 use std::io::Cursor;
@@ -15,6 +26,7 @@ pub use crate::options::ConversionOptions; // Import ConversionOptions from opti
 pub use crate::option_resize::resize_image; // Resize Image Functionality
 pub use crate::option_alpha::alpha_channel; // Keep Alpha Channel Functionality
 pub use crate::option_adapt::adapt_options; // Adapt Options based on Image
+pub use crate::option_palette_reduction::reduce_palette; // Reduce Color Palette
 
 // Convert the provided image data to AVIF format using the specified options.
 pub fn convert_to_avif(data: &[u8], options: &ConversionOptions) -> ImageResult<Vec<u8>> {
@@ -27,6 +39,8 @@ pub fn convert_to_avif(data: &[u8], options: &ConversionOptions) -> ImageResult<
     if options.enable_resize {
         image = resize_image(&image, options);
     }
+
+    image = reduce_palette(&image, options);
 
     let mut options = options.clone();
     if options.adaptive {

@@ -20,9 +20,7 @@ We use [Rust](https://rust-lang.org/) with [wasm-pack](https://github.com/rustwa
 to compile a converter library into WASM and call the Rust code
 in the browser, from a WebWorker. The program uses Rust's
 [image library](https://crates.io/crates/image) to decode files,
-and for encoding to AVIF we use a fork of [rav1e](https://github.com/ennmichael/rav1e)
-modified to allow for proper progress updates.
-The Rust code is in `conversion/`.
+and for encoding to AVIF we use rav1e. The Rust code is in `conversion/`.
 
 <br/>
 <br/>

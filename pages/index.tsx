@@ -91,6 +91,8 @@ const Index: NextPage<PostsPageProps> = ({
     useYuv444: false,
     keep_transparency: true,
     lossless: false,
+    enable_palette_reduction: false,
+    palette_size: 256,
     adaptive: true,
     auto_download: false,
     enable_resize: false,

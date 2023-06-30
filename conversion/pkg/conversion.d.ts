@@ -41,19 +41,24 @@ export class ConversionOptions {
 * @param {boolean} keep_transparency
 * @param {boolean} lossless
 * @param {boolean} adaptive
+* @param {boolean} enable_palette_reduction
+* @param {number | undefined} palette_size
 * @param {boolean} enable_resize
 * @param {number | undefined} resize_width
 * @param {number | undefined} resize_height
 * @param {number} resize_algorithm
 * @param {boolean} maintain_aspect_ratio
 */
-  constructor(effort: number, quality: number, subsampling: number, keep_transparency: boolean, lossless: boolean, adaptive: boolean, enable_resize: boolean, resize_width: number | undefined, resize_height: number | undefined, resize_algorithm: number, maintain_aspect_ratio: boolean);
+  constructor(effort: number, quality: number, subsampling: number, keep_transparency: boolean, lossless: boolean, adaptive: boolean, enable_palette_reduction: boolean, palette_size: number | undefined, enable_resize: boolean, resize_width: number | undefined, resize_height: number | undefined, resize_algorithm: number, maintain_aspect_ratio: boolean);
 /**
 */
   adaptive: boolean;
 /**
 */
   effort: number;
+/**
+*/
+  enable_palette_reduction: boolean;
 /**
 */
   enable_resize: boolean;
@@ -66,6 +71,9 @@ export class ConversionOptions {
 /**
 */
   maintain_aspect_ratio: boolean;
+/**
+*/
+  palette_size?: number;
 /**
 */
   quality: number;

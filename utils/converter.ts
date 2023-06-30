@@ -22,6 +22,8 @@ export interface ConversionOptions extends ConversionMessageCallbacks {
   useYuv444: boolean;
   keep_transparency: boolean;
   lossless: boolean;
+  enable_palette_reduction: boolean;
+  palette_size: number;
   auto_download: boolean;
   adaptive: boolean;
   enable_resize: boolean;

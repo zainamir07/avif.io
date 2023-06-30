@@ -23,6 +23,8 @@ onmessage = async function (msg) {
       msg.data.options.keep_transparency,
       msg.data.options.adaptive,
       msg.data.options.lossless,
+      msg.data.options.enable_palette_reduction,
+      msg.data.options.palette_size,
       msg.data.options.enable_resize,
       msg.data.options.resize_width,
       msg.data.options.resize_height,
